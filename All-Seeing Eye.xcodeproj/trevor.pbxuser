@@ -1,0 +1,187 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* All_Seeing_EyeAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {903, 341}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 346}";
+		};
+	};
+	1D3623250D0F684500981E51 /* All_Seeing_EyeAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1965, 884}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{1262, 475}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* All-Seeing Eye */ = {
+		activeExec = 0;
+		executables = (
+			695A90DE136276EB00DB0A80 /* All-Seeing Eye */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 695A90DE136276EB00DB0A80 /* All-Seeing Eye */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* All-Seeing Eye */;
+		codeSenseManager = 695A90EE136276F000DB0A80 /* Code sense */;
+		executables = (
+			695A90DE136276EB00DB0A80 /* All-Seeing Eye */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					725,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 325224874;
+			PBXWorkspaceStateSaveDate = 325224874;
+		};
+		perUserProjectItems = {
+			695A90F213627D3B00DB0A80 /* PlistBookmark */ = 695A90F213627D3B00DB0A80 /* PlistBookmark */;
+			695A90F313627D3B00DB0A80 /* PBXTextBookmark */ = 695A90F313627D3B00DB0A80 /* PBXTextBookmark */;
+			695A90F413627D3B00DB0A80 /* PBXTextBookmark */ = 695A90F413627D3B00DB0A80 /* PBXTextBookmark */;
+			695A90F513627D3B00DB0A80 /* PBXTextBookmark */ = 695A90F513627D3B00DB0A80 /* PBXTextBookmark */;
+			695A90F713627D3B00DB0A80 /* PBXTextBookmark */ = 695A90F713627D3B00DB0A80 /* PBXTextBookmark */;
+			698E438E136289B9009E7066 /* PBXTextBookmark */ = 698E438E136289B9009E7066 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 695A90ED136276F000DB0A80 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {903, 334}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 366}";
+		};
+	};
+	32CA4F630368D1EE00C91783 /* All_Seeing_Eye_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {903, 341}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 197}";
+		};
+	};
+	695A90DE136276EB00DB0A80 /* All-Seeing Eye */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "All-Seeing Eye";
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	695A90ED136276F000DB0A80 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	695A90EE136276F000DB0A80 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	695A90F213627D3B00DB0A80 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* All_Seeing_Eye-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleInfoDictionaryVersion,
+		);
+		name = "/Users/trevor/Documents/Cocoa Projects/All-Seeing Eye/All_Seeing_Eye-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775808;
+	};
+	695A90F313627D3B00DB0A80 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 32CA4F630368D1EE00C91783 /* All_Seeing_Eye_Prefix.pch */;
+		name = "All_Seeing_Eye_Prefix.pch: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 197;
+		vrLoc = 0;
+	};
+	695A90F413627D3B00DB0A80 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* All_Seeing_EyeAppDelegate.h */;
+		name = "All_Seeing_EyeAppDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 346;
+		vrLoc = 0;
+	};
+	695A90F513627D3B00DB0A80 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* All_Seeing_EyeAppDelegate.m */;
+		name = "All_Seeing_EyeAppDelegate.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 475;
+		vrLoc = 1262;
+	};
+	695A90F713627D3B00DB0A80 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 366;
+		vrLoc = 0;
+	};
+	698E438E136289B9009E7066 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 366;
+		vrLoc = 0;
+	};
+}
