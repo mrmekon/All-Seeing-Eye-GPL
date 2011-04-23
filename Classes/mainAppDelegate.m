@@ -6,11 +6,12 @@
 //  Copyright 2011 trevorbentley. All rights reserved.
 //
 
-#import "All_Seeing_EyeAppDelegate.h"
+#import "mainAppDelegate.h"
 
-@implementation All_Seeing_EyeAppDelegate
+@implementation mainAppDelegate
 
 @synthesize window;
+@synthesize viewController;
 
 
 #pragma mark -
@@ -18,8 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
-    // Override point for customization after application launch.
-    
+    self.viewController = [[mainViewController alloc] init];
+    window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]; 
+        
+    [self.window addSubview:viewController.view];
     [self.window makeKeyAndVisible];
     
     return YES;

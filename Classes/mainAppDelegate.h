@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "mainViewController.h"
 
-@interface All_Seeing_EyeAppDelegate : NSObject <UIApplicationDelegate> {
+@interface mainAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
+    mainViewController *viewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet mainViewController *viewController;
 
 @end
 
