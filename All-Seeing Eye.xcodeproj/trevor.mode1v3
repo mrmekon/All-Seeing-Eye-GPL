@@ -272,8 +272,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>3</integer>
-									<integer>1</integer>
+									<integer>16</integer>
+									<integer>13</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -297,7 +297,7 @@
 							<real>218</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>77 120 1205 734 0 0 1440 878 </string>
+						<string>71 127 1205 734 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -308,14 +308,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>mainAppDelegate.m</string>
+								<string>All_Seeing_Eye-Info.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,16 +321,15 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>mainAppDelegate.m</string>
+										<string>All_Seeing_Eye-Info.plist</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>69E7AB14136399560020A229</string>
+										<string>69E7AB6C1363A73B0020A229</string>
 										<key>history</key>
 										<array>
 											<string>69E7AA20136387050020A229</string>
 											<string>69E7AA85136394F80020A229</string>
-											<string>69E7AA87136394F80020A229</string>
 											<string>69E7AA9F1363958E0020A229</string>
 											<string>69E7AAC4136397140020A229</string>
 											<string>69E7AACF1363982D0020A229</string>
@@ -341,7 +338,9 @@
 											<string>69E7AAED136398E20020A229</string>
 											<string>69E7AAEE136398E20020A229</string>
 											<string>69E7AAEF136398E20020A229</string>
-											<string>69E7AAF0136398E20020A229</string>
+											<string>69E7AB671363A7350020A229</string>
+											<string>69E7AB681363A7350020A229</string>
+											<string>69E7AB691363A7350020A229</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -355,7 +354,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {965, 567}}</string>
 								<key>RubberWindowFrame</key>
-								<string>77 120 1205 734 0 0 1440 878 </string>
+								<string>71 127 1205 734 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -375,7 +374,7 @@
 								<key>Frame</key>
 								<string>{{0, 572}, {965, 121}}</string>
 								<key>RubberWindowFrame</key>
-								<string>77 120 1205 734 0 0 1440 878 </string>
+								<string>71 127 1205 734 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -539,7 +538,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>69E7AB0A1363992C0020A229</string>
+		<string>69E7AB6B1363A7350020A229</string>
 		<string>69E7AAB8136397070020A229</string>
 		<string>69E7AA431363876E0020A229</string>
 		<string>69E7AA29136387470020A229</string>
@@ -547,9 +546,10 @@
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>69E7A9C5136382C10020A229</string>
 		<string>695A90EB136276F000DB0A80</string>
+		<string>/Users/trevor/Documents/Cocoa Projects/All-Seeing Eye/All-Seeing Eye.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>77 120 1205 734 0 0 1440 878 </string>
+	<string>71 127 1205 734 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
