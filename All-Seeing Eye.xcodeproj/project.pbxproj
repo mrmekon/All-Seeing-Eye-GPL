@@ -17,6 +17,10 @@
 		69E7A9B913635F740020A229 /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E7A9B813635F740020A229 /* mainViewController.m */; };
 		69E7A9FF136384DE0020A229 /* wheel-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E7A9FE136384DE0020A229 /* wheel-small.png */; };
 		69E7AB561363A65D0020A229 /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E7AB551363A65D0020A229 /* Default-Portrait.png */; };
+		69E7ABB81365C24E0020A229 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E7ABB71365C24E0020A229 /* AVFoundation.framework */; };
+		69E7AC091365C5750020A229 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E7AC081365C5750020A229 /* CoreVideo.framework */; };
+		69E7AC0D1365C5860020A229 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E7AC0C1365C5860020A229 /* CoreMedia.framework */; };
+		69E7AC111365C59D0020A229 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E7AC101365C59D0020A229 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		69E7A9B813635F740020A229 /* mainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainViewController.m; sourceTree = "<group>"; };
 		69E7A9FE136384DE0020A229 /* wheel-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel-small.png"; sourceTree = "<group>"; };
 		69E7AB551363A65D0020A229 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
+		69E7ABB71365C24E0020A229 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		69E7AC081365C5750020A229 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		69E7AC0C1365C5860020A229 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		69E7AC101365C59D0020A229 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* All_Seeing_Eye-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "All_Seeing_Eye-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +55,10 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				69E7ABB81365C24E0020A229 /* AVFoundation.framework in Frameworks */,
+				69E7AC091365C5750020A229 /* CoreVideo.framework in Frameworks */,
+				69E7AC0D1365C5860020A229 /* CoreMedia.framework in Frameworks */,
+				69E7AC111365C59D0020A229 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +125,10 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
+				69E7ABB71365C24E0020A229 /* AVFoundation.framework */,
+				69E7AC081365C5750020A229 /* CoreVideo.framework */,
+				69E7AC0C1365C5860020A229 /* CoreMedia.framework */,
+				69E7AC101365C59D0020A229 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

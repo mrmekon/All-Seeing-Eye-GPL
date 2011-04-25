@@ -27,7 +27,8 @@
 -(id) init {
 	if (self = [super init]) {
  		CGRect screenBounds = [[UIScreen mainScreen] bounds];
-  	UIView *subview = [[[cameraView alloc] initWithFrame: screenBounds] autorelease];
+  	cameraView *subview = [[[cameraView alloc] initWithFrame: screenBounds] autorelease];
+    [subview initCapture];
   	[self setView: subview];
   }
   return self;
