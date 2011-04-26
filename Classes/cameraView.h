@@ -15,13 +15,9 @@
 @interface cameraView : UIView <AVCaptureVideoDataOutputSampleBufferDelegate> {
 	UIImageView *imageView;
 	AVCaptureSession *captureSession;
-	CALayer *cameraLayer;
-
 }
 @property (nonatomic, retain) UIImageView *imageView;
 @property (nonatomic, retain) AVCaptureSession *captureSession;
-@property (nonatomic, retain) CALayer *cameraLayer;
-
 
 -(id)initWithFrame:(CGRect)aRect;
 - (void)initCapture;

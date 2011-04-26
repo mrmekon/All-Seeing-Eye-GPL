@@ -15,7 +15,6 @@
 		69E7A9B313635F480020A229 /* cameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E7A9B213635F480020A229 /* cameraView.m */; };
 		69E7A9B613635F610020A229 /* customerInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E7A9B513635F610020A229 /* customerInfoView.m */; };
 		69E7A9B913635F740020A229 /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E7A9B813635F740020A229 /* mainViewController.m */; };
-		69E7A9FF136384DE0020A229 /* wheel-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E7A9FE136384DE0020A229 /* wheel-small.png */; };
 		69E7AB561363A65D0020A229 /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E7AB551363A65D0020A229 /* Default-Portrait.png */; };
 		69E7ABB81365C24E0020A229 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E7ABB71365C24E0020A229 /* AVFoundation.framework */; };
 		69E7AC091365C5750020A229 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E7AC081365C5750020A229 /* CoreVideo.framework */; };
@@ -38,7 +37,6 @@
 		69E7A9B513635F610020A229 /* customerInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customerInfoView.m; sourceTree = "<group>"; };
 		69E7A9B713635F740020A229 /* mainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainViewController.h; sourceTree = "<group>"; };
 		69E7A9B813635F740020A229 /* mainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainViewController.m; sourceTree = "<group>"; };
-		69E7A9FE136384DE0020A229 /* wheel-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel-small.png"; sourceTree = "<group>"; };
 		69E7AB551363A65D0020A229 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
 		69E7ABB71365C24E0020A229 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		69E7AC081365C5750020A229 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -113,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				69E7AB551363A65D0020A229 /* Default-Portrait.png */,
-				69E7A9FE136384DE0020A229 /* wheel-small.png */,
 				8D1107310486CEB800E47090 /* All_Seeing_Eye-Info.plist */,
 			);
 			name = Resources;
@@ -182,7 +179,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69E7A9FF136384DE0020A229 /* wheel-small.png in Resources */,
 				69E7AB561363A65D0020A229 /* Default-Portrait.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,17 +41,17 @@
 			1D6058900D05DD3D006BFB54 /* All-Seeing Eye */,
 		);
 		breakpoints = (
-			69E7AA22136387440020A229 /* cameraView.m:21 */,
+			69E7AA22136387440020A229 /* cameraView.m:19 */,
 			69E7AA2A1363876D0020A229 /* mainViewController.m:22 */,
 			69E7AA4D136387F80020A229 /* mainAppDelegate.m:25 */,
 			69E7AA7F136394F50020A229 /* main.m:13 */,
 			69E7AAAB136396EC0020A229 /* mainViewController.m:33 */,
-			69E7AC211365C5CB0020A229 /* cameraView.m:92 */,
-			69E7AC2B1365C5DE0020A229 /* cameraView.m:51 */,
-			69E7AC6A1365D2B60020A229 /* cameraView.m:39 */,
-			69E7ADE2136741360020A229 /* cameraView.m:65 */,
-			69E7AE0D136742CE0020A229 /* cameraView.m:23 */,
-			69E7AE70136753F10020A229 /* cameraView.m:99 */,
+			69E7AC211365C5CB0020A229 /* cameraView.m:63 */,
+			69E7AC2B1365C5DE0020A229 /* cameraView.m:39 */,
+			69E7AC6A1365D2B60020A229 /* cameraView.m:27 */,
+			69E7ADE2136741360020A229 /* cameraView.m:47 */,
+			69E7AE0D136742CE0020A229 /* cameraView.m:19 */,
+			69E7AE70136753F10020A229 /* cameraView.m:70 */,
 		);
 		codeSenseManager = 695A90EE136276F000DB0A80 /* Code sense */;
 		executables = (
@@ -477,16 +477,15 @@
 	69E7A9B113635F480020A229 /* cameraView.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {904, 487}}";
-			sepNavSelRange = "{422, 0}";
-			sepNavVisRange = "{0, 717}";
+			sepNavSelRange = "{578, 0}";
+			sepNavVisRange = "{0, 640}";
 		};
 	};
 	69E7A9B213635F480020A229 /* cameraView.m */ = {
 		uiCtxt = {
-			sepNavFolds = "{\n    c =     (\n                {\n            l = \"Get a layer from the view in which you want to present the preview\";\n            r = \"{1193, 70}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 4799}\";\n    s = 0;\n}";
-			sepNavIntBoundsRect = "{{0, 0}, {1286, 1560}}";
-			sepNavSelRange = "{3154, 0}";
-			sepNavVisRange = "{2872, 1550}";
+			sepNavIntBoundsRect = "{{0, 0}, {1188, 1196}}";
+			sepNavSelRange = "{2175, 0}";
+			sepNavVisRange = "{1572, 1590}";
 		};
 	};
 	69E7A9B413635F610020A229 /* customerInfoView.h */ = {
@@ -513,9 +512,9 @@
 	};
 	69E7A9B813635F740020A229 /* mainViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {904, 546}}";
-			sepNavSelRange = "{831, 0}";
-			sepNavVisRange = "{50, 954}";
+			sepNavIntBoundsRect = "{{0, 0}, {822, 546}}";
+			sepNavSelRange = "{681, 0}";
+			sepNavVisRange = "{292, 706}";
 		};
 	};
 	69E7A9BA136382C10020A229 /* PBXTextBookmark */ = {
@@ -593,7 +592,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "CameraView.m: 23";
 		rLen = 0;
-		rLoc = 1320;
+		rLoc = 533;
 		rType = 0;
 		vrLen = 782;
 		vrLoc = 0;
@@ -663,7 +662,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "CameraView.m: 23";
 		rLen = 0;
-		rLoc = 1320;
+		rLoc = 533;
 		rType = 0;
 		vrLen = 782;
 		vrLoc = 0;
@@ -702,7 +701,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 15";
 		rLen = 0;
-		rLoc = 330;
+		rLoc = 305;
 		rType = 0;
 		vrLen = 782;
 		vrLoc = 0;
@@ -712,7 +711,7 @@
 		fRef = 69E7A9B113635F480020A229 /* cameraView.h */;
 		name = "cameraView.h: 17";
 		rLen = 0;
-		rLoc = 711;
+		rLoc = 634;
 		rType = 0;
 		vrLen = 300;
 		vrLoc = 0;
@@ -736,6 +735,13 @@
 		rType = 0;
 		vrLen = 529;
 		vrLoc = 0;
+	};
+	69E7A9FE136384DE0020A229 /* wheel-small.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = "wheel-small.png";
+		path = "/Users/trevor/Documents/Cocoa Projects/All-Seeing Eye/wheel-small.png";
+		sourceTree = "<absolute>";
 	};
 	69E7AA0C1363863C0020A229 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -762,7 +768,7 @@
 		fRef = 69E7A9B113635F480020A229 /* cameraView.h */;
 		name = "cameraView.h: 17";
 		rLen = 0;
-		rLoc = 711;
+		rLoc = 634;
 		rType = 0;
 		vrLen = 300;
 		vrLoc = 0;
@@ -822,7 +828,7 @@
 		fRef = 69E7A9B113635F480020A229 /* cameraView.h */;
 		name = "cameraView.h: 19";
 		rLen = 0;
-		rLoc = 711;
+		rLoc = 634;
 		rType = 0;
 		vrLen = 335;
 		vrLoc = 0;
@@ -837,7 +843,7 @@
 		vrLen = 806;
 		vrLoc = 0;
 	};
-	69E7AA22136387440020A229 /* cameraView.m:21 */ = {
+	69E7AA22136387440020A229 /* cameraView.m:19 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -849,9 +855,9 @@
 		functionName = "-initWithFrame:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 21;
+		lineNumber = 19;
 		location = "All-Seeing Eye";
-		modificationTime = 325540373.309654;
+		modificationTime = 325540669.052765;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -889,7 +895,7 @@
 		ignoreCount = 0;
 		lineNumber = 22;
 		location = "All-Seeing Eye";
-		modificationTime = 325540373.312709;
+		modificationTime = 325540669.055739;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -947,7 +953,7 @@
 		ignoreCount = 0;
 		lineNumber = 25;
 		location = "All-Seeing Eye";
-		modificationTime = 325540373.315695;
+		modificationTime = 325540669.057615;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -1074,7 +1080,7 @@
 		ignoreCount = 0;
 		lineNumber = 13;
 		location = "All-Seeing Eye";
-		modificationTime = 325540373.317569;
+		modificationTime = 325540669.059583;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -1242,7 +1248,7 @@
 		ignoreCount = 0;
 		lineNumber = 33;
 		location = "All-Seeing Eye";
-		modificationTime = 325540373.319398;
+		modificationTime = 325540669.061654;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -1407,7 +1413,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 17";
 		rLen = 0;
-		rLoc = 308;
+		rLoc = 283;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 0;
@@ -1463,8 +1469,8 @@
 		isa = PBXTextBookmark;
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 18";
-		rLen = 442;
-		rLoc = 352;
+		rLen = 114;
+		rLoc = 327;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 0;
@@ -1504,7 +1510,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 18";
 		rLen = 0;
-		rLoc = 352;
+		rLoc = 327;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 0;
@@ -1680,7 +1686,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 18";
 		rLen = 0;
-		rLoc = 352;
+		rLoc = 327;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 0;
@@ -1690,7 +1696,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 29";
 		rLen = 0;
-		rLoc = 1265;
+		rLoc = 532;
 		rType = 0;
 		vrLen = 1153;
 		vrLoc = 0;
@@ -1700,7 +1706,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 27";
 		rLen = 0;
-		rLoc = 1061;
+		rLoc = 532;
 		rType = 0;
 		vrLen = 1128;
 		vrLoc = 0;
@@ -1720,7 +1726,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 34";
 		rLen = 19;
-		rLoc = 1340;
+		rLoc = 553;
 		rType = 0;
 		vrLen = 1661;
 		vrLoc = 3;
@@ -1730,7 +1736,7 @@
 		fRef = 69E7A9B113635F480020A229 /* cameraView.h */;
 		name = "cameraView.h: 20";
 		rLen = 0;
-		rLoc = 711;
+		rLoc = 634;
 		rType = 0;
 		vrLen = 356;
 		vrLoc = 0;
@@ -1826,7 +1832,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 18";
 		rLen = 0;
-		rLoc = 272;
+		rLoc = 247;
 		rType = 0;
 		vrLen = 2011;
 		vrLoc = 3481;
@@ -1881,7 +1887,7 @@
 		vrLen = 1048;
 		vrLoc = 0;
 	};
-	69E7AC211365C5CB0020A229 /* cameraView.m:92 */ = {
+	69E7AC211365C5CB0020A229 /* cameraView.m:63 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -1893,8 +1899,8 @@
 		functionName = "-captureOutput:didOutputSampleBuffer:fromConnection:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 92;
-		modificationTime = 325540373.321513;
+		lineNumber = 63;
+		modificationTime = 325540669.063505;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -1923,7 +1929,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 102";
 		rLen = 0;
-		rLoc = 2328;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1783;
 		vrLoc = 2633;
@@ -1933,12 +1939,12 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 102";
 		rLen = 0;
-		rLoc = 2328;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1921;
 		vrLoc = 2559;
 	};
-	69E7AC2B1365C5DE0020A229 /* cameraView.m:51 */ = {
+	69E7AC2B1365C5DE0020A229 /* cameraView.m:39 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -1950,9 +1956,9 @@
 		functionName = "-initCapture";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 51;
+		lineNumber = 39;
 		location = "All-Seeing Eye";
-		modificationTime = 325540373.323244;
+		modificationTime = 325540669.065471;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -1961,7 +1967,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 102";
 		rLen = 0;
-		rLoc = 2328;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 2147;
 		vrLoc = 1160;
@@ -1971,7 +1977,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 100";
 		rLen = 0;
-		rLoc = 2328;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 2147;
 		vrLoc = 1229;
@@ -2001,7 +2007,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 56";
 		rLen = 0;
-		rLoc = 2055;
+		rLoc = 1268;
 		rType = 0;
 		vrLen = 2126;
 		vrLoc = 928;
@@ -2011,7 +2017,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 75";
 		rLen = 0;
-		rLoc = 2328;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1728;
 		vrLoc = 2622;
@@ -2031,7 +2037,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 75";
 		rLen = 0;
-		rLoc = 2328;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1949;
 		vrLoc = 3879;
@@ -2041,7 +2047,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 46";
 		rLen = 0;
-		rLoc = 2055;
+		rLoc = 1268;
 		rType = 0;
 		vrLen = 1846;
 		vrLoc = 928;
@@ -2051,7 +2057,7 @@
 		fRef = 69E7A9B113635F480020A229 /* cameraView.h */;
 		name = "cameraView.h: 25";
 		rLen = 0;
-		rLoc = 652;
+		rLoc = 578;
 		rType = 0;
 		vrLen = 721;
 		vrLoc = 0;
@@ -2060,8 +2066,8 @@
 		isa = PBXTextBookmark;
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 61";
-		rLen = 1;
-		rLoc = 2327;
+		rLen = 0;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1543;
 		vrLoc = 1109;
@@ -2071,7 +2077,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 66";
 		rLen = 0;
-		rLoc = 2991;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1523;
 		vrLoc = 1181;
@@ -2091,12 +2097,12 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 49";
 		rLen = 0;
-		rLoc = 1833;
+		rLoc = 1046;
 		rType = 0;
 		vrLen = 1523;
 		vrLoc = 1181;
 	};
-	69E7AC6A1365D2B60020A229 /* cameraView.m:39 */ = {
+	69E7AC6A1365D2B60020A229 /* cameraView.m:27 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -2108,9 +2114,9 @@
 		functionName = "-initCapture";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 39;
+		lineNumber = 27;
 		location = "All-Seeing Eye";
-		modificationTime = 325540373.330696;
+		modificationTime = 325540669.067507;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -2169,7 +2175,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 62";
 		rLen = 0;
-		rLoc = 2655;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1207;
 		vrLoc = 0;
@@ -2179,7 +2185,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 67";
 		rLen = 0;
-		rLoc = 3032;
+		rLoc = 1575;
 		rType = 0;
 		vrLen = 1706;
 		vrLoc = 1184;
@@ -2189,7 +2195,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 39";
 		rLen = 0;
-		rLoc = 1362;
+		rLoc = 575;
 		rType = 0;
 		vrLen = 1684;
 		vrLoc = 1206;
@@ -2226,7 +2232,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 57";
 		rLen = 0;
-		rLoc = 2303;
+		rLoc = 1516;
 		rType = 0;
 		vrLen = 1689;
 		vrLoc = 1684;
@@ -2286,7 +2292,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 57";
 		rLen = 0;
-		rLoc = 2303;
+		rLoc = 1516;
 		rType = 0;
 		vrLen = 1749;
 		vrLoc = 1683;
@@ -2366,7 +2372,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 45";
 		rLen = 0;
-		rLoc = 1697;
+		rLoc = 910;
 		rType = 0;
 		vrLen = 1801;
 		vrLoc = 219;
@@ -2376,7 +2382,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 67";
 		rLen = 0;
-		rLoc = 3058;
+		rLoc = 1601;
 		rType = 0;
 		vrLen = 1769;
 		vrLoc = 1184;
@@ -2386,7 +2392,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 67";
 		rLen = 0;
-		rLoc = 3058;
+		rLoc = 1601;
 		rType = 0;
 		vrLen = 1769;
 		vrLoc = 1184;
@@ -2396,7 +2402,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 62";
 		rLen = 0;
-		rLoc = 2655;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1676;
 		vrLoc = 2011;
@@ -2406,12 +2412,12 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 63";
 		rLen = 0;
-		rLoc = 2443;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1574;
 		vrLoc = 1815;
 	};
-	69E7ADE2136741360020A229 /* cameraView.m:65 */ = {
+	69E7ADE2136741360020A229 /* cameraView.m:47 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -2423,9 +2429,9 @@
 		functionName = "-initCapture";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 65;
+		lineNumber = 47;
 		location = "All-Seeing Eye";
-		modificationTime = 325540373.332513;
+		modificationTime = 325540669.069368;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -2454,7 +2460,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 61";
 		rLen = 0;
-		rLoc = 2443;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1690;
 		vrLoc = 2202;
@@ -2464,7 +2470,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 64";
 		rLen = 0;
-		rLoc = 2966;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1638;
 		vrLoc = 2256;
@@ -2484,7 +2490,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 64";
 		rLen = 0;
-		rLoc = 2966;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1691;
 		vrLoc = 2202;
@@ -2494,7 +2500,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 22";
 		rLen = 0;
-		rLoc = 418;
+		rLoc = 327;
 		rType = 0;
 		vrLen = 1384;
 		vrLoc = 139;
@@ -2504,7 +2510,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 22";
 		rLen = 0;
-		rLoc = 418;
+		rLoc = 327;
 		rType = 0;
 		vrLen = 1384;
 		vrLoc = 139;
@@ -2544,7 +2550,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 22";
 		rLen = 0;
-		rLoc = 418;
+		rLoc = 327;
 		rType = 0;
 		vrLen = 1438;
 		vrLoc = 84;
@@ -2554,12 +2560,12 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 28";
 		rLen = 0;
-		rLoc = 980;
+		rLoc = 532;
 		rType = 0;
 		vrLen = 1557;
 		vrLoc = 143;
 	};
-	69E7AE0D136742CE0020A229 /* cameraView.m:23 */ = {
+	69E7AE0D136742CE0020A229 /* cameraView.m:19 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -2571,9 +2577,9 @@
 		functionName = "-initWithFrame:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 23;
+		lineNumber = 19;
 		location = "All-Seeing Eye";
-		modificationTime = 325540373.348555;
+		modificationTime = 325540669.071112;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -2582,7 +2588,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 28";
 		rLen = 0;
-		rLoc = 980;
+		rLoc = 532;
 		rType = 0;
 		vrLen = 1488;
 		vrLoc = 143;
@@ -2592,7 +2598,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 26";
 		rLen = 0;
-		rLoc = 848;
+		rLoc = 445;
 		rType = 0;
 		vrLen = 1665;
 		vrLoc = 195;
@@ -2602,7 +2608,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 26";
 		rLen = 0;
-		rLoc = 848;
+		rLoc = 445;
 		rType = 0;
 		vrLen = 1482;
 		vrLoc = 1154;
@@ -2612,7 +2618,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 26";
 		rLen = 0;
-		rLoc = 848;
+		rLoc = 445;
 		rType = 0;
 		vrLen = 1482;
 		vrLoc = 1154;
@@ -2662,7 +2668,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 64";
 		rLen = 0;
-		rLoc = 2521;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1697;
 		vrLoc = 2059;
@@ -2672,7 +2678,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 61";
 		rLen = 0;
-		rLoc = 2414;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1653;
 		vrLoc = 2209;
@@ -2682,7 +2688,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 67";
 		rLen = 0;
-		rLoc = 2908;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1715;
 		vrLoc = 2209;
@@ -2692,7 +2698,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 67";
 		rLen = 0;
-		rLoc = 2910;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1757;
 		vrLoc = 2161;
@@ -2702,7 +2708,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 67";
 		rLen = 0;
-		rLoc = 2909;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1782;
 		vrLoc = 2161;
@@ -2712,7 +2718,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 67";
 		rLen = 0;
-		rLoc = 2909;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 1782;
 		vrLoc = 2161;
@@ -2732,7 +2738,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 37";
 		rLen = 0;
-		rLoc = 1339;
+		rLoc = 552;
 		rType = 0;
 		vrLen = 1749;
 		vrLoc = 877;
@@ -2742,7 +2748,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 89";
 		rLen = 0;
-		rLoc = 3285;
+		rLoc = 1828;
 		rType = 0;
 		vrLen = 1655;
 		vrLoc = 3105;
@@ -2752,12 +2758,12 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 88";
 		rLen = 0;
-		rLoc = 3234;
+		rLoc = 1777;
 		rType = 0;
 		vrLen = 1367;
 		vrLoc = 3105;
 	};
-	69E7AE70136753F10020A229 /* cameraView.m:99 */ = {
+	69E7AE70136753F10020A229 /* cameraView.m:70 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -2769,9 +2775,9 @@
 		functionName = "-captureOutput:didOutputSampleBuffer:fromConnection:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 99;
+		lineNumber = 70;
 		location = "All-Seeing Eye";
-		modificationTime = 325540373.350868;
+		modificationTime = 325540669.085217;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -2780,7 +2786,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 88";
 		rLen = 0;
-		rLoc = 3169;
+		rLoc = 1712;
 		rType = 0;
 		vrLen = 1370;
 		vrLoc = 3033;
@@ -2790,7 +2796,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 123";
 		rLen = 0;
-		rLoc = 4486;
+		rLoc = 2908;
 		rType = 0;
 		vrLen = 1421;
 		vrLoc = 3620;
@@ -2810,7 +2816,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 121";
 		rLen = 0;
-		rLoc = 4450;
+		rLoc = 2872;
 		rType = 0;
 		vrLen = 1449;
 		vrLoc = 3518;
@@ -2820,7 +2826,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 86";
 		rLen = 0;
-		rLoc = 3234;
+		rLoc = 1777;
 		rType = 0;
 		vrLen = 1542;
 		vrLoc = 3060;
@@ -2830,7 +2836,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 81";
 		rLen = 0;
-		rLoc = 3073;
+		rLoc = 1616;
 		rType = 0;
 		vrLen = 1599;
 		vrLoc = 3060;
@@ -2840,7 +2846,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 109";
 		rLen = 0;
-		rLoc = 4440;
+		rLoc = 2862;
 		rType = 0;
 		vrLen = 1672;
 		vrLoc = 3060;
@@ -2850,7 +2856,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 108";
 		rLen = 0;
-		rLoc = 4345;
+		rLoc = 2767;
 		rType = 0;
 		vrLen = 1682;
 		vrLoc = 3061;
@@ -2860,7 +2866,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 84";
 		rLen = 0;
-		rLoc = 3223;
+		rLoc = 1766;
 		rType = 0;
 		vrLen = 1550;
 		vrLoc = 2941;
