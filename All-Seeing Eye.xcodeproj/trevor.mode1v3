@@ -275,8 +275,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>5</integer>
-									<integer>1</integer>
+									<integer>13</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -330,7 +329,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>69E7AF7D1367878C0020A229</string>
+										<string>69E7AFD213678EF50020A229</string>
 										<key>history</key>
 										<array>
 											<string>69E7AA9F1363958E0020A229</string>
@@ -344,7 +343,7 @@
 											<string>69E7AEBE13675AEC0020A229</string>
 											<string>69E7AED313675CF00020A229</string>
 											<string>69E7AF11136777090020A229</string>
-											<string>69E7AF491367841F0020A229</string>
+											<string>69E7AFD113678EF50020A229</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -542,12 +541,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>69E7AF7E1367878C0020A229</string>
+		<string>69E7AFD313678EF50020A229</string>
 		<string>69E7AF20136777DA0020A229</string>
 		<string>69E7AF22136777DA0020A229</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>695A90EB136276F000DB0A80</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/trevor/Documents/Cocoa Projects/All-Seeing Eye/All-Seeing Eye.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -924,7 +923,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

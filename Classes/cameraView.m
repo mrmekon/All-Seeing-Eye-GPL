@@ -24,16 +24,26 @@
 }
 
 - (void)initCapture {
+	NSError *err;
+  
   NSString* key = (NSString*)kCVPixelBufferPixelFormatTypeKey; 
 	NSNumber* value = [NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA]; 
 	NSDictionary* videoSettings = [NSDictionary dictionaryWithObject:value forKey:key]; 
 	dispatch_queue_t queue;
 	queue = dispatch_queue_create("cameraQueue", NULL);
 
+	/* enable autofocus for iPhone 4 */    
+  AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+  if ([videoDevice isFocusModeSupported:AVCaptureFocusModeContinuousAutoFocus]) {
+  	[videoDevice lockForConfiguration: &err];
+  	[videoDevice setFocusMode: AVCaptureFocusModeContinuousAutoFocus];
+  	[videoDevice unlockForConfiguration];
+  }
+
 	AVCaptureDeviceInput *captureInput = [AVCaptureDeviceInput 
   	deviceInputWithDevice:[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo]
 		error:nil];
-
+  
 	AVCaptureVideoDataOutput *captureOutput = [[AVCaptureVideoDataOutput alloc] init];
 	captureOutput.alwaysDiscardsLateVideoFrames = YES; 
 	captureOutput.minFrameDuration = CMTimeMake(1, 10); // optional, sets max framerate  
