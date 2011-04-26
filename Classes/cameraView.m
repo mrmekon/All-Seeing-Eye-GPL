@@ -67,7 +67,7 @@
   UIGraphicsBeginImageContext(baseImg.size);  
   
   [baseImg drawInRect:CGRectMake(0, 0, baseImg.size.width, baseImg.size.height)];  
-  [overlayImg drawInRect:CGRectMake(0, 0, overlayImg.size.width, overlayImg.size.height)];  
+  [overlayImg drawInRect:CGRectMake(0, 0, overlayImg.size.width, overlayImg.size.height) blendMode: kCGBlendModeNormal alpha: 0.5];  
   
   UIImage *blendedImg = UIGraphicsGetImageFromCurrentImageContext();  
   
@@ -95,8 +95,8 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 	
   CGImageRef croppedImg = [self cropImage: newImage];
 	UIImage *image= [UIImage imageWithCGImage: croppedImg scale: (1/VIDEO_ENLARGEMENT_FACTOR) orientation:UIImageOrientationRight];
-  CGSize imgSize = image.size;
-  
+	image = [self addFrameOverlay: image];
+      
 	[self.imageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:YES];
 	
 	CVPixelBufferUnlockBaseAddress(imageBuffer,0);

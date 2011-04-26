@@ -349,7 +349,7 @@
 		ignoreCount = 0;
 		lineNumber = 19;
 		location = "All-Seeing Eye";
-		modificationTime = 325551964.323948;
+		modificationTime = 325552593.144396;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -367,7 +367,7 @@
 		ignoreCount = 0;
 		lineNumber = 22;
 		location = "All-Seeing Eye";
-		modificationTime = 325551964.324016;
+		modificationTime = 325552593.144486;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -385,7 +385,7 @@
 		ignoreCount = 0;
 		lineNumber = 25;
 		location = "All-Seeing Eye";
-		modificationTime = 325551964.324041;
+		modificationTime = 325552593.144506;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -403,7 +403,7 @@
 		ignoreCount = 0;
 		lineNumber = 13;
 		location = "All-Seeing Eye";
-		modificationTime = 325551964.32406;
+		modificationTime = 325552593.144528;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -431,7 +431,7 @@
 		ignoreCount = 0;
 		lineNumber = 33;
 		location = "All-Seeing Eye";
-		modificationTime = 325551964.324081;
+		modificationTime = 325552593.144552;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -475,7 +475,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 83;
-		modificationTime = 325551964.324123;
+		modificationTime = 325552593.14458;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -493,7 +493,7 @@
 		ignoreCount = 0;
 		lineNumber = 39;
 		location = "All-Seeing Eye";
-		modificationTime = 325551964.324216;
+		modificationTime = 325552593.144667;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -511,7 +511,7 @@
 		ignoreCount = 0;
 		lineNumber = 27;
 		location = "All-Seeing Eye";
-		modificationTime = 325551964.324274;
+		modificationTime = 325552593.144733;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -569,7 +569,7 @@
 		ignoreCount = 0;
 		lineNumber = 47;
 		location = "All-Seeing Eye";
-		modificationTime = 325551964.324324;
+		modificationTime = 325552593.144797;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -587,7 +587,7 @@
 		ignoreCount = 0;
 		lineNumber = 19;
 		location = "All-Seeing Eye";
-		modificationTime = 325551964.324363;
+		modificationTime = 325552593.144856;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -605,7 +605,7 @@
 		ignoreCount = 0;
 		lineNumber = 90;
 		location = "All-Seeing Eye";
-		modificationTime = 325551964.32441;
+		modificationTime = 325552593.144919;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -644,7 +644,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 66";
 		rLen = 0;
-		rLoc = 2934;
+		rLoc = 2975;
 		rType = 0;
 		vrLen = 1493;
 		vrLoc = 1725;
@@ -654,7 +654,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 62";
 		rLen = 0;
-		rLoc = 2758;
+		rLoc = 2799;
 		rType = 0;
 		vrLen = 1570;
 		vrLoc = 1648;
@@ -664,7 +664,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 62";
 		rLen = 0;
-		rLoc = 2758;
+		rLoc = 2799;
 		rType = 0;
 		vrLen = 1614;
 		vrLoc = 1604;
@@ -674,7 +674,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 68";
 		rLen = 0;
-		rLoc = 2532;
+		rLoc = 2573;
 		rType = 0;
 		vrLen = 1436;
 		vrLoc = 1485;
@@ -693,7 +693,7 @@
 		ignoreCount = 0;
 		lineNumber = 100;
 		location = "All-Seeing Eye";
-		modificationTime = 325551964.324484;
+		modificationTime = 325552593.144999;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -722,7 +722,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 94";
 		rLen = 0;
-		rLoc = 3720;
+		rLoc = 3732;
 		rType = 0;
 		vrLen = 1478;
 		vrLoc = 2253;
@@ -732,7 +732,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 94";
 		rLen = 0;
-		rLoc = 3699;
+		rLoc = 3732;
 		rType = 0;
 		vrLen = 1701;
 		vrLoc = 1831;
@@ -742,7 +742,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 81";
 		rLen = 0;
-		rLoc = 2801;
+		rLoc = 2842;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 2315;
@@ -752,7 +752,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 91";
 		rLen = 0;
-		rLoc = 3292;
+		rLoc = 3333;
 		rType = 0;
 		vrLen = 1723;
 		vrLoc = 2088;
@@ -767,11 +767,11 @@
 		delayBeforeContinue = 0;
 		fileReference = 69E7A9B213635F480020A229 /* cameraView.m */;
 		functionName = "-cropImage:";
-		hitCount = 2;
+		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 61;
 		location = "All-Seeing Eye";
-		modificationTime = 325552001.360926;
+		modificationTime = 325552593.145067;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -780,7 +780,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 91";
 		rLen = 0;
-		rLoc = 3292;
+		rLoc = 3333;
 		rType = 0;
 		vrLen = 1489;
 		vrLoc = 1574;
@@ -790,7 +790,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 91";
 		rLen = 0;
-		rLoc = 3292;
+		rLoc = 3333;
 		rType = 0;
 		vrLen = 1489;
 		vrLoc = 1574;
@@ -800,7 +800,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 92";
 		rLen = 0;
-		rLoc = 3441;
+		rLoc = 3482;
 		rType = 0;
 		vrLen = 1485;
 		vrLoc = 2425;
@@ -810,7 +810,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 71";
 		rLen = 0;
-		rLoc = 2532;
+		rLoc = 2573;
 		rType = 0;
 		vrLen = 1701;
 		vrLoc = 1967;
@@ -820,7 +820,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 93";
 		rLen = 0;
-		rLoc = 3441;
+		rLoc = 3482;
 		rType = 0;
 		vrLen = 1743;
 		vrLoc = 1968;
@@ -835,11 +835,11 @@
 		delayBeforeContinue = 0;
 		fileReference = 69E7A9B213635F480020A229 /* cameraView.m */;
 		functionName = "-captureOutput:didOutputSampleBuffer:fromConnection:";
-		hitCount = 1;
+		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 96;
 		location = "All-Seeing Eye";
-		modificationTime = 325551997.353638;
+		modificationTime = 325552593.145143;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -848,7 +848,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 98";
 		rLen = 0;
-		rLoc = 3508;
+		rLoc = 3549;
 		rType = 0;
 		vrLen = 1761;
 		vrLoc = 2085;
@@ -858,7 +858,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 97";
 		rLen = 0;
-		rLoc = 3508;
+		rLoc = 3549;
 		rType = 0;
 		vrLen = 1617;
 		vrLoc = 2425;
@@ -868,7 +868,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 92";
 		rLen = 0;
-		rLoc = 3441;
+		rLoc = 3482;
 		rType = 0;
 		vrLen = 1608;
 		vrLoc = 2389;
@@ -878,7 +878,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 94";
 		rLen = 0;
-		rLoc = 3508;
+		rLoc = 3549;
 		rType = 0;
 		vrLen = 1607;
 		vrLoc = 2389;
@@ -898,7 +898,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 93";
 		rLen = 0;
-		rLoc = 3652;
+		rLoc = 3693;
 		rType = 0;
 		vrLen = 1476;
 		vrLoc = 2308;
@@ -908,7 +908,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 97";
 		rLen = 0;
-		rLoc = 3652;
+		rLoc = 3693;
 		rType = 0;
 		vrLen = 1737;
 		vrLoc = 2281;
@@ -918,7 +918,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 73";
 		rLen = 0;
-		rLoc = 2532;
+		rLoc = 2573;
 		rType = 0;
 		vrLen = 1741;
 		vrLoc = 2281;
@@ -928,7 +928,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 73";
 		rLen = 0;
-		rLoc = 2532;
+		rLoc = 2573;
 		rType = 0;
 		vrLen = 1632;
 		vrLoc = 1574;
@@ -938,7 +938,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 73";
 		rLen = 0;
-		rLoc = 2532;
+		rLoc = 2573;
 		rType = 0;
 		vrLen = 1378;
 		vrLoc = 1380;
@@ -978,7 +978,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 97";
 		rLen = 0;
-		rLoc = 3652;
+		rLoc = 3693;
 		rType = 0;
 		vrLen = 1802;
 		vrLoc = 2109;
@@ -988,7 +988,7 @@
 		fRef = 69E7A9B213635F480020A229 /* cameraView.m */;
 		name = "cameraView.m: 97";
 		rLen = 0;
-		rLoc = 3652;
+		rLoc = 3693;
 		rType = 0;
 		vrLen = 1376;
 		vrLoc = 1380;
