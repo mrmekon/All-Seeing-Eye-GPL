@@ -49,11 +49,31 @@
  	dispatch_release(queue);
 }
 
+// Factor to scale video frame by to make it full screen, because iPad screen is 768px wide
+// and the video frame is 720px wide.  768/720 ~= 1.0666
+#define VIDEO_ENLARGEMENT_FACTOR  1.0666
+
 -(CGImageRef) cropImage: (CGImageRef) img {
-	float width = CGImageGetWidth(img);
-  float height = CGImageGetHeight(img);
-	CGRect imgRect = CGRectMake(0,0, width/3, height);
+	CGRect screenSize = [[UIScreen mainScreen] bounds];
+	float width = screenSize.size.width / (3 * VIDEO_ENLARGEMENT_FACTOR);
+  float height = screenSize.size.height;
+	CGRect imgRect = CGRectMake(0,0, width, height);
 	return CGImageCreateWithImageInRect(img, imgRect);
+}
+
+-(UIImage*) addFrameOverlay: (UIImage*) baseImg {
+  UIImage *overlayImg = [UIImage imageNamed: @"frameOverlay.png"];
+  
+  UIGraphicsBeginImageContext(baseImg.size);  
+  
+  [baseImg drawInRect:CGRectMake(0, 0, baseImg.size.width, baseImg.size.height)];  
+  [overlayImg drawInRect:CGRectMake(0, 0, overlayImg.size.width, overlayImg.size.height)];  
+  
+  UIImage *blendedImg = UIGraphicsGetImageFromCurrentImageContext();  
+  
+  UIGraphicsEndImageContext();  
+
+  return blendedImg;
 }
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput 
@@ -73,10 +93,10 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
   CGContextRef newContext = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
   CGImageRef newImage = CGBitmapContextCreateImage(newContext); 
 	
-    
   CGImageRef croppedImg = [self cropImage: newImage];
-	UIImage *image= [UIImage imageWithCGImage: croppedImg scale:1.0 orientation:UIImageOrientationRight];
-		
+	UIImage *image= [UIImage imageWithCGImage: croppedImg scale: (1/VIDEO_ENLARGEMENT_FACTOR) orientation:UIImageOrientationRight];
+  CGSize imgSize = image.size;
+  
 	[self.imageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:YES];
 	
 	CVPixelBufferUnlockBaseAddress(imageBuffer,0);
