@@ -22,6 +22,5 @@
 @property (nonatomic, retain) NSString *lastCode;
 
 - (BOOL) scanImage: (CGImageRef) img;
--(void) logSomething;
 
 @end
