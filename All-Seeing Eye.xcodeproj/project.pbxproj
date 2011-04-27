@@ -21,6 +21,7 @@
 		69E7AC0D1365C5860020A229 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E7AC0C1365C5860020A229 /* CoreMedia.framework */; };
 		69E7AC111365C59D0020A229 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E7AC101365C59D0020A229 /* QuartzCore.framework */; };
 		69E7AF81136789120020A229 /* frameOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E7AF80136789120020A229 /* frameOverlay.png */; };
+		69E7B000136793D50020A229 /* rootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E7AFFF136793D50020A229 /* rootView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		69E7AC0C1365C5860020A229 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		69E7AC101365C59D0020A229 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		69E7AF80136789120020A229 /* frameOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frameOverlay.png; sourceTree = "<group>"; };
+		69E7AFFE136793D50020A229 /* rootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rootView.h; sourceTree = "<group>"; };
+		69E7AFFF136793D50020A229 /* rootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rootView.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* All_Seeing_Eye-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "All_Seeing_Eye-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +79,8 @@
 				69E7A9B513635F610020A229 /* customerInfoView.m */,
 				69E7A9B713635F740020A229 /* mainViewController.h */,
 				69E7A9B813635F740020A229 /* mainViewController.m */,
+				69E7AFFE136793D50020A229 /* rootView.h */,
+				69E7AFFF136793D50020A229 /* rootView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				69E7A9B313635F480020A229 /* cameraView.m in Sources */,
 				69E7A9B613635F610020A229 /* customerInfoView.m in Sources */,
 				69E7A9B913635F740020A229 /* mainViewController.m in Sources */,
+				69E7B000136793D50020A229 /* rootView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
