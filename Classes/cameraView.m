@@ -7,6 +7,7 @@
 //
 
 #import "cameraView.h"
+#import "ZBarSDK.h"
 
 @implementation cameraView
 
@@ -102,8 +103,20 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
   CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB(); 
   CGContextRef newContext = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
   CGImageRef newImage = CGBitmapContextCreateImage(newContext); 
-	
+	  
   CGImageRef croppedImg = [self cropImage: newImage];
+  ZBarImage *zimg = [[ZBarImage  alloc] initWithCGImage: croppedImg];
+  ZBarImageScanner *scanner = [[ZBarImageScanner alloc] init];
+  NSInteger result = [scanner scanImage: zimg];
+  if (result != 0) {
+  	NSLog(@"SCANNED A FUCKING BARCODE!");
+    ZBarSymbolSet *symbols = zimg.symbols;
+    for(ZBarSymbol *symbol in symbols) {
+    	NSLog(@"Symbol type: %@", symbol.typeName);
+      NSLog(@"Symbol data: %@", symbol.data);
+    	// process result
+		}
+  }
 	UIImage *image= [UIImage imageWithCGImage: croppedImg scale: (1/VIDEO_ENLARGEMENT_FACTOR) orientation:UIImageOrientationRight];
 	image = [self addFrameOverlay: image];
       
