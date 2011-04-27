@@ -1,0 +1,11 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir=LR;
+  Node1 [label="zbar_window_attach",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="zbar::Window::attach",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_window.html#a31dd5426acd78970047d04df4aa35e51"];
+  Node2 -> Node3 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="zbar::Window::Window",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_window.html#a4d8fbb875d19ecd95f8468d0c5afea59",tooltip="constructor."];
+}

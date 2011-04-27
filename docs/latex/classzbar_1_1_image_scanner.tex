@@ -1,0 +1,207 @@
+\hypertarget{classzbar_1_1_image_scanner}{
+\section{zbar::ImageScanner Class Reference}
+\label{classzbar_1_1_image_scanner}\index{zbar::ImageScanner@{zbar::ImageScanner}}
+}
+
+
+{\ttfamily \#include $<$ImageScanner.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classzbar_1_1_image_scanner_a7f682e2ac7fedad5bd898cb9282cb00d}{
+\hyperlink{classzbar_1_1_image_scanner_a7f682e2ac7fedad5bd898cb9282cb00d}{ImageScanner} (\hyperlink{zbar_8h_afe85585d1f7e90b1092b0d8420b8f577}{zbar\_\-image\_\-scanner\_\-t} $\ast$scanner=NULL)}
+\label{classzbar_1_1_image_scanner_a7f682e2ac7fedad5bd898cb9282cb00d}
+
+\begin{DoxyCompactList}\small\item\em constructor. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_image_scanner_a597bb264b220f5185095be78376d2077}{
+\hyperlink{classzbar_1_1_image_scanner_a597bb264b220f5185095be78376d2077}{operator zbar\_\-image\_\-scanner\_\-t $\ast$} () const }
+\label{classzbar_1_1_image_scanner_a597bb264b220f5185095be78376d2077}
+
+\begin{DoxyCompactList}\small\item\em cast to C image\_\-scanner object \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_image_scanner_a71c9944f89df97c81eae00d0ada446f5}{
+void \hyperlink{classzbar_1_1_image_scanner_a71c9944f89df97c81eae00d0ada446f5}{set\_\-handler} (\hyperlink{classzbar_1_1_image_1_1_handler}{Image::Handler} \&handler)}
+\label{classzbar_1_1_image_scanner_a71c9944f89df97c81eae00d0ada446f5}
+
+\begin{DoxyCompactList}\small\item\em setup result handler callback. \end{DoxyCompactList}\item 
+int \hyperlink{classzbar_1_1_image_scanner_abd75786c6fdcfd91fe46957ff6ee1ac3}{set\_\-config} (\hyperlink{zbar_8h_a74c1318b082084bdeaa7333b355f3e64}{zbar\_\-symbol\_\-type\_\-t} symbology, \hyperlink{zbar_8h_ae5ca63a2fe9ff3b63fc0d85995935a1d}{zbar\_\-config\_\-t} config, int value)
+\item 
+int \hyperlink{classzbar_1_1_image_scanner_afb7b0940d7887e9b4d5751f1e216aeb5}{set\_\-config} (std::string cfgstr)
+\item 
+void \hyperlink{classzbar_1_1_image_scanner_a003205308b9f405c1719a03da8cd857b}{enable\_\-cache} (bool enable=true)
+\item 
+void \hyperlink{classzbar_1_1_image_scanner_a5594742ec58d25713b258b003fe559a4}{recycle\_\-image} (\hyperlink{classzbar_1_1_image}{Image} \&image)
+\item 
+const \hyperlink{classzbar_1_1_symbol_set}{SymbolSet} \hyperlink{classzbar_1_1_image_scanner_a50ca440f2ff08a186cf0f4579268195b}{get\_\-results} () const 
+\item 
+int \hyperlink{classzbar_1_1_image_scanner_a707357b2df950f5101d7a3246701b205}{scan} (\hyperlink{classzbar_1_1_image}{Image} \&image)
+\item 
+\hyperlink{classzbar_1_1_image_scanner}{ImageScanner} \& \hyperlink{classzbar_1_1_image_scanner_aa06e5c7bbc25abf0ef5060836ed7b9a0}{operator$<$$<$} (\hyperlink{classzbar_1_1_image}{Image} \&image)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+mid-\/level image scanner interface. reads barcodes from a 2-\/D \hyperlink{classzbar_1_1_image}{Image} 
+
+Definition at line 40 of file ImageScanner.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classzbar_1_1_image_scanner_a003205308b9f405c1719a03da8cd857b}{
+\index{zbar::ImageScanner@{zbar::ImageScanner}!enable\_\-cache@{enable\_\-cache}}
+\index{enable\_\-cache@{enable\_\-cache}!zbar::ImageScanner@{zbar::ImageScanner}}
+\subsubsection[{enable\_\-cache}]{\setlength{\rightskip}{0pt plus 5cm}void zbar::ImageScanner::enable\_\-cache (
+\begin{DoxyParamCaption}
+\item[{bool}]{enable = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classzbar_1_1_image_scanner_a003205308b9f405c1719a03da8cd857b}
+enable or disable the inter-\/image result cache. see \hyperlink{zbar_8h_a883219fe0b8028d216c95d2bb4cf0634}{zbar\_\-image\_\-scanner\_\-enable\_\-cache()} 
+
+Definition at line 89 of file ImageScanner.h.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{classzbar_1_1_image_scanner_a50ca440f2ff08a186cf0f4579268195b}{
+\index{zbar::ImageScanner@{zbar::ImageScanner}!get\_\-results@{get\_\-results}}
+\index{get\_\-results@{get\_\-results}!zbar::ImageScanner@{zbar::ImageScanner}}
+\subsubsection[{get\_\-results}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf SymbolSet} zbar::ImageScanner::get\_\-results (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classzbar_1_1_image_scanner_a50ca440f2ff08a186cf0f4579268195b}
+retrieve decode results for last scanned image. \begin{DoxySeeAlso}{See also}
+\hyperlink{zbar_8h_a59a9aa539b2322e5d9f37ce9616ef3ee}{zbar\_\-image\_\-scanner\_\-get\_\-results()} 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+0.10 
+\end{DoxySince}
+
+
+Definition at line 105 of file ImageScanner.h.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{classzbar_1_1_image_scanner_aa06e5c7bbc25abf0ef5060836ed7b9a0}{
+\index{zbar::ImageScanner@{zbar::ImageScanner}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!zbar::ImageScanner@{zbar::ImageScanner}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ImageScanner}\& zbar::ImageScanner::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Image} \&}]{image}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classzbar_1_1_image_scanner_aa06e5c7bbc25abf0ef5060836ed7b9a0}
+scan for symbols in provided image. see \hyperlink{zbar_8h_a018800e5739b5de9e241e26cfc85fdeb}{zbar\_\-scan\_\-image()} 
+
+Definition at line 118 of file ImageScanner.h.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{classzbar_1_1_image_scanner_a5594742ec58d25713b258b003fe559a4}{
+\index{zbar::ImageScanner@{zbar::ImageScanner}!recycle\_\-image@{recycle\_\-image}}
+\index{recycle\_\-image@{recycle\_\-image}!zbar::ImageScanner@{zbar::ImageScanner}}
+\subsubsection[{recycle\_\-image}]{\setlength{\rightskip}{0pt plus 5cm}void zbar::ImageScanner::recycle\_\-image (
+\begin{DoxyParamCaption}
+\item[{{\bf Image} \&}]{image}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classzbar_1_1_image_scanner_a5594742ec58d25713b258b003fe559a4}
+remove previous results from scanner and image. \begin{DoxySeeAlso}{See also}
+\hyperlink{zbar_8h_a4a438426f3602b9983c57424a1e8b014}{zbar\_\-image\_\-scanner\_\-recycle\_\-image()} 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+0.10 
+\end{DoxySince}
+
+
+Definition at line 97 of file ImageScanner.h.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{classzbar_1_1_image_scanner_a707357b2df950f5101d7a3246701b205}{
+\index{zbar::ImageScanner@{zbar::ImageScanner}!scan@{scan}}
+\index{scan@{scan}!zbar::ImageScanner@{zbar::ImageScanner}}
+\subsubsection[{scan}]{\setlength{\rightskip}{0pt plus 5cm}int zbar::ImageScanner::scan (
+\begin{DoxyParamCaption}
+\item[{{\bf Image} \&}]{image}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classzbar_1_1_image_scanner_a707357b2df950f5101d7a3246701b205}
+scan for symbols in provided image. see \hyperlink{zbar_8h_a018800e5739b5de9e241e26cfc85fdeb}{zbar\_\-scan\_\-image()} 
+
+Definition at line 111 of file ImageScanner.h.
+
+
+
+Here is the call graph for this function:
+
+
+
+
+Here is the caller graph for this function:
+
+
+\hypertarget{classzbar_1_1_image_scanner_afb7b0940d7887e9b4d5751f1e216aeb5}{
+\index{zbar::ImageScanner@{zbar::ImageScanner}!set\_\-config@{set\_\-config}}
+\index{set\_\-config@{set\_\-config}!zbar::ImageScanner@{zbar::ImageScanner}}
+\subsubsection[{set\_\-config}]{\setlength{\rightskip}{0pt plus 5cm}int zbar::ImageScanner::set\_\-config (
+\begin{DoxyParamCaption}
+\item[{std::string}]{cfgstr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classzbar_1_1_image_scanner_afb7b0940d7887e9b4d5751f1e216aeb5}
+set config parsed from configuration string. \begin{DoxySeeAlso}{See also}
+zbar\_\-image\_\-scanner\_\-parse\_\-config() 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+0.4 
+\end{DoxySince}
+
+
+Definition at line 82 of file ImageScanner.h.
+
+\hypertarget{classzbar_1_1_image_scanner_abd75786c6fdcfd91fe46957ff6ee1ac3}{
+\index{zbar::ImageScanner@{zbar::ImageScanner}!set\_\-config@{set\_\-config}}
+\index{set\_\-config@{set\_\-config}!zbar::ImageScanner@{zbar::ImageScanner}}
+\subsubsection[{set\_\-config}]{\setlength{\rightskip}{0pt plus 5cm}int zbar::ImageScanner::set\_\-config (
+\begin{DoxyParamCaption}
+\item[{{\bf zbar\_\-symbol\_\-type\_\-t}}]{symbology, }
+\item[{{\bf zbar\_\-config\_\-t}}]{config, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classzbar_1_1_image_scanner_abd75786c6fdcfd91fe46957ff6ee1ac3}
+set config for indicated symbology (0 for all) to specified value. \begin{DoxySeeAlso}{See also}
+\hyperlink{zbar_8h_a852cc868137d668e17ccfbf201b5a9ed}{zbar\_\-image\_\-scanner\_\-set\_\-config()} 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+0.4 
+\end{DoxySince}
+
+
+Definition at line 71 of file ImageScanner.h.
+
+
+
+Here is the call graph for this function:
+
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+/Users/trevor/Documents/Cocoa Projects/All-\/Seeing Eye/ZBarSDK/Headers/ZBarSDK/zbar/\hyperlink{_image_scanner_8h}{ImageScanner.h}\end{DoxyCompactItemize}

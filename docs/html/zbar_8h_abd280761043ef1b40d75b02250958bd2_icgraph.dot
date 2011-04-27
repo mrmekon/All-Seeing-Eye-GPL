@@ -1,0 +1,11 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir=LR;
+  Node1 [label="zbar_symbol_set_first_symbol",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="zbar::SymbolIterator::operator++",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_symbol_iterator.html#aa622dc45eb91e85f52489e422087330e",tooltip="advance iterator to next Symbol."];
+  Node1 -> Node3 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="zbar::SymbolIterator::SymbolIterator",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_symbol_iterator.html#a883abd50bc17b8cf3e1b72ef94cd82cc",tooltip="constructor."];
+}

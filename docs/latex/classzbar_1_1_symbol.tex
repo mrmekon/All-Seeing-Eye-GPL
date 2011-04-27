@@ -1,0 +1,234 @@
+\hypertarget{classzbar_1_1_symbol}{
+\section{zbar::Symbol Class Reference}
+\label{classzbar_1_1_symbol}\index{zbar::Symbol@{zbar::Symbol}}
+}
+
+
+{\ttfamily \#include $<$Symbol.h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classzbar_1_1_symbol_1_1_point}{Point}
+\begin{DoxyCompactList}\small\item\em image pixel location (x, y) coordinate tuple. \end{DoxyCompactList}\item 
+class \hyperlink{classzbar_1_1_symbol_1_1_point_iterator}{PointIterator}
+\begin{DoxyCompactList}\small\item\em iteration over \hyperlink{classzbar_1_1_symbol_1_1_point}{Point} objects in a symbol location polygon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classzbar_1_1_symbol_afd11227460e70ec1b45d5e9f90a0b9ee}{
+\hyperlink{classzbar_1_1_symbol_afd11227460e70ec1b45d5e9f90a0b9ee}{Symbol} (const \hyperlink{zbar_8h_a55b659c1945f2984b5ec8386127e5c43}{zbar\_\-symbol\_\-t} $\ast$sym=NULL)}
+\label{classzbar_1_1_symbol_afd11227460e70ec1b45d5e9f90a0b9ee}
+
+\begin{DoxyCompactList}\small\item\em constructor. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_a70f15b9e178635ac13da6499df2e33ed}{
+\hyperlink{classzbar_1_1_symbol_a70f15b9e178635ac13da6499df2e33ed}{Symbol} (const \hyperlink{classzbar_1_1_symbol}{Symbol} \&sym)}
+\label{classzbar_1_1_symbol_a70f15b9e178635ac13da6499df2e33ed}
+
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_a2453a7276e4e5bdd5c7be7dd3b26f73c}{
+\hyperlink{classzbar_1_1_symbol_a2453a7276e4e5bdd5c7be7dd3b26f73c}{$\sim$Symbol} ()}
+\label{classzbar_1_1_symbol_a2453a7276e4e5bdd5c7be7dd3b26f73c}
+
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_a3b816fc6b3f09e44c9e63738ab3d2199}{
+\hyperlink{classzbar_1_1_symbol}{Symbol} \& \hyperlink{classzbar_1_1_symbol_a3b816fc6b3f09e44c9e63738ab3d2199}{operator=} (const \hyperlink{classzbar_1_1_symbol}{Symbol} \&sym)}
+\label{classzbar_1_1_symbol_a3b816fc6b3f09e44c9e63738ab3d2199}
+
+\begin{DoxyCompactList}\small\item\em assignment. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_a72b0c4e587d555b62449073b5e86c6ad}{
+\hyperlink{classzbar_1_1_symbol}{Symbol} \& {\bfseries operator=} (const \hyperlink{zbar_8h_a55b659c1945f2984b5ec8386127e5c43}{zbar\_\-symbol\_\-t} $\ast$sym)}
+\label{classzbar_1_1_symbol_a72b0c4e587d555b62449073b5e86c6ad}
+
+\item 
+\hypertarget{classzbar_1_1_symbol_a226419c7e45bc02299bece56bada00a0}{
+bool \hyperlink{classzbar_1_1_symbol_a226419c7e45bc02299bece56bada00a0}{operator!} () const }
+\label{classzbar_1_1_symbol_a226419c7e45bc02299bece56bada00a0}
+
+\begin{DoxyCompactList}\small\item\em truth testing. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_ac1dc9ed7e3a9287447892d445d9deecf}{
+void {\bfseries ref} (int delta=1) const }
+\label{classzbar_1_1_symbol_ac1dc9ed7e3a9287447892d445d9deecf}
+
+\item 
+\hypertarget{classzbar_1_1_symbol_ab5f1f1cba13fd215cb65a9eb4816015a}{
+\hyperlink{classzbar_1_1_symbol_ab5f1f1cba13fd215cb65a9eb4816015a}{operator const zbar\_\-symbol\_\-t $\ast$} () const }
+\label{classzbar_1_1_symbol_ab5f1f1cba13fd215cb65a9eb4816015a}
+
+\begin{DoxyCompactList}\small\item\em cast to C symbol. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_a20645c647a189b902be1b1abd7a51864}{
+bool \hyperlink{classzbar_1_1_symbol_a20645c647a189b902be1b1abd7a51864}{operator==} (const \hyperlink{classzbar_1_1_symbol}{Symbol} \&sym) const }
+\label{classzbar_1_1_symbol_a20645c647a189b902be1b1abd7a51864}
+
+\begin{DoxyCompactList}\small\item\em test if two \hyperlink{classzbar_1_1_symbol}{Symbol} objects refer to the same C symbol. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_ad4dd4c113481aaa7857f7721e9e60df6}{
+bool \hyperlink{classzbar_1_1_symbol_ad4dd4c113481aaa7857f7721e9e60df6}{operator!=} (const \hyperlink{classzbar_1_1_symbol}{Symbol} \&sym) const }
+\label{classzbar_1_1_symbol_ad4dd4c113481aaa7857f7721e9e60df6}
+
+\begin{DoxyCompactList}\small\item\em test if two \hyperlink{classzbar_1_1_symbol}{Symbol} objects refer to the same C symbol. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_a85e411dc15ca17b0fa3553e78aa705a6}{
+\hyperlink{zbar_8h_a74c1318b082084bdeaa7333b355f3e64}{zbar\_\-symbol\_\-type\_\-t} \hyperlink{classzbar_1_1_symbol_a85e411dc15ca17b0fa3553e78aa705a6}{get\_\-type} () const }
+\label{classzbar_1_1_symbol_a85e411dc15ca17b0fa3553e78aa705a6}
+
+\begin{DoxyCompactList}\small\item\em retrieve type of decoded symbol. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_a516394eb003a5140f3915759c4843ca5}{
+const std::string \hyperlink{classzbar_1_1_symbol_a516394eb003a5140f3915759c4843ca5}{get\_\-type\_\-name} () const }
+\label{classzbar_1_1_symbol_a516394eb003a5140f3915759c4843ca5}
+
+\begin{DoxyCompactList}\small\item\em retrieve the string name of the symbol type. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_a0c9d2af65d1c7bcc45ffaa136904ddb6}{
+const std::string \hyperlink{classzbar_1_1_symbol_a0c9d2af65d1c7bcc45ffaa136904ddb6}{get\_\-addon\_\-name} () const }
+\label{classzbar_1_1_symbol_a0c9d2af65d1c7bcc45ffaa136904ddb6}
+
+\begin{DoxyCompactList}\small\item\em retrieve the string name for any addon. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_a75b812204cbba43003174e38ca3455f0}{
+const std::string \hyperlink{classzbar_1_1_symbol_a75b812204cbba43003174e38ca3455f0}{get\_\-data} () const }
+\label{classzbar_1_1_symbol_a75b812204cbba43003174e38ca3455f0}
+
+\begin{DoxyCompactList}\small\item\em retrieve data decoded from symbol. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_a5ef806f9c42a93c66ed417b92b992751}{
+unsigned \hyperlink{classzbar_1_1_symbol_a5ef806f9c42a93c66ed417b92b992751}{get\_\-data\_\-length} () const }
+\label{classzbar_1_1_symbol_a5ef806f9c42a93c66ed417b92b992751}
+
+\begin{DoxyCompactList}\small\item\em retrieve length of binary data \end{DoxyCompactList}\item 
+int \hyperlink{classzbar_1_1_symbol_a99e1930be6a4bf9de96b1b97ae198935}{get\_\-count} () const 
+\item 
+\hypertarget{classzbar_1_1_symbol_a369b846afa41449dbbc966ab6691b901}{
+\hyperlink{classzbar_1_1_symbol_set}{SymbolSet} {\bfseries get\_\-components} () const }
+\label{classzbar_1_1_symbol_a369b846afa41449dbbc966ab6691b901}
+
+\item 
+\hyperlink{classzbar_1_1_symbol_1_1_point_iterator}{PointIterator} \hyperlink{classzbar_1_1_symbol_ae31c347e6a0ebc6f4d74901459143052}{point\_\-begin} () const 
+\item 
+\hypertarget{classzbar_1_1_symbol_ac45ac107e04227a2d9f054fb8d6f5396}{
+const \hyperlink{classzbar_1_1_symbol_1_1_point_iterator}{PointIterator} \hyperlink{classzbar_1_1_symbol_ac45ac107e04227a2d9f054fb8d6f5396}{point\_\-end} () const }
+\label{classzbar_1_1_symbol_ac45ac107e04227a2d9f054fb8d6f5396}
+
+\begin{DoxyCompactList}\small\item\em return a \hyperlink{classzbar_1_1_symbol_1_1_point_iterator}{PointIterator} suitable for ending iteration. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_ae4e0bcba7f885e7b09b688730505f4ed}{
+int \hyperlink{classzbar_1_1_symbol_ae4e0bcba7f885e7b09b688730505f4ed}{get\_\-location\_\-size} () const }
+\label{classzbar_1_1_symbol_ae4e0bcba7f885e7b09b688730505f4ed}
+
+\begin{DoxyCompactList}\small\item\em see \hyperlink{zbar_8h_af1a98f95d0c058ad356acb73089ec2eb}{zbar\_\-symbol\_\-get\_\-loc\_\-size()}. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_ad2e8a6cb6cdbe5287f2be94b2887079e}{
+int \hyperlink{classzbar_1_1_symbol_ad2e8a6cb6cdbe5287f2be94b2887079e}{get\_\-location\_\-x} (unsigned index) const }
+\label{classzbar_1_1_symbol_ad2e8a6cb6cdbe5287f2be94b2887079e}
+
+\begin{DoxyCompactList}\small\item\em see \hyperlink{zbar_8h_a74dc54a422a63f57c24748e836016ecb}{zbar\_\-symbol\_\-get\_\-loc\_\-x()}. \end{DoxyCompactList}\item 
+\hypertarget{classzbar_1_1_symbol_a2c8032cfb710c2f840f15961ca61fce6}{
+int \hyperlink{classzbar_1_1_symbol_a2c8032cfb710c2f840f15961ca61fce6}{get\_\-location\_\-y} (unsigned index) const }
+\label{classzbar_1_1_symbol_a2c8032cfb710c2f840f15961ca61fce6}
+
+\begin{DoxyCompactList}\small\item\em see \hyperlink{zbar_8h_ac05f77f2065a1ffb8951703647af1579}{zbar\_\-symbol\_\-get\_\-loc\_\-y()}. \end{DoxyCompactList}\item 
+int \hyperlink{classzbar_1_1_symbol_a117a243939d9b8b78859fb23fcb4d670}{get\_\-orientation} () const 
+\item 
+\hypertarget{classzbar_1_1_symbol_a718c35963549441d26f8e516fff77f8d}{
+const std::string \hyperlink{classzbar_1_1_symbol_a718c35963549441d26f8e516fff77f8d}{xml} () const }
+\label{classzbar_1_1_symbol_a718c35963549441d26f8e516fff77f8d}
+
+\begin{DoxyCompactList}\small\item\em see \hyperlink{zbar_8h_a22ab5322eed81d018eab813e27f5ab8c}{zbar\_\-symbol\_\-xml()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classzbar_1_1_symbol_a914fc886337e14002171dd3e89aa0c5a}{
+void \hyperlink{classzbar_1_1_symbol_a914fc886337e14002171dd3e89aa0c5a}{init} (const \hyperlink{zbar_8h_a55b659c1945f2984b5ec8386127e5c43}{zbar\_\-symbol\_\-t} $\ast$sym=NULL)}
+\label{classzbar_1_1_symbol_a914fc886337e14002171dd3e89aa0c5a}
+
+\begin{DoxyCompactList}\small\item\em (re)initialize \hyperlink{classzbar_1_1_symbol}{Symbol} from C symbol object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+static std::ostream \& \hyperlink{classzbar_1_1_symbol_a26d9e1f03e35d7a592c15fd31829972b}{operator$<$$<$} (std::ostream \&out, const \hyperlink{classzbar_1_1_symbol}{Symbol} \&sym)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+decoded barcode symbol result object. stores type, data, and image location of decoded symbol 
+
+Definition at line 113 of file Symbol.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classzbar_1_1_symbol_a99e1930be6a4bf9de96b1b97ae198935}{
+\index{zbar::Symbol@{zbar::Symbol}!get\_\-count@{get\_\-count}}
+\index{get\_\-count@{get\_\-count}!zbar::Symbol@{zbar::Symbol}}
+\subsubsection[{get\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}int zbar::Symbol::get\_\-count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classzbar_1_1_symbol_a99e1930be6a4bf9de96b1b97ae198935}
+retrieve inter-\/frame coherency count. see \hyperlink{zbar_8h_add52d99c3fb15d05ec20797a12b32e1c}{zbar\_\-symbol\_\-get\_\-count()} \begin{DoxySince}{Since}
+1.5 
+\end{DoxySince}
+
+
+Definition at line 339 of file Symbol.h.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{classzbar_1_1_symbol_a117a243939d9b8b78859fb23fcb4d670}{
+\index{zbar::Symbol@{zbar::Symbol}!get\_\-orientation@{get\_\-orientation}}
+\index{get\_\-orientation@{get\_\-orientation}!zbar::Symbol@{zbar::Symbol}}
+\subsubsection[{get\_\-orientation}]{\setlength{\rightskip}{0pt plus 5cm}int zbar::Symbol::get\_\-orientation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classzbar_1_1_symbol_a117a243939d9b8b78859fb23fcb4d670}
+see \hyperlink{zbar_8h_a3692ecf8c99e405d51d7ba0f0ac82ebf}{zbar\_\-symbol\_\-get\_\-orientation()}. \begin{DoxySince}{Since}
+0.11 
+\end{DoxySince}
+
+
+Definition at line 382 of file Symbol.h.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{classzbar_1_1_symbol_ae31c347e6a0ebc6f4d74901459143052}{
+\index{zbar::Symbol@{zbar::Symbol}!point\_\-begin@{point\_\-begin}}
+\index{point\_\-begin@{point\_\-begin}!zbar::Symbol@{zbar::Symbol}}
+\subsubsection[{point\_\-begin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf PointIterator} zbar::Symbol::point\_\-begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classzbar_1_1_symbol_ae31c347e6a0ebc6f4d74901459143052}
+create a new \hyperlink{classzbar_1_1_symbol_1_1_point_iterator}{PointIterator} at the start of the location polygon. 
+
+Definition at line 351 of file Symbol.h.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classzbar_1_1_symbol_a26d9e1f03e35d7a592c15fd31829972b}{
+\index{zbar::Symbol@{zbar::Symbol}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!zbar::Symbol@{zbar::Symbol}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}static std::ostream \& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std::ostream \&}]{out, }
+\item[{const {\bf Symbol} \&}]{sym}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}related\mbox{]}}}}
+\label{classzbar_1_1_symbol_a26d9e1f03e35d7a592c15fd31829972b}
+stream the string representation of a \hyperlink{classzbar_1_1_symbol}{Symbol}. 
+
+Definition at line 518 of file Symbol.h.
+
+
+
+Here is the call graph for this function:
+
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+/Users/trevor/Documents/Cocoa Projects/All-\/Seeing Eye/ZBarSDK/Headers/ZBarSDK/zbar/\hyperlink{_symbol_8h}{Symbol.h}\end{DoxyCompactItemize}

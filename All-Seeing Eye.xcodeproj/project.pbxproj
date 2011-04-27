@@ -60,7 +60,7 @@
 		69862B8113685F4C002E909B /* codeScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = codeScanner.h; sourceTree = "<group>"; };
 		69862B8213685F4C002E909B /* codeScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = codeScanner.m; sourceTree = "<group>"; };
 		69E7A9B113635F480020A229 /* cameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraView.h; sourceTree = "<group>"; };
-		69E7A9B213635F480020A229 /* cameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cameraView.m; sourceTree = "<group>"; };
+		69E7A9B213635F480020A229 /* cameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = cameraView.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		69E7A9B413635F610020A229 /* customerInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customerInfoView.h; sourceTree = "<group>"; };
 		69E7A9B513635F610020A229 /* customerInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customerInfoView.m; sourceTree = "<group>"; };
 		69E7A9B713635F740020A229 /* mainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainViewController.h; sourceTree = "<group>"; };

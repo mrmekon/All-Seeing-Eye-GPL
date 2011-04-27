@@ -1,0 +1,15 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir=LR;
+  Node1 [label="zbar_symbol_set_ref",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="zbar::SymbolSet::ref",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_symbol_set.html#a9dc9218a6391a4bfdef5eca99d1bb71f",tooltip="manipulate reference count."];
+  Node2 -> Node3 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="zbar::SymbolSet::operator=",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_symbol_set.html#acb92ce325f839b74b376f44a84cf8ab2",tooltip="assignment."];
+  Node2 -> Node4 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="zbar::SymbolSet::SymbolSet",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_symbol_set.html#a9e066c74c856cf7a0278404da0aef095",tooltip="constructor."];
+  Node2 -> Node5 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="zbar::SymbolSet::~SymbolSet",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_symbol_set.html#af175f170848ea699ef7b599c6825bb1a",tooltip="destructor."];
+}

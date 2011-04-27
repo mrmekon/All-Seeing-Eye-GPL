@@ -3,7 +3,7 @@
 //  All-Seeing Eye
 //
 //  Created by Trevor Bentley on 4/22/11.
-//  Copyright 2011 trevorbentley. All rights reserved.
+//  Copyright 2011 Trevor Bentley. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

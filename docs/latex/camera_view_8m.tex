@@ -1,0 +1,24 @@
+\hypertarget{camera_view_8m}{
+\section{cameraView.m File Reference}
+\label{camera_view_8m}\index{cameraView.m@{cameraView.m}}
+}
+
+
+Cropped view of rear camera video stream.  
+
+
+{\ttfamily \#import \char`\"{}cameraView.h\char`\"{}}\par
+{\ttfamily \#import \char`\"{}mainAppDelegate.h\char`\"{}}\par
+{\ttfamily \#import \char`\"{}codeScanner.h\char`\"{}}\par
+Include dependency graph for cameraView.m:
+
+
+\subsection{Detailed Description}
+Cropped view of rear camera video stream. This UIView subclass presents a rectangular, live video view from the default camera. The frames captured from the camera are set as the background image of the view.
+
+This class also implements the delegate of a video capture device, and the method that receieves each video frame passes them off to the
+
+Each frame is cropped to (SCREEN\_\-WIDTH)x(SCREEN\_\-HEIGHT/4), but note that it will happily display outside of its bounds box, so this class should be initialized with the correct size region given to initWithFrame:. 
+
+Definition in file \hyperlink{camera_view_8m_source}{cameraView.m}.
+

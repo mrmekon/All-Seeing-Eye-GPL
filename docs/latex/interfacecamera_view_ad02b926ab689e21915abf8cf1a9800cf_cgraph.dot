@@ -1,0 +1,11 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="14",labelfontname="Helvetica",labelfontsize="14"];
+  node [fontname="Helvetica",fontsize="14",shape=record];
+  rankdir=LR;
+  Node1 [label="-[cameraView captureOutput:didOutputSampleBuffer:fromConnection:]",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="14",style="solid"];
+  Node2 [label="-[cameraView addFrameOverlay:]",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfacecamera_view.html#a1599e6698d617f02c46fe5ac78cc438d",tooltip="Adds a &#39;target&#39; overlay to image frame."];
+  Node1 -> Node3 [color="midnightblue",fontsize="14",style="solid"];
+  Node3 [label="-[cameraView cropImage:]",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfacecamera_view.html#a98f6390a43d2e68f9bc68a80a1619754",tooltip="Crop a video frame."];
+}

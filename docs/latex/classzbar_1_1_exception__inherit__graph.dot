@@ -1,0 +1,27 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir=LR;
+  Node1 [label="zbar::Exception",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="zbar::BusyError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_busy_error.html",tooltip="all resources busy."];
+  Node1 -> Node3 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="zbar::ClosedError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_closed_error.html",tooltip="output window is closed."];
+  Node1 -> Node4 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="zbar::FormatError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_format_error.html",tooltip="image format error"];
+  Node1 -> Node5 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="zbar::InternalError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_internal_error.html",tooltip="internal library error."];
+  Node1 -> Node6 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="zbar::InvalidError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_invalid_error.html",tooltip="invalid request."];
+  Node1 -> Node7 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="zbar::LockingError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_locking_error.html",tooltip="locking error."];
+  Node1 -> Node8 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="zbar::SystemError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_system_error.html",tooltip="failed system call."];
+  Node1 -> Node9 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="zbar::UnsupportedError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_unsupported_error.html",tooltip="unsupported request."];
+  Node1 -> Node10 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="zbar::XDisplayError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_x_display_error.html",tooltip="X11 display error."];
+  Node1 -> Node11 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="zbar::XProtoError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzbar_1_1_x_proto_error.html",tooltip="X11 protocol error."];
+}

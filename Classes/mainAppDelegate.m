@@ -3,9 +3,30 @@
 //  All-Seeing Eye
 //
 //  Created by Trevor Bentley on 4/22/11.
-//  Copyright 2011 trevorbentley. All rights reserved.
+//  Copyright 2011 Trevor Bentley. All rights reserved.
 //
 
+/** @mainpage
+ *
+ * All-Seeing Eye is an iOS application for restaurant/bar or other service 
+ * industry companies to use and manage a Customer Loyalty program.  Membership
+ * cards with unique barcodes are distributed to customers, and All-Seeing Eye
+ * is used to scan a customer's card at the POS to determine his or her earned
+ * benefits.
+ *
+ * @section User Interface
+	*
+ * All-Seeing Eye's user interface is split into two frames: a top frame that
+ * shows a live feed from the iPad/iPhone rear camera, and a bottom frame that
+ * shows customer information retrieved from a database after successfully
+ * scanning a barcode with the camera.
+ *
+ * @section Customer Administration
+ *
+ * Not designed yet.
+ *
+ */
+ 
 #import "mainAppDelegate.h"
 
 @implementation mainAppDelegate

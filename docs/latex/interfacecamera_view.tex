@@ -1,0 +1,217 @@
+\hypertarget{interfacecamera_view}{
+\section{cameraView Class Reference}
+\label{interfacecamera_view}\index{cameraView@{cameraView}}
+}
+
+
+Cropped view of rear camera video stream.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(id) -\/ \hyperlink{interfacecamera_view_a2c60d41fcd0dc0a17172a1e081a1b47f}{initWithFrame:}
+\begin{DoxyCompactList}\small\item\em Initialize view with a rectangle. \end{DoxyCompactList}\item 
+(void) -\/ \hyperlink{interfacecamera_view_ae7f3e7153b93817e90d22f0a872a28d1}{initCapture}
+\begin{DoxyCompactList}\small\item\em Start video capture for this view. \end{DoxyCompactList}\item 
+(CGImageRef) -\/ \hyperlink{interfacecamera_view_a98f6390a43d2e68f9bc68a80a1619754}{cropImage:}
+\begin{DoxyCompactList}\small\item\em Crop a video frame. \end{DoxyCompactList}\item 
+(UIImage $\ast$) -\/ \hyperlink{interfacecamera_view_a1599e6698d617f02c46fe5ac78cc438d}{addFrameOverlay:}
+\begin{DoxyCompactList}\small\item\em Adds a 'target' overlay to image frame. \end{DoxyCompactList}\item 
+(void) -\/ \hyperlink{interfacecamera_view_ad02b926ab689e21915abf8cf1a9800cf}{captureOutput:didOutputSampleBuffer:fromConnection:}
+\begin{DoxyCompactList}\small\item\em Delegate to receive, display, and scan incoming video frames. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interfacecamera_view_a636153a51fbba10a8c14fb52b1f184a6}{
+UIImageView $\ast$ {\bfseries imageView}}
+\label{interfacecamera_view_a636153a51fbba10a8c14fb52b1f184a6}
+
+\item 
+\hypertarget{interfacecamera_view_a6325249b12975d12ea28b956b46fae62}{
+AVCaptureSession $\ast$ {\bfseries captureSession}}
+\label{interfacecamera_view_a6325249b12975d12ea28b956b46fae62}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Cropped view of rear camera video stream. 
+
+This UIView subclass presents a rectangular, live video view from the default camera. The frames captured from the camera are set as the background image of the view.
+
+This class also implements the delegate of a video capture device, and the method that receieves each video frame passes them off to the
+
+Each frame is cropped to (SCREEN\_\-WIDTH)x(SCREEN\_\-HEIGHT/4), but note that it will happily display outside of its bounds box, so this class should be initialized with the correct size region given to initWithFrame:. 
+
+Definition at line 23 of file cameraView.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interfacecamera_view_a1599e6698d617f02c46fe5ac78cc438d}{
+\index{cameraView@{cameraView}!addFrameOverlay:@{addFrameOverlay:}}
+\index{addFrameOverlay:@{addFrameOverlay:}!cameraView@{cameraView}}
+\subsubsection[{addFrameOverlay:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UIImage $\ast$) addFrameOverlay: 
+\begin{DoxyParamCaption}
+\item[{dummy(UIImage$\ast$)}]{baseImg}
+\end{DoxyParamCaption}
+}}
+\label{interfacecamera_view_a1599e6698d617f02c46fe5ac78cc438d}
+
+
+Adds a 'target' overlay to image frame. 
+
+Given a cropped video frame, overlays a translucent 'target' image over it to give the viewer an indication of where the barcode should be.
+
+\begin{Desc}
+\item[\hyperlink{bug__bug000001}{Bug}]Overlayed image is fixed size, so this only works on iPad. \end{Desc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em baseImg} & Cropped image to add overlay to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New image with overlay 
+\end{DoxyReturn}
+
+
+Definition at line 153 of file cameraView.m.
+
+
+
+Here is the caller graph for this function:
+
+
+\hypertarget{interfacecamera_view_ad02b926ab689e21915abf8cf1a9800cf}{
+\index{cameraView@{cameraView}!captureOutput:didOutputSampleBuffer:fromConnection:@{captureOutput:didOutputSampleBuffer:fromConnection:}}
+\index{captureOutput:didOutputSampleBuffer:fromConnection:@{captureOutput:didOutputSampleBuffer:fromConnection:}!cameraView@{cameraView}}
+\subsubsection[{captureOutput:didOutputSampleBuffer:fromConnection:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) captureOutput: 
+\begin{DoxyParamCaption}
+\item[{dummy(AVCaptureOutput $\ast$)}]{captureOutput}
+\item[{didOutputSampleBuffer:(CMSampleBufferRef)}]{sampleBuffer}
+\item[{fromConnection:(AVCaptureConnection $\ast$)}]{connection}
+\end{DoxyParamCaption}
+}}
+\label{interfacecamera_view_ad02b926ab689e21915abf8cf1a9800cf}
+
+
+Delegate to receive, display, and scan incoming video frames. 
+
+Called whenever the camera has a new frame captured, this method crops, overlays, rotates, and resizes the frame before displaying it. It also passes the frame to the global barcode scanner to check if any barcodes are readable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em captureOutput} & Output device that generated the frame \\
+\hline
+{\em sampleBuffer} & Raw data returned from the camera \\
+\hline
+{\em connection} & Unused. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 180 of file cameraView.m.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{interfacecamera_view_a98f6390a43d2e68f9bc68a80a1619754}{
+\index{cameraView@{cameraView}!cropImage:@{cropImage:}}
+\index{cropImage:@{cropImage:}!cameraView@{cameraView}}
+\subsubsection[{cropImage:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CGImageRef) cropImage: 
+\begin{DoxyParamCaption}
+\item[{dummy(CGImageRef)}]{img}
+\end{DoxyParamCaption}
+}}
+\label{interfacecamera_view_a98f6390a43d2e68f9bc68a80a1619754}
+
+
+Crop a video frame. 
+
+Crop height to 1/4th of screen height.
+
+{\bfseries NOTE}: Frame is rotated when received from camera, so this function actually sets the \char`\"{}width\char`\"{} to SCREEN\_\-HEIGHT/4, since the width of the unrotated image will become the height of the rotated one.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & Image to crop (frame from video capture). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cropped image 
+\end{DoxyReturn}
+
+
+Definition at line 134 of file cameraView.m.
+
+
+
+Here is the caller graph for this function:
+
+
+\hypertarget{interfacecamera_view_ae7f3e7153b93817e90d22f0a872a28d1}{
+\index{cameraView@{cameraView}!initCapture@{initCapture}}
+\index{initCapture@{initCapture}!cameraView@{cameraView}}
+\subsubsection[{initCapture}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) initCapture 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interfacecamera_view_ae7f3e7153b93817e90d22f0a872a28d1}
+
+
+Start video capture for this view. 
+
+Connects to video input device, sets local delegate method as video output handler, configures frame queue, autofocus, framerate, etc,
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\backslash$return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 73 of file cameraView.m.
+
+\hypertarget{interfacecamera_view_a2c60d41fcd0dc0a17172a1e081a1b47f}{
+\index{cameraView@{cameraView}!initWithFrame:@{initWithFrame:}}
+\index{initWithFrame:@{initWithFrame:}!cameraView@{cameraView}}
+\subsubsection[{initWithFrame:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) initWithFrame: 
+\begin{DoxyParamCaption}
+\item[{dummy(CGRect)}]{aRect}
+\end{DoxyParamCaption}
+}}
+\label{interfacecamera_view_a2c60d41fcd0dc0a17172a1e081a1b47f}
+
+
+Initialize view with a rectangle. 
+
+Creates an image with the same size as the given bound rectangle, and sets that image as the only subview of \hyperlink{interfacecamera_view}{cameraView}. The image will be changed to be the most recent frame from the video when the video is running.
+
+{\bfseries NOTE}: This class has $\ast$only$\ast$ been tested with the input rectangle: {\bfseries (SCREEN\_\-WIDTH, SCREEN\_\-HEIGHT/4)}
+
+Other sizes may or may not work without code changes. This does work correctly on both iPad and iPhone, though.
+
+
+\begin{DoxyParams}{Parameters}
+{\em aRect} & Bounding rectangle for this view. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Initialized instance of class 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file cameraView.m.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{camera_view_8h}{cameraView.h}\item 
+cameraView.m\end{DoxyCompactItemize}
