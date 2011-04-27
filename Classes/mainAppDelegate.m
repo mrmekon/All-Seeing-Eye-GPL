@@ -12,6 +12,7 @@
 
 @synthesize window;
 @synthesize viewController;
+@synthesize scanner;
 
 
 #pragma mark -
@@ -21,6 +22,8 @@
     
     self.viewController = [[mainViewController alloc] init];
     window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]; 
+    self.scanner = [[codeScanner alloc] init];
+        
         
     [self.window addSubview:viewController.view];
     [self.window makeKeyAndVisible];

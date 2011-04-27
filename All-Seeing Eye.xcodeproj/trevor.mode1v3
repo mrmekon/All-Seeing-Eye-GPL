@@ -265,8 +265,6 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>69862B151367B80A002E909B</string>
-								<string>69862B161367B80A002E909B</string>
-								<string>69862B171367B80A002E909B</string>
 								<string>080E96DDFE201D6D7F000001</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
@@ -278,8 +276,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>20</integer>
 									<integer>16</integer>
+									<integer>4</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -303,7 +301,7 @@
 							<real>218</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>89 63 1205 734 0 0 1440 878 </string>
+						<string>-1294 481 1205 734 -1680 385 1680 1050 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -321,7 +319,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>cameraView.m</string>
+								<string>codeScanner.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,31 +327,33 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>cameraView.m</string>
+										<string>codeScanner.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>69862B7F1367BDB8002E909B</string>
+										<string>69862C4F13686A48002E909B</string>
 										<key>history</key>
 										<array>
 											<string>69E7AA9F1363958E0020A229</string>
 											<string>69E7AAC4136397140020A229</string>
 											<string>69E7AB681363A7350020A229</string>
 											<string>69E7AB6D1363D2E40020A229</string>
-											<string>69E7ACA11365D4730020A229</string>
-											<string>69E7AFF01367931D0020A229</string>
-											<string>69E7AFF31367931D0020A229</string>
-											<string>69E7AFF41367931D0020A229</string>
-											<string>69862AA913679588002E909B</string>
-											<string>69862AAA13679588002E909B</string>
-											<string>69862ABF136795E0002E909B</string>
 											<string>69862ADA13679799002E909B</string>
 											<string>69862B531367B988002E909B</string>
 											<string>69862B551367B988002E909B</string>
 											<string>69862B561367B988002E909B</string>
 											<string>69862B571367B988002E909B</string>
 											<string>69862B601367BAFC002E909B</string>
-											<string>69862B751367BCCE002E909B</string>
+											<string>69862BD4136863E2002E909B</string>
+											<string>69862BD5136863E2002E909B</string>
+											<string>69862BD6136863E2002E909B</string>
+											<string>69862BF7136864DE002E909B</string>
+											<string>69862C3A136867DF002E909B</string>
+											<string>69862C3C136867DF002E909B</string>
+											<string>69862C4B13686A48002E909B</string>
+											<string>69862C4C13686A48002E909B</string>
+											<string>69862C4D13686A48002E909B</string>
+											<string>69862C4E13686A48002E909B</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -367,7 +367,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {965, 559}}</string>
 								<key>RubberWindowFrame</key>
-								<string>89 63 1205 734 0 0 1440 878 </string>
+								<string>-1294 481 1205 734 -1680 385 1680 1050 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -387,7 +387,7 @@
 								<key>Frame</key>
 								<string>{{0, 564}, {965, 129}}</string>
 								<key>RubberWindowFrame</key>
-								<string>89 63 1205 734 0 0 1440 878 </string>
+								<string>-1294 481 1205 734 -1680 385 1680 1050 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -551,17 +551,16 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>69862B801367BDB8002E909B</string>
 		<string>69862ABD136795D7002E909B</string>
 		<string>69862AB813679588002E909B</string>
 		<string>69862ABA13679588002E909B</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>695A90EB136276F000DB0A80</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/trevor/Documents/Cocoa Projects/All-Seeing Eye/All-Seeing Eye.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>89 63 1205 734 0 0 1440 878 </string>
+	<string>-1294 481 1205 734 -1680 385 1680 1050 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -934,7 +933,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

@@ -7,13 +7,14 @@
 //
 
 #import "cameraView.h"
-#import "ZBarSDK.h"
+//#import "ZBarSDK.h"
+#import "mainAppDelegate.h"
+#import "codeScanner.h"
 
 @implementation cameraView
 
 @synthesize imageView;
 @synthesize captureSession;
-
 
 -(id)initWithFrame:(CGRect)aRect {
 	if (self = [super initWithFrame: aRect]) {
@@ -105,18 +106,11 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
   CGImageRef newImage = CGBitmapContextCreateImage(newContext); 
 	  
   CGImageRef croppedImg = [self cropImage: newImage];
-  ZBarImage *zimg = [[ZBarImage  alloc] initWithCGImage: croppedImg];
-  ZBarImageScanner *scanner = [[ZBarImageScanner alloc] init];
-  NSInteger result = [scanner scanImage: zimg];
-  if (result != 0) {
-  	NSLog(@"SCANNED A FUCKING BARCODE!");
-    ZBarSymbolSet *symbols = zimg.symbols;
-    for(ZBarSymbol *symbol in symbols) {
-    	NSLog(@"Symbol type: %@", symbol.typeName);
-      NSLog(@"Symbol data: %@", symbol.data);
-    	// process result
-		}
-  }
+  
+  mainAppDelegate *delegate = (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+  codeScanner *scanner = delegate.scanner;
+  [scanner scanImage: croppedImg];
+
 	UIImage *image= [UIImage imageWithCGImage: croppedImg scale: (1/VIDEO_ENLARGEMENT_FACTOR) orientation:UIImageOrientationRight];
 	image = [self addFrameOverlay: image];
       
