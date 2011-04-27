@@ -18,15 +18,15 @@ var NAVTREE =
     [ "File List", "files.html", [
       [ "cameraView.h", "camera_view_8h.html", null ],
       [ "cameraView.m", null, null ],
-      [ "codeScanner.h", null, null ],
+      [ "codeScanner.h", "code_scanner_8h.html", null ],
       [ "codeScanner.m", null, null ],
       [ "customerInfoView.h", null, null ],
       [ "customerInfoView.m", null, null ],
-      [ "mainAppDelegate.h", null, null ],
+      [ "mainAppDelegate.h", "main_app_delegate_8h.html", null ],
       [ "mainAppDelegate.m", null, null ],
       [ "mainViewController.h", null, null ],
       [ "mainViewController.m", null, null ],
-      [ "rootView.h", null, null ],
+      [ "rootView.h", "root_view_8h.html", null ],
       [ "rootView.m", null, null ]
     ] ],
     [ "File Members", "globals.html", null ]

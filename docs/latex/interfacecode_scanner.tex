@@ -2,6 +2,11 @@
 \section{codeScanner Class Reference}
 \label{interfacecode_scanner}\index{codeScanner@{codeScanner}}
 }
+
+
+Handles scanning images for barcodes.  
+
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -19,25 +24,27 @@
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{interfacecode_scanner_a65b46e21c00820ec14dd8621e79366b9}{
-ZBarImageScanner $\ast$ {\bfseries scanner}}
+ZBarImageScanner $\ast$ \hyperlink{interfacecode_scanner_a65b46e21c00820ec14dd8621e79366b9}{scanner}}
 \label{interfacecode_scanner_a65b46e21c00820ec14dd8621e79366b9}
 
-\item 
+\begin{DoxyCompactList}\small\item\em ZBar barcode scanner instance. \end{DoxyCompactList}\item 
 \hypertarget{interfacecode_scanner_a93346aeb8d861a9c6c499367d19a3386}{
-NSString $\ast$ {\bfseries lastCode}}
+NSString $\ast$ \hyperlink{interfacecode_scanner_a93346aeb8d861a9c6c499367d19a3386}{lastCode}}
 \label{interfacecode_scanner_a93346aeb8d861a9c6c499367d19a3386}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em String of the last barcode scan result. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Handles scanning images for barcodes. 
 
+This class keeps an instance of the ZBar barcode scanner. It receives images from the \hyperlink{interfacecamera_view}{cameraView} and scans them for barcodes. If a barcode is detected, the decoded result is stored in an instance variable for decoding. 
 
-Definition at line 13 of file codeScanner.h.
+Definition at line 14 of file codeScanner.h.
 
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-codeScanner.h\item 
+\hyperlink{code_scanner_8h}{codeScanner.h}\item 
 codeScanner.m\end{DoxyCompactItemize}

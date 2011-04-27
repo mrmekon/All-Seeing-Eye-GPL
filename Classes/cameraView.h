@@ -24,8 +24,18 @@
 	UIImageView *imageView;
 	AVCaptureSession *captureSession;
 }
+
+
+/**
+ * Image view filled with video frame and displayed in cameraView.
+ */
 @property (nonatomic, retain) UIImageView *imageView;
+
+/**
+ * Video capture session used to interact with camera.
+ */
 @property (nonatomic, retain) AVCaptureSession *captureSession;
+
 
 -(id)initWithFrame:(CGRect)aRect;
 - (void)initCapture;

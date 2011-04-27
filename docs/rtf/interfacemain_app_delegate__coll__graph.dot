@@ -4,5 +4,5 @@ digraph G
   node [fontname="Helvetica",fontsize="14",shape=record];
   Node1 [label="mainAppDelegate",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
   Node2 -> Node1 [dir=back,color="darkorchid3",fontsize="14",style="dashed",label="viewController",fontname="Helvetica"];
-  Node2 [label="mainViewController",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfacemain_view_controller.html"];
+  Node2 [label="mainViewController",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfacemain_view_controller.html",tooltip="Main view controller during normal use."];
 }

@@ -6,6 +6,16 @@
 //  Copyright 2011 Trevor Bentley. All rights reserved.
 //
 
+/**
+ * \brief Handles scanning images for barcodes
+ *
+ * This class keeps an instance of the ZBar barcode scanner.  It receives
+ * images from the cameraView and scans them for barcodes.  If a barcode is
+ * detected, the decoded result is stored in an instance variable for decoding.
+ *
+ */
+ 
+ 
 #import "codeScanner.h"
 
 @implementation codeScanner

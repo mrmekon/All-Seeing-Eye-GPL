@@ -100,27 +100,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00021"></a>00021 <span class="preprocessor"></span>
 <a name="l00022"></a>00022 
 <a name="l00023"></a><a class="code" href="interfacecamera_view.html">00023</a> <span class="keyword">@interface </span><a class="code" href="interfacecamera_view.html" title="Cropped view of rear camera video stream.">cameraView</a> : UIView &lt;AVCaptureVideoDataOutputSampleBufferDelegate&gt; {
-<a name="l00024"></a>00024         UIImageView *imageView;
-<a name="l00025"></a>00025         AVCaptureSession *captureSession;
+<a name="l00024"></a><a class="code" href="interfacecamera_view.html#a636153a51fbba10a8c14fb52b1f184a6">00024</a>         UIImageView *<a class="code" href="interfacecamera_view.html#a636153a51fbba10a8c14fb52b1f184a6">imageView</a>;
+<a name="l00025"></a><a class="code" href="interfacecamera_view.html#a6325249b12975d12ea28b956b46fae62">00025</a>         AVCaptureSession *<a class="code" href="interfacecamera_view.html#a6325249b12975d12ea28b956b46fae62">captureSession</a>;
 <a name="l00026"></a>00026 }
-<a name="l00027"></a>00027 <span class="keyword">@property</span> (nonatomic, retain) UIImageView *imageView;
-<a name="l00028"></a>00028 <span class="keyword">@property</span> (nonatomic, retain) AVCaptureSession *captureSession;
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 -(id)initWithFrame:(CGRect)aRect;
-<a name="l00031"></a>00031 - (void)initCapture;
-<a name="l00032"></a>00032 -(CGImageRef) cropImage: (CGImageRef) img;
-<a name="l00033"></a>00033 -(UIImage*) addFrameOverlay: (UIImage*) baseImg;
-<a name="l00034"></a>00034 -(void) captureOutput:(AVCaptureOutput *)captureOutput 
-<a name="l00035"></a>00035                                 didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer 
-<a name="l00036"></a>00036         fromConnection:(AVCaptureConnection *)connection;
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="keyword">@end</span>
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 
+<a name="l00032"></a>00032 <span class="keyword">@property</span> (nonatomic, retain) UIImageView *imageView;
+<a name="l00033"></a>00033 
+<a name="l00037"></a>00037 <span class="keyword">@property</span> (nonatomic, retain) AVCaptureSession *captureSession;
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 -(id)initWithFrame:(CGRect)aRect;
+<a name="l00041"></a>00041 - (void)initCapture;
+<a name="l00042"></a>00042 -(CGImageRef) cropImage: (CGImageRef) img;
+<a name="l00043"></a>00043 -(UIImage*) addFrameOverlay: (UIImage*) baseImg;
+<a name="l00044"></a>00044 -(void) captureOutput:(AVCaptureOutput *)captureOutput 
+<a name="l00045"></a>00045                                 didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer 
+<a name="l00046"></a>00046         fromConnection:(AVCaptureConnection *)connection;
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="camera_view_8h.html">cameraView.h</a>      </li>
-      <li class="footer">Generated on Wed Apr 27 2011 17:10:38 for All-Seeing Eye by&#160;
+      <li class="footer">Generated on Wed Apr 27 2011 18:10:48 for All-Seeing Eye by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
     </ul>
@@ -130,7 +134,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">

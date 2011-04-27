@@ -6,6 +6,19 @@
 //  Copyright 2011 Trevor Bentley. All rights reserved.
 //
 
+/**
+ * \brief View to display customer information after scanning card.
+ *
+ * This UIView subclass presents fills all screen real estate not used by
+ * the video display.  When a customer's information is retrieved from the
+ * database, it is displayed in a large, easily-readable format in this
+ * frame.
+ *
+ * Layout is intentionally minimalistic, and font is large, so information can
+ * be parsed quickly by busy employees at a point-of-sale.
+ *
+ */
+ 
 #import "customerInfoView.h"
 
 @implementation customerInfoView

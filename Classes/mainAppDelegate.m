@@ -26,6 +26,15 @@
  * Not designed yet.
  *
  */
+
+ 
+/**
+ * \brief Handles application creation and logic flow.
+ *
+ * Creates a mainViewController, the main interface for the application.  Also
+ * stores the application-global class instances.
+ *
+ */
  
 #import "mainAppDelegate.h"
 

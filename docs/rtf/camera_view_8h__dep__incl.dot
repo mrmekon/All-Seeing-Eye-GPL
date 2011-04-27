@@ -8,14 +8,14 @@ digraph G
   Node1 -> Node3 [dir=back,color="midnightblue",fontsize="14",style="solid",fontname="Helvetica"];
   Node3 [label="mainViewController.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_view_controller_8h_source.html"];
   Node3 -> Node4 [dir=back,color="midnightblue",fontsize="14",style="solid",fontname="Helvetica"];
-  Node4 [label="mainAppDelegate.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_app_delegate_8h_source.html"];
+  Node4 [label="mainAppDelegate.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_app_delegate_8h.html"];
   Node4 -> Node2 [dir=back,color="midnightblue",fontsize="14",style="solid",fontname="Helvetica"];
   Node4 -> Node5 [dir=back,color="midnightblue",fontsize="14",style="solid",fontname="Helvetica"];
   Node5 [label="mainAppDelegate.m",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_app_delegate_8m_source.html"];
   Node3 -> Node6 [dir=back,color="midnightblue",fontsize="14",style="solid",fontname="Helvetica"];
   Node6 [label="mainViewController.m",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_view_controller_8m_source.html"];
   Node1 -> Node7 [dir=back,color="midnightblue",fontsize="14",style="solid",fontname="Helvetica"];
-  Node7 [label="rootView.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$root_view_8h_source.html"];
+  Node7 [label="rootView.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$root_view_8h.html"];
   Node7 -> Node6 [dir=back,color="midnightblue",fontsize="14",style="solid",fontname="Helvetica"];
   Node7 -> Node8 [dir=back,color="midnightblue",fontsize="14",style="solid",fontname="Helvetica"];
   Node8 [label="rootView.m",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$root_view_8m_source.html"];

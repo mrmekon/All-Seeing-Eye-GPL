@@ -13,4 +13,8 @@
 
 }
 
+-(id)initWithFrame:(CGRect)aRect;
+- (void)drawRect:(CGRect)rect;
+-(UIImage *)imageFromText:(NSString *)text;
+
 @end

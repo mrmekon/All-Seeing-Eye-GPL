@@ -6,11 +6,20 @@
 //  Copyright 2011 Trevor Bentley. All rights reserved.
 //
 
+/**
+ * \brief Main view during normal use, divides screen into two subviews.
+ *
+ * This view is displayed full-screen during normal (non-administrative)
+ * operation, and divides itself into two subviews.  The top subview, 1/4th
+ * of the screen, is given to a cameraView.  The bottom 3/4ths of the screen
+ * is given to a customerInfoView.
+ *
+ */
+
 #import "rootView.h"
 
 
 @implementation rootView
-
 
 
 -(id)initWithFrame:(CGRect)aRect {
