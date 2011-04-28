@@ -21,4 +21,9 @@
 
 }
 
+-(id)initWithFrame:(CGRect)aRect;
+- (void)dealloc;
+-(void)causePulseInMainThread;
+-(void)pulseOverlay;
+
 @end

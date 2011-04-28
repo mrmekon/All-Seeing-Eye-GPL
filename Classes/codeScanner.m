@@ -40,6 +40,10 @@
   	NSLog(@"Symbol type: %@", symbol.typeName);
     NSLog(@"Symbol data: %@", symbol.data);
     self.lastCode = [NSString stringWithString: symbol.data];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName: @"ASE_BarcodeScanned"
+            object: self
+            userInfo: nil];
 	}
   
   return TRUE;

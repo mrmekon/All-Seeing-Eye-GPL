@@ -10,8 +10,10 @@
 
 
 @interface customerInfoView : UIView {
-
+	NSString *name;
 }
+
+@property (nonatomic, retain) NSString *name;
 
 -(id)initWithFrame:(CGRect)aRect;
 - (void)drawRect:(CGRect)rect;
