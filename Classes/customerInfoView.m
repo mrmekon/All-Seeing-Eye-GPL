@@ -26,6 +26,17 @@
 
 @synthesize name;
 
+/**
+ * \brief Initialize view to given size
+ *
+ * Creates view with given bounds.  Background color set to dark gray, and
+ * registers for ASE_BarcodeScanned notification events.  Sets default
+ * text values to display.
+ *
+ * \param aRect Size of view
+ * \return Initialized instance of view
+ *
+ */
 -(id)initWithFrame:(CGRect)aRect {
 	if (self = [super initWithFrame: aRect]) {
     [self setBackgroundColor:[UIColor darkGrayColor]];
@@ -39,11 +50,26 @@
   return self;
 }
 
+/**
+ * \brief Deallocate resources
+ *
+ * Removes itself from notification center.
+ *
+ */
 - (void)dealloc {
   [[NSNotificationCenter defaultCenter] removeObserver: self];
   [super dealloc];
 }
 
+/**
+ * \brief Handles new successful scan events
+ *
+ * Called when a barcode is successfully scanned (by notification system),
+ * this just sets redrawScreen to be called on the main thread.
+ * 
+ * \param notif Notification that caused this to run
+ *
+ */
 - (void)newScanHandler:(NSNotification *)notif {
   mainAppDelegate *delegate = 
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -53,19 +79,47 @@
         waitUntilDone: NO];
 }
 
+/**
+ * \brief Tells view to redraw itself.
+ */
 - (void)redrawScreen {
   [self setNeedsDisplay];
 }
 
+/**
+ * \brief Called when view needs to be redrawn
+ *
+ * Main GUI thread calls this when view needs to be redrawn.  This controls
+ * what text is displayed in the view, and where.  Should be called each time
+ * a new barcode is successfully scanned.  That happens automatically via the
+ * notification system.
+ *
+ * \param rect Region to redraw.  Ignored, always full view.
+ *
+ */
 - (void)drawRect:(CGRect)rect {
   [self drawCenteredText: self.name y: 30];
 }
 
+/**
+ * \brief Draw centered text at the given y-coordinate
+ *
+ * \param str Text to draw on screen
+ * \param y y coordinate to draw text
+ *
+ */
 -(void) drawCenteredText: (NSString*)str y: (int)y {
   UIImage *img = [self imageFromText: str];
   [self drawCenteredImage: img y: y];
 }
 
+/**
+ * \brief Draws an image on the view, centered on screen, at given y-coordinate.
+ *
+ * \param img Image to draw in view
+ * \param y y coordinate to draw image
+ *
+ */
 -(void) drawCenteredImage:(UIImage*)img y: (int)y {
 	CGSize screenSize = [[UIScreen mainScreen] bounds].size;
   int x_offset = (screenSize.width - img.size.width)/2;
@@ -73,6 +127,19 @@
 	[img drawInRect: r];
 }
 
+/**
+ * \brief Creates an image containing the given text
+ *
+ * Given a string, this creates an image containing the text with a glowing
+ * shadow, ready to be drawn on the view.  Draws with a large font, but
+ * automatically shrinks font to text will fit on the screen, down to a small
+ * size that is still readable on iPhone and iPad.  If the text won't fit
+ * with the minimum font size, it is truncated with ellipses.
+ *
+ * \param text String to convert to image
+ * \return Image containing formatted text
+ *
+ */
 -(UIImage *)imageFromText:(NSString *)text
 {
 	/* Set font and calculate size */
