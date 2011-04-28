@@ -20,28 +20,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with All-Seeing Eye.  If not, see <http://www.gnu.org/licenses/>.
     
-/** @mainpage
- *
- * All-Seeing Eye is an iOS application for restaurant/bar or other service 
- * industry companies to use and manage a Customer Loyalty program.  Membership
- * cards with unique barcodes are distributed to customers, and All-Seeing Eye
- * is used to scan a customer's card at the POS to determine his or her earned
- * benefits.
- *
- * @section User Interface
-	*
- * All-Seeing Eye's user interface is split into two frames: a top frame that
- * shows a live feed from the iPad/iPhone rear camera, and a bottom frame that
- * shows customer information retrieved from a database after successfully
- * scanning a barcode with the camera.
- *
- * @section Customer Administration
- *
- * Not designed yet.
- *
- */
 
- 
 /**
  * \brief Handles application creation and logic flow.
  *
