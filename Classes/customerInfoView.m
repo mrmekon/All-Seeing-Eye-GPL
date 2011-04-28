@@ -58,38 +58,62 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-  [self drawText: self.name x: 30 y: 30];
+  [self drawCenteredText: self.name y: 30];
 }
 
--(void) drawText: (NSString*)str x: (int)x y: (int)y {
+-(void) drawCenteredText: (NSString*)str y: (int)y {
   UIImage *img = [self imageFromText: str];
-  [self drawImage: img x: x y: y];
+  [self drawCenteredImage: img y: y];
 }
 
--(void) drawImage:(UIImage*)img x: (int)x y: (int)y {
-  CGRect r = CGRectMake(x, y, img.size.width, img.size.height);
+-(void) drawCenteredImage:(UIImage*)img y: (int)y {
+	CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+  int x_offset = (screenSize.width - img.size.width)/2;
+  CGRect r = CGRectMake(x_offset, y, img.size.width, img.size.height);
 	[img drawInRect: r];
 }
 
 -(UIImage *)imageFromText:(NSString *)text
 {
-	/* Set font and size */
-  //[UIFont fontWithName: @"Courier-Bold" size: 40]
-  UIFont *font = [UIFont systemFontOfSize:50.0];  
-  CGSize size  = [text sizeWithFont:font];
-
-  UIGraphicsBeginImageContextWithOptions(size,NO,0.0);
+	/* Set font and calculate size */
+  CGSize screenSize = [[UIScreen mainScreen] bounds].size;
   
-  /* Add drop-shadow */
+  /* Set min/max font sizes */
+  float desiredFontSize = 50.0;
+  float minimumFontSize = 10.0;
+  
+  //UIFont *font = [UIFont systemFontOfSize: desiredFontSize];  
+  UIFont *font = [UIFont fontWithName: @"Courier-Bold" size: desiredFontSize];
+
+	/* Determine size of text when drawn */
+  CGSize size = [text sizeWithFont: font
+                      minFontSize: minimumFontSize
+                      actualFontSize: &desiredFontSize
+                      forWidth: (screenSize.width * 0.80)
+                      lineBreakMode: UILineBreakModeTailTruncation];
+
+	/* Create drawing context with calculated size */
+  UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
+  
+  /* Turn on drop-shadow */
   CGContextRef ctx = UIGraphicsGetCurrentContext();
-  CGContextSetShadowWithColor(ctx, CGSizeMake(1.0, 1.0), 5.0, [[UIColor grayColor] CGColor]);
+  CGContextSetShadowWithColor(ctx, 
+                              CGSizeMake(0.0, 0.0), // (x,y) offset
+                              6.0, // blur amount
+                              [[UIColor whiteColor] CGColor]);
 
 	/* Draw text into image context */
-  [text drawAtPoint:CGPointMake(0.0, 0.0) withFont:font];
+  [text drawAtPoint: CGPointMake(0.0, 0.0) 
+        forWidth: (screenSize.width * 0.80)
+        withFont: font
+        minFontSize: minimumFontSize
+        actualFontSize: &desiredFontSize
+        lineBreakMode: UILineBreakModeTailTruncation
+        baselineAdjustment: UIBaselineAdjustmentAlignBaselines];
 	
   /* Produce image from context */
   UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-  
+
   UIGraphicsEndImageContext();    
 
   return image;
