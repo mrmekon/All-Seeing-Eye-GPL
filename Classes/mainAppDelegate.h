@@ -24,6 +24,7 @@
 #import <UIKit/UIKit.h>
 #import "mainViewController.h"
 #import "codeScanner.h"
+#import "databaseManager.h"
 
 @interface mainAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
