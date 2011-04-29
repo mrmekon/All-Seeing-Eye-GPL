@@ -8,28 +8,30 @@ CREATE TABLE customers (
   street_2 TEXT,
   city TEXT,
   state TEXT,
-  zipcode INTEGER
+  zipcode INTEGER,
+  referral_site TEXT
 );
 CREATE UNIQUE INDEX customer_idx ON customers (barcode);
 
-CREATE TABLE customer_reward_levels {
+CREATE TABLE customer_reward_levels (
 	customer_id INTEGER NOT NULL,
   level INTEGER NOT NULL,
-  FOREIGN KEY(customer_id) REFERENCES customers(customer_id),
-};
+  credit INTEGER NOT NULL,
+  FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
+);
 CREATE UNIQUE INDEX reward_level_idx ON customer_reward_levels (customer_id);
 
-CREATE TABLE referrals {
+CREATE TABLE referrals (
   referrer INTEGER NOT NULL,
   customer_id INTEGER NOT NULL,
   FOREIGN KEY(referrer) REFERENCES customers(customer_id),
-  FOREIGN KEY(customer_id) REFERENCES customers(customer_id),
-};
+  FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
+);
 CREATE UNIQUE INDEX referrals_idx ON referrals (customer_id);
 
-CREATE TABLE scan_log {
+CREATE TABLE scan_log (
 	customer_id INTEGER NOT NULL,
   time TEXT NOT NULL,
   reward_level INTEGER NOT NULL,
-  FOREIGN KEY(customer_id) REFERENCES customers(customer_id),
-};
+  FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
+);
