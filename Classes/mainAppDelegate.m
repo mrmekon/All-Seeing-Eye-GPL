@@ -54,6 +54,36 @@
     return YES;
 }
 
+/**
+ * \brief Handles requests for All-Seeing Eye to open a file
+ *
+ * This method gets called when the application is handed 
+ *
+ */
+- (BOOL)application:(UIApplication*)app 
+        openURL:(NSURL*)url
+        sourceApplication:(NSString*)srcApp
+        annotation:(id)annotation {
+      
+  NSLog(@"Received file open request from app: %@", srcApp);
+  NSLog(@"File URL: %@", url.absoluteString);
+  NSArray *urlParts = [url.absoluteString componentsSeparatedByString: @"/"];
+  if ([urlParts count] <= 0) return NO;  
+  NSString *filename = [urlParts objectAtIndex: [urlParts count]-1];
+  NSString *msg = [NSString stringWithFormat: 
+      @"Replace user database with downloaded file: %@?\n\n"
+      "THIS WILL OVERWRITE ALL EXISTING DATA!!",
+      filename];
+  UIAlertView *alert = [[UIAlertView alloc] 
+      initWithTitle: @"REPLACE DATABASE?" 
+      message: msg 
+      delegate: nil 
+      cancelButtonTitle: @"CANCEL"
+      otherButtonTitles: @"OK",nil];
+  [alert show];
+
+  return YES;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*

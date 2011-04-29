@@ -29,6 +29,7 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Default-Portrait.png</string>
+		<string>Icon-72.png</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
@@ -36,6 +37,43 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>com.apple.ostype</key>
+				<string>EYED</string>
+				<key>public.mime-type</key>
+				<string>application/x-all-seeing-eye-db</string>
+				<key>public.filename-extension</key>
+				<array>
+					<string>eyedb</string>
+				</array>
+			</dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.trevorbentley.eyedb</string>
+			<key>UTTypeDescription</key>
+			<string>All-Seeing Eye Database File</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>CFBundleTypeName</key>
+			<string>All-Seeing Eye Database File</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.trevorbentley.eyedb</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>
