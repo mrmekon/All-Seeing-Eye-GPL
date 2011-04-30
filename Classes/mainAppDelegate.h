@@ -27,12 +27,13 @@
 #import "databaseManager.h"
 #import "customerProtocol.h"
 
-@interface mainAppDelegate : NSObject <UIApplicationDelegate> {
+@interface mainAppDelegate : NSObject <UIApplicationDelegate, UIAlertViewDelegate> {
     UIWindow *window;
     mainViewController *viewController;
     codeScanner *scanner;
     databaseManager *dbManager;
     id <customerProtocol> customer;
+    NSURL *newDatabaseFileUrl;
 }
 
 /// Application's main window
@@ -45,6 +46,11 @@
 @property (nonatomic, retain) databaseManager *dbManager;
 /// Class instance that handles getting customer info from database
 @property (nonatomic, retain) id <customerProtocol> customer;
+/// URL of new database file from external application
+@property (nonatomic, retain) NSURL *newDatabaseFileUrl;
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+
 
 @end
 

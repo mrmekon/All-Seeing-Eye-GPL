@@ -39,6 +39,7 @@
 @synthesize scanner;
 @synthesize dbManager;
 @synthesize customer;
+@synthesize newDatabaseFileUrl;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -60,8 +61,15 @@
 /**
  * \brief Handles requests for All-Seeing Eye to open a file
  *
- * This method gets called when the application is handed 
+ * This method gets called when the application is handed a file from another
+ * application.  Presumably, this should only be All-Seeing Eye database files
+ * from email, Dropbox, or some other application.
  *
+ * \param app Unused
+ * \param url Full path to new file as URL
+ * \param srcApp Unused
+ * \param annotation Unused
+ * \return Whether handling succeeded without error
  */
 - (BOOL)application:(UIApplication*)app 
         openURL:(NSURL*)url
@@ -77,15 +85,37 @@
       @"Replace user database with downloaded file: %@?\n\n"
       "THIS WILL OVERWRITE ALL EXISTING DATA!!",
       filename];
+  self.newDatabaseFileUrl = url;
   UIAlertView *alert = [[UIAlertView alloc] 
       initWithTitle: @"REPLACE DATABASE?" 
       message: msg 
-      delegate: nil 
+      delegate: self 
       cancelButtonTitle: @"CANCEL"
       otherButtonTitles: @"OK",nil];
   [alert show];
   
-  return [dbManager reloadWithNewDatabaseFile: url];
+  return YES;
+}
+
+/**
+ * \brief Delegate for overwrite-database alert popup.
+ *
+ * If application is given a database file, it prompts user asking if he wants
+ * to overwrite the existing database.  This delegate method is called with the
+ * user response to that question.
+ *
+ * If user clicked cancel, nothing should happen.  If user clicked OK, the new
+ * database should be copied over the existing one.
+ *
+ * \param alertView Alert that called this delegate
+ * \param buttonIndex Button the user clicked
+ *
+ */
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	NSLog(@"Clicked button at index %d", buttonIndex);
+  if (buttonIndex == [alertView cancelButtonIndex]) return;
+  
+  [dbManager reloadWithNewDatabaseFile: self.newDatabaseFileUrl];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
