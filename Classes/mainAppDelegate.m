@@ -30,6 +30,7 @@
  */
  
 #import "mainAppDelegate.h"
+#import "aitunesCustomer.h"
 
 @implementation mainAppDelegate
 
@@ -37,6 +38,7 @@
 @synthesize viewController;
 @synthesize scanner;
 @synthesize dbManager;
+@synthesize customer;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -47,10 +49,11 @@
     window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]; 
     self.scanner = [[codeScanner alloc] init];
     self.dbManager = [[databaseManager alloc] initWithFile: @"database.sql"];
+    self.customer = [[aitunesCustomer alloc] init];
         
     [self.window addSubview:viewController.view];
     [self.window makeKeyAndVisible];
-    
+    [scanner simulatorDebug];
     return YES;
 }
 

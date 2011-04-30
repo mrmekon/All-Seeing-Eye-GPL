@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -276,7 +278,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>19</integer>
+									<integer>6</integer>
 									<integer>4</integer>
 									<integer>0</integer>
 								</array>
@@ -312,14 +314,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>customerProtocol.h</string>
+								<string>mainAppDelegate.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,11 +327,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>customerProtocol.h</string>
+										<string>mainAppDelegate.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>69D73FEE136BCD47004380D6</string>
+										<string>69D74056136BD46D004380D6</string>
 										<key>history</key>
 										<array>
 											<string>69862B561367B988002E909B</string>
@@ -339,15 +339,12 @@
 											<string>69862C8813689DD5002E909B</string>
 											<string>69862C8913689DD5002E909B</string>
 											<string>691E1F37136A15E400997E8A</string>
-											<string>691E1F3B136A15E400997E8A</string>
 											<string>691E1F3D136A15E400997E8A</string>
-											<string>691E1F3E136A15E400997E8A</string>
 											<string>691E1F3F136A15E400997E8A</string>
 											<string>691E1F40136A15E400997E8A</string>
 											<string>69D73F08136B48E8004380D6</string>
 											<string>69D73F09136B48E8004380D6</string>
 											<string>69D73F0A136B48E8004380D6</string>
-											<string>69D73F0B136B48E8004380D6</string>
 											<string>69D73F0C136B48E8004380D6</string>
 											<string>69D73F0E136B48E8004380D6</string>
 											<string>69D73F0F136B48E8004380D6</string>
@@ -357,16 +354,21 @@
 											<string>69D73F14136B48E8004380D6</string>
 											<string>69D73F15136B48E8004380D6</string>
 											<string>69D73F17136B48E8004380D6</string>
-											<string>69D73F5F136B4A10004380D6</string>
-											<string>69D73FB1136B7084004380D6</string>
-											<string>69D73FB2136B7084004380D6</string>
-											<string>69D73FDF136BC816004380D6</string>
-											<string>69D73FE8136BCD47004380D6</string>
 											<string>69D73FE9136BCD47004380D6</string>
-											<string>69D73FEA136BCD47004380D6</string>
 											<string>69D73FEB136BCD47004380D6</string>
 											<string>69D73FEC136BCD47004380D6</string>
-											<string>69D73FED136BCD47004380D6</string>
+											<string>69D7400A136BD1BE004380D6</string>
+											<string>69D7400C136BD1BE004380D6</string>
+											<string>69D7401C136BD249004380D6</string>
+											<string>69D74029136BD36C004380D6</string>
+											<string>69D7402A136BD36C004380D6</string>
+											<string>69D74045136BD404004380D6</string>
+											<string>69D74046136BD404004380D6</string>
+											<string>69D74051136BD46D004380D6</string>
+											<string>69D74052136BD46D004380D6</string>
+											<string>69D74053136BD46D004380D6</string>
+											<string>69D74054136BD46D004380D6</string>
+											<string>69D74055136BD46D004380D6</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -564,7 +566,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>69D73FE2136BC816004380D6</string>
 		<string>69D73FBA136B7084004380D6</string>
 		<string>69D73FBB136B7084004380D6</string>
 		<string>1C78EAAD065D492600B07095</string>
@@ -666,7 +667,7 @@
 			<key>WindowToolGUID</key>
 			<string>695A90EB136276F000DB0A80</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

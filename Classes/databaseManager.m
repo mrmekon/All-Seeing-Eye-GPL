@@ -161,4 +161,28 @@
   [super dealloc];
 }
 
+
+/**
+ * \brief Opens a sqlite database file
+ * \param file Full path to database file
+ * \param db Handle to make reference to open database (output parameter)
+ * \return Whether open succeeded
+ */
++(BOOL) openDbFile: (NSString*)file usingDbPointer: (sqlite3*) db {
+  int result = sqlite3_open([file UTF8String], &db);
+  if (result != SQLITE_OK) return NO;
+  return YES;
+}
+
+/**
+ * \brief Closes given database connection if it's open
+ * \param db Pointer to database handle
+ */
++(void) closeDb: (sqlite3**)db {
+  if (db && *db) {
+    sqlite3_close(*db);
+	}
+	*db = nil;
+}
+
 @end

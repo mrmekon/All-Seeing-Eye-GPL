@@ -25,12 +25,14 @@
 #import "mainViewController.h"
 #import "codeScanner.h"
 #import "databaseManager.h"
+#import "customerProtocol.h"
 
 @interface mainAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
     mainViewController *viewController;
     codeScanner *scanner;
     databaseManager *dbManager;
+    id <customerProtocol> customer;
 }
 
 /// Application's main window
@@ -41,6 +43,8 @@
 @property (nonatomic, retain) codeScanner *scanner;
 /// Application's global database manager
 @property (nonatomic, retain) databaseManager *dbManager;
+/// Class instance that handles getting customer info from database
+@property (nonatomic, retain) id <customerProtocol> customer;
 
 @end
 

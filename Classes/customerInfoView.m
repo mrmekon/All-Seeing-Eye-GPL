@@ -87,8 +87,10 @@
 - (void)newScanHandler:(NSNotification *)notif {
   mainAppDelegate *delegate = 
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
-  self.name = [NSString stringWithString: delegate.scanner.lastCode];
-  
+  NSString *barcode = delegate.scanner.lastCode;
+  NSString *dbFile = delegate.dbManager.databasePath;
+  self.name = [NSString stringWithString: barcode];
+  [delegate.customer customerFromDb: dbFile withBarcode: barcode];
   [self performSelectorOnMainThread: @selector(redrawScreen)
         withObject: nil
         waitUntilDone: NO];

@@ -35,6 +35,8 @@
 /// String of the last barcode scan result.
 @property (nonatomic, retain) NSString *lastCode;
 
+
+-(void) simulatorDebug;
 - (BOOL) scanImage: (CGImageRef) img;
 
 @end

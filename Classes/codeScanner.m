@@ -44,6 +44,14 @@
   return self;
 }
 
+-(void) simulatorDebug {
+    self.lastCode = [NSString stringWithString: @"1020304"];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName: @"ASE_BarcodeScanned"
+            object: self
+            userInfo: nil];
+}
+
 - (BOOL) scanImage: (CGImageRef) img {
 	ZBarImage *zimg = [[[ZBarImage  alloc] initWithCGImage: img] autorelease];
   NSInteger result = [self.scanner scanImage: zimg];    

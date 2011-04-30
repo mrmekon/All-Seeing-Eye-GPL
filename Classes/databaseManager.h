@@ -41,5 +41,7 @@
 -(NSString*) pathFromFile: (NSString*)file;
 -(BOOL) copyDatabaseToDocuments;
 
++(BOOL) openDbFile: (NSString*)file usingDbPointer: (sqlite3*) db;
++(void) closeDb: (sqlite3**)db;
 
 @end
