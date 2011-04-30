@@ -23,6 +23,7 @@
 		69D73F97136B6F8D004380D6 /* databaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D73F96136B6F8D004380D6 /* databaseManager.m */; };
 		69D73FC0136B70CC004380D6 /* database.sql in Resources */ = {isa = PBXBuildFile; fileRef = 69D73FBF136B70CC004380D6 /* database.sql */; };
 		69D73FE4136BC8F9004380D6 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 69D73FE3136BC8F9004380D6 /* TODO */; };
+		69D73FF1136BCE76004380D6 /* aitunesCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D73FF0136BCE76004380D6 /* aitunesCustomer.m */; };
 		69E7A9B313635F480020A229 /* cameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E7A9B213635F480020A229 /* cameraView.m */; };
 		69E7A9B613635F610020A229 /* customerInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E7A9B513635F610020A229 /* customerInfoView.m */; };
 		69E7A9B913635F740020A229 /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E7A9B813635F740020A229 /* mainViewController.m */; };
@@ -77,6 +78,8 @@
 		69D73FBF136B70CC004380D6 /* database.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sql; sourceTree = "<group>"; };
 		69D73FE3136BC8F9004380D6 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		69D73FE5136BCAAA004380D6 /* customerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customerProtocol.h; sourceTree = "<group>"; };
+		69D73FEF136BCE76004380D6 /* aitunesCustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aitunesCustomer.h; sourceTree = "<group>"; };
+		69D73FF0136BCE76004380D6 /* aitunesCustomer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aitunesCustomer.m; sourceTree = "<group>"; };
 		69E7A9B113635F480020A229 /* cameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraView.h; sourceTree = "<group>"; };
 		69E7A9B213635F480020A229 /* cameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = cameraView.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		69E7A9B413635F610020A229 /* customerInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customerInfoView.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				69862B8113685F4C002E909B /* codeScanner.h */,
 				69862B8213685F4C002E909B /* codeScanner.m */,
 				69D73FE5136BCAAA004380D6 /* customerProtocol.h */,
+				69D73FEF136BCE76004380D6 /* aitunesCustomer.h */,
+				69D73FF0136BCE76004380D6 /* aitunesCustomer.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				69E7B000136793D50020A229 /* rootView.m in Sources */,
 				69862B8313685F4C002E909B /* codeScanner.m in Sources */,
 				69D73F97136B6F8D004380D6 /* databaseManager.m in Sources */,
+				69D73FF1136BCE76004380D6 /* aitunesCustomer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
