@@ -30,6 +30,7 @@
     UIWindow *window;
     mainViewController *viewController;
     codeScanner *scanner;
+    databaseManager *dbManager;
 }
 
 /// Application's main window
@@ -38,6 +39,8 @@
 @property (nonatomic, retain) IBOutlet mainViewController *viewController;
 /// Application's barcode scanning logic
 @property (nonatomic, retain) codeScanner *scanner;
+/// Application's global database manager
+@property (nonatomic, retain) databaseManager *dbManager;
 
 @end
 

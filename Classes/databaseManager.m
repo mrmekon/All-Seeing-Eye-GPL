@@ -31,9 +31,9 @@
  * db from a remote location.
  *
  */
-#import "DatabaseManager.h"
+#import "databaseManager.h"
 
-@implementation DatabaseManager
+@implementation databaseManager
 
 @synthesize databasePath;
 @synthesize databaseFile;
@@ -58,6 +58,36 @@
     [self copyDatabaseToDocuments];    
   }
   return self;
+}
+
+/**
+ * \brief Copy database to user's directory if it does not already exist there. 
+ * 
+ * \return YES if a copy is performed, NO if it isn't.
+ *
+ */
+-(BOOL) copyDatabaseToDocuments {
+  NSError *err = nil;
+
+	/* Determine if file already exists in user's directory */
+	NSFileManager *fileManager = [[NSFileManager defaultManager] autorelease];
+  BOOL alreadyExists = [fileManager fileExistsAtPath: self.databasePath];  
+	if (alreadyExists) {
+  	[fileManager removeItemAtPath: self.databasePath error: nil]; // overwrite
+  	//return NO; // skip
+  }
+  
+  /* Copy from application bundle to user's dir */
+  NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] 
+      stringByAppendingPathComponent: self.databaseFile];
+  [fileManager  copyItemAtPath: resourcePath 
+                toPath: self.databasePath 
+                error: &err];
+  if (err != nil) {
+  	NSLog(@"Copy error: %@", [err localizedDescription]);
+    return NO;
+  }
+  return YES;
 }
 
 /**
@@ -123,36 +153,6 @@
   return path;
 }
 
-
-/**
- * \brief Copy database to user's directory if it does not already exist there. 
- * 
- * \return YES if a copy is performed, NO if it isn't.
- *
- */
--(BOOL) copyDatabaseToDocuments {
-  NSError *err = nil;
-
-	/* Determine if file already exists in user's directory */
-	NSFileManager *fileManager = [[NSFileManager defaultManager] autorelease];
-  BOOL alreadyExists = [fileManager fileExistsAtPath: self.databasePath];  
-	if (alreadyExists) {
-  	[fileManager removeItemAtPath: self.databasePath error: nil]; // overwrite
-  	//return NO; // skip
-  }
-  
-  /* Copy from application bundle to user's dir */
-  NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] 
-      stringByAppendingPathComponent: self.databaseFile];
-  [fileManager  copyItemAtPath: resourcePath 
-                toPath: self.databasePath 
-                error: &err];
-  if (err != nil) {
-  	NSLog(@"Copy error: %@", [err localizedDescription]);
-    return NO;
-  }
-  return YES;
-}
 
 -(void) dealloc {
 	[self closeGlobalDB];

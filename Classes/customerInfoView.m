@@ -88,6 +88,7 @@
   mainAppDelegate *delegate = 
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
   self.name = [NSString stringWithString: delegate.scanner.lastCode];
+  
   [self performSelectorOnMainThread: @selector(redrawScreen)
         withObject: nil
         waitUntilDone: NO];

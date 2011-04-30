@@ -18,9 +18,11 @@
 		69D73EA9136A2840004380D6 /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 69D73EA8136A2840004380D6 /* COPYING */; };
 		69D73EAB136A29AF004380D6 /* ATTRIBUTIONS in Resources */ = {isa = PBXBuildFile; fileRef = 69D73EAA136A29AF004380D6 /* ATTRIBUTIONS */; };
 		69D73EBB136A5741004380D6 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D73EBA136A5741004380D6 /* Icon-72.png */; };
-		69D73ED0136A5A7D004380D6 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D73ECF136A5A7D004380D6 /* DatabaseManager.m */; };
 		69D73ED2136A6552004380D6 /* Database Schema.txt in Resources */ = {isa = PBXBuildFile; fileRef = 69D73ED1136A6552004380D6 /* Database Schema.txt */; };
 		69D73EEE136B065E004380D6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D73EED136B065E004380D6 /* libsqlite3.dylib */; };
+		69D73F97136B6F8D004380D6 /* databaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D73F96136B6F8D004380D6 /* databaseManager.m */; };
+		69D73FC0136B70CC004380D6 /* database.sql in Resources */ = {isa = PBXBuildFile; fileRef = 69D73FBF136B70CC004380D6 /* database.sql */; };
+		69D73FE4136BC8F9004380D6 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 69D73FE3136BC8F9004380D6 /* TODO */; };
 		69E7A9B313635F480020A229 /* cameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E7A9B213635F480020A229 /* cameraView.m */; };
 		69E7A9B613635F610020A229 /* customerInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E7A9B513635F610020A229 /* customerInfoView.m */; };
 		69E7A9B913635F740020A229 /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E7A9B813635F740020A229 /* mainViewController.m */; };
@@ -68,10 +70,13 @@
 		69D73EA8136A2840004380D6 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		69D73EAA136A29AF004380D6 /* ATTRIBUTIONS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ATTRIBUTIONS; sourceTree = "<group>"; };
 		69D73EBA136A5741004380D6 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		69D73ECE136A5A7D004380D6 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
-		69D73ECF136A5A7D004380D6 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		69D73ED1136A6552004380D6 /* Database Schema.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Database Schema.txt"; sourceTree = "<group>"; };
 		69D73EED136B065E004380D6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		69D73F95136B6F8D004380D6 /* databaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = databaseManager.h; sourceTree = "<group>"; };
+		69D73F96136B6F8D004380D6 /* databaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = databaseManager.m; sourceTree = "<group>"; };
+		69D73FBF136B70CC004380D6 /* database.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sql; sourceTree = "<group>"; };
+		69D73FE3136BC8F9004380D6 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		69D73FE5136BCAAA004380D6 /* customerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customerProtocol.h; sourceTree = "<group>"; };
 		69E7A9B113635F480020A229 /* cameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraView.h; sourceTree = "<group>"; };
 		69E7A9B213635F480020A229 /* cameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = cameraView.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		69E7A9B413635F610020A229 /* customerInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customerInfoView.h; sourceTree = "<group>"; };
@@ -115,8 +120,8 @@
 			children = (
 				1D3623240D0F684500981E51 /* mainAppDelegate.h */,
 				1D3623250D0F684500981E51 /* mainAppDelegate.m */,
-				69D73ECE136A5A7D004380D6 /* DatabaseManager.h */,
-				69D73ECF136A5A7D004380D6 /* DatabaseManager.m */,
+				69D73F95136B6F8D004380D6 /* databaseManager.h */,
+				69D73F96136B6F8D004380D6 /* databaseManager.m */,
 				69E7A9B113635F480020A229 /* cameraView.h */,
 				69E7A9B213635F480020A229 /* cameraView.m */,
 				69E7A9B413635F610020A229 /* customerInfoView.h */,
@@ -127,6 +132,7 @@
 				69E7AFFF136793D50020A229 /* rootView.m */,
 				69862B8113685F4C002E909B /* codeScanner.h */,
 				69862B8213685F4C002E909B /* codeScanner.m */,
+				69D73FE5136BCAAA004380D6 /* customerProtocol.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -164,6 +170,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				69D73FBF136B70CC004380D6 /* database.sql */,
 				69D73EBA136A5741004380D6 /* Icon-72.png */,
 				69D73EA8136A2840004380D6 /* COPYING */,
 				69E7AF80136789120020A229 /* frameOverlay.png */,
@@ -171,6 +178,7 @@
 				8D1107310486CEB800E47090 /* All_Seeing_Eye-Info.plist */,
 				69D73EAA136A29AF004380D6 /* ATTRIBUTIONS */,
 				69D73ED1136A6552004380D6 /* Database Schema.txt */,
+				69D73FE3136BC8F9004380D6 /* TODO */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -297,6 +305,8 @@
 				69D73EAB136A29AF004380D6 /* ATTRIBUTIONS in Resources */,
 				69D73EBB136A5741004380D6 /* Icon-72.png in Resources */,
 				69D73ED2136A6552004380D6 /* Database Schema.txt in Resources */,
+				69D73FC0136B70CC004380D6 /* database.sql in Resources */,
+				69D73FE4136BC8F9004380D6 /* TODO in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +324,7 @@
 				69E7A9B913635F740020A229 /* mainViewController.m in Sources */,
 				69E7B000136793D50020A229 /* rootView.m in Sources */,
 				69862B8313685F4C002E909B /* codeScanner.m in Sources */,
-				69D73ED0136A5A7D004380D6 /* DatabaseManager.m in Sources */,
+				69D73F97136B6F8D004380D6 /* databaseManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,7 +36,7 @@
 @synthesize window;
 @synthesize viewController;
 @synthesize scanner;
-
+@synthesize dbManager;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -46,7 +46,7 @@
     self.viewController = [[mainViewController alloc] init];
     window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]; 
     self.scanner = [[codeScanner alloc] init];
-        
+    self.dbManager = [[databaseManager alloc] initWithFile: @"database.sql"];
         
     [self.window addSubview:viewController.view];
     [self.window makeKeyAndVisible];
@@ -81,8 +81,8 @@
       cancelButtonTitle: @"CANCEL"
       otherButtonTitles: @"OK",nil];
   [alert show];
-
-  return YES;
+  
+  return [dbManager reloadWithNewDatabaseFile: url];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

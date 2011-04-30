@@ -25,7 +25,7 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 
-@interface DatabaseManager : NSObject {
+@interface databaseManager : NSObject {
 	NSString *databaseFile;
 	NSString *databasePath;
   sqlite3 *globalDB;
