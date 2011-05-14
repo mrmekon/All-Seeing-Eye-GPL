@@ -168,8 +168,8 @@
  * \param db Handle to make reference to open database (output parameter)
  * \return Whether open succeeded
  */
-+(BOOL) openDbFile: (NSString*)file usingDbPointer: (sqlite3*) db {
-  int result = sqlite3_open([file UTF8String], &db);
++(BOOL) openDbFile: (NSString*)file usingDbPointer: (sqlite3**) db {
+  int result = sqlite3_open([file UTF8String], db);
   if (result != SQLITE_OK) return NO;
   return YES;
 }

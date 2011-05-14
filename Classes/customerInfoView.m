@@ -89,8 +89,10 @@
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
   NSString *barcode = delegate.scanner.lastCode;
   NSString *dbFile = delegate.dbManager.databasePath;
+  
   self.name = [NSString stringWithString: barcode];
-  [delegate.customer customerFromDb: dbFile withBarcode: barcode];
+  self.name = [delegate.customer customerFromDb: dbFile withBarcode: barcode];
+  
   [self performSelectorOnMainThread: @selector(redrawScreen)
         withObject: nil
         waitUntilDone: NO];
