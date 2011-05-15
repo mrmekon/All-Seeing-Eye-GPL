@@ -35,7 +35,6 @@
 
 #import "rootView.h"
 
-
 @implementation rootView
 
 
@@ -74,6 +73,10 @@
 - (void)handleRightSwipe:(UIGestureRecognizer *)sender {
 	CGPoint pt = [sender locationInView: self];
 	NSLog(@"Got a right swipe at (%f, %f)", pt.x, pt.y);
+  NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+  [center postNotificationName: @"ASE_AdminRequested"
+          object: self
+          userInfo: nil];
 }
 
 - (void)dealloc {
