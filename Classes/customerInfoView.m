@@ -38,7 +38,7 @@
 
 @implementation customerInfoView
 
-@synthesize name;
+@synthesize currentUser;
 
 /**
  * \brief Initialize view to given size
@@ -59,7 +59,7 @@
             selector: @selector(newScanHandler:) 
             name:@"ASE_BarcodeScanned" 
             object: nil];
-    self.name = @"Peterman Von Helsingnator";
+    self.currentUser = [NSMutableDictionary dictionaryWithCapacity: 10];
 	}
   return self;
 }
@@ -90,8 +90,17 @@
   NSString *barcode = delegate.scanner.lastCode;
   NSString *dbFile = delegate.dbManager.databasePath;
   
-  self.name = [NSString stringWithString: barcode];
-  self.name = [delegate.customer customerFromDb: dbFile withBarcode: barcode];
+  NSString *name = [delegate.customer customerFromDb: dbFile withBarcode: barcode];
+  if (name == nil)
+  	name = [NSString stringWithString: barcode];
+  [self.currentUser setObject: name forKey: @"name"];
+
+  int level = [delegate.customer levelFromDb: dbFile withBarcode: barcode];
+  if (level >= 0) {
+  	NSString *lvl = [NSString stringWithFormat: @"Level %d",level];
+	  [self.currentUser setObject: lvl forKey: @"level"];
+  }
+
   
   [self performSelectorOnMainThread: @selector(redrawScreen)
         withObject: nil
@@ -117,7 +126,8 @@
  *
  */
 - (void)drawRect:(CGRect)rect {
-  [self drawCenteredText: self.name y: 30];
+  [self drawCenteredText: [self.currentUser objectForKey: @"name"] y: 30];
+  [self drawCenteredText: [self.currentUser objectForKey: @"level"] y: 80];
 }
 
 /**
@@ -128,6 +138,7 @@
  *
  */
 -(void) drawCenteredText: (NSString*)str y: (int)y {
+	if (!str) return; // can't draw null.
   UIImage *img = [self imageFromText: str];
   [self drawCenteredImage: img y: y];
 }

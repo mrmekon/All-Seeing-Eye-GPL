@@ -24,10 +24,10 @@
 
 
 @interface customerInfoView : UIView {
-	NSString *name;
+	NSMutableDictionary *currentUser;
 }
 
-@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSMutableDictionary *currentUser;
 
 -(id)initWithFrame:(CGRect)aRect;
 - (void)newScanHandler:(NSNotification *)notif;
