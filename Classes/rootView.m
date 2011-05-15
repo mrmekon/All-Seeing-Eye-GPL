@@ -28,6 +28,9 @@
  * of the screen, is given to a cameraView.  The bottom 3/4ths of the screen
  * is given to a customerInfoView.
  *
+ * This view also handles the user input that launches the administration
+ * UI as a modal view.
+ *
  */
 
 #import "rootView.h"
@@ -57,8 +60,20 @@
             selector: @selector(causePulseInMainThread) 
             name:@"ASE_BarcodeScanned" 
             object: nil];
+            
+    // Handle a 2-finger swipe to the right
+    UISwipeGestureRecognizer  *rightSwipe = [[UISwipeGestureRecognizer alloc]
+			initWithTarget:self action:@selector(handleRightSwipe:)];
+    rightSwipe.numberOfTouchesRequired = 2;
+    [self addGestureRecognizer: rightSwipe];
+    [rightSwipe release];
 	}
   return self;
+}
+
+- (void)handleRightSwipe:(UIGestureRecognizer *)sender {
+	CGPoint pt = [sender locationInView: self];
+	NSLog(@"Got a right swipe at (%f, %f)", pt.x, pt.y);
 }
 
 - (void)dealloc {
