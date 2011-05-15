@@ -41,8 +41,6 @@
 @synthesize customer;
 @synthesize newDatabaseFileUrl;
 
-#pragma mark -
-#pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
@@ -140,8 +138,6 @@
 }
 
 
-#pragma mark -
-#pragma mark Memory management
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
     /*

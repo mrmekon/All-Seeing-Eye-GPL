@@ -31,6 +31,7 @@
 #import "mainViewController.h"
 #import "rootView.h"
 #import "userAdminVC.h"
+#import "mainAppDelegate.h"
 
 @implementation mainViewController
 
@@ -85,8 +86,12 @@
 -(void)displayAdminView {
   NSLog(@"Displaying admin view!");
 
+  mainAppDelegate *delegate = 
+      (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+  NSString *dbFile = delegate.dbManager.databasePath;
   userAdminVC *adminController = [[[userAdminVC alloc] 
-  	initWithStyle: UITableViewStylePlain] autorelease];
+  	initWithStyle: UITableViewStylePlain
+    withDbFile: dbFile] autorelease];
   [self presentModalViewController: adminController 
   	animated:YES];
 }

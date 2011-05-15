@@ -5,30 +5,43 @@
 //  Created by Trevor Bentley on 5/15/11.
 //  Copyright 2011 Trevor Bentley. All rights reserved.
 //
+//  This file is part of All-Seeing Eye.
+// 
+//  All-Seeing Eye is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+// 
+//  All-Seeing Eye is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+// 
+//  You should have received a copy of the GNU General Public License
+//  along with All-Seeing Eye.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * \brief User administration view, displays list of all registered users.
+ *
+ *
+ */
+ 
 #import "userAdminVC.h"
-
+#import "mainAppDelegate.h"
+#import "databaseManager.h"
 
 @implementation userAdminVC
 
+@synthesize dbFile;
 
-#pragma mark -
-#pragma mark Initialization
-
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
+- (id)initWithStyle:(UITableViewStyle)style withDbFile: (NSString*)db {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization.
+        self.dbFile = db;
     }
     return self;
 }
-*/
 
-
-#pragma mark -
-#pragma mark View lifecycle
 
 /*
 - (void)viewDidLoad {
@@ -68,9 +81,6 @@
 */
 
 
-#pragma mark -
-#pragma mark Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
@@ -79,7 +89,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 10;
+    mainAppDelegate *delegate = 
+      (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+    int userCount = [delegate.customer countOfCustomersInDb: self.dbFile];
+    if (userCount < 0) userCount = 0;
+    return userCount;
 }
 
 
@@ -139,8 +153,6 @@
 */
 
 
-#pragma mark -
-#pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
@@ -154,8 +166,6 @@
 }
 
 
-#pragma mark -
-#pragma mark Memory management
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

@@ -41,6 +41,13 @@
 @protocol customerProtocol
 
 /**
+ * \brief Get number of registered customers
+ * \param dbFile Database to search
+ * \return Number of customers
+ */
+-(int)countOfCustomersInDb: (NSString*)dbFile;
+
+/**
  * \brief Get customer name
  * \param dbFile Database to search
  * \param barcode Barcode number to match
