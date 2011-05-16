@@ -29,6 +29,7 @@
 
 @interface mainAppDelegate : NSObject <UIApplicationDelegate, UIAlertViewDelegate> {
     UIWindow *window;
+    UINavigationController *navController;
     mainViewController *viewController;
     codeScanner *scanner;
     databaseManager *dbManager;
@@ -38,6 +39,8 @@
 
 /// Application's main window
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+/// Navigation controller (UI bar)
+@property (nonatomic, retain) UINavigationController *navController;
 /// Application's main view controller
 @property (nonatomic, retain) IBOutlet mainViewController *viewController;
 /// Application's barcode scanning logic

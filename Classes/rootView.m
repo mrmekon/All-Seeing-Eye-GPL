@@ -70,6 +70,7 @@
   return self;
 }
 
+
 - (void)handleRightSwipe:(UIGestureRecognizer *)sender {
 	CGPoint pt = [sender locationInView: self];
 	NSLog(@"Got a right swipe at (%f, %f)", pt.x, pt.y);

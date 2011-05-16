@@ -62,6 +62,11 @@
   return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+	[super viewWillAppear: animated];
+  [self.navigationController setNavigationBarHidden: YES animated: YES];
+}
+
 /**
  * \brief Request to load administration controller on main thread.
  *
@@ -92,8 +97,8 @@
   userAdminVC *adminController = [[[userAdminVC alloc] 
   	initWithStyle: UITableViewStylePlain
     withDbFile: dbFile] autorelease];
-  [self presentModalViewController: adminController 
-  	animated:YES];
+  [[self navigationController] pushViewController:adminController animated:YES];
+  //[self presentModalViewController: adminController animated:YES];
 }
 
 @end

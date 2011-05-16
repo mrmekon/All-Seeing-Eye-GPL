@@ -35,6 +35,7 @@
 @implementation mainAppDelegate
 
 @synthesize window;
+@synthesize navController;
 @synthesize viewController;
 @synthesize scanner;
 @synthesize dbManager;
@@ -43,14 +44,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    
     self.viewController = [[mainViewController alloc] init];
+  	self.navController = [[UINavigationController alloc] 
+      initWithRootViewController: self.viewController];
+    [self.navController setNavigationBarHidden: NO animated: NO];
     window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]; 
     self.scanner = [[codeScanner alloc] init];
     self.dbManager = [[databaseManager alloc] initWithFile: @"database.sql"];
     self.customer = [[aitunesCustomer alloc] init];
         
-    [self.window addSubview:viewController.view];
+    [self.window addSubview:navController.view];
     [self.window makeKeyAndVisible];
     [scanner simulatorDebug];
     return YES;
