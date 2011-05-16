@@ -23,17 +23,51 @@
 /**
  * \brief User administration view, displays list of all registered users.
  *
+ * Displays all customers in the database in a table view.  Bolded name is the
+ * main text, and the customer's barcode value is the smaller alternate 
+ * description text.
  *
+ * 
  */
  
 #import "userAdminVC.h"
 #import "mainAppDelegate.h"
 #import "databaseManager.h"
 
+/**
+ * \brief Sorts two rows (as dictionaries) by (guessed) last name
+ * 
+ * Comparator for use as NSArray sorting function.
+ *
+ * Compares customer names based on the last WORD in their name, which may
+ * or may not be their actual last name.  This is done because the database
+ * does not store name parts, and determining the "last name" correctly is
+ * fairly impossible.
+ *
+ * \param dict1 First row to compare (dictionary with name and barcode)
+ * \param dict2 Second row to compare (dictionary with name and barcode)
+ * \param context Extra data (always null)
+ * \return NSComparisonResult of last word from each name
+ */
+NSInteger rowSort(id dict1, id dict2, void *context)
+{
+	// Get names, split on spaces, pick last word as "last name"
+  NSArray *names1 = [[dict1 objectForKey: @"name"] componentsSeparatedByString: @" "];
+  int lastIdx1 = names1.count - 1;
+  NSString *last1 = [names1 objectAtIndex: lastIdx1];
+  NSArray *names2 = [[dict2 objectForKey: @"name"] componentsSeparatedByString: @" "];
+  int lastIdx2 = names2.count - 1;
+  NSString *last2 = [names2 objectAtIndex: lastIdx2];
+      
+  return [last1 caseInsensitiveCompare: last2];
+}
+
 @implementation userAdminVC
 
 @synthesize dbFile;
 @synthesize allRows;
+@synthesize searchRows;
+@synthesize searchBar;
 
 - (id)initWithStyle:(UITableViewStyle)style withDbFile: (NSString*)db {
     self = [super initWithStyle:style];
@@ -41,11 +75,48 @@
         self.dbFile = db;
         mainAppDelegate *delegate = 
           (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
-        self.allRows = [delegate.customer allCustomersInDb: db];
+          
+        // Get all customers from database and sort
+        self.allRows = [[delegate.customer allCustomersInDb: db]
+        	sortedArrayUsingFunction: rowSort context: nil];
+        
+        // Create a search bar, make it the table header
+        self.searchBar = [[UISearchBar alloc] 
+          initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 0)];
+        [self.searchBar sizeToFit];  
+        self.tableView.tableHeaderView = self.searchBar;  
+        
+        // Create a search controller with search bar
+        UISearchDisplayController *searchController = [
+          [UISearchDisplayController alloc] initWithSearchBar: self.searchBar 
+          contentsController:self];
+        searchController.delegate = self;
+        searchController.searchResultsDataSource = self;
+        searchController.searchResultsDelegate = self;
     }
     return self;
 }
 
+/**
+ * \brief Filter customers based on search terms
+ *
+ * Filters the database of customers down to only those with name or barcode
+ * matching the current search term.  It compares the search only to the start
+ * of name/barcode, and is case and diacritic insensitive.  The sort order of
+ * the original list will be maintained.
+ *
+ * \param controller ViewController that called
+ * \param searchString Current search string
+ * \return Whether table should be reloaded (always yes)
+ */
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller 
+        shouldReloadTableForSearchString:(NSString *)searchString {
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:
+    @"(name BEGINSWITH[cd] %@) || (barcode BEGINSWITH[cd] %@)", 
+    searchString, searchString];
+  self.searchRows = [self.allRows filteredArrayUsingPredicate: predicate];
+  return YES;
+}
 
 /*
 - (void)viewDidLoad {
@@ -56,6 +127,10 @@
 }
 */
 
+/**
+ * \brief Show navigation bar when view loads
+ * \param animated Whether view appearance will animate
+ */
 -(void) viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
   [[self navigationController] setNavigationBarHidden: NO animated: YES];
@@ -84,35 +159,68 @@
 }
 */
 
-
+/**
+ * \brief Number of sections in table view (always 1)
+ * \param tableView UITableView that called this
+ * \return Number of sections
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
+  // Just one section.  Let 'em search.  Sorting would be a bitch since the db
+  // does not differentiate first/last names.
+  return 1;
 }
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
+/**
+ * \brief Number of rows in the selected section
+ *
+ * Returns number of all customers normally, or number of customers matching
+ * search terms if a search is active.
+ *
+ * \param tableView UITableView that called it
+ * \param section Section of table to enumerate
+ * \return Number of rows in selected section
+ */
+- (NSInteger)tableView:(UITableView *)tableView 
+             numberOfRowsInSection:(NSInteger)section {
+	NSLog(@"Table view section request");
+  if (tableView == self.tableView) {
+    // All results in admin view controller
     return self.allRows.count;
+  }
+  else {
+    // Search results from search view controller
+    return self.searchRows.count;
+  }
 }
 
 
-// Customize the appearance of table view cells.
+/**
+ * \brief Fill contents of specified table cell
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    NSLog(@"Section %d, row %d", indexPath.section, indexPath.row);
+  static NSString *CellIdentifier = @"Cell";
+  
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  if (cell == nil) {
+      cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+  }
+  
+  NSLog(@"Section %d, row %d", indexPath.section, indexPath.row);
 
-    cell.textLabel.text = [[self.allRows objectAtIndex: indexPath.row] objectForKey: @"name"];
-    cell.detailTextLabel.text = [[self.allRows objectAtIndex: indexPath.row] objectForKey: @"barcode"];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    return cell;
+	// Choose from all customers or search results based on requester.
+	NSDictionary *cellDict = nil;
+	if (tableView == self.tableView) {
+  	cellDict = [self.allRows objectAtIndex: indexPath.row];
+  }
+  else {
+  	cellDict = [self.searchRows objectAtIndex: indexPath.row];  
+  }
+
+  cell.textLabel.text = [cellDict objectForKey: @"name"];
+  cell.detailTextLabel.text = [cellDict objectForKey: @"barcode"];
+  cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+  
+  return cell;
 }
 
 

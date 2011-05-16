@@ -24,13 +24,17 @@
 #import <UIKit/UIKit.h>
 
 
-@interface userAdminVC : UITableViewController {
+@interface userAdminVC : UITableViewController <UISearchDisplayDelegate> {
 	NSString *dbFile;
   NSArray *allRows;
+  NSArray *searchRows;
+  UISearchBar *searchBar;
 }
 
 @property(nonatomic, retain) NSString *dbFile;
 @property(nonatomic, retain) NSArray *allRows;
+@property(nonatomic, retain) NSArray *searchRows;
+@property(nonatomic, retain) UISearchBar *searchBar;
 
 - (id)initWithStyle:(UITableViewStyle)style withDbFile: (NSString*)db;
 
