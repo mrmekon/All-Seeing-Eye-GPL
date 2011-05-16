@@ -33,11 +33,15 @@
 @implementation userAdminVC
 
 @synthesize dbFile;
+@synthesize allRows;
 
 - (id)initWithStyle:(UITableViewStyle)style withDbFile: (NSString*)db {
     self = [super initWithStyle:style];
     if (self) {
         self.dbFile = db;
+        mainAppDelegate *delegate = 
+          (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+        self.allRows = [delegate.customer allCustomersInDb: db];
     }
     return self;
 }
@@ -89,25 +93,25 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    mainAppDelegate *delegate = 
-      (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
-    int userCount = [delegate.customer countOfCustomersInDb: self.dbFile];
-    if (userCount < 0) userCount = 0;
-    return userCount;
+    return self.allRows.count;
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
+    NSLog(@"Section %d, row %d", indexPath.section, indexPath.row);
+
+    cell.textLabel.text = [[self.allRows objectAtIndex: indexPath.row] objectForKey: @"name"];
+    cell.detailTextLabel.text = [[self.allRows objectAtIndex: indexPath.row] objectForKey: @"barcode"];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }

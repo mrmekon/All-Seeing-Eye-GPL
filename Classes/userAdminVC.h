@@ -26,9 +26,11 @@
 
 @interface userAdminVC : UITableViewController {
 	NSString *dbFile;
+  NSArray *allRows;
 }
 
 @property(nonatomic, retain) NSString *dbFile;
+@property(nonatomic, retain) NSArray *allRows;
 
 - (id)initWithStyle:(UITableViewStyle)style withDbFile: (NSString*)db;
 

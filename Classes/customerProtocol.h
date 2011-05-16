@@ -48,6 +48,13 @@
 -(int)countOfCustomersInDb: (NSString*)dbFile;
 
 /**
+ * \brief Get all customers from the database
+ * \param dbFile Database to query
+ * \return Dictionary of all customers, with name as key and barcode as value
+ */
+-(NSArray*)allCustomersInDb: (NSString*)dbFile;
+
+/**
  * \brief Get customer name
  * \param dbFile Database to search
  * \param barcode Barcode number to match
