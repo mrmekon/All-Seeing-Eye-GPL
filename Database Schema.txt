@@ -9,7 +9,8 @@ CREATE TABLE customers (
   city TEXT,
   state TEXT,
   zipcode INTEGER,
-  referral_site TEXT
+  referral_site TEXT,
+  notes TEXT
 );
 CREATE UNIQUE INDEX customer_idx ON customers (barcode);
 

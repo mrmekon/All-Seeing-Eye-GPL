@@ -1935,15 +1935,15 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {904, 559}}";
 			sepNavSelRange = "{1199, 0}";
-			sepNavVisRange = "{85, 1269}";
+			sepNavVisRange = "{43, 1311}";
 		};
 	};
 	69D9F3EF13802A7600FC3B3B /* userAdminVC.m */ = {
 		uiCtxt = {
 			sepNavFolds = "{\n    c =     (\n                {\n            l = DetailViewController;\n            r = \"{11087, 24}\";\n            s = 1;\n        },\n                {\n            l = \"Nib name\";\n            r = \"{11137, 12}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 11794}\";\n    s = 0;\n}";
-			sepNavIntBoundsRect = "{{0, 0}, {904, 4628}}";
+			sepNavIntBoundsRect = "{{0, 0}, {904, 4641}}";
 			sepNavSelRange = "{2632, 0}";
-			sepNavVisRange = "{1887, 1505}";
+			sepNavVisRange = "{1949, 1443}";
 			sepNavWindowFrame = "{{15, 265}, {816, 608}}";
 		};
 	};
