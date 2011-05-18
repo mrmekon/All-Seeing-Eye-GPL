@@ -110,4 +110,13 @@
 -(NSString*)otherBonusFromDb:  (NSString*)dbFile 
             withBarcode: (NSString*)barcode 
             bonusIndex: (int)idx;
+            
+/**
+ * \brief Remove given customer
+ * \param barcode Barcode of customer to remove
+ * \param dbFile Database to search
+ * \return Whether customer was successfully removed
+ */
+-(BOOL)removeCustomerWithBarcode:(NSString*)barcode fromDb: (NSString*)dbFile;
+
 @end

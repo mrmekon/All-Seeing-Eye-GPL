@@ -37,5 +37,6 @@
 @property(nonatomic, retain) UISearchBar *searchBar;
 
 - (id)initWithStyle:(UITableViewStyle)style withDbFile: (NSString*)db;
+- (void)readRowsFromDb;
 
 @end

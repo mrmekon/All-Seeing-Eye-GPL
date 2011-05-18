@@ -73,12 +73,9 @@ NSInteger rowSort(id dict1, id dict2, void *context)
     self = [super initWithStyle:style];
     if (self) {
         self.dbFile = db;
-        mainAppDelegate *delegate = 
-          (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
-          
+
         // Get all customers from database and sort
-        self.allRows = [[delegate.customer allCustomersInDb: db]
-        	sortedArrayUsingFunction: rowSort context: nil];
+        [self readRowsFromDb];
         
         // Create a search bar, make it the table header
         self.searchBar = [[UISearchBar alloc] 
@@ -96,6 +93,57 @@ NSInteger rowSort(id dict1, id dict2, void *context)
     }
     return self;
 }
+
+- (void)readRowsFromDb {
+  mainAppDelegate *delegate = 
+    (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+  self.allRows = [[delegate.customer allCustomersInDb: self.dbFile]
+    sortedArrayUsingFunction: rowSort context: nil];
+}
+
+- (void)addEditButton {
+	UIBarButtonItem *buttonEdit = [[[UIBarButtonItem alloc] 
+    initWithBarButtonSystemItem:UIBarButtonSystemItemEdit 
+    target:self 
+    action:@selector(editButtonHandler:)] autorelease];
+	self.navigationItem.rightBarButtonItem = buttonEdit;
+}
+- (void)addDoneButton {
+	UIBarButtonItem *buttonDone = [[[UIBarButtonItem alloc] 
+    initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
+    target:self 
+    action:@selector(doneButtonHandler:)] autorelease];
+	self.navigationItem.rightBarButtonItem = buttonDone;
+}
+- (void)addPlusButton {
+  UIBarButtonItem *buttonPlus = [[[UIBarButtonItem alloc] 
+    initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+    target:self 
+    action:@selector(plusButtonHandler:)] autorelease];
+  self.navigationItem.leftBarButtonItem = buttonPlus;
+}
+- (void) clearPlusButton {
+	self.navigationItem.leftBarButtonItem = nil;
+}
+
+
+- (void)editButtonHandler:(id)sender {
+	[self setEditing: YES animated: YES];
+  [self addDoneButton];
+  [self addPlusButton];
+} 
+- (void)doneButtonHandler:(id)sender {
+	[self setEditing: NO animated: YES];
+  [self addEditButton];
+  [self clearPlusButton];
+} 
+- (void)plusButtonHandler:(id)sender {
+	//AdjectiveInputVC *inputVC = [[AdjectiveInputVC alloc] initWithStyle: UITableViewStyleGrouped];
+  //inputVC.delegate = self;
+  //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController: inputVC];
+  //[[self navigationController] presentModalViewController: nav animated:YES];
+} 
+
 
 /**
  * \brief Filter customers based on search terms
@@ -134,6 +182,7 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 -(void) viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
   [[self navigationController] setNavigationBarHidden: NO animated: YES];
+  [self addEditButton];
 }
 
 /*
@@ -232,20 +281,35 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 }
 */
 
-
-/*
 // Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tv 
+        commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
+        forRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (editingStyle != UITableViewCellEditingStyleDelete) {
+    return; // only support deletes
+  }
     
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
+  // Figure out which barcode we're deleting
+	NSDictionary *row = [self.allRows objectAtIndex: indexPath.row];
+  NSString *barcode = [row objectForKey: @"barcode"];
+  if (!barcode) {
+  	NSLog(@"Well that's a funny predicament.  Row has no barcode!");
+    return;
+  }
+  
+  // Delete it from the database
+  mainAppDelegate *delegate = 
+    (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+	[delegate.customer removeCustomerWithBarcode: barcode fromDb: self.dbFile];
+  
+  // Reread database
+  [self readRowsFromDb];
+  
+  // Animate deletion of row
+  [tv deleteRowsAtIndexPaths:[NSArray arrayWithObject: indexPath] 
+    withRowAnimation:UITableViewRowAnimationFade];
 }
-*/
+
 
 
 /*
@@ -268,7 +332,7 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
     /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    DetailViewController *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
