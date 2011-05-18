@@ -33,6 +33,7 @@
 #import "userAdminVC.h"
 #import "mainAppDelegate.h"
 #import "databaseManager.h"
+#import "userEntryVC.h"
 
 /**
  * \brief Sorts two rows (as dictionaries) by (guessed) last name
@@ -330,14 +331,10 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-    DetailViewController *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-    */
+  userEntryVC *entryVC = [[[userEntryVC alloc] 
+  	initWithStyle: UITableViewStyleGrouped
+    withDbFile: self.dbFile] autorelease];
+  [[self navigationController] pushViewController:entryVC animated:YES];
 }
 
 

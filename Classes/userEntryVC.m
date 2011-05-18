@@ -46,39 +46,58 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return SECTION_COUNT;
+  mainAppDelegate *delegate = 
+    (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+	NSArray *customerDef = [delegate.customer customerDefinition];
+  return [customerDef count]/2;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-  switch (section) {
-  case SECTION_UNIQUE_ID:
-    return 2;
-  case SECTION_CONTACT_INFO:
-    return 6;
-  case SECTION_EXTRA_INFO:
-    return 2;
-  case SECTION_NOTES:
-  	return 1;
-  }
-  NSLog(@"What's this?  Unknown section!  Get out of here, monkey!");
-  return 0;
+  // Return the number of rows in the section.
+  mainAppDelegate *delegate = 
+    (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+	NSArray *customerDef = [delegate.customer customerDefinition];
+  NSArray *sectionArray = [customerDef objectAtIndex: (section*2)+1];
+  return [sectionArray count];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger) section {
+  mainAppDelegate *delegate = 
+    (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+	NSArray *customerDef = [delegate.customer customerDefinition];
+  return [customerDef objectAtIndex: (section*2)];
+}
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+  mainAppDelegate *delegate = 
+    (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+	NSArray *customerDef = [delegate.customer customerDefinition];
+  
+  // Get the section array.  Index math because it's packed with descrition strings.
+  NSArray *section = [customerDef objectAtIndex: (indexPath.section*2)+1];
+  
+  // Get the row, a dictionary of metadata
+  NSDictionary *row = [section objectAtIndex: indexPath.row];
+  
+  // Get correct cell type for the field
+  NSString *cellID = [row objectForKey: @"cellType"];
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+  if (cell == nil) {
+    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellID] autorelease];
+  }
     
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    // Configure the cell...
-    
+  // Label cell
+  NSString *label = [row objectForKey: @"cellName"];
+  cell.textLabel.text = label;
+
+#if 0    
+  // Configure the cell...
+  cell.textLabel.text = @"Text Label";
+  cell.detailTextLabel.text = @"Detail text";
+#endif
     return cell;
 }
 

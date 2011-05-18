@@ -41,6 +41,39 @@
 @protocol customerProtocol
 
 /**
+ * \brief Return description of customer database
+ *
+ * Returns a deeply-nested data structure that defines the information
+ * stored in the customer database.  This data structure is used as the basis
+ * for creating and editing customer entries, and describes everything the
+ * application needs to display, get, and set customer info.
+ *
+ * The format of the data structure is as follows:
+ *
+ * The top-level returned object is an array of Section Names and Sections.  
+ * Sections define which fields should be grouped together when displayed.  
+ * For example, a "contact information" section might group the phone and
+ * street address.
+ *
+ * The top-level array alternates section name (NSString*), section (NSArray*),
+ * section name, section...  two entries per section.
+ *
+ * The section array contains a variable number of Row dictionaries.  Rows 
+ * represent a single piece of information about a customer, and map to a field
+ * in the database.
+ *
+ * The row dictionary keys can be:
+ *   - cellName  -- Name to display as cell label on UI
+ *   - cellType  -- Type of data represented
+ *   - dbTable   -- Name of table in db that stores this field
+ *   - dbField   -- Name of corresponding field in db's table
+ *   - required  -- Whether this field is required
+ * 
+ * \return Data structure representing customer database
+ */
+-(NSArray *)customerDefinition;
+
+/**
  * \brief Get number of registered customers
  * \param dbFile Database to search
  * \return Number of customers

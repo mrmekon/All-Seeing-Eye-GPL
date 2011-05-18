@@ -277,7 +277,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>6</integer>
+									<integer>9</integer>
 									<integer>5</integer>
 									<integer>4</integer>
 									<integer>0</integer>
@@ -321,7 +321,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>userAdminVC.h</string>
+								<string>userEntryVC.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,11 +329,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>userAdminVC.h</string>
+										<string>userEntryVC.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>69980EBC138353A400CE90A9</string>
+										<string>69980F811383843500CE90A9</string>
 										<key>history</key>
 										<array>
 											<string>69862B561367B988002E909B</string>
@@ -358,18 +358,20 @@
 											<string>69D9F4CC138040C200FC3B3B</string>
 											<string>69D9F4F11380439300FC3B3B</string>
 											<string>69D9F5761380B98200FC3B3B</string>
-											<string>69D9F5AA1380BC5800FC3B3B</string>
-											<string>69D9F5AB1380BC5800FC3B3B</string>
 											<string>69D9F5AC1380BC5800FC3B3B</string>
 											<string>69D9F5D31380BFFE00FC3B3B</string>
 											<string>69D9F6081380CD9200FC3B3B</string>
-											<string>69980E901382122200CE90A9</string>
-											<string>69980E911382122200CE90A9</string>
-											<string>69980E961383511700CE90A9</string>
-											<string>69980EAD138352F200CE90A9</string>
-											<string>69980EAE138352F200CE90A9</string>
-											<string>69980EBA138353A400CE90A9</string>
-											<string>69980EBB138353A400CE90A9</string>
+											<string>69980ECA1383682C00CE90A9</string>
+											<string>69980EDB13836C5600CE90A9</string>
+											<string>69980EDC13836C5600CE90A9</string>
+											<string>69980F0813837E5500CE90A9</string>
+											<string>69980F1F13837FC500CE90A9</string>
+											<string>69980F2113837FC500CE90A9</string>
+											<string>69980F3A138380A300CE90A9</string>
+											<string>69980F4B138380E200CE90A9</string>
+											<string>69980F5E138381AF00CE90A9</string>
+											<string>69980F711383832E00CE90A9</string>
+											<string>69980F721383832E00CE90A9</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -567,6 +569,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>69980F821383843500CE90A9</string>
 		<string>69980E56138208AE00CE90A9</string>
 		<string>69980E57138208AE00CE90A9</string>
 		<string>1CD10A99069EF8BA00B06720</string>
@@ -750,10 +753,10 @@
 									<key>Frame</key>
 									<string>{{451, 0}, {537, 301}}</string>
 									<key>RubberWindowFrame</key>
-									<string>304 185 988 609 0 0 1440 878 </string>
+									<string>75 164 988 609 0 0 1440 878 </string>
 								</dict>
 								<key>RubberWindowFrame</key>
-								<string>304 185 988 609 0 0 1440 878 </string>
+								<string>75 164 988 609 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugSessionModule</string>
@@ -787,7 +790,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
 			<key>WindowString</key>
-			<string>304 185 988 609 0 0 1440 878 </string>
+			<string>75 164 988 609 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
