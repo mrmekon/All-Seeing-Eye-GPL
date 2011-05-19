@@ -26,7 +26,9 @@
 
 @interface userEntryVC : UITableViewController {
 	NSString *dbFile;
-
+	NSString *barcode;
+  @private
+    NSMutableArray *content;
 }
 
 typedef enum {
@@ -39,7 +41,11 @@ typedef enum {
 } AdjectiveVCSections;
 
 @property(nonatomic, retain) NSString *dbFile;
+@property(nonatomic, retain) NSString *barcode;
+@property(nonatomic, retain) NSMutableArray *content;
 
-- (id)initWithStyle:(UITableViewStyle)style withDbFile: (NSString*)db;
+- (id)initWithStyle:(UITableViewStyle)style 
+      withDbFile: (NSString*)db
+      withBarcode: (NSString*)barcode;
 
 @end

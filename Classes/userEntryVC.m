@@ -30,17 +30,95 @@
 #import "mainAppDelegate.h"
 #import "databaseManager.h"
 
+@interface userEntryVC (PrivateMethods)
+- (NSMutableArray*)initContent;
+@end
 
 @implementation userEntryVC
 
 @synthesize dbFile;
+@synthesize barcode;
 
-- (id)initWithStyle:(UITableViewStyle)style withDbFile: (NSString*)db {
+/// Stores current content of the cells prior to writing back to database.
+/// Content is an array with one entry per section, each entry itself an 
+/// array with one entry per cell, each cell being an NSString.
+@synthesize content;
+
+/**
+ * \brief Initialize customer entry UI form
+ *
+ * \param style Valid iOS UITableView style
+ * \param db Database file to operate on
+ * \param barcode Barcode of customer to edit, or nil for new customer
+ * \return New instance of class
+ *
+ */
+- (id)initWithStyle:(UITableViewStyle)style 
+      withDbFile: (NSString*)db 
+      withBarcode: (NSString*)code {
   self = [super initWithStyle:style];
   if (self) {
       self.dbFile = db;
+      self.barcode = code;
+      self.content = [self initContent];
   }
   return self;
+}
+
+/**
+ * \brief Initialize array of unsaved customer data
+ *
+ * Data in all the cells needs to be stored in RAM before it is written out to
+ * the database, so it is stored in this oversized data structure.  This 
+ * initializes the data structure to an array of arrays of strings.  Outermost
+ * array represents sections of the UI, inner arrays represent cells, which 
+ * contain strings.
+ *
+ * Every cell is initialized to nil if creating a new customer.  If this is an
+ * existing customer, meaning the global 'barcode' variable is set, cells are
+ * filled with values from the database using the customerProtocol messages.
+ *
+ * \return Allocated arrays with customer data, or empty strings if new customer
+ */
+- (NSMutableArray*)initContent {
+	NSMutableArray *tmpContent; // what we're building
+  
+  mainAppDelegate *delegate = 
+    (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+	NSArray *customerDef = [delegate.customer customerDefinition];
+  int sectionCount = [customerDef count]/2;
+  
+  // Outer array has one entry per section
+	tmpContent = [NSMutableArray arrayWithCapacity: sectionCount];
+  
+  // Each section contains one string per cell
+  for (int i = 0; i < sectionCount; i++) {
+    NSArray *sectionArray = [customerDef objectAtIndex: (i*2)+1];
+    int cellCount = [sectionArray count];
+    NSMutableArray *tmpRows = [NSMutableArray arrayWithCapacity: cellCount];
+    
+    // Add one string per cell (fetch from DB if appropriate)
+    for (int j = 0; j < cellCount; j++) {
+    	// fuckin' high level languages... this can't be nil.
+    	NSString *cellContent = @"";
+      
+      if (self.barcode) {
+      	// get value from database
+	      NSDictionary *row = [sectionArray objectAtIndex: j];
+        NSString *dbContent = [delegate.customer 
+          getStringValueFromDb: self.dbFile
+          withBarcode: self.barcode
+          withFieldType: [row objectForKey: @"cellType"]
+          withTable: [row objectForKey: @"dbTable"]
+          withField: [row objectForKey: @"dbField"]
+        ];
+        if (dbContent) cellContent = dbContent;
+      }
+      [tmpRows addObject: cellContent];
+    }
+    [tmpContent addObject: tmpRows];
+  }
+  return tmpContent;
 }
 
 
@@ -72,30 +150,41 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
+  // All cells are text, so they can share an ID
+  NSString *cellID = @"textcell";
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+  if (cell == nil) {
+    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 
+      reuseIdentifier:cellID] autorelease];
+  }
+
+	// Get customer database definition
   mainAppDelegate *delegate = 
     (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
 	NSArray *customerDef = [delegate.customer customerDefinition];
   
-  // Get the section array.  Index math because it's packed with descrition strings.
+  // Get the section array.  Index math because it alternates descriptions
+  // and section arrays, so two elements in the array per section.
   NSArray *section = [customerDef objectAtIndex: (indexPath.section*2)+1];
   
   // Get the row, a dictionary of metadata
   NSDictionary *row = [section objectAtIndex: indexPath.row];
-  
-  // Get correct cell type for the field
-  NSString *cellID = [row objectForKey: @"cellType"];
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-  if (cell == nil) {
-    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellID] autorelease];
-  }
-    
+      
   // Label cell
   NSString *label = [row objectForKey: @"cellName"];
   cell.textLabel.text = label;
 
+#if 0
+  NSString *contents = [delegate.customer 
+    getStringValueFromDb: self.dbFile
+    withBarcode: barcode
+    withFieldType: (NSString*)type
+    withTable: (NSString*)table
+    withField: (NSString*)field];
+#endif
+	cell.detailTextLabel.text = [[self.content objectAtIndex: indexPath.section]
+    objectAtIndex: indexPath.row];
 #if 0    
-  // Configure the cell...
-  cell.textLabel.text = @"Text Label";
   cell.detailTextLabel.text = @"Detail text";
 #endif
     return cell;

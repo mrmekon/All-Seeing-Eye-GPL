@@ -33,6 +33,12 @@
  * can change without changing the frontend view.  It does, however, limit the
  * reward system to having levels, percent discounts, and monetary credits.
  *
+ * Certain information is mandatory (name, level, etc), but this protocol
+ * also provides mechanisms for adding additional information to each
+ * customer account, and generalizes it such that a UI implementing this
+ * protocol should be able to support fairly large customer descriptions.
+ * The generic system only supports 1-1 mappings, however.
+ *
  */
  
 #import <UIKit/UIKit.h>
@@ -72,6 +78,29 @@
  * \return Data structure representing customer database
  */
 -(NSArray *)customerDefinition;
+
+/**
+ * \brief Get a field value from the DB as a string
+ *
+ * Generic, abstract interface to fetch the value of any field from the 
+ * customer database using data that the UI can get by other customerProtocol
+ * queries.  Specifically, 'type','table', and 'field' should be a valid
+ * combination from a dictionary in customerDefinition.  Customer to query is
+ * determined by the barcode.
+ *
+ * \param dbFile Database file to search in
+ * \param barcode Barcode of customer to get information on
+ * \param type Type of field being queried (determines string formatting)
+ * \param table Table in database to query
+ * \param field Field in database to query
+ * \return String value of requested field.
+ *
+ */
+-(NSString*)getStringValueFromDb: (NSString*)dbFile
+            withBarcode: (NSString*)barcode
+            withFieldType: (NSString*)type
+            withTable: (NSString*)table
+            withField: (NSString*)field;
 
 /**
  * \brief Get number of registered customers

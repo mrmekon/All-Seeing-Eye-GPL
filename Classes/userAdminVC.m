@@ -331,9 +331,16 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSDictionary *row = [self.allRows objectAtIndex: indexPath.row];
+  NSString *barcode = [row objectForKey: @"barcode"];
+  if (!barcode) {
+  	NSLog(@"Well that's a funny predicament.  Row has no barcode!");
+    return;
+  }
   userEntryVC *entryVC = [[[userEntryVC alloc] 
   	initWithStyle: UITableViewStyleGrouped
-    withDbFile: self.dbFile] autorelease];
+    withDbFile: self.dbFile
+    withBarcode: barcode] autorelease];
   [[self navigationController] pushViewController:entryVC animated:YES];
 }
 
