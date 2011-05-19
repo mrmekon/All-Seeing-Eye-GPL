@@ -1,0 +1,51 @@
+ALL-SEEING EYE
+Copyright 2011 Trevor Bentley
+Licensed under GNU General Public License v3
+
+** Source Repository
+
+https://bitbucket.org/mrmekon/all-seeing-eye/
+
+** Summary
+
+All-Seeing Eye is an iOS application for restaurant/bar or other service 
+industry companies to use and manage a Customer Loyalty program.  Membership
+cards with unique barcodes are distributed to customers, and All-Seeing Eye
+is used to scan a customer's card at the POS to determine his or her earned
+benefits.
+
+All-Seeing Eye is developed for the Apple iPad 2, but is periodically tested
+and expected to function decently on an Apple iPhone or iPod Touch.
+
+All-Seeing Eye uses the ZBar barcode scanning library by Jeff Brown,
+which is licensed under the GNU LGPL v2.1.
+
+
+** User Interface
+
+All-Seeing Eye's user interface is split into two frames: a top frame that
+shows a live feed from the iPad/iPhone rear camera, and a bottom frame that
+shows customer information retrieved from a database after successfully
+scanning a barcode with the camera.
+
+
+** Customer Administration Interface
+
+Not designed yet.
+
+
+** More Information
+
+See source code and Doxygen documentation.
+
+
+** Developer contact information
+
+trevor@trevorbentley.com
+http://www.trevorbentley.com
+
+Twitter: @mrmekon
+LinkedIn: http://www.linkedin.com/in/trevorbentley
+Tumblr: http://mrmekon.tumblr.com
+Flickr: http://www.flickr.com/photos/mrmekon
+
