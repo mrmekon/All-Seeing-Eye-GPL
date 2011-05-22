@@ -27,7 +27,15 @@
  * main text, and the customer's barcode value is the smaller alternate 
  * description text.
  *
- * 
+ * User can select a customer to view and edit details about him/her.
+ *
+ * User can add new customers to the database, and delete existing ones.
+ *
+ * This view loads all of the database information into RAM for sorting and
+ * display, which means there is some unknown memory constraint on how many
+ * customers can be in the database without causing serious problems.  This
+ * is a known design limitation.
+ *
  */
  
 #import "userAdminVC.h"
@@ -70,8 +78,17 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 @synthesize searchRows;
 @synthesize searchBar;
 
-- (id)initWithStyle:(UITableViewStyle)style withDbFile: (NSString*)db {
-    self = [super initWithStyle:style];
+/**
+ * \brief Initialize a new instance with the given database
+ *
+ * Initializer stores the database, reads all the customers from the database,
+ * and creates a search bar and search controller.
+ *
+ * \param db Database file to administer
+ * \return Initialized instance of class 
+ */
+- (id)initWithDbFile: (NSString*)db {
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         self.dbFile = db;
 
@@ -95,6 +112,14 @@ NSInteger rowSort(id dict1, id dict2, void *context)
     return self;
 }
 
+/**
+ * \brief Reads names/barcodes of all customers from the database.
+ *
+ * Reads names/barcodes of all the customers, and stores them in a global
+ * variable that the cells will use to populate themselves.  They are 
+ * sorted by a guess at the last name (the last word of the name field).
+ *
+ */
 - (void)readRowsFromDb {
   mainAppDelegate *delegate = 
     (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -102,6 +127,9 @@ NSInteger rowSort(id dict1, id dict2, void *context)
     sortedArrayUsingFunction: rowSort context: nil];
 }
 
+/**
+ * \brief Add an 'edit' button to the navigation bar
+ */
 - (void)addEditButton {
 	UIBarButtonItem *buttonEdit = [[[UIBarButtonItem alloc] 
     initWithBarButtonSystemItem:UIBarButtonSystemItemEdit 
@@ -109,6 +137,10 @@ NSInteger rowSort(id dict1, id dict2, void *context)
     action:@selector(editButtonHandler:)] autorelease];
 	self.navigationItem.rightBarButtonItem = buttonEdit;
 }
+
+/**
+ * \brief Add a 'done' button to the navigation bar
+ */
 - (void)addDoneButton {
 	UIBarButtonItem *buttonDone = [[[UIBarButtonItem alloc] 
     initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
@@ -116,6 +148,10 @@ NSInteger rowSort(id dict1, id dict2, void *context)
     action:@selector(doneButtonHandler:)] autorelease];
 	self.navigationItem.rightBarButtonItem = buttonDone;
 }
+
+/**
+ * \brief Add a 'plus' button to the navigation bar
+ */
 - (void)addPlusButton {
   UIBarButtonItem *buttonPlus = [[[UIBarButtonItem alloc] 
     initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
@@ -123,21 +159,38 @@ NSInteger rowSort(id dict1, id dict2, void *context)
     action:@selector(plusButtonHandler:)] autorelease];
   self.navigationItem.leftBarButtonItem = buttonPlus;
 }
+
+/**
+ * \brief Remove 'plus' button to the navigation bar
+ */
 - (void) clearPlusButton {
 	self.navigationItem.leftBarButtonItem = nil;
 }
 
-
+/**
+ * \brief Put table in 'edit' mode, which allows insertion and deletion.
+ * \param sender View that sent this message (sent by button press)
+ */
 - (void)editButtonHandler:(id)sender {
 	[self setEditing: YES animated: YES];
   [self addDoneButton];
   [self addPlusButton];
 } 
+
+/**
+ * \brief End table's edit mode
+ * \param sender View that sent this message (sent by button press)
+ */
 - (void)doneButtonHandler:(id)sender {
 	[self setEditing: NO animated: YES];
   [self addEditButton];
   [self clearPlusButton];
-} 
+}
+
+/**
+ * \brief Jump to view that allows new customer to be created
+ * \param sender View that sent this message (sent by button press)
+ */ 
 - (void)plusButtonHandler:(id)sender {
 	//AdjectiveInputVC *inputVC = [[AdjectiveInputVC alloc] initWithStyle: UITableViewStyleGrouped];
   //inputVC.delegate = self;
@@ -167,14 +220,6 @@ NSInteger rowSort(id dict1, id dict2, void *context)
   return YES;
 }
 
-/*
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-*/
 
 /**
  * \brief Show navigation bar when view loads
@@ -186,28 +231,6 @@ NSInteger rowSort(id dict1, id dict2, void *context)
   [self addEditButton];
 }
 
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-*/
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations.
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 /**
  * \brief Number of sections in table view (always 1)
@@ -246,6 +269,14 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 
 /**
  * \brief Fill contents of specified table cell
+ *
+ * Given a section and row, returns a table cell with the content set to
+ * whatever information from the database is intended to be displayed at that
+ * location.
+ *
+ * \param tableView Table to create cell on
+ * \param indexPath Section and row of table to create cell on
+ * \return Cell with contents set correctly for its location
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *CellIdentifier = @"Cell";
@@ -255,8 +286,6 @@ NSInteger rowSort(id dict1, id dict2, void *context)
       cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
   }
   
-  NSLog(@"Section %d, row %d", indexPath.section, indexPath.row);
-
 	// Choose from all customers or search results based on requester.
 	NSDictionary *cellDict = nil;
 	if (tableView == self.tableView) {
@@ -274,15 +303,17 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-// Override to support editing the table view.
+/**
+ * \brief Delete a customer at the user's request
+ *
+ * Called when the 'delete' button is clicked in edit mode, this
+ * function deletes the customer from the database and updates the local
+ * copy of the database and the table display.
+ *
+ * \param tv Table view that this is acting on
+ * \param editingStyle What action is requested.  Only answers deletes.
+ * \param indexPath Section and row of cell to delete.
+ */
 - (void)tableView:(UITableView *)tv 
         commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
         forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -311,25 +342,15 @@ NSInteger rowSort(id dict1, id dict2, void *context)
     withRowAnimation:UITableViewRowAnimationFade];
 }
 
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-
+/**
+ * \brief Handle selection of a specific cell
+ *
+ * Performs the appropriate action when a cell is clicked, which is most likely
+ * displaying a new view that shows all of the selected customer's information.
+ *
+ * \param tableView Table view that has a selection
+ * \param indexPath Section and row of table view that was selected
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSDictionary *row = [self.allRows objectAtIndex: indexPath.row];
   NSString *barcode = [row objectForKey: @"barcode"];
@@ -344,21 +365,23 @@ NSInteger rowSort(id dict1, id dict2, void *context)
   [[self navigationController] pushViewController:entryVC animated:YES];
 }
 
-
-
+/**
+ * \brief Free memory usage if possible
+ */
 - (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
 }
 
+/**
+ * \brief Free memory usage if possible
+ */
 - (void)viewDidUnload {
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
 }
 
 
+/**
+ * \brief Deconstructor
+ */
 - (void)dealloc {
     [super dealloc];
 }

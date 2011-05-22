@@ -95,8 +95,7 @@
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
   NSString *dbFile = delegate.dbManager.databasePath;
   userAdminVC *adminController = [[[userAdminVC alloc] 
-  	initWithStyle: UITableViewStylePlain
-    withDbFile: dbFile] autorelease];
+  	initWithDbFile: dbFile] autorelease];
   [[self navigationController] pushViewController:adminController animated:YES];
   //[self presentModalViewController: adminController animated:YES];
 }

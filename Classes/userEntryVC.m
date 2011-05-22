@@ -23,12 +23,16 @@
 /**
  * \brief Customer entry form, for entering description of new customer
  *
- * 
+ * This is a table view that displays all of the information about a customer
+ * that is or will be stored in the database.  An administrator uses this
+ * view to create a new customer or change details about an existing customer.
+ *
  */
  
 #import "userEntryVC.h"
 #import "mainAppDelegate.h"
 #import "databaseManager.h"
+#import "textFieldInputVC.h"
 
 @interface userEntryVC (PrivateMethods)
 - (NSMutableArray*)initContent;
@@ -39,9 +43,9 @@
 @synthesize dbFile;
 @synthesize barcode;
 
-/// Stores current content of the cells prior to writing back to database.
-/// Content is an array with one entry per section, each entry itself an 
-/// array with one entry per cell, each cell being an NSString.
+// Stores current content of the cells prior to writing back to database.
+// Content is an array with one entry per section, each entry itself an 
+// array with one entry per cell, each cell being an NSString.
 @synthesize content;
 
 /**
@@ -121,7 +125,11 @@
   return tmpContent;
 }
 
-
+/**
+ * \brief Number of grouped sections to display.  Decided by customer definition.
+ * \param tableView Table view making request
+ * \return Number of sections.
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
   mainAppDelegate *delegate = 
@@ -130,7 +138,12 @@
   return [customerDef count]/2;
 }
 
-
+/**
+ * \brief Number of rows in given section.  Decided by customer definition.
+ * \param tableView Table view making request
+ * \param section Section to get row count of
+ * \return Number of rows.
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   // Return the number of rows in the section.
   mainAppDelegate *delegate = 
@@ -140,6 +153,12 @@
   return [sectionArray count];
 }
 
+/**
+ * \brief Title of given section
+ * \param tableView Table view making request
+ * \param section Section to get header for
+ * \return Text to use as header for section.
+ */
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger) section {
   mainAppDelegate *delegate = 
     (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -147,17 +166,28 @@
   return [customerDef objectAtIndex: (section*2)];
 }
 
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  
-  // All cells are text, so they can share an ID
-  NSString *cellID = @"textcell";
+/**
+ * \brief Get a reusable cell, or create one if none exists.
+ * \param tableView table view making request
+ * \param cellID Unique identifier of cell type
+ * \return A table view cell available for use
+ */
+- (UITableViewCell*)getReusableCellFromTable: (UITableView *)tableView 
+                    WithID: (NSString*)cellID {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
   if (cell == nil) {
     cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 
       reuseIdentifier:cellID] autorelease];
   }
+  return cell;
+}
 
+/**
+ * \brief Get metadata describing what information should be stored at given cell.
+ * \param indexPath Section and row of cell to get info for
+ * \return Dictionary from customerDefinition that describes this cell's data
+ */
+- (NSDictionary *)rowMetadataFromIndexPath: (NSIndexPath *)indexPath {
 	// Get customer database definition
   mainAppDelegate *delegate = 
     (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -169,53 +199,84 @@
   
   // Get the row, a dictionary of metadata
   NSDictionary *row = [section objectAtIndex: indexPath.row];
-      
-  // Label cell
-  NSString *label = [row objectForKey: @"cellName"];
-  cell.textLabel.text = label;
+  return row;
+}
 
-#if 0
-  NSString *contents = [delegate.customer 
-    getStringValueFromDb: self.dbFile
-    withBarcode: barcode
-    withFieldType: (NSString*)type
-    withTable: (NSString*)table
-    withField: (NSString*)field];
-#endif
+/**
+ * \brief Get cell filled with data for given location in table
+ * \param tableView table view making request
+ * \param indexPath Section and row of cell to fill
+ * \return Table view cell filled with correct information
+ */
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+  // All cells are text, so they can share an ID
+  UITableViewCell *cell = [self getReusableCellFromTable: tableView 
+    WithID: @"textcell"];
+
+	NSDictionary *row = [self rowMetadataFromIndexPath: indexPath];
+  
+  // Label cell
+  cell.textLabel.text = [row objectForKey: @"cellName"];
+  // Fill cell content
 	cell.detailTextLabel.text = [[self.content objectAtIndex: indexPath.section]
     objectAtIndex: indexPath.row];
-#if 0    
-  cell.detailTextLabel.text = @"Detail text";
-#endif
-    return cell;
+
+  return cell;
 }
 
+/**
+ * \brief Handle callback from a textFieldInputVC changing a cell's text
+ * \param textView the textFieldInputVC that fired this callback
+ * \param data Unique cell identifying data given to the text view
+ * \param text The new text input by the user
+ */
+- (void) textInputView: (textFieldInputVC*) textView 
+         withUserData: (id)data
+         updatedText: (NSString*)text {
+  NSIndexPath *indexPath = (NSIndexPath*)data;
+  NSLog(@"New text for cell (%d,%d): %@", indexPath.section, indexPath.row, text);
+}
 
+/**
+ * \brief Handle selection of a cell (launch view for editing cell)
+ * \param tableView Table view that caused this event
+ * \param indexPath Section and row of cell that was selected
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-    */
-}
-
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+  NSDictionary *row = [self rowMetadataFromIndexPath: indexPath];
+	NSString *cellContents = [[self.content objectAtIndex: indexPath.section]
+    objectAtIndex: indexPath.row];
     
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
+  // For text fields: textFieldInputVC
+  if ([row objectForKey:@"cellType"] == @"text") {
+    UITableViewController *nextView = [[[textFieldInputVC alloc] 
+      initWithExistingText: cellContents 
+      withUserData: indexPath] 
+      autorelease];
+    if (nextView != nil) {
+      [(textFieldInputVC*)nextView setDelegate: self];
+      [self.navigationController pushViewController: nextView animated:YES];
+    }    
+  }
 }
 
+/**
+ * \brief Try to free some memory
+ */
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+/**
+ * \brief Try to free some memory
+ */
 - (void)viewDidUnload {
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
 }
 
-
+/**
+ * \brief Deallocate object
+ */
 - (void)dealloc {
     [super dealloc];
 }

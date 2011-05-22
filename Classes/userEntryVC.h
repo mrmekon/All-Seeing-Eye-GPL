@@ -22,9 +22,9 @@
 ///\file
 
 #import <UIKit/UIKit.h>
+#import "textFieldInputVC.h"
 
-
-@interface userEntryVC : UITableViewController {
+@interface userEntryVC : UITableViewController <textInputVCProtocol> {
 	NSString *dbFile;
 	NSString *barcode;
   @private
@@ -40,8 +40,11 @@ typedef enum {
   SECTION_COUNT,
 } AdjectiveVCSections;
 
+/// Full path to database file
 @property(nonatomic, retain) NSString *dbFile;
+/// Barcode of the customer currently being created/viewed
 @property(nonatomic, retain) NSString *barcode;
+/// Local copy of all information about this customer from the database
 @property(nonatomic, retain) NSMutableArray *content;
 
 - (id)initWithStyle:(UITableViewStyle)style 

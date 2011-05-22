@@ -1,8 +1,8 @@
 //
-//  userAdminVC.h
+//  textFieldInputVC.h
 //  All-Seeing Eye
 //
-//  Created by Trevor Bentley on 5/15/11.
+//  Created by Trevor Bentley on 5/21/11.
 //  Copyright 2011 Trevor Bentley. All rights reserved.
 //
 //  This file is part of All-Seeing Eye.
@@ -21,26 +21,25 @@
 //  along with All-Seeing Eye.  If not, see <http://www.gnu.org/licenses/>.
 ///\file
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 
-@interface userAdminVC : UITableViewController <UISearchDisplayDelegate> {
-	NSString *dbFile;
-  NSArray *allRows;
-  NSArray *searchRows;
-  UISearchBar *searchBar;
+@interface textFieldInputVC : UITableViewController <UITextFieldDelegate> {
+  UITextField *textField;
+  id delegate;
+  id userData;
 }
+@property (nonatomic, retain) UITextField *textField;
+@property (nonatomic, retain) id delegate;
+@property (nonatomic, retain) id userData;
 
-/// Full path to database file
-@property(nonatomic, retain) NSString *dbFile;
-/// Local copy of names/barcodes of all customers in the database
-@property(nonatomic, retain) NSArray *allRows;
-/// Copy of customers in allRows who match the current search terms
-@property(nonatomic, retain) NSArray *searchRows;
-/// Search bar UI element
-@property(nonatomic, retain) UISearchBar *searchBar;
 
-- (id)initWithDbFile: (NSString*)db;
-- (void)readRowsFromDb;
+-(id) initWithExistingText: (NSString*)initText withUserData: (id)initUserData;
 
+@end
+
+@protocol textInputVCProtocol
+- (void) textInputView: (textFieldInputVC*) textView 
+         withUserData: (id)data
+         updatedText: (NSString*)text;
 @end
