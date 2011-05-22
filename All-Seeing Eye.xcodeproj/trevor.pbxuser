@@ -79,7 +79,7 @@
 			69980FE81384CDAA00CE90A9 /* userEntryVC.m:109 */,
 			6998103D138888AA00CE90A9 /* userEntryVC.m:253 */,
 			6998106C138889F600CE90A9 /* userEntryVC.m:253 */,
-			6998107113888A1F00CE90A9 /* textFieldInputVC.m:132 */,
+			6998107113888A1F00CE90A9 /* textFieldInputVC.m:165 */,
 		);
 		codeSenseManager = 695A90EE136276F000DB0A80 /* Code sense */;
 		executables = (
@@ -484,6 +484,9 @@
 			699811221388C57D00CE90A9 /* PBXTextBookmark */ = 699811221388C57D00CE90A9 /* PBXTextBookmark */;
 			699811231388C57D00CE90A9 /* PBXTextBookmark */ = 699811231388C57D00CE90A9 /* PBXTextBookmark */;
 			699811241388C57D00CE90A9 /* PBXTextBookmark */ = 699811241388C57D00CE90A9 /* PBXTextBookmark */;
+			6998112713899A5600CE90A9 /* PBXTextBookmark */ = 6998112713899A5600CE90A9 /* PBXTextBookmark */;
+			6998112813899A5600CE90A9 /* PBXTextBookmark */ = 6998112813899A5600CE90A9 /* PBXTextBookmark */;
+			6998112913899A5600CE90A9 /* PBXTextBookmark */ = 6998112913899A5600CE90A9 /* PBXTextBookmark */;
 			69D73F08136B48E8004380D6 = 69D73F08136B48E8004380D6 /* PBXTextBookmark */;
 			69D73F09136B48E8004380D6 = 69D73F09136B48E8004380D6 /* PBXBookmark */;
 			69D73F0A136B48E8004380D6 = 69D73F0A136B48E8004380D6 /* PBXBookmark */;
@@ -2848,16 +2851,16 @@
 	};
 	6998100E1388859900CE90A9 /* textFieldInputVC.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {904, 598}}";
-			sepNavSelRange = "{1005, 0}";
-			sepNavVisRange = "{194, 1233}";
+			sepNavIntBoundsRect = "{{0, 0}, {904, 858}}";
+			sepNavSelRange = "{2217, 0}";
+			sepNavVisRange = "{1006, 1212}";
 		};
 	};
 	6998100F1388859900CE90A9 /* textFieldInputVC.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {904, 2002}}";
-			sepNavSelRange = "{3423, 0}";
-			sepNavVisRange = "{3027, 856}";
+			sepNavIntBoundsRect = "{{0, 0}, {908, 2899}}";
+			sepNavSelRange = "{6498, 0}";
+			sepNavVisRange = "{5945, 623}";
 		};
 	};
 	69981013138886F900CE90A9 /* PBXTextBookmark */ = {
@@ -2965,7 +2968,7 @@
 		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
 		name = "textFieldInputVC.h: 38";
 		rLen = 19;
-		rLoc = 1277;
+		rLoc = 1450;
 		rType = 0;
 		vrLen = 1271;
 		vrLoc = 43;
@@ -2975,7 +2978,7 @@
 		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
 		name = "textFieldInputVC.h: 38";
 		rLen = 19;
-		rLoc = 1277;
+		rLoc = 1450;
 		rType = 0;
 		vrLen = 1271;
 		vrLoc = 43;
@@ -3013,7 +3016,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 31";
 		rLen = 47;
-		rLoc = 1917;
+		rLoc = 2159;
 		rType = 0;
 		vrLen = 1034;
 		vrLoc = 883;
@@ -3023,7 +3026,7 @@
 		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
 		name = "textFieldInputVC.h: 36";
 		rLen = 0;
-		rLoc = 1259;
+		rLoc = 1432;
 		rType = 0;
 		vrLen = 1155;
 		vrLoc = 189;
@@ -3062,7 +3065,7 @@
 		isa = PBXTextBookmark;
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		rLen = 0;
-		rLoc = 54;
+		rLoc = 60;
 		rType = 1;
 	};
 	69981064138889B600CE90A9 /* PBXTextBookmark */ = {
@@ -3070,7 +3073,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 35";
 		rLen = 0;
-		rLoc = 2138;
+		rLoc = 2380;
 		rType = 0;
 		vrLen = 1042;
 		vrLoc = 884;
@@ -3089,7 +3092,7 @@
 		isa = PBXTextBookmark;
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		rLen = 0;
-		rLoc = 54;
+		rLoc = 60;
 		rType = 1;
 	};
 	6998106A138889EE00CE90A9 /* PBXTextBookmark */ = {
@@ -3097,7 +3100,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 107";
 		rLen = 0;
-		rLoc = 4645;
+		rLoc = 5759;
 		rType = 0;
 		vrLen = 1245;
 		vrLoc = 2459;
@@ -3125,7 +3128,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 107";
 		rLen = 0;
-		rLoc = 4645;
+		rLoc = 5759;
 		rType = 0;
 		vrLen = 1245;
 		vrLoc = 2459;
@@ -3150,7 +3153,7 @@
 		vrLen = 1114;
 		vrLoc = 7214;
 	};
-	6998107113888A1F00CE90A9 /* textFieldInputVC.m:132 */ = {
+	6998107113888A1F00CE90A9 /* textFieldInputVC.m:165 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -3162,7 +3165,7 @@
 		functionName = "-tableView:cellForRowAtIndexPath:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 132;
+		lineNumber = 165;
 		location = "All-Seeing Eye";
 		modificationTime = 327721269.653553;
 		originalNumberOfMultipleMatches = 1;
@@ -3183,7 +3186,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 107";
 		rLen = 0;
-		rLoc = 4645;
+		rLoc = 5759;
 		rType = 0;
 		vrLen = 1244;
 		vrLoc = 2460;
@@ -3193,7 +3196,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 107";
 		rLen = 0;
-		rLoc = 4645;
+		rLoc = 5759;
 		rType = 0;
 		vrLen = 1244;
 		vrLoc = 2460;
@@ -3212,7 +3215,7 @@
 		isa = PBXTextBookmark;
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		rLen = 0;
-		rLoc = 131;
+		rLoc = 164;
 		rType = 1;
 	};
 	6998107A13888A4100CE90A9 /* PBXTextBookmark */ = {
@@ -3220,7 +3223,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 107";
 		rLen = 0;
-		rLoc = 4671;
+		rLoc = 5785;
 		rType = 0;
 		vrLen = 1175;
 		vrLoc = 2529;
@@ -3230,7 +3233,7 @@
 		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
 		name = "textFieldInputVC.h: 35";
 		rLen = 0;
-		rLoc = 1194;
+		rLoc = 1367;
 		rType = 0;
 		vrLen = 1057;
 		vrLoc = 264;
@@ -3260,7 +3263,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 32";
 		rLen = 0;
-		rLoc = 1931;
+		rLoc = 2173;
 		rType = 0;
 		vrLen = 1049;
 		vrLoc = 777;
@@ -3270,7 +3273,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 34";
 		rLen = 0;
-		rLoc = 2138;
+		rLoc = 2380;
 		rType = 0;
 		vrLen = 1013;
 		vrLoc = 853;
@@ -3280,7 +3283,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 104";
 		rLen = 0;
-		rLoc = 4573;
+		rLoc = 5687;
 		rType = 0;
 		vrLen = 988;
 		vrLoc = 2964;
@@ -3290,7 +3293,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 105";
 		rLen = 0;
-		rLoc = 4630;
+		rLoc = 5744;
 		rType = 0;
 		vrLen = 879;
 		vrLoc = 3077;
@@ -3300,7 +3303,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 106";
 		rLen = 0;
-		rLoc = 4671;
+		rLoc = 5785;
 		rType = 0;
 		vrLen = 988;
 		vrLoc = 2964;
@@ -3310,7 +3313,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 104";
 		rLen = 0;
-		rLoc = 4573;
+		rLoc = 5687;
 		rType = 0;
 		vrLen = 881;
 		vrLoc = 3077;
@@ -3320,7 +3323,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 104";
 		rLen = 0;
-		rLoc = 4573;
+		rLoc = 5687;
 		rType = 0;
 		vrLen = 740;
 		vrLoc = 3206;
@@ -3330,7 +3333,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 105";
 		rLen = 0;
-		rLoc = 4573;
+		rLoc = 5687;
 		rType = 0;
 		vrLen = 924;
 		vrLoc = 3077;
@@ -3351,7 +3354,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 0;
-		rLoc = 131;
+		rLoc = 164;
 		rType = 1;
 	};
 	6998109F13888DC300CE90A9 /* PBXTextBookmark */ = {
@@ -3359,7 +3362,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 105";
 		rLen = 0;
-		rLoc = 4573;
+		rLoc = 5687;
 		rType = 0;
 		vrLen = 817;
 		vrLoc = 3077;
@@ -3370,7 +3373,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 0;
-		rLoc = 131;
+		rLoc = 164;
 		rType = 1;
 	};
 	699810A113888DC700CE90A9 /* PBXTextBookmark */ = {
@@ -3378,7 +3381,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 105";
 		rLen = 0;
-		rLoc = 4573;
+		rLoc = 5687;
 		rType = 0;
 		vrLen = 817;
 		vrLoc = 3077;
@@ -3389,7 +3392,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 0;
-		rLoc = 131;
+		rLoc = 164;
 		rType = 1;
 	};
 	699810A313888DC800CE90A9 /* PBXTextBookmark */ = {
@@ -3397,7 +3400,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 105";
 		rLen = 0;
-		rLoc = 4573;
+		rLoc = 5687;
 		rType = 0;
 		vrLen = 1097;
 		vrLoc = 2898;
@@ -3407,7 +3410,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 105";
 		rLen = 0;
-		rLoc = 4573;
+		rLoc = 5687;
 		rType = 0;
 		vrLen = 1041;
 		vrLoc = 2964;
@@ -3417,7 +3420,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 104";
 		rLen = 0;
-		rLoc = 4573;
+		rLoc = 5687;
 		rType = 0;
 		vrLen = 898;
 		vrLoc = 2964;
@@ -3427,7 +3430,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 104";
 		rLen = 0;
-		rLoc = 4573;
+		rLoc = 5687;
 		rType = 0;
 		vrLen = 785;
 		vrLoc = 3077;
@@ -3437,7 +3440,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 104";
 		rLen = 0;
-		rLoc = 4633;
+		rLoc = 5747;
 		rType = 0;
 		vrLen = 785;
 		vrLoc = 3077;
@@ -3447,7 +3450,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 105";
 		rLen = 0;
-		rLoc = 4624;
+		rLoc = 5738;
 		rType = 0;
 		vrLen = 906;
 		vrLoc = 2964;
@@ -3457,7 +3460,7 @@
 		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
 		name = "textFieldInputVC.h: 35";
 		rLen = 0;
-		rLoc = 1194;
+		rLoc = 1367;
 		rType = 0;
 		vrLen = 1132;
 		vrLoc = 189;
@@ -3467,7 +3470,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 105";
 		rLen = 0;
-		rLoc = 4624;
+		rLoc = 5738;
 		rType = 0;
 		vrLen = 1015;
 		vrLoc = 2788;
@@ -3477,7 +3480,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 36";
 		rLen = 0;
-		rLoc = 2279;
+		rLoc = 2521;
 		rType = 0;
 		vrLen = 1298;
 		vrLoc = 521;
@@ -3487,7 +3490,7 @@
 		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
 		name = "textFieldInputVC.h: 39";
 		rLen = 19;
-		rLoc = 1277;
+		rLoc = 1450;
 		rType = 0;
 		vrLen = 1057;
 		vrLoc = 269;
@@ -3517,7 +3520,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 50";
 		rLen = 0;
-		rLoc = 1932;
+		rLoc = 2174;
 		rType = 0;
 		vrLen = 1318;
 		vrLoc = 1100;
@@ -3527,7 +3530,7 @@
 		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
 		name = "textFieldInputVC.h: 34";
 		rLen = 0;
-		rLoc = 1195;
+		rLoc = 1368;
 		rType = 0;
 		vrLen = 1094;
 		vrLoc = 194;
@@ -3577,7 +3580,7 @@
 		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
 		name = "textFieldInputVC.h: 34";
 		rLen = 0;
-		rLoc = 1195;
+		rLoc = 1368;
 		rType = 0;
 		vrLen = 1098;
 		vrLoc = 190;
@@ -3587,7 +3590,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 88";
 		rLen = 0;
-		rLoc = 3334;
+		rLoc = 3686;
 		rType = 0;
 		vrLen = 722;
 		vrLoc = 2640;
@@ -3597,7 +3600,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 87";
 		rLen = 0;
-		rLoc = 3275;
+		rLoc = 3627;
 		rType = 0;
 		vrLen = 752;
 		vrLoc = 2640;
@@ -3607,7 +3610,7 @@
 		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
 		name = "textFieldInputVC.h: 34";
 		rLen = 0;
-		rLoc = 1177;
+		rLoc = 1350;
 		rType = 0;
 		vrLen = 1192;
 		vrLoc = 194;
@@ -3617,7 +3620,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 98";
 		rLen = 0;
-		rLoc = 3341;
+		rLoc = 3693;
 		rType = 0;
 		vrLen = 794;
 		vrLoc = 2712;
@@ -3627,7 +3630,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 64";
 		rLen = 0;
-		rLoc = 2571;
+		rLoc = 2813;
 		rType = 0;
 		vrLen = 1242;
 		vrLoc = 1432;
@@ -3637,7 +3640,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 54";
 		rLen = 78;
-		rLoc = 1917;
+		rLoc = 2159;
 		rType = 0;
 		vrLen = 1193;
 		vrLoc = 1815;
@@ -3647,7 +3650,7 @@
 		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
 		name = "textFieldInputVC.h: 36";
 		rLen = 0;
-		rLoc = 1259;
+		rLoc = 1432;
 		rType = 0;
 		vrLen = 1122;
 		vrLoc = 269;
@@ -3657,7 +3660,7 @@
 		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
 		name = "textFieldInputVC.h: 36";
 		rLen = 0;
-		rLoc = 1259;
+		rLoc = 1432;
 		rType = 0;
 		vrLen = 1084;
 		vrLoc = 342;
@@ -3667,7 +3670,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 158";
 		rLen = 0;
-		rLoc = 5112;
+		rLoc = 6563;
 		rType = 0;
 		vrLen = 368;
 		vrLoc = 4658;
@@ -3696,7 +3699,7 @@
 		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
 		name = "textFieldInputVC.h: 36";
 		rLen = 79;
-		rLoc = 1180;
+		rLoc = 1353;
 		rType = 0;
 		vrLen = 1084;
 		vrLoc = 342;
@@ -3736,7 +3739,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 54";
 		rLen = 78;
-		rLoc = 1917;
+		rLoc = 2159;
 		rType = 0;
 		vrLen = 1193;
 		vrLoc = 1815;
@@ -3746,7 +3749,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 100";
 		rLen = 0;
-		rLoc = 3341;
+		rLoc = 3693;
 		rType = 0;
 		vrLen = 847;
 		vrLoc = 3008;
@@ -3756,7 +3759,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 100";
 		rLen = 0;
-		rLoc = 3341;
+		rLoc = 3693;
 		rType = 0;
 		vrLen = 847;
 		vrLoc = 3008;
@@ -3766,7 +3769,7 @@
 		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
 		name = "textFieldInputVC.h: 40";
 		rLen = 19;
-		rLoc = 1277;
+		rLoc = 1450;
 		rType = 0;
 		vrLen = 1157;
 		vrLoc = 269;
@@ -3816,7 +3819,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 99";
 		rLen = 0;
-		rLoc = 3423;
+		rLoc = 3899;
 		rType = 0;
 		vrLen = 811;
 		vrLoc = 3072;
@@ -3976,7 +3979,7 @@
 		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
 		name = "textFieldInputVC.m: 99";
 		rLen = 0;
-		rLoc = 3423;
+		rLoc = 3899;
 		rType = 0;
 		vrLen = 856;
 		vrLoc = 3027;
@@ -3990,6 +3993,36 @@
 		rType = 0;
 		vrLen = 1233;
 		vrLoc = 194;
+	};
+	6998112713899A5600CE90A9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6998100E1388859900CE90A9 /* textFieldInputVC.h */;
+		name = "textFieldInputVC.h: 64";
+		rLen = 0;
+		rLoc = 2217;
+		rType = 0;
+		vrLen = 1212;
+		vrLoc = 1006;
+	};
+	6998112813899A5600CE90A9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
+		name = "textFieldInputVC.m: 99";
+		rLen = 0;
+		rLoc = 3899;
+		rType = 0;
+		vrLen = 855;
+		vrLoc = 3027;
+	};
+	6998112913899A5600CE90A9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6998100F1388859900CE90A9 /* textFieldInputVC.m */;
+		name = "textFieldInputVC.m: 204";
+		rLen = 0;
+		rLoc = 6498;
+		rType = 0;
+		vrLen = 623;
+		vrLoc = 5945;
 	};
 	69D73EA8136A2840004380D6 /* COPYING */ = {
 		uiCtxt = {

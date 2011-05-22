@@ -29,8 +29,12 @@
   id delegate;
   id userData;
 }
+
+/// The editable text field within the displayed table cell
 @property (nonatomic, retain) UITextField *textField;
+/// Delegate implementing textInputVCProtocol
 @property (nonatomic, retain) id delegate;
+/// Identifier data passed back to delegate after an event occurs
 @property (nonatomic, retain) id userData;
 
 
@@ -39,6 +43,22 @@
 @end
 
 @protocol textInputVCProtocol
+/**
+ * \brief Protocol describing how textFieldInputVC informs delegate of text change
+ *
+ * A textFieldInputVC is created and displayed by another view.  That view 
+ * gets informed of changes to the text via the delegate callback methods
+ * specified in textInputVCProtocol.
+ *
+ * Expected usage is to have a view controller that implements 
+ * textInputVCProtocol.  It will create a textFieldInputVC view, set itself
+ * as the delegate, and push the text field view onto the view controller
+ * stack.  When the user is finished, the methods defined in this protocol
+ * will be called on the originating view.
+ *
+ */
+ 
+ 
 - (void) textInputView: (textFieldInputVC*) textView 
          withUserData: (id)data
          updatedText: (NSString*)text;

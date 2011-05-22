@@ -51,6 +51,12 @@
 @synthesize delegate;
 @synthesize userData;
 
+/**
+ * \brief Initialize view controller with existing text and identifying data
+ * \param initText Text to pre-fill text field with
+ * \param initUserData Data passed back to delegate.  Used to ID caller.
+ * \return Initialized instance
+ */
 -(id) initWithExistingText: (NSString*)initText withUserData: (id)initUserData {
 	if (self = [super initWithStyle: UITableViewStyleGrouped]) {
     self.textField = [[UITextField alloc] initWithFrame: CGRectMake(0,0,10,10)];
@@ -70,6 +76,9 @@
   return self;
 }
 
+/**
+ * \brief Add a cancel button to navigation controller
+ */
 - (void) addCancelButton {
   UIBarButtonItem *button = [[[UIBarButtonItem alloc] 
     initWithBarButtonSystemItem: UIBarButtonSystemItemCancel 
@@ -78,25 +87,27 @@
   self.navigationItem.leftBarButtonItem = button;
 }
 
+/**
+ * \brief Setup view and nav controller when loading
+ */
 - (void) viewDidLoad {
 	[super viewDidLoad];
   [self addCancelButton];
 }
 
-- (void) viewDidUnload {
-	[super viewDidUnload];
-}
 
-- (void) viewWillAppear: (BOOL) animated {
-	[super viewWillAppear: animated];
-}
-
+/**
+ * \brief Handle 'cancel' click -- pop off nav controller.
+ * \param sender View that sent the event (unused)
+ */
 - (void)cancelButtonHandler:(id)sender {
   [self.navigationController popViewControllerAnimated: YES];
 } 
 
 /**
  * \brief Handle 'done' button on keyboard by saving entered text and exiting.
+ * \param field Text field in question
+ * \return Always returns NO, but calls delegate and pops itself off nav controller.
  */
 - (BOOL)textFieldShouldReturn:(UITextField*) field {
 	NSString *content = [textField text];
@@ -107,19 +118,41 @@
   return NO;
 }
 
+/**
+ * \brief Number of sections (always 1)
+ * \param tableView Unused
+ * \return One, 1, uno.
+ */
 - (NSInteger)numberOfSectionsInTableView: (UITableView *)tableView {
   return 1;
 }
 
+/**
+ * \brief Number of rows in given section (always 1)
+ * \param tableView Unused
+ * \param section Section in question (unused)
+ * \return One, 1, uno.
+ */
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
 	return 1;
 }
 
+/**
+ * \brief Detect cell selection, and cancel it.
+ * \param tableView Table view that issued request.
+ * \param indexPath Section and row of cell selected.
+ */
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 
+/**
+ * \brief Get a reusable cell filled with contents
+ * \param tableView Table view in need of cell
+ * \param indexPath Location in table of cell to return
+ * \return Cell filled with text from global text field
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath { 
     static NSString *CellIdentifier = @"textFieldInputCell";
     
@@ -137,20 +170,38 @@
     return cell;
 }
 
+/**
+ * \brief Get section header (there aren't any)
+ * \param tableView unused
+ * \param section unused
+ * \return Always nil.
+ */
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger) section {
   return nil;
 }
 
+/**
+ * \brief Get section footer (there aren't any)
+ * \param tableView unused
+ * \param section unused
+ * \return Always nil.
+ */
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger) section {
 	return nil;
 }
 
 
+/**
+ * \brief Try to free up some ram
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 
+/**
+ * \brief Release memory
+ */
 - (void)dealloc {
 	[textField release];
 	[super dealloc];
