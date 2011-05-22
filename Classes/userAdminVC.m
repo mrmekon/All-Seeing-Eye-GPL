@@ -203,8 +203,8 @@ NSInteger rowSort(id dict1, id dict2, void *context)
  * \brief Filter customers based on search terms
  *
  * Filters the database of customers down to only those with name or barcode
- * matching the current search term.  It compares the search only to the start
- * of name/barcode, and is case and diacritic insensitive.  The sort order of
+ * matching the current search term.  It searches anywhere in the name or
+ * barcode, and is case and diacritic insensitive.  The sort order of
  * the original list will be maintained.
  *
  * \param controller ViewController that called
@@ -214,7 +214,7 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller 
         shouldReloadTableForSearchString:(NSString *)searchString {
   NSPredicate *predicate = [NSPredicate predicateWithFormat:
-    @"(name BEGINSWITH[cd] %@) || (barcode BEGINSWITH[cd] %@)", 
+    @"(name CONTAINS[cd] %@) || (barcode CONTAINS[cd] %@)", 
     searchString, searchString];
   self.searchRows = [self.allRows filteredArrayUsingPredicate: predicate];
   return YES;

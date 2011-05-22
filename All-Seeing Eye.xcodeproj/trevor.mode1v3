@@ -276,13 +276,14 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>31</integer>
-									<integer>30</integer>
+									<integer>9</integer>
+									<integer>3</integer>
+									<integer>2</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 20}, {218, 675}}</string>
+							<string>{{0, 81}, {218, 675}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -319,7 +320,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>README</string>
+								<string>userEntryVC.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,11 +328,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>README</string>
+										<string>userEntryVC.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>6998112D13899D6000CE90A9</string>
+										<string>6998114A1389A15600CE90A9</string>
 										<key>history</key>
 										<array>
 											<string>69862B561367B988002E909B</string>
@@ -345,8 +346,6 @@
 											<string>69D73F13136B48E8004380D6</string>
 											<string>69D73F14136B48E8004380D6</string>
 											<string>69D73F15136B48E8004380D6</string>
-											<string>69D73FEB136BCD47004380D6</string>
-											<string>69D740B0136FAF65004380D6</string>
 											<string>69D740B3136FAF65004380D6</string>
 											<string>69D9F4CC138040C200FC3B3B</string>
 											<string>69D9F4F11380439300FC3B3B</string>
@@ -365,14 +364,17 @@
 											<string>699811171388A8A300CE90A9</string>
 											<string>699811181388A8A300CE90A9</string>
 											<string>699811191388A8A300CE90A9</string>
-											<string>6998111A1388A8A300CE90A9</string>
 											<string>6998111B1388A8A300CE90A9</string>
 											<string>6998111C1388A8A300CE90A9</string>
-											<string>699811221388C57D00CE90A9</string>
 											<string>6998112713899A5600CE90A9</string>
-											<string>6998112A13899D6000CE90A9</string>
-											<string>6998112B13899D6000CE90A9</string>
-											<string>6998112C13899D6000CE90A9</string>
+											<string>6998113313899F0900CE90A9</string>
+											<string>6998113413899F0900CE90A9</string>
+											<string>6998113D1389A00100CE90A9</string>
+											<string>6998113E1389A00100CE90A9</string>
+											<string>699811461389A15600CE90A9</string>
+											<string>699811471389A15600CE90A9</string>
+											<string>699811481389A15600CE90A9</string>
+											<string>699811491389A15600CE90A9</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>

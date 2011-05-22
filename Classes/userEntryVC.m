@@ -227,6 +227,11 @@
 
 /**
  * \brief Handle callback from a textFieldInputVC changing a cell's text
+ *
+ * Called when the administrator presses 'done' after changing a text field,
+ * this replaces the text in the cell in RAM with the new value.  Nothing
+ * pushed to the DB yet.
+ *
  * \param textView the textFieldInputVC that fired this callback
  * \param data Unique cell identifying data given to the text view
  * \param text The new text input by the user
@@ -236,6 +241,10 @@
          updatedText: (NSString*)text {
   NSIndexPath *indexPath = (NSIndexPath*)data;
   NSLog(@"New text for cell (%d,%d): %@", indexPath.section, indexPath.row, text);
+  NSString *newVal = (text)?text:@""; // replace null with empty string
+  [[self.content objectAtIndex: indexPath.section] 
+    replaceObjectAtIndex:indexPath.row withObject:newVal];
+  [self.tableView reloadData];
 }
 
 /**
