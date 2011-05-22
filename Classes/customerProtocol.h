@@ -103,6 +103,31 @@
             withField: (NSString*)field;
 
 /**
+ * \brief Set a field value to the DB as a string
+ *
+ * Generic, abstract interface to set the value of any field from the 
+ * customer database using data that the UI can get by other customerProtocol
+ * queries.  Specifically, 'type','table', and 'field' should be a valid
+ * combination from a dictionary in customerDefinition.  Customer to query is
+ * determined by the barcode.
+ *
+ * \param text Text to set field to
+ * \param dbFile Database file to write to
+ * \param barcode Barcode of customer to modify
+ * \param type Type of field being queried (determines string formatting)
+ * \param table Table in database to query
+ * \param field Field in database to query
+ * \return String value of requested field.
+ *
+ */
+-(BOOL)setStringValue: (NSString*)text
+       toDb: (NSString*)dbFile
+       withBarcode: (NSString*)barcode
+       withFieldType: (NSString*)type
+       withTable: (NSString*)table
+       withField: (NSString*)field;
+  
+/**
  * \brief Get number of registered customers
  * \param dbFile Database to search
  * \return Number of customers

@@ -50,5 +50,6 @@ typedef enum {
 - (id)initWithStyle:(UITableViewStyle)style 
       withDbFile: (NSString*)db
       withBarcode: (NSString*)barcode;
+- (NSDictionary *)rowMetadataFromIndexPath: (NSIndexPath *)indexPath;
 
 @end

@@ -70,6 +70,77 @@
 }
 
 /**
+ * \brief Add a cancel button to navigation controller
+ */
+- (void) addCancelButton {
+  UIBarButtonItem *button = [[[UIBarButtonItem alloc] 
+    initWithBarButtonSystemItem: UIBarButtonSystemItemCancel 
+    target:self 
+    action:@selector(cancelButtonHandler:)] autorelease];
+  self.navigationItem.leftBarButtonItem = button;
+}
+
+/**
+ * \brief Add a 'save' button to the navigation bar
+ */
+- (void)addSaveButton {
+	UIBarButtonItem *buttonEdit = [[[UIBarButtonItem alloc] 
+    initWithBarButtonSystemItem:UIBarButtonSystemItemSave 
+    target:self 
+    action:@selector(saveButtonHandler:)] autorelease];
+	self.navigationItem.rightBarButtonItem = buttonEdit;
+}
+
+/**
+ * \brief Setup view and nav controller when loading
+ */
+- (void) viewDidLoad {
+	[super viewDidLoad];
+  [self addCancelButton];
+  [self addSaveButton];
+}
+
+/**
+ * \brief Handle 'cancel' click -- pop off nav controller.
+ * \param sender View that sent the event (unused)
+ */
+- (void)cancelButtonHandler:(id)sender {
+  [self.navigationController popViewControllerAnimated: YES];
+} 
+
+/**
+ * \brief Handle 'save' click -- save to DB and pop off nav controller.
+ *
+ * Writes out every currently stored cell value to its matching field in the
+ * database.  This writes fields even if they have not been modified, so it
+ * is currently fairly inefficient.
+ *
+ * \param sender View that sent the event (unused)
+ */
+- (void)saveButtonHandler:(id)sender {
+  if (!self.barcode) {
+    // Create customer first
+  }
+
+  mainAppDelegate *delegate = 
+    (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+  for (int i = 0; i < [self numberOfSectionsInTableView:self.tableView]; i++) {
+    for (int j = 0; j < [self tableView: self.tableView numberOfRowsInSection:i]; j++) {
+      NSIndexPath *idx = [NSIndexPath indexPathForRow:j inSection:i];
+      NSDictionary *dict = [self rowMetadataFromIndexPath: idx];
+      NSString *text = [[self.content objectAtIndex: i] objectAtIndex: j];
+      [delegate.customer setStringValue: text
+           toDb: self.dbFile
+           withBarcode: self.barcode
+           withFieldType: [dict objectForKey: @"cellType"]
+           withTable: [dict objectForKey: @"dbTable"]
+           withField: [dict objectForKey: @"dbField"]];
+    }  
+  }
+  [self.navigationController popViewControllerAnimated: YES];
+} 
+
+/**
  * \brief Initialize array of unsaved customer data
  *
  * Data in all the cells needs to be stored in RAM before it is written out to
@@ -240,8 +311,9 @@
          withUserData: (id)data
          updatedText: (NSString*)text {
   NSIndexPath *indexPath = (NSIndexPath*)data;
-  NSLog(@"New text for cell (%d,%d): %@", indexPath.section, indexPath.row, text);
   NSString *newVal = (text)?text:@""; // replace null with empty string
+  
+  // Write it to the cell data, and refresh table
   [[self.content objectAtIndex: indexPath.section] 
     replaceObjectAtIndex:indexPath.row withObject:newVal];
   [self.tableView reloadData];
