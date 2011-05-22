@@ -31,7 +31,24 @@ scanning a barcode with the camera.
 
 ** Customer Administration Interface
 
-Not designed yet.
+An alternate view is available for managing the customer database from within
+All-Seeing Eye.  The user enters administration mode by performing a two-
+fingered swipe on the screen while at the main interface.
+
+The administration view shows a table with all registered customers, sorted
+roughly by last name.  This table has a search bar to rapidly search by
+name or barcode.  The administrator can select a customer to view and edit
+detailed information, can push a button to add a new customer, or can enter
+the edit mode and subsequently delete customers.
+
+The customer detail page is launched by creating a new customer or clicking
+on an existing one.  This page shows all of the detailed information stored
+in the local database regarding a customer.  This includes things like name,
+barcode, contact information, and birth date.  The administrator can view
+and edit any of this information using the provided interface.
+
+When finished administering, the simply press the 'done' or 'back' buttons
+until you arrive back at the main barcode scanning interface.
 
 
 ** More Information
