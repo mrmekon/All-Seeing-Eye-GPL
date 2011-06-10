@@ -128,6 +128,17 @@
        withField: (NSString*)field;
   
 /**
+ * \brief Add new customer to database with given name and barcode value
+ * \param dbFile Full path to database file
+ * \param name Name of new customer
+ * \param barcode Barcode of new customer
+ * \return Yes for success
+ */
+-(BOOL)addCustomertoDb: (NSString*)dbFile 
+       withName: (NSString*)name
+       withBarcode: (NSString*)barcode;
+       
+/**
  * \brief Get number of registered customers
  * \param dbFile Database to search
  * \return Number of customers

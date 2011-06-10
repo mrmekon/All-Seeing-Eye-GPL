@@ -93,7 +93,7 @@ NSInteger rowSort(id dict1, id dict2, void *context)
         self.dbFile = db;
 
         // Get all customers from database and sort
-        [self readRowsFromDb];
+        //[self readRowsFromDb];
         
         // Create a search bar, make it the table header
         self.searchBar = [[UISearchBar alloc] 
@@ -196,6 +196,13 @@ NSInteger rowSort(id dict1, id dict2, void *context)
   //inputVC.delegate = self;
   //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController: inputVC];
   //[[self navigationController] presentModalViewController: nav animated:YES];
+  
+  userEntryVC *entryVC = [[[userEntryVC alloc] 
+  	initWithStyle: UITableViewStyleGrouped
+    withDbFile: self.dbFile
+    withBarcode: nil] autorelease];
+  [[self navigationController] pushViewController:entryVC animated:YES];
+  [self doneButtonHandler: sender];
 } 
 
 
@@ -229,6 +236,8 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 	[super viewWillAppear: animated];
   [[self navigationController] setNavigationBarHidden: NO animated: YES];
   [self addEditButton];
+  [self readRowsFromDb]; // re-read database
+  [self.tableView reloadData]; // and reload table with new data
 }
 
 

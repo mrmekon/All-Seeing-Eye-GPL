@@ -109,6 +109,45 @@
 } 
 
 /**
+ * \brief Creates a new customer in the database
+ *
+ * Searches all of the cells in RAM for the name and barcode values.  If they
+ * exist and are non-empty, writes them to the database.  This creates a new
+ * customer, but no other data is written yet.
+ *
+ * \return Yes if a customer was created.
+ */
+-(BOOL)createNewCustomer {
+	NSString *name = nil;
+  NSString *code = nil;
+  
+  /* Find name and barcode.  How many times does this data structure get 
+   * searched?  What idiot designed this? */
+  for (int i = 0; i < [self numberOfSectionsInTableView:self.tableView]; i++) {
+    for (int j = 0; j < [self tableView: self.tableView numberOfRowsInSection:i]; j++) {
+      NSIndexPath *idx = [NSIndexPath indexPathForRow:j inSection:i];
+      NSDictionary *dict = [self rowMetadataFromIndexPath: idx];
+      if ([dict objectForKey: @"cellName"] == @"name")
+      	name = [[self.content objectAtIndex: i] objectAtIndex: j];
+      else if ([dict objectForKey: @"cellName"] == @"barcode")
+      	code = [[self.content objectAtIndex: i] objectAtIndex: j];
+    }  
+  }
+  
+  if (!name || !code || name.length <= 0 || code.length <= 0) return NO;
+  
+  mainAppDelegate *delegate = 
+    (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+  if ([delegate.customer addCustomertoDb: self.dbFile 
+           withName: name
+           withBarcode: code]) {
+  	self.barcode = [NSString stringWithString: code];
+    return YES;         
+	}
+  return NO;
+}
+
+/**
  * \brief Handle 'save' click -- save to DB and pop off nav controller.
  *
  * Writes out every currently stored cell value to its matching field in the
@@ -119,7 +158,7 @@
  */
 - (void)saveButtonHandler:(id)sender {
   if (!self.barcode) {
-    // Create customer first
+    [self createNewCustomer];
   }
 
   mainAppDelegate *delegate = 
