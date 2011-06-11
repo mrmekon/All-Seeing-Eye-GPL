@@ -35,6 +35,7 @@
 #import "textFieldInputVC.h"
 #import "numberInputVC.h"
 #import "phoneInputVC.h"
+#import "dateInputVC.h"
 
 @interface userEntryVC (PrivateMethods)
 - (NSMutableArray*)initContent;
@@ -394,6 +395,19 @@
     replaceObjectAtIndex:indexPath.row withObject:newVal];
   [self.tableView reloadData]; 
 }
+
+- (void) dateInputView: (dateInputVC*) view 
+         withUserData: (id)data
+         updatedText: (NSString*)text {
+  NSIndexPath *indexPath = (NSIndexPath*)data;
+  NSString *newVal = (text)?text:@""; // replace null with empty string
+  
+  // Write it to the cell data, and refresh table
+  [[self.content objectAtIndex: indexPath.section] 
+    replaceObjectAtIndex:indexPath.row withObject:newVal];
+  [self.tableView reloadData]; 
+}
+
 /**
  * \brief Handle selection of a cell (launch view for editing cell)
  * \param tableView Table view that caused this event
@@ -434,6 +448,17 @@
       autorelease];
     if (nextView != nil) {
       [(phoneInputVC*)nextView setDelegate: self];
+      [self.navigationController pushViewController: nextView animated:YES];
+    }    
+  }
+  // For date fields: dateInputVC
+  else if ([row objectForKey:@"cellType"] == @"date") {
+    UITableViewController *nextView = [[[dateInputVC alloc] 
+      initWithExistingText: cellContents
+      withUserData: indexPath] 
+      autorelease];
+    if (nextView != nil) {
+      [(dateInputVC*)nextView setDelegate: self];
       [self.navigationController pushViewController: nextView animated:YES];
     }    
   }

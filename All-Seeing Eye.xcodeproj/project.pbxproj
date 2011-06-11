@@ -12,6 +12,9 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		693DB6E213A3BE3500DA9DE1 /* numberInputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 693DB6E113A3BE3500DA9DE1 /* numberInputVC.m */; };
+		693DB74F13A3D0E100DA9DE1 /* phoneInputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 693DB74E13A3D0E100DA9DE1 /* phoneInputVC.m */; };
+		693DB77713A4095800DA9DE1 /* dateInputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 693DB77613A4095800DA9DE1 /* dateInputVC.m */; };
 		69862B321367B80A002E909B /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69862B2C1367B80A002E909B /* libzbar.a */; };
 		69862B471367B83A002E909B /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 69862B461367B83A002E909B /* libiconv.dylib */; };
 		69862B8313685F4C002E909B /* codeScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 69862B8213685F4C002E909B /* codeScanner.m */; };
@@ -49,6 +52,12 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* All_Seeing_Eye_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = All_Seeing_Eye_Prefix.pch; sourceTree = "<group>"; };
+		693DB6E013A3BE3500DA9DE1 /* numberInputVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = numberInputVC.h; sourceTree = "<group>"; };
+		693DB6E113A3BE3500DA9DE1 /* numberInputVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = numberInputVC.m; sourceTree = "<group>"; };
+		693DB74D13A3D0E100DA9DE1 /* phoneInputVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phoneInputVC.h; sourceTree = "<group>"; };
+		693DB74E13A3D0E100DA9DE1 /* phoneInputVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = phoneInputVC.m; sourceTree = "<group>"; };
+		693DB77513A4095800DA9DE1 /* dateInputVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dateInputVC.h; sourceTree = "<group>"; };
+		693DB77613A4095800DA9DE1 /* dateInputVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dateInputVC.m; sourceTree = "<group>"; };
 		69862B191367B80A002E909B /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		69862B1A1367B80A002E909B /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		69862B1B1367B80A002E909B /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -271,6 +280,12 @@
 		69D9F3F113802A7F00FC3B3B /* Administration */ = {
 			isa = PBXGroup;
 			children = (
+				693DB77513A4095800DA9DE1 /* dateInputVC.h */,
+				693DB77613A4095800DA9DE1 /* dateInputVC.m */,
+				693DB74D13A3D0E100DA9DE1 /* phoneInputVC.h */,
+				693DB74E13A3D0E100DA9DE1 /* phoneInputVC.m */,
+				693DB6E013A3BE3500DA9DE1 /* numberInputVC.h */,
+				693DB6E113A3BE3500DA9DE1 /* numberInputVC.m */,
 				6998100E1388859900CE90A9 /* textFieldInputVC.h */,
 				6998100F1388859900CE90A9 /* textFieldInputVC.m */,
 				69D9F3EE13802A7600FC3B3B /* userAdminVC.h */,
@@ -361,6 +376,9 @@
 				69D9F3F013802A7600FC3B3B /* userAdminVC.m in Sources */,
 				69980EC1138356D500CE90A9 /* userEntryVC.m in Sources */,
 				699810101388859900CE90A9 /* textFieldInputVC.m in Sources */,
+				693DB6E213A3BE3500DA9DE1 /* numberInputVC.m in Sources */,
+				693DB74F13A3D0E100DA9DE1 /* phoneInputVC.m in Sources */,
+				693DB77713A4095800DA9DE1 /* dateInputVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
