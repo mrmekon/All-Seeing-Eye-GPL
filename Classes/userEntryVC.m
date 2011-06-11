@@ -33,6 +33,8 @@
 #import "mainAppDelegate.h"
 #import "databaseManager.h"
 #import "textFieldInputVC.h"
+#import "numberInputVC.h"
+#import "phoneInputVC.h"
 
 @interface userEntryVC (PrivateMethods)
 - (NSMutableArray*)initContent;
@@ -359,6 +361,40 @@
 }
 
 /**
+ * \brief Handle callback from a numberInputVC changing a cell's text
+ *
+ * Called when the administrator presses 'done' after changing a numerical
+ * field, this replaces the text in the cell in RAM with the new value.  
+ * Nothing pushed to the DB yet.
+ *
+ * \param view the numberInputVC that fired this callback
+ * \param data Unique cell identifying data given to the text view
+ * \param text The new text input by the user
+ */
+- (void) numberInputView: (numberInputVC*) view 
+         withUserData: (id)data
+         updatedNumber: (NSString*)text {
+  NSIndexPath *indexPath = (NSIndexPath*)data;
+  NSString *newVal = (text)?text:@""; // replace null with empty string
+  
+  // Write it to the cell data, and refresh table
+  [[self.content objectAtIndex: indexPath.section] 
+    replaceObjectAtIndex:indexPath.row withObject:newVal];
+  [self.tableView reloadData];         
+}
+
+- (void) phoneInputView: (phoneInputVC*) view 
+         withUserData: (id)data
+         updatedText: (NSString*)text {
+  NSIndexPath *indexPath = (NSIndexPath*)data;
+  NSString *newVal = (text)?text:@""; // replace null with empty string
+  
+  // Write it to the cell data, and refresh table
+  [[self.content objectAtIndex: indexPath.section] 
+    replaceObjectAtIndex:indexPath.row withObject:newVal];
+  [self.tableView reloadData]; 
+}
+/**
  * \brief Handle selection of a cell (launch view for editing cell)
  * \param tableView Table view that caused this event
  * \param indexPath Section and row of cell that was selected
@@ -376,6 +412,28 @@
       autorelease];
     if (nextView != nil) {
       [(textFieldInputVC*)nextView setDelegate: self];
+      [self.navigationController pushViewController: nextView animated:YES];
+    }    
+  }
+  // For numerical fields: numberInputVC
+  else if ([row objectForKey:@"cellType"] == @"number") {
+    UITableViewController *nextView = [[[numberInputVC alloc] 
+      initWithExistingNumber: cellContents
+      withUserData: indexPath] 
+      autorelease];
+    if (nextView != nil) {
+      [(numberInputVC*)nextView setDelegate: self];
+      [self.navigationController pushViewController: nextView animated:YES];
+    }    
+  }
+  // For phone fields: phoneInputVC
+  else if ([row objectForKey:@"cellType"] == @"phone") {
+    UITableViewController *nextView = [[[phoneInputVC alloc] 
+      initWithExistingText: cellContents
+      withUserData: indexPath] 
+      autorelease];
+    if (nextView != nil) {
+      [(phoneInputVC*)nextView setDelegate: self];
       [self.navigationController pushViewController: nextView animated:YES];
     }    
   }

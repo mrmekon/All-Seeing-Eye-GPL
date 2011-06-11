@@ -1,8 +1,8 @@
 //
-//  textFieldInputVC.m
+//  phoneInputVC.m
 //  All-Seeing Eye
 //
-//  Created by Trevor Bentley on 5/21/11.
+//  Created by Trevor Bentley on 6/11/11.
 //  Copyright 2011 Trevor Bentley. All rights reserved.
 //
 //  This file is part of All-Seeing Eye.
@@ -23,29 +23,12 @@
 /**
  * \brief Displays a single, editable text-field and keyboard.
  *
- * This is a full UITableViewController that displays a single cell with
- * an editable text field in it.  It has a permanently displayed
- * virtual keyboard, too.
- *
- * Expected usage is to have a table view that shows non-editable text fields.
- * When a user selects one of these fields, it creates a textFieldInputVC
- * view and shows it with animation.  The user enters or edits text data, and
- * then closes this view.  The launching view should then update its text
- * content with the result.
- *
- * This view is expected to be pushed on a navigation controller's stack, and
- * will subsequently pop itself off the stack when the user finishes.
- *
- * The header for this class also defines a protocol that it uses for returning
- * the result of the user's input.  A view that uses this class is expected
- * to implement textInputVCProtocol.
- *
  */
 
-#import "textFieldInputVC.h"
+#import "phoneInputVC.h"
 
 
-@implementation textFieldInputVC
+@implementation phoneInputVC
 
 @synthesize textField;
 @synthesize delegate;
@@ -65,6 +48,7 @@
     self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
     self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.textField.keyboardType = UIKeyboardTypePhonePad;
     self.textField.placeholder = @"";
     self.textField.text = initText;
     self.textField.delegate = self;
@@ -74,6 +58,20 @@
     self.userData = initUserData;
   }
   return self;
+}
+
+- (BOOL)textField:(UITextField *)textField 
+        shouldChangeCharactersInRange:(NSRange)range 
+        replacementString:(NSString *)string {
+	NSLog(@"Adding string: %@", string);
+  for (int i = 0; i < [string length]; i++) {
+  	char ch = [string characterAtIndex: i];
+  	if (!isdigit(ch) && ch != '(' && ch != ')' &&
+        ch != '-') {
+    	return NO;
+    }
+  }
+  return YES;
 }
 
 /**
@@ -111,7 +109,7 @@
  */
 - (BOOL)textFieldShouldReturn:(UITextField*) field {
 	NSString *content = [textField text];
-  [delegate textInputView: self
+  [delegate phoneInputView: self
        withUserData: self.userData
        updatedText: content];
   [self.navigationController popViewControllerAnimated: YES];
@@ -154,7 +152,7 @@
  * \return Cell filled with text from global text field
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath { 
-    static NSString *CellIdentifier = @"textFieldInputCell";
+    static NSString *CellIdentifier = @"phoneInputCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
