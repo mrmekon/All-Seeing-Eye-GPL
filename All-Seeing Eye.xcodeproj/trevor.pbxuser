@@ -2349,6 +2349,20 @@
 			sepNavVisRange = "{996, 1066}";
 		};
 	};
+	693DB98813C636FA00DA9DE1 /* DBAccountInfo.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {904, 452}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 644}";
+		};
+	};
+	693DB98913C636FA00DA9DE1 /* DBAccountInfo.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {904, 897}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 864}";
+		};
+	};
 	693DB99C13C636FA00DA9DE1 /* DropboxSDK.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {904, 452}}";

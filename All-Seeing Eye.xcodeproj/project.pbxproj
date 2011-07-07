@@ -61,6 +61,7 @@
 		693DBA0813C636FA00DA9DE1 /* db_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 693DB9DC13C636FA00DA9DE1 /* db_logo.png */; };
 		693DBA0913C636FA00DA9DE1 /* db_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 693DB9DD13C636FA00DA9DE1 /* db_logo@2x.png */; };
 		693DBA1D13C6385300DA9DE1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693DBA1C13C6385300DA9DE1 /* Security.framework */; };
+		693DBA2E13C6398400DA9DE1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 693DBA2D13C6398400DA9DE1 /* LICENSE */; };
 		69862B321367B80A002E909B /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69862B2C1367B80A002E909B /* libzbar.a */; };
 		69862B471367B83A002E909B /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 69862B461367B83A002E909B /* libiconv.dylib */; };
 		69862B8313685F4C002E909B /* codeScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 69862B8213685F4C002E909B /* codeScanner.m */; };
@@ -189,6 +190,7 @@
 		693DB9DC13C636FA00DA9DE1 /* db_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = db_logo.png; sourceTree = "<group>"; };
 		693DB9DD13C636FA00DA9DE1 /* db_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "db_logo@2x.png"; sourceTree = "<group>"; };
 		693DBA1C13C6385300DA9DE1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		693DBA2D13C6398400DA9DE1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		69862B191367B80A002E909B /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		69862B1A1367B80A002E909B /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		69862B1B1367B80A002E909B /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 		693DB98713C636FA00DA9DE1 /* DropboxSDK */ = {
 			isa = PBXGroup;
 			children = (
+				693DBA2D13C6398400DA9DE1 /* LICENSE */,
 				693DB98813C636FA00DA9DE1 /* DBAccountInfo.h */,
 				693DB98913C636FA00DA9DE1 /* DBAccountInfo.m */,
 				693DB98A13C636FA00DA9DE1 /* DBCreateAccountController.h */,
@@ -622,6 +625,7 @@
 				693DBA0713C636FA00DA9DE1 /* db_link_header@2x.png in Resources */,
 				693DBA0813C636FA00DA9DE1 /* db_logo.png in Resources */,
 				693DBA0913C636FA00DA9DE1 /* db_logo@2x.png in Resources */,
+				693DBA2E13C6398400DA9DE1 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
