@@ -331,7 +331,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>693DB7E613A413FE00DA9DE1</string>
+										<string>693DB92013C6034A00DA9DE1</string>
 										<key>history</key>
 										<array>
 											<string>69862B561367B988002E909B</string>
@@ -346,41 +346,41 @@
 											<string>69D73F14136B48E8004380D6</string>
 											<string>69D73F15136B48E8004380D6</string>
 											<string>69D740B3136FAF65004380D6</string>
-											<string>69D9F4CC138040C200FC3B3B</string>
 											<string>69D9F4F11380439300FC3B3B</string>
 											<string>69D9F5761380B98200FC3B3B</string>
 											<string>69D9F5AC1380BC5800FC3B3B</string>
-											<string>69980F1F13837FC500CE90A9</string>
 											<string>69980FB71384C9AF00CE90A9</string>
 											<string>6998101C1388870100CE90A9</string>
 											<string>6998101D1388870100CE90A9</string>
 											<string>6998101E1388870100CE90A9</string>
-											<string>699811171388A8A300CE90A9</string>
 											<string>6998111B1388A8A300CE90A9</string>
 											<string>6998113313899F0900CE90A9</string>
 											<string>6998113413899F0900CE90A9</string>
 											<string>699811471389A15600CE90A9</string>
 											<string>699811481389A15600CE90A9</string>
-											<string>699811971389B56B00CE90A9</string>
 											<string>699812CC13A050F200CE90A9</string>
 											<string>699812CD13A050F200CE90A9</string>
 											<string>6998131013A1274E00CE90A9</string>
-											<string>693DB6E513A3BF7600DA9DE1</string>
 											<string>693DB6E613A3BF7600DA9DE1</string>
-											<string>693DB6E713A3BF7600DA9DE1</string>
-											<string>693DB6E813A3BF7600DA9DE1</string>
 											<string>693DB73A13A3C58000DA9DE1</string>
 											<string>693DB73C13A3C58000DA9DE1</string>
 											<string>693DB76013A3D2D800DA9DE1</string>
 											<string>693DB7A013A40E6700DA9DE1</string>
 											<string>693DB7A313A40E6700DA9DE1</string>
-											<string>693DB7A413A40E6700DA9DE1</string>
 											<string>693DB7A513A40E6700DA9DE1</string>
 											<string>693DB7A713A40E6700DA9DE1</string>
 											<string>693DB7D513A4123600DA9DE1</string>
-											<string>693DB7D613A4123600DA9DE1</string>
-											<string>693DB7E413A413FE00DA9DE1</string>
-											<string>693DB7E513A413FE00DA9DE1</string>
+											<string>693DB7EE13A4169400DA9DE1</string>
+											<string>693DB7EF13A4169400DA9DE1</string>
+											<string>693DB7F213A4169400DA9DE1</string>
+											<string>693DB80513A41A0300DA9DE1</string>
+											<string>693DB89913C54BEA00DA9DE1</string>
+											<string>693DB89A13C54BEA00DA9DE1</string>
+											<string>693DB89C13C54BEA00DA9DE1</string>
+											<string>693DB89D13C54BEA00DA9DE1</string>
+											<string>693DB91213C5543500DA9DE1</string>
+											<string>693DB91E13C6034A00DA9DE1</string>
+											<string>693DB91F13C6034A00DA9DE1</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -578,12 +578,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>693DB7E713A413FE00DA9DE1</string>
 		<string>69E7A9C5136382C10020A229</string>
 		<string>693DB6F213A3BF7600DA9DE1</string>
 		<string>693DB6F313A3BF7600DA9DE1</string>
-		<string>695A90EB136276F000DB0A80</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>695A90EB136276F000DB0A80</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/trevor/Documents/Cocoa Projects/All-Seeing Eye/All-Seeing Eye.xcodeproj</string>
 	</array>
@@ -609,7 +608,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>numberInputVC.m</string>
+								<string>customerInfoView.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -804,7 +803,7 @@
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

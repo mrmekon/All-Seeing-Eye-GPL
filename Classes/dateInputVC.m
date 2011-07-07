@@ -57,7 +57,7 @@
     if (initText && [initText length] > 0) {
       NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier: @"en_US"];
       NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-      [dateFormatter setDateFormat: @"MM-dd-yyyy"];
+      [dateFormatter setDateFormat: @"MM/dd/yyyy"];
       [dateFormatter setLocale: usLocale];
       NSDate *startdate = [dateFormatter dateFromString: initText];
       if (startdate)
@@ -112,7 +112,7 @@
 - (void)doneButtonHandler:(id)sender {
   NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier: @"en_US"];
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-  [dateFormatter setDateFormat: @"MM-dd-yyyy"];
+  [dateFormatter setDateFormat: @"MM/dd/yyyy"];
   [dateFormatter setLocale: usLocale];
   
   [delegate dateInputView: self

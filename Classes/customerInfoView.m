@@ -36,9 +36,17 @@
 #import "customerInfoView.h"
 #import "mainAppDelegate.h"
 
+@interface customerInfoView (PrivateMethods)
+- (void)displayInvalidScanNotification;
+@end
+
+@interface customerInfoView () 
+@property (nonatomic, retain) NSMutableDictionary *currentScan;
+@end
+
 @implementation customerInfoView
 
-@synthesize name;
+@synthesize currentScan;
 
 /**
  * \brief Initialize view to given size
@@ -59,7 +67,8 @@
             selector: @selector(newScanHandler:) 
             name:@"ASE_BarcodeScanned" 
             object: nil];
-    self.name = @"Peterman Von Helsingnator";
+    self.currentScan = [NSMutableDictionary dictionaryWithCapacity: 10];
+    [self.currentScan setObject:@"No Scan" forKey:@"name"];
 	}
   return self;
 }
@@ -89,13 +98,39 @@
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
   NSString *barcode = delegate.scanner.lastCode;
   NSString *dbFile = delegate.dbManager.databasePath;
-  
-  self.name = [NSString stringWithString: barcode];
-  self.name = [delegate.customer customerFromDb: dbFile withBarcode: barcode];
+
+  NSString *name = [delegate.customer customerFromDb: dbFile 
+                                      withBarcode: barcode];
+  if (name)
+    [self.currentScan setObject:name forKey:@"name"];
+
+  if (!name || [name length] == 0) {
+  	[self displayInvalidScanNotification];
+  }
+  else {
+    NSNumber *tmp = nil;
+    [self.currentScan setObject:barcode forKey:@"barcode"];
+    tmp = [NSString stringWithFormat: @"%d", [delegate.customer 
+      levelFromDb: dbFile withBarcode: barcode]];
+    if (tmp)
+      [self.currentScan setObject:tmp  forKey:@"level"];
+    tmp = [NSString stringWithFormat: @"%d", [delegate.customer 
+      discountFromDb: dbFile withBarcode: barcode]];
+    if (tmp)
+      [self.currentScan setObject:tmp  forKey:@"discount"];
+    tmp = [NSString stringWithFormat: @"%d", [delegate.customer 
+      creditFromDb: dbFile withBarcode: barcode]];
+    if (tmp)
+      [self.currentScan setObject:tmp  forKey:@"credit"];
+  }
   
   [self performSelectorOnMainThread: @selector(redrawScreen)
         withObject: nil
         waitUntilDone: NO];
+}
+
+- (void)displayInvalidScanNotification {
+	[self.currentScan setObject:@"No account found!" forKey:@"name"];
 }
 
 /**
@@ -117,7 +152,58 @@
  *
  */
 - (void)drawRect:(CGRect)rect {
-  [self drawCenteredText: self.name y: 30];
+  [self drawCenteredText: [self.currentScan objectForKey:@"name"] y: 30];
+  
+  NSString *barcode = [self.currentScan objectForKey:@"barcode"];
+  if (barcode) {
+    NSString *temp = [[@"Barcode:" stringByPaddingToLength: 15 
+                                   withString:@" " 
+                                   startingAtIndex: 0] 
+                      stringByAppendingString: barcode];
+    [self drawLeftJustifiedText: temp y: 150];
+  }
+  
+  NSString *level = [self.currentScan objectForKey:@"level"];
+  if (level) {
+    NSString *temp = [[@"Level:" stringByPaddingToLength: 15 
+                                 withString:@" " 
+                                 startingAtIndex: 0] 
+                      stringByAppendingString: level];
+    [self drawLeftJustifiedText: temp y: 200];
+  }
+  
+  NSString *discount = [self.currentScan objectForKey:@"discount"];
+  if (level) {
+    NSString *temp = [[[@"Discount:" stringByPaddingToLength: 15 
+                                 withString:@" " 
+                                 startingAtIndex: 0] 
+                      stringByAppendingString: discount]
+                      stringByAppendingString: @"%"];
+    [self drawLeftJustifiedText: temp y: 250];
+  }
+  
+  NSString *credit = [self.currentScan objectForKey:@"credit"];
+  if (credit) {
+    NSString *temp = [[[@"Credit:" stringByPaddingToLength: 15 
+                                 withString:@" " 
+                                 startingAtIndex: 0] 
+                      stringByAppendingString: @"$"]
+                      stringByAppendingString: credit];
+    [self drawLeftJustifiedText: temp y: 300];
+  }
+
+}
+
+- (NSString*)labelKey:(NSString*)key withLabel:(NSString*)label {
+  NSString *val = [self.currentScan objectForKey:key];
+  NSString *temp = nil;
+  if (val) {
+    temp = [[label stringByPaddingToLength: 15 
+                                 withString:@" " 
+                                 startingAtIndex: 0] 
+                      stringByAppendingString: val];
+  }
+  return temp;
 }
 
 /**
@@ -128,8 +214,20 @@
  *
  */
 -(void) drawCenteredText: (NSString*)str y: (int)y {
-  UIImage *img = [self imageFromText: str];
+  UIImage *img = [self imageFromText: str withMaxFontSize: 55.0];
   [self drawCenteredImage: img y: y];
+}
+
+/**
+ * \brief Draw left-justified text at the given y-coordinate
+ *
+ * \param str Text to draw on screen
+ * \param y y coordinate to draw text
+ *
+ */
+-(void) drawLeftJustifiedText: (NSString*)str y: (int)y {
+  UIImage *img = [self imageFromText: str withMaxFontSize: 40.0];
+  [self drawLeftJustifiedImage: img y: y];
 }
 
 /**
@@ -147,6 +245,19 @@
 }
 
 /**
+ * \brief Draws an image on the view, left-justified, at given y-coordinate.
+ *
+ * \param img Image to draw in view
+ * \param y y coordinate to draw image
+ *
+ */
+-(void) drawLeftJustifiedImage:(UIImage*)img y: (int)y {
+  int x_offset = 20;
+  CGRect r = CGRectMake(x_offset, y, img.size.width, img.size.height);
+	[img drawInRect: r];
+}
+
+/**
  * \brief Creates an image containing the given text
  *
  * Given a string, this creates an image containing the text with a glowing
@@ -159,13 +270,13 @@
  * \return Image containing formatted text
  *
  */
--(UIImage *)imageFromText:(NSString *)text
+-(UIImage *)imageFromText:(NSString *)text withMaxFontSize: (float)maxFont
 {
 	/* Set font and calculate size */
   CGSize screenSize = [[UIScreen mainScreen] bounds].size;
   
   /* Set min/max font sizes */
-  float desiredFontSize = 50.0;
+  float desiredFontSize = maxFont;
   float minimumFontSize = 10.0;
   
   //UIFont *font = [UIFont systemFontOfSize: desiredFontSize];  
@@ -187,7 +298,7 @@
                               CGSizeMake(0.0, 0.0), // (x,y) offset
                               6.0, // blur amount
                               [[UIColor whiteColor] CGColor]);
-
+  NSLog(@"Desired size: %f", desiredFontSize);
 	/* Draw text into image context */
   [text drawAtPoint: CGPointMake(0.0, 0.0) 
         forWidth: (screenSize.width * 0.80)
@@ -196,7 +307,7 @@
         actualFontSize: &desiredFontSize
         lineBreakMode: UILineBreakModeTailTruncation
         baselineAdjustment: UIBaselineAdjustmentAlignBaselines];
-	
+	NSLog(@"Actual size: %f", desiredFontSize);
   /* Produce image from context */
   UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
 
