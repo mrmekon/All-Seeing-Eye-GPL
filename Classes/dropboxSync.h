@@ -24,8 +24,14 @@
 #import <Foundation/Foundation.h>
 #import "DropboxSDK.h"
 
-@interface dropboxSync : NSObject <DBSessionDelegate> {
-
+@interface dropboxSync : NSObject <DBSessionDelegate, DBLoginControllerDelegate, DBRestClientDelegate> {
+  DBRestClient *restClient;
 }
+
+@property (nonatomic, retain) DBRestClient *restClient;
+
+-(BOOL)openDropboxSession;
+
+-(void)writeDatabaseToDropbox: (NSString*)localPath;
 
 @end

@@ -39,6 +39,7 @@
 @synthesize viewController;
 @synthesize scanner;
 @synthesize dbManager;
+@synthesize dropbox;
 @synthesize customer;
 @synthesize newDatabaseFileUrl;
 
@@ -52,10 +53,15 @@
     self.scanner = [[codeScanner alloc] init];
     self.dbManager = [[databaseManager alloc] initWithFile: @"database.sql"];
     self.customer = [[aitunesCustomer alloc] init];
-        
+    self.dropbox = [[dropboxSync alloc] init];
+                
     [self.window addSubview:navController.view];
     [self.window makeKeyAndVisible];
     [scanner simulatorDebug];
+
+    [self.dropbox openDropboxSession];
+      
+
     return YES;
 }
 

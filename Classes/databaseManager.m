@@ -117,7 +117,8 @@
   }  
   
   /* Copy new database to user's Documents */
-  [fileManager copyItemAtPath: url.absoluteString toPath: self.databasePath error: &err];
+  //[fileManager copyItemAtPath: url.absoluteString toPath: self.databasePath error: &err];
+  [fileManager copyItemAtPath: url.path toPath: self.databasePath error: &err];
   if (err != nil) {
   	NSLog(@"Copy error: %@", [err localizedDescription]);
     return NO;

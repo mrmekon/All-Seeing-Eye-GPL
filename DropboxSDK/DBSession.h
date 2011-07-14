@@ -31,6 +31,8 @@ extern NSString* kDBDropboxAPIVersion;
 - (void)updateAccessToken:(NSString*)token accessTokenSecret:(NSString*)secret;
 - (void)unlink;
 
+- (NSDictionary*)savedCredentials;
+
 @property (nonatomic, readonly) MPOAuthCredentialConcreteStore* credentialStore;
 @property (nonatomic, assign) id<DBSessionDelegate> delegate;
 

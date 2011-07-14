@@ -26,6 +26,7 @@
 #import "codeScanner.h"
 #import "databaseManager.h"
 #import "customerProtocol.h"
+#import "dropboxSync.h"
 
 @interface mainAppDelegate : NSObject <UIApplicationDelegate, UIAlertViewDelegate> {
     UIWindow *window;
@@ -33,6 +34,7 @@
     mainViewController *viewController;
     codeScanner *scanner;
     databaseManager *dbManager;
+    dropboxSync *dropbox;
     id <customerProtocol> customer;
     NSURL *newDatabaseFileUrl;
 }
@@ -47,6 +49,8 @@
 @property (nonatomic, retain) codeScanner *scanner;
 /// Application's global database manager
 @property (nonatomic, retain) databaseManager *dbManager;
+/// Application's dropbox synchronization manager
+@property (nonatomic, retain) dropboxSync *dropbox;
 /// Class instance that handles getting customer info from database
 @property (nonatomic, retain) id <customerProtocol> customer;
 /// URL of new database file from external application

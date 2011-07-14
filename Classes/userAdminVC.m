@@ -42,6 +42,7 @@
 #import "mainAppDelegate.h"
 #import "databaseManager.h"
 #import "userEntryVC.h"
+#import "dropboxSync.h"
 
 /**
  * \brief Sorts two rows (as dictionaries) by (guessed) last name
@@ -240,6 +241,22 @@ NSInteger rowSort(id dict1, id dict2, void *context)
   [self.tableView reloadData]; // and reload table with new data
 }
 
+/**
+ * \brief Write database to dropbox when editing is done
+ * \param animated Whether view disappearance will animate
+ */
+-(void) viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear: animated];
+  NSLog(@"Disappearing.");
+  mainAppDelegate *delegate = 
+      (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(
+              NSDocumentDirectory, 
+              NSUserDomainMask, YES); 
+  NSString* docDir = [paths objectAtIndex:0];
+  NSString* tmppath = [docDir stringByAppendingString:@"/database.sql"];
+	[delegate.dropbox writeDatabaseToDropbox: tmppath];
+}
 
 /**
  * \brief Number of sections in table view (always 1)
