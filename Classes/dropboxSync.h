@@ -26,9 +26,11 @@
 
 @interface dropboxSync : NSObject <DBSessionDelegate, DBLoginControllerDelegate, DBRestClientDelegate> {
   DBRestClient *restClient;
+  BOOL hasWriteLock;
 }
 
 @property (nonatomic, retain) DBRestClient *restClient;
+@property (nonatomic) BOOL hasWriteLock;
 
 -(BOOL)openDropboxSession;
 

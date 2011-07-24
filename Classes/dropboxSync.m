@@ -48,15 +48,37 @@ NSString *g_lockfile = @"dropbox.lock";
 @implementation dropboxSync
 
 @synthesize restClient;
+@synthesize hasWriteLock;
 
 -(id) init {
 	if (self = [super init]) {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver: self 
+            selector: @selector(initialSetupAfterConnection) 
+            name:@"ASE_DropboxLoginComplete" 
+            object: nil];
+    [center addObserver: self 
+            selector: @selector(tryToObtainDropboxLock) 
+            name:@"ASE_DropboxShouldObtainLock" 
+            object: nil];
+    [center addObserver: self 
+            selector: @selector(failedToObtainDropboxLock) 
+            name:@"ASE_DropboxFailedToObtainLock" 
+            object: nil];
   }
   return self;
 }
 
 -(void)initialSetupAfterConnection {
-  [self tryToObtainDropboxLock];
+  UIAlertView *alert = [[[UIAlertView alloc] 
+    initWithTitle: @"Allow Customer Editing?" 
+    message: @"Only *ONE* device can edit customer information at a time.  "
+       "If you want this device to edit customer information, press "
+       "'Allow Edits', otherwise press 'Read-only'."
+    delegate: self
+    cancelButtonTitle: @"Read-only"
+    otherButtonTitles: @"Allow Edits",nil] autorelease];
+  [alert show];  
   [self readDatabaseFromDropbox];
 }
 
@@ -93,15 +115,38 @@ NSString *g_lockfile = @"dropbox.lock";
 
 - (void)alertView:(UIAlertView *)alertView 
   clickedButtonAtIndex:(NSInteger)buttonIndex {
-  /* Use saved credentials? */
-  switch (buttonIndex) {
-  case 0: /* No */
-  	[self clearDropboxCredentials];
-    [self openDropboxLoginWindow];
-    break;
-  case 1: /* Yes */
-    [self initialSetupAfterConnection];
-  	break;
+  if (alertView.title == @"Dropbox Login") {
+    /* Use saved credentials? */
+    switch (buttonIndex) {
+    case 0: /* No */
+      [self clearDropboxCredentials];
+      [self openDropboxLoginWindow];
+      break;
+    case 1: /* Yes */
+      [self initialSetupAfterConnection];
+      break;
+    }
+  }
+  /* Should be master? */
+  else if (alertView.title == @"Allow Customer Editing?") {
+    switch (buttonIndex) {
+    case 0: /* No */
+      break;
+    case 1: /* Yes */
+      [self tryToObtainDropboxLock];
+      break;
+    }
+  }
+  /* Should take over lock? */
+  else if (alertView.title == @"Take Over Lock?") {
+    switch (buttonIndex) {
+    case 0: /* No */
+      self.hasWriteLock = NO;  
+      break;
+    case 1: /* Yes */
+      self.hasWriteLock = YES;  
+      break;
+    }
   }
 }
 
@@ -146,32 +191,14 @@ NSString *g_lockfile = @"dropbox.lock";
 }
 
 -(BOOL)tryToObtainDropboxLock {
-  /* Create random large integer */
-  long x = (arc4random() % 65536) + 65536;
-  
-  /* Write integer to file */
-  NSString *str = [NSString stringWithFormat:@"%ld",x];
-  NSLog(@"Rand int: %@", str);
-  
-  NSArray *paths = NSSearchPathForDirectoriesInDomains(
-              NSDocumentDirectory, 
-              NSUserDomainMask, YES); 
-  NSString* docDir = [paths objectAtIndex:0];
-  NSString* file = [docDir stringByAppendingFormat:@"/%@",g_lockfile];
-  NSLog(@"Uploading file: %@", file);
-  
-  if (![str writeToFile:file atomically:NO 
-        encoding:NSUTF8StringEncoding error:nil])
-    return NO;
-  
-  /* Upload file to dropbox */
-  [[self restClient] uploadFile:g_lockfile toPath:@"/all-seeing-eye/" 
-    fromPath:file];
+  NSString *folder = [@"/all-seeing-eye/" stringByAppendingString:g_lockfile];
+  [[self restClient] createFolder:folder];  
   return YES;
 }
 
 -(void)releaseDropboxLock {
-
+  NSString *folder = [@"/all-seeing-eye/" stringByAppendingString:g_lockfile];
+  [[self restClient] deletePath:folder];
 }
 
 #pragma mark Dropbox callbacks
@@ -253,6 +280,38 @@ NSString *g_lockfile = @"dropbox.lock";
 	NSLog(@"Upload failed.");
 }
 
+- (void)restClient:(DBRestClient*)client 
+  createdFolder:(DBMetadata*)folder {
+  NSLog(@"Successfully made folder"); 
+  self.hasWriteLock = YES; 
+}
+
+- (void)restClient:(DBRestClient*)client 
+  createFolderFailedWithError:(NSError*)error {
+  NSLog(@"Failed to create folder: %@", error);
+  UIAlertView *alert = [[[UIAlertView alloc] 
+    initWithTitle: @"Take Over Lock?" 
+    message: @"Another device has already locked the database.  Only one "
+       "device can edit the database at a time.  Do you want this device to "
+       "take over the lock?\n\n*WARNING* if two device edit the database at "
+       "the same time, customer data can be permanently lost.  Only take over "
+       "the lock if you are certain no other device is or will edit the "
+       "customer database!"
+    delegate: self
+    cancelButtonTitle: @"Stay Read-only"
+    otherButtonTitles: @"Take Over Lock",nil] autorelease];
+  [alert show];
+  self.hasWriteLock = NO;
+}
+
+- (void)restClient:(DBRestClient*)client deletedPath:(NSString *)path {
+  NSLog(@"Successfully deleted %@", path);
+}
+
+- (void)restClient:(DBRestClient*)client 
+  deletePathFailedWithError:(NSError*)error {
+  NSLog(@"Error deleting path: %@", error);
+}
 
 
 @end
