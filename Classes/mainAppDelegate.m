@@ -144,6 +144,9 @@
     /*
      Called when the application is about to terminate.
      */
+  mainAppDelegate *delegate = 
+      (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+  [delegate.dropbox releaseDropboxLock];
 }
 
 

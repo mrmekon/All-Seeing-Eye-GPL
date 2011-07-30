@@ -26,6 +26,7 @@
 @interface customerInfoView : UIView {
 @private 
 	NSMutableDictionary *currentScan;
+  NSTimer *scanTimer;
 }
 
 

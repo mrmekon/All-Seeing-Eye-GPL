@@ -35,5 +35,7 @@
 -(BOOL)openDropboxSession;
 
 -(void)writeDatabaseToDropbox: (NSString*)localPath;
+-(BOOL)tryToObtainDropboxLock;
+-(void)releaseDropboxLock;
 
 @end

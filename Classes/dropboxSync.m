@@ -186,8 +186,21 @@ NSString *g_lockfile = @"dropbox.lock";
 }
 
 -(void) writeDatabaseToDropbox: (NSString*)localPath {
-  [[self restClient] uploadFile:@"database.sql" toPath:@"/all-seeing-eye/" 
-    fromPath:localPath];
+  if ([self hasWriteLock]) {
+    [[self restClient] uploadFile:@"database.sql" toPath:@"/all-seeing-eye/" 
+      fromPath:localPath];
+  }
+  else {
+    UIAlertView *alert = [[[UIAlertView alloc] 
+      initWithTitle: @"Database NOT saved!" 
+      message: @"WARNING!  You do not have the database lock, so the database "
+      "is NOT being saved.  Repeat, any modifications to customer information "
+      "were NOT SAVED!"
+      delegate: self
+      cancelButtonTitle: nil
+      otherButtonTitles: @"I Understand",nil] autorelease];
+    [alert show];
+  }
 }
 
 -(BOOL)tryToObtainDropboxLock {

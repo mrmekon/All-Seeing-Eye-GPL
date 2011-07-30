@@ -38,15 +38,19 @@
 
 @interface customerInfoView (PrivateMethods)
 - (void)displayInvalidScanNotification;
+- (void)scanTimerCallback: (NSTimer*)timer;
+- (void)scheduleScanTimeout;
 @end
 
 @interface customerInfoView () 
 @property (nonatomic, retain) NSMutableDictionary *currentScan;
+@property (nonatomic, retain) NSTimer *scanTimer;
 @end
 
 @implementation customerInfoView
 
 @synthesize currentScan;
+@synthesize scanTimer;
 
 /**
  * \brief Initialize view to given size
@@ -105,6 +109,7 @@
     [self.currentScan setObject:name forKey:@"name"];
 
   if (!name || [name length] == 0) {
+    [self.currentScan removeAllObjects];
   	[self displayInvalidScanNotification];
   }
   else {
@@ -124,9 +129,41 @@
       [self.currentScan setObject:tmp  forKey:@"credit"];
   }
   
+  [self scheduleScanTimeout];
+
   [self performSelectorOnMainThread: @selector(redrawScreen)
         withObject: nil
         waitUntilDone: NO];
+}
+
+- (void)scheduleScanTimeout {
+	// Invalidate timer if it already exists
+  if (self.scanTimer) {
+  	[self.scanTimer invalidate];
+    self.scanTimer = nil;
+  }
+  
+  // Create a timer with a 5 minute timeout
+  self.scanTimer = [NSTimer 
+    timerWithTimeInterval:300.0
+    target:self
+    selector:@selector(scanTimerCallback:)
+    userInfo:nil 
+    repeats:NO];
+    
+  // Schedule timer on the main loop
+  NSRunLoop *mainloop = [NSRunLoop mainRunLoop];
+  [mainloop addTimer:self.scanTimer forMode:NSDefaultRunLoopMode];
+}
+
+- (void)scanTimerCallback: (NSTimer*)timer {
+  // Replace all on-screen info with "No scan" and remove timer
+  [self.currentScan removeAllObjects];
+  [self.currentScan setObject:@"No Scan" forKey:@"name"];
+  [self performSelectorOnMainThread: @selector(redrawScreen)
+        withObject: nil
+        waitUntilDone: NO];
+  self.scanTimer = nil;
 }
 
 - (void)displayInvalidScanNotification {
