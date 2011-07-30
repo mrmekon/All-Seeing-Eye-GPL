@@ -55,12 +55,8 @@
 
 @implementation customerInfoView
 
-<<<<<<< local
-@synthesize currentUser;
-=======
 @synthesize currentScan;
 @synthesize scanTimer;
->>>>>>> other
 
 /**
  * \brief Initialize view to given size
@@ -81,12 +77,8 @@
             selector: @selector(newScanHandler:) 
             name:@"ASE_BarcodeScanned" 
             object: nil];
-<<<<<<< local
-    self.currentUser = [NSMutableDictionary dictionaryWithCapacity: 10];
-=======
     self.currentScan = [NSMutableDictionary dictionaryWithCapacity: 10];
     [self.currentScan setObject:@"No Scan" forKey:@"name"];
->>>>>>> other
 	}
   return self;
 }
@@ -143,25 +135,8 @@
       [self.currentScan setObject:tmp  forKey:@"credit"];
   }
   
-<<<<<<< local
-  NSString *name = [delegate.customer customerFromDb: dbFile withBarcode: barcode];
-  if (name == nil)
-  	name = [NSString stringWithString: barcode];
-  [self.currentUser setObject: name forKey: @"name"];
-=======
   [self scheduleScanTimeout];
->>>>>>> other
 
-<<<<<<< local
-  int level = [delegate.customer levelFromDb: dbFile withBarcode: barcode];
-  if (level >= 0) {
-  	NSString *lvl = [NSString stringWithFormat: @"Level %d",level];
-	  [self.currentUser setObject: lvl forKey: @"level"];
-  }
-
-  
-=======
->>>>>>> other
   [self performSelectorOnMainThread: @selector(redrawScreen)
         withObject: nil
         waitUntilDone: NO];
@@ -245,10 +220,6 @@
  *
  */
 - (void)drawRect:(CGRect)rect {
-<<<<<<< local
-  [self drawCenteredText: [self.currentUser objectForKey: @"name"] y: 30];
-  [self drawCenteredText: [self.currentUser objectForKey: @"level"] y: 80];
-=======
   [self drawCenteredText: [self.currentScan objectForKey:@"name"] y: 30];
   
   NSString *barcode = [self.currentScan objectForKey:@"barcode"];
@@ -301,7 +272,6 @@
                       stringByAppendingString: val];
   }
   return temp;
->>>>>>> other
 }
 
 /**
@@ -312,12 +282,7 @@
  *
  */
 -(void) drawCenteredText: (NSString*)str y: (int)y {
-<<<<<<< local
-	if (!str) return; // can't draw null.
-  UIImage *img = [self imageFromText: str];
-=======
   UIImage *img = [self imageFromText: str withMaxFontSize: 55.0];
->>>>>>> other
   [self drawCenteredImage: img y: y];
 }
 

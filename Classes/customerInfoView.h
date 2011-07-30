@@ -24,19 +24,10 @@
 
 
 @interface customerInfoView : UIView {
-<<<<<<< local
-	NSMutableDictionary *currentUser;
-=======
 @private 
 	NSMutableDictionary *currentScan;
   NSTimer *scanTimer;
->>>>>>> other
 }
-
-<<<<<<< local
-@property (nonatomic, retain) NSMutableDictionary *currentUser;
-=======
->>>>>>> other
 
 -(id)initWithFrame:(CGRect)aRect;
 - (void)newScanHandler:(NSNotification *)notif;
