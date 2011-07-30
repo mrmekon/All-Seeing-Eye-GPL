@@ -54,14 +54,26 @@
     self.dbManager = [[databaseManager alloc] initWithFile: @"database.sql"];
     self.customer = [[aitunesCustomer alloc] init];
     self.dropbox = [[dropboxSync alloc] init];
-                
+      
+    UIAlertView *alert = [[[UIAlertView alloc] 
+      initWithTitle: @"About All-Seeing Eye" 
+      message: @"This is All-Seeing Eye\nby Trevor Bentley.\n"
+        "http://www.trevorbentley.com/\n\n"
+        "Copyright 2011\n"
+        "Licensed under GNU General Public License v3\n\n"
+        "Loading screen photo by\n"
+        "Florian Wild (floze)\n"
+        "http://www.floze.org/\n\n"
+        "Photo used with permission under Creative Commons nc-sa 3.0 license."
+      delegate: self
+      cancelButtonTitle: nil
+      otherButtonTitles: @"OK",nil] autorelease];
+    [alert show];
+                                    
     [self.window addSubview:navController.view];
     [self.window makeKeyAndVisible];
     [scanner simulatorDebug];
-
-    [self.dropbox openDropboxSession];
       
-
     return YES;
 }
 
@@ -119,34 +131,35 @@
  *
  */
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	NSLog(@"Clicked button at index %d", buttonIndex);
-  if (buttonIndex == [alertView cancelButtonIndex]) return;
+  if (alertView.title == @"About All-Seeing Eye") {
+    [self.dropbox openDropboxSession];
+  }
+  else {
+    if (buttonIndex == [alertView cancelButtonIndex]) return;
   
-  [dbManager reloadWithNewDatabaseFile: self.newDatabaseFileUrl];
+    [dbManager reloadWithNewDatabaseFile: self.newDatabaseFileUrl];
+  }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    /*
-     Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-     Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-     */
+  /*
+   Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+   Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+   */
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    /*
-     Restart any tasks that were paused (or not yet started) while the application was inactive.
-     */
+  /*
+   Restart any tasks that were paused (or not yet started) while the application was inactive.
+   */
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    /*
-     Called when the application is about to terminate.
-     */
-  mainAppDelegate *delegate = 
-      (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
-  [delegate.dropbox releaseDropboxLock];
+  /*
+   Called when the application is about to terminate.
+   */
 }
 
 

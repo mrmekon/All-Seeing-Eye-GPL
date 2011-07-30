@@ -123,6 +123,7 @@
 -(BOOL)createNewCustomer {
 	NSString *name = nil;
   NSString *code = nil;
+  NSString *referrer = nil;
   
   /* Find name and barcode.  How many times does this data structure get 
    * searched?  What idiot designed this? */
@@ -134,6 +135,8 @@
       	name = [[self.content objectAtIndex: i] objectAtIndex: j];
       else if ([dict objectForKey: @"cellName"] == @"barcode")
       	code = [[self.content objectAtIndex: i] objectAtIndex: j];
+      else if ([dict objectForKey: @"cellName"] == @"referrer")
+      	referrer = [[self.content objectAtIndex: i] objectAtIndex: j];
     }  
   }
   
@@ -143,7 +146,8 @@
     (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
   if ([delegate.customer addCustomertoDb: self.dbFile 
            withName: name
-           withBarcode: code]) {
+           withBarcode: code
+           withReferrer: referrer]) {
   	self.barcode = [NSString stringWithString: code];
     return YES;         
 	}

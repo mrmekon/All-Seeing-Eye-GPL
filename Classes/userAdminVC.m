@@ -239,6 +239,11 @@ NSInteger rowSort(id dict1, id dict2, void *context)
   [self addEditButton];
   [self readRowsFromDb]; // re-read database
   [self.tableView reloadData]; // and reload table with new data
+  
+  // Grab the lock
+  mainAppDelegate *delegate = 
+      (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+  [delegate.dropbox tryToObtainDropboxLock];
 }
 
 /**
@@ -256,6 +261,9 @@ NSInteger rowSort(id dict1, id dict2, void *context)
   NSString* docDir = [paths objectAtIndex:0];
   NSString* tmppath = [docDir stringByAppendingString:@"/database.sql"];
 	[delegate.dropbox writeDatabaseToDropbox: tmppath];
+  
+  // Let go of the lock
+  [delegate.dropbox releaseDropboxLock];
 }
 
 /**

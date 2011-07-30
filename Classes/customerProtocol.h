@@ -136,8 +136,17 @@
  */
 -(BOOL)addCustomertoDb: (NSString*)dbFile 
        withName: (NSString*)name
-       withBarcode: (NSString*)barcode;
+       withBarcode: (NSString*)barcode
+       withReferrer: (NSString*)referrer;
        
+/**
+ * \brief Upgrade customer's level if appropriate.  Call for each scan.
+ * \param barcode Barcode of customer
+ * \return Yes if no errors, No if error encountered.
+ */
+-(BOOL)updateLevelOfReferrerWithBarcode:(NSString*)barcode
+   withDb: (NSString*)dbFile;
+
 /**
  * \brief Get number of registered customers
  * \param dbFile Database to search
@@ -183,6 +192,14 @@
  * \return Customer's monetary credits
  */
 -(int)creditFromDb: (NSString*)dbFile withBarcode: (NSString*)barcode;
+
+/**
+ * \brief Get number of customers this customer has referred
+ * \param dbFile Database to search
+ * \param barcode Barcode of customer
+ * \return Customer's referral count
+ */
+-(int)referralCountFromDb: (NSString*)dbFile withBarcode: (NSString*)barcode;
 
 /**
  * \brief Get number of bonus rewards customer has

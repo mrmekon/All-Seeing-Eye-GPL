@@ -135,8 +135,13 @@
       [self.currentScan setObject:tmp  forKey:@"credit"];
   }
   
+  // Check if customer is due for a level upgrade
+  [delegate.customer updateLevelOfReferrerWithBarcode:barcode withDb: dbFile];
+   
+  // Schedule scan info to timeout eventually
   [self scheduleScanTimeout];
 
+  // Draw customer's info on the screen
   [self performSelectorOnMainThread: @selector(redrawScreen)
         withObject: nil
         waitUntilDone: NO];

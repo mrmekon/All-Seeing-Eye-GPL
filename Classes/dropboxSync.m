@@ -49,6 +49,7 @@ NSString *g_lockfile = @"dropbox.lock";
 
 @synthesize restClient;
 @synthesize hasWriteLock;
+@synthesize hasLockPermission;
 
 -(id) init {
 	if (self = [super init]) {
@@ -65,6 +66,8 @@ NSString *g_lockfile = @"dropbox.lock";
             selector: @selector(failedToObtainDropboxLock) 
             name:@"ASE_DropboxFailedToObtainLock" 
             object: nil];
+    self.hasLockPermission = NO;
+    self.hasWriteLock = NO;
   }
   return self;
 }
@@ -131,9 +134,10 @@ NSString *g_lockfile = @"dropbox.lock";
   else if (alertView.title == @"Allow Customer Editing?") {
     switch (buttonIndex) {
     case 0: /* No */
+      self.hasLockPermission = NO;
       break;
     case 1: /* Yes */
-      [self tryToObtainDropboxLock];
+      self.hasLockPermission = YES;
       break;
     }
   }
@@ -204,12 +208,14 @@ NSString *g_lockfile = @"dropbox.lock";
 }
 
 -(BOOL)tryToObtainDropboxLock {
+  if (!self.hasLockPermission) return NO;
   NSString *folder = [@"/all-seeing-eye/" stringByAppendingString:g_lockfile];
   [[self restClient] createFolder:folder];  
   return YES;
 }
 
 -(void)releaseDropboxLock {
+  if (!self.hasLockPermission) return;
   NSString *folder = [@"/all-seeing-eye/" stringByAppendingString:g_lockfile];
   [[self restClient] deletePath:folder];
 }
@@ -319,6 +325,7 @@ NSString *g_lockfile = @"dropbox.lock";
 
 - (void)restClient:(DBRestClient*)client deletedPath:(NSString *)path {
   NSLog(@"Successfully deleted %@", path);
+  self.hasWriteLock = NO;
 }
 
 - (void)restClient:(DBRestClient*)client 
