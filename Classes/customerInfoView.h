@@ -24,17 +24,29 @@
 
 
 @interface customerInfoView : UIView {
+<<<<<<< local
 	NSMutableDictionary *currentUser;
+=======
+@private 
+	NSMutableDictionary *currentScan;
+  NSTimer *scanTimer;
+>>>>>>> other
 }
 
+<<<<<<< local
 @property (nonatomic, retain) NSMutableDictionary *currentUser;
+=======
+>>>>>>> other
 
 -(id)initWithFrame:(CGRect)aRect;
 - (void)newScanHandler:(NSNotification *)notif;
 - (void)redrawScreen;
 - (void)drawRect:(CGRect)rect;
 -(void) drawCenteredText: (NSString*)str y: (int)y;
+-(void) drawLeftJustifiedText: (NSString*)str y: (int)y;
 -(void) drawCenteredImage:(UIImage*)img y: (int)y;
--(UIImage *)imageFromText:(NSString *)text;
+-(void) drawLeftJustifiedImage:(UIImage*)img y: (int)y;
+
+-(UIImage *)imageFromText:(NSString *)text withMaxFontSize: (float)maxFont;
 
 @end

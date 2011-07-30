@@ -36,9 +36,31 @@
 #import "customerInfoView.h"
 #import "mainAppDelegate.h"
 
+@interface customerInfoView (PrivateMethods)
+- (void)displayInvalidScanNotification;
+- (void)scanTimerCallback: (NSTimer*)timer;
+- (void)scheduleScanTimeout;
+@end
+
+@interface customerInfoView () 
+/**
+ * Holds text representing user from most recent barcode scan
+ */
+@property (nonatomic, retain) NSMutableDictionary *currentScan;
+/**
+ * Timer for clearing screen after a scan is expired.
+ */
+@property (nonatomic, retain) NSTimer *scanTimer;
+@end
+
 @implementation customerInfoView
 
+<<<<<<< local
 @synthesize currentUser;
+=======
+@synthesize currentScan;
+@synthesize scanTimer;
+>>>>>>> other
 
 /**
  * \brief Initialize view to given size
@@ -59,7 +81,12 @@
             selector: @selector(newScanHandler:) 
             name:@"ASE_BarcodeScanned" 
             object: nil];
+<<<<<<< local
     self.currentUser = [NSMutableDictionary dictionaryWithCapacity: 10];
+=======
+    self.currentScan = [NSMutableDictionary dictionaryWithCapacity: 10];
+    [self.currentScan setObject:@"No Scan" forKey:@"name"];
+>>>>>>> other
 	}
   return self;
 }
@@ -89,12 +116,43 @@
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
   NSString *barcode = delegate.scanner.lastCode;
   NSString *dbFile = delegate.dbManager.databasePath;
+
+  NSString *name = [delegate.customer customerFromDb: dbFile 
+                                      withBarcode: barcode];
+  if (name)
+    [self.currentScan setObject:name forKey:@"name"];
+
+  if (!name || [name length] == 0) {
+    [self.currentScan removeAllObjects];
+  	[self displayInvalidScanNotification];
+  }
+  else {
+    NSNumber *tmp = nil;
+    [self.currentScan setObject:barcode forKey:@"barcode"];
+    tmp = [NSString stringWithFormat: @"%d", [delegate.customer 
+      levelFromDb: dbFile withBarcode: barcode]];
+    if (tmp)
+      [self.currentScan setObject:tmp  forKey:@"level"];
+    tmp = [NSString stringWithFormat: @"%d", [delegate.customer 
+      discountFromDb: dbFile withBarcode: barcode]];
+    if (tmp)
+      [self.currentScan setObject:tmp  forKey:@"discount"];
+    tmp = [NSString stringWithFormat: @"%d", [delegate.customer 
+      creditFromDb: dbFile withBarcode: barcode]];
+    if (tmp)
+      [self.currentScan setObject:tmp  forKey:@"credit"];
+  }
   
+<<<<<<< local
   NSString *name = [delegate.customer customerFromDb: dbFile withBarcode: barcode];
   if (name == nil)
   	name = [NSString stringWithString: barcode];
   [self.currentUser setObject: name forKey: @"name"];
+=======
+  [self scheduleScanTimeout];
+>>>>>>> other
 
+<<<<<<< local
   int level = [delegate.customer levelFromDb: dbFile withBarcode: barcode];
   if (level >= 0) {
   	NSString *lvl = [NSString stringWithFormat: @"Level %d",level];
@@ -102,9 +160,70 @@
   }
 
   
+=======
+>>>>>>> other
   [self performSelectorOnMainThread: @selector(redrawScreen)
         withObject: nil
         waitUntilDone: NO];
+}
+
+/**
+ * \brief Schedule timer to expire a scan after 5 minutes
+ *
+ * Starts a timer on the main run loop that expires after 5 minutes, and
+ * calls a callback to erase the information from the screen.
+ * 
+ */
+- (void)scheduleScanTimeout {
+	// Invalidate timer if it already exists
+  if (self.scanTimer) {
+  	[self.scanTimer invalidate];
+    self.scanTimer = nil;
+  }
+  
+  // Create a timer with a 5 minute timeout
+  self.scanTimer = [NSTimer 
+    timerWithTimeInterval:300.0
+    target:self
+    selector:@selector(scanTimerCallback:)
+    userInfo:nil 
+    repeats:NO];
+    
+  // Schedule timer on the main loop
+  NSRunLoop *mainloop = [NSRunLoop mainRunLoop];
+  [mainloop addTimer:self.scanTimer forMode:NSDefaultRunLoopMode];
+}
+
+/**
+ * \brief Replace screen contents with "No scan"
+ *
+ * Intended to be called as a callback by the scan timer when it expires,
+ * this function clears the information on the screen and replaced it with
+ * the text "No scan".  This function causes the screen to be redrawn.
+ * 
+ * \param timer Unused.
+ *
+ */
+- (void)scanTimerCallback: (NSTimer*)timer {
+  // Replace all on-screen info with "No scan" and remove timer
+  [self.currentScan removeAllObjects];
+  [self.currentScan setObject:@"No Scan" forKey:@"name"];
+  [self performSelectorOnMainThread: @selector(redrawScreen)
+        withObject: nil
+        waitUntilDone: NO];
+  self.scanTimer = nil;
+}
+
+/**
+ * \brief Set scan name to something invalid
+ *
+ * Called when user has scanned a barcode that is not in the database, this
+ * function replaces the name text with "No account found!".  It does not
+ * cause the screen to be redrawn.
+ *
+ */
+- (void)displayInvalidScanNotification {
+	[self.currentScan setObject:@"No account found!" forKey:@"name"];
 }
 
 /**
@@ -126,8 +245,63 @@
  *
  */
 - (void)drawRect:(CGRect)rect {
+<<<<<<< local
   [self drawCenteredText: [self.currentUser objectForKey: @"name"] y: 30];
   [self drawCenteredText: [self.currentUser objectForKey: @"level"] y: 80];
+=======
+  [self drawCenteredText: [self.currentScan objectForKey:@"name"] y: 30];
+  
+  NSString *barcode = [self.currentScan objectForKey:@"barcode"];
+  if (barcode) {
+    NSString *temp = [[@"Barcode:" stringByPaddingToLength: 15 
+                                   withString:@" " 
+                                   startingAtIndex: 0] 
+                      stringByAppendingString: barcode];
+    [self drawLeftJustifiedText: temp y: 150];
+  }
+  
+  NSString *level = [self.currentScan objectForKey:@"level"];
+  if (level) {
+    NSString *temp = [[@"Level:" stringByPaddingToLength: 15 
+                                 withString:@" " 
+                                 startingAtIndex: 0] 
+                      stringByAppendingString: level];
+    [self drawLeftJustifiedText: temp y: 200];
+  }
+  
+  NSString *discount = [self.currentScan objectForKey:@"discount"];
+  if (level) {
+    NSString *temp = [[[@"Discount:" stringByPaddingToLength: 15 
+                                 withString:@" " 
+                                 startingAtIndex: 0] 
+                      stringByAppendingString: discount]
+                      stringByAppendingString: @"%"];
+    [self drawLeftJustifiedText: temp y: 250];
+  }
+  
+  NSString *credit = [self.currentScan objectForKey:@"credit"];
+  if (credit) {
+    NSString *temp = [[[@"Credit:" stringByPaddingToLength: 15 
+                                 withString:@" " 
+                                 startingAtIndex: 0] 
+                      stringByAppendingString: @"$"]
+                      stringByAppendingString: credit];
+    [self drawLeftJustifiedText: temp y: 300];
+  }
+
+}
+
+- (NSString*)labelKey:(NSString*)key withLabel:(NSString*)label {
+  NSString *val = [self.currentScan objectForKey:key];
+  NSString *temp = nil;
+  if (val) {
+    temp = [[label stringByPaddingToLength: 15 
+                                 withString:@" " 
+                                 startingAtIndex: 0] 
+                      stringByAppendingString: val];
+  }
+  return temp;
+>>>>>>> other
 }
 
 /**
@@ -138,9 +312,25 @@
  *
  */
 -(void) drawCenteredText: (NSString*)str y: (int)y {
+<<<<<<< local
 	if (!str) return; // can't draw null.
   UIImage *img = [self imageFromText: str];
+=======
+  UIImage *img = [self imageFromText: str withMaxFontSize: 55.0];
+>>>>>>> other
   [self drawCenteredImage: img y: y];
+}
+
+/**
+ * \brief Draw left-justified text at the given y-coordinate
+ *
+ * \param str Text to draw on screen
+ * \param y y coordinate to draw text
+ *
+ */
+-(void) drawLeftJustifiedText: (NSString*)str y: (int)y {
+  UIImage *img = [self imageFromText: str withMaxFontSize: 40.0];
+  [self drawLeftJustifiedImage: img y: y];
 }
 
 /**
@@ -158,6 +348,19 @@
 }
 
 /**
+ * \brief Draws an image on the view, left-justified, at given y-coordinate.
+ *
+ * \param img Image to draw in view
+ * \param y y coordinate to draw image
+ *
+ */
+-(void) drawLeftJustifiedImage:(UIImage*)img y: (int)y {
+  int x_offset = 20;
+  CGRect r = CGRectMake(x_offset, y, img.size.width, img.size.height);
+	[img drawInRect: r];
+}
+
+/**
  * \brief Creates an image containing the given text
  *
  * Given a string, this creates an image containing the text with a glowing
@@ -170,13 +373,13 @@
  * \return Image containing formatted text
  *
  */
--(UIImage *)imageFromText:(NSString *)text
+-(UIImage *)imageFromText:(NSString *)text withMaxFontSize: (float)maxFont
 {
 	/* Set font and calculate size */
   CGSize screenSize = [[UIScreen mainScreen] bounds].size;
   
   /* Set min/max font sizes */
-  float desiredFontSize = 50.0;
+  float desiredFontSize = maxFont;
   float minimumFontSize = 10.0;
   
   //UIFont *font = [UIFont systemFontOfSize: desiredFontSize];  
@@ -198,7 +401,7 @@
                               CGSizeMake(0.0, 0.0), // (x,y) offset
                               6.0, // blur amount
                               [[UIColor whiteColor] CGColor]);
-
+  NSLog(@"Desired size: %f", desiredFontSize);
 	/* Draw text into image context */
   [text drawAtPoint: CGPointMake(0.0, 0.0) 
         forWidth: (screenSize.width * 0.80)
@@ -207,7 +410,7 @@
         actualFontSize: &desiredFontSize
         lineBreakMode: UILineBreakModeTailTruncation
         baselineAdjustment: UIBaselineAdjustmentAlignBaselines];
-	
+	NSLog(@"Actual size: %f", desiredFontSize);
   /* Produce image from context */
   UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
 

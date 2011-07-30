@@ -30,20 +30,74 @@
  
 #import "mainViewController.h"
 #import "rootView.h"
+#import "userAdminVC.h"
+#import "mainAppDelegate.h"
 
 @implementation mainViewController
 
 @synthesize wheelImage;
 @synthesize cameraView;
 
-
+/**
+ * \brief Initialize main application's view controller
+ *
+ * Creates a full-screen rootView class and sets it as the main VC's view.
+ * Also registers for the ASE_AdminRequested notification, so this class can
+ * handle creation of modal user administration views.
+ *
+ * \return Initialized instance of class
+ */
 -(id) init {
 	if (self = [super init]) {
  		CGRect screenBounds = [[UIScreen mainScreen] bounds];
     UIView *root = [[[rootView alloc] initWithFrame: screenBounds] autorelease];
     [self setView: root];
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver: self 
+            selector: @selector(requestAdminView) 
+            name:@"ASE_AdminRequested" 
+            object: nil];
   }
   return self;
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+	[super viewWillAppear: animated];
+  [self.navigationController setNavigationBarHidden: YES animated: YES];
+}
+
+/**
+ * \brief Request to load administration controller on main thread.
+ *
+ * Register as a notification callback, registers 'displayAdminView' method
+ * to be called in main thread's event loop.  This exists so a secondary thread
+ * can request the administration view controller be loaded.
+ *
+ */
+-(void)requestAdminView {
+  [self performSelectorOnMainThread: @selector(displayAdminView) 
+        withObject: nil 
+        waitUntilDone: YES];
+}
+
+/**
+ * \brief Create and display a user administration view
+ *
+ * Creates a userAdminVC class, which provides the user interface for managing
+ * registered users.  Displays the userAdminVC as a modal view.
+ *
+ */
+-(void)displayAdminView {
+  NSLog(@"Displaying admin view!");
+
+  mainAppDelegate *delegate = 
+      (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+  NSString *dbFile = delegate.dbManager.databasePath;
+  userAdminVC *adminController = [[[userAdminVC alloc] 
+  	initWithDbFile: dbFile] autorelease];
+  [[self navigationController] pushViewController:adminController animated:YES];
+  //[self presentModalViewController: adminController animated:YES];
 }
 
 @end
