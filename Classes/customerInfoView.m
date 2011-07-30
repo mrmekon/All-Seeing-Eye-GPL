@@ -43,7 +43,13 @@
 @end
 
 @interface customerInfoView () 
+/**
+ * Holds text representing user from most recent barcode scan
+ */
 @property (nonatomic, retain) NSMutableDictionary *currentScan;
+/**
+ * Timer for clearing screen after a scan is expired.
+ */
 @property (nonatomic, retain) NSTimer *scanTimer;
 @end
 
@@ -136,6 +142,13 @@
         waitUntilDone: NO];
 }
 
+/**
+ * \brief Schedule timer to expire a scan after 5 minutes
+ *
+ * Starts a timer on the main run loop that expires after 5 minutes, and
+ * calls a callback to erase the information from the screen.
+ * 
+ */
 - (void)scheduleScanTimeout {
 	// Invalidate timer if it already exists
   if (self.scanTimer) {
@@ -156,6 +169,16 @@
   [mainloop addTimer:self.scanTimer forMode:NSDefaultRunLoopMode];
 }
 
+/**
+ * \brief Replace screen contents with "No scan"
+ *
+ * Intended to be called as a callback by the scan timer when it expires,
+ * this function clears the information on the screen and replaced it with
+ * the text "No scan".  This function causes the screen to be redrawn.
+ * 
+ * \param timer Unused.
+ *
+ */
 - (void)scanTimerCallback: (NSTimer*)timer {
   // Replace all on-screen info with "No scan" and remove timer
   [self.currentScan removeAllObjects];
@@ -166,6 +189,14 @@
   self.scanTimer = nil;
 }
 
+/**
+ * \brief Set scan name to something invalid
+ *
+ * Called when user has scanned a barcode that is not in the database, this
+ * function replaces the name text with "No account found!".  It does not
+ * cause the screen to be redrawn.
+ *
+ */
 - (void)displayInvalidScanNotification {
 	[self.currentScan setObject:@"No account found!" forKey:@"name"];
 }
