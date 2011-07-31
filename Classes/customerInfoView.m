@@ -121,18 +121,26 @@
   else {
     NSNumber *tmp = nil;
     [self.currentScan setObject:barcode forKey:@"barcode"];
+    
     tmp = [NSString stringWithFormat: @"%d", [delegate.customer 
       levelFromDb: dbFile withBarcode: barcode]];
     if (tmp)
       [self.currentScan setObject:tmp  forKey:@"level"];
+      
     tmp = [NSString stringWithFormat: @"%d", [delegate.customer 
       discountFromDb: dbFile withBarcode: barcode]];
     if (tmp)
       [self.currentScan setObject:tmp  forKey:@"discount"];
+      
     tmp = [NSString stringWithFormat: @"%d", [delegate.customer 
       creditFromDb: dbFile withBarcode: barcode]];
     if (tmp)
       [self.currentScan setObject:tmp  forKey:@"credit"];
+      
+    tmp = [NSString stringWithFormat: @"%d", [delegate.customer 
+      referralCountFromDb:dbFile withBarcode:barcode]];
+    if (tmp)
+      [self.currentScan setObject:tmp  forKey:@"referrals"];
   }
   
   // Check if customer is due for a level upgrade
@@ -263,6 +271,15 @@
                       stringByAppendingString: @"$"]
                       stringByAppendingString: credit];
     [self drawLeftJustifiedText: temp y: 300];
+  }
+
+  NSString *count = [self.currentScan objectForKey:@"referrals"];
+  if (count) {
+    NSString *temp = [[@"Referrals:" stringByPaddingToLength: 15 
+                                 withString:@" " 
+                                 startingAtIndex: 0] 
+                      stringByAppendingString: credit];
+    [self drawLeftJustifiedText: temp y: 400];
   }
 
 }

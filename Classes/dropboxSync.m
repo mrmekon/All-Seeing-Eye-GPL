@@ -50,6 +50,7 @@ NSString *g_lockfile = @"dropbox.lock";
 @synthesize restClient;
 @synthesize hasWriteLock;
 @synthesize hasLockPermission;
+@synthesize uploadInProgress;
 
 -(id) init {
 	if (self = [super init]) {
@@ -140,6 +141,9 @@ NSString *g_lockfile = @"dropbox.lock";
       self.hasLockPermission = YES;
       break;
     }
+    mainAppDelegate *delegate = 
+        (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+    [delegate.scanner simulatorDebug];
   }
   /* Should take over lock? */
   else if (alertView.title == @"Take Over Lock?") {
@@ -191,6 +195,7 @@ NSString *g_lockfile = @"dropbox.lock";
 
 -(void) writeDatabaseToDropbox: (NSString*)localPath {
   if ([self hasWriteLock]) {
+    self.uploadInProgress = YES;
     [[self restClient] uploadFile:@"database.sql" toPath:@"/all-seeing-eye/" 
       fromPath:localPath];
   }
@@ -206,6 +211,73 @@ NSString *g_lockfile = @"dropbox.lock";
     [alert show];
   }
 }
+
+-(void)getLockAndWriteDatabase:(NSString*)localPath {
+  if (!self.hasLockPermission) return;
+  [NSThread detachNewThreadSelector:@selector(writeDatabaseThread:) 
+    toTarget:self withObject:localPath];
+}
+
+-(void)writeDatabaseThread: (id)localPath {
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+  BOOL timeout;
+  
+  [self performSelectorOnMainThread: @selector(tryToObtainDropboxLock) 
+        withObject: nil 
+        waitUntilDone: NO];
+  timeout = YES;
+  for (int i = 0; i < 200; i++) {
+    if (self.hasWriteLock) {timeout = NO; break;}
+    [NSThread sleepForTimeInterval:0.10];
+  }
+  if (timeout) {
+    UIAlertView *alert = [[[UIAlertView alloc] 
+      initWithTitle: @"DATABASE ERROR" 
+      message: @"Failed to get database lock!  Changes are UNSAVED!"
+      delegate: self
+      cancelButtonTitle: nil
+      otherButtonTitles: @"OK",nil] autorelease];
+    [alert show];
+    [pool release];
+    return;
+  }
+  
+  [self performSelectorOnMainThread: @selector(writeDatabaseToDropbox:) 
+        withObject: localPath 
+        waitUntilDone: NO];
+  timeout = YES;
+  for (int i = 0; i < 200; i++) {
+    if (!self.uploadInProgress) {timeout = NO; break;}
+    [NSThread sleepForTimeInterval:0.10];
+  }
+  if (timeout) {
+    UIAlertView *alert = [[[UIAlertView alloc] 
+      initWithTitle: @"DATABASE ERROR" 
+      message: @"Failed to save database!  Changes are UNSAVED!"
+      delegate: self
+      cancelButtonTitle: nil
+      otherButtonTitles: @"OK",nil] autorelease];
+    [alert show];
+    [self releaseDropboxLock];
+    [pool release];
+    return;
+  }
+
+  [self performSelectorOnMainThread: @selector(releaseDropboxLock) 
+        withObject: nil 
+        waitUntilDone: NO];
+  timeout = YES;
+  for (int i = 0; i < 200; i++) {
+    if (!self.hasWriteLock) {timeout = NO; break;}
+    [NSThread sleepForTimeInterval:0.10];
+  }
+  if (timeout) {
+    // meh, who cares?
+  }
+  
+  [pool release];
+}
+
 
 -(BOOL)tryToObtainDropboxLock {
   if (!self.hasLockPermission) return NO;
@@ -288,6 +360,7 @@ NSString *g_lockfile = @"dropbox.lock";
 
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath {
 	NSLog(@"Upload complete from %@ to %@", srcPath, destPath);
+  self.uploadInProgress = NO;
 }
 
 - (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress 

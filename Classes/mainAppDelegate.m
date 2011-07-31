@@ -72,7 +72,6 @@
                                     
     [self.window addSubview:navController.view];
     [self.window makeKeyAndVisible];
-    [scanner simulatorDebug];
       
     return YES;
 }
@@ -133,6 +132,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
   if (alertView.title == @"About All-Seeing Eye") {
     [self.dropbox openDropboxSession];
+    //[scanner simulatorDebug];
   }
   else {
     if (buttonIndex == [alertView cancelButtonIndex]) return;

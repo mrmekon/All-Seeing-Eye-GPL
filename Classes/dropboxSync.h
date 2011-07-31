@@ -28,14 +28,17 @@
   DBRestClient *restClient;
   BOOL hasWriteLock;
   BOOL hasLockPermission;
+  BOOL uploadInProgress;
 }
 
 @property (nonatomic, retain) DBRestClient *restClient;
 @property (nonatomic) BOOL hasWriteLock;
 @property (nonatomic) BOOL hasLockPermission;
+@property (nonatomic) BOOL uploadInProgress;
 
 -(BOOL)openDropboxSession;
 
+-(void)getLockAndWriteDatabase:(NSString*)localPath;
 -(void)writeDatabaseToDropbox: (NSString*)localPath;
 -(BOOL)tryToObtainDropboxLock;
 -(void)releaseDropboxLock;
