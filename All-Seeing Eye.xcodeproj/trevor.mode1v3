@@ -283,7 +283,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 502}, {218, 580}}</string>
+							<string>{{0, 856}, {218, 580}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -302,7 +302,7 @@
 							<real>218</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>127 239 1219 639 0 0 1440 878 </string>
+						<string>125 239 1219 639 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -332,7 +332,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>69B7070A13E65315002D42BD</string>
+										<string>69B7073213E65E5A002D42BD</string>
 										<key>history</key>
 										<array>
 											<string>69862B561367B988002E909B</string>
@@ -341,7 +341,6 @@
 											<string>69862C8913689DD5002E909B</string>
 											<string>69D73F08136B48E8004380D6</string>
 											<string>69D73F09136B48E8004380D6</string>
-											<string>69D73F0F136B48E8004380D6</string>
 											<string>69D73F13136B48E8004380D6</string>
 											<string>69D73F14136B48E8004380D6</string>
 											<string>69D73F15136B48E8004380D6</string>
@@ -394,11 +393,13 @@
 											<string>69B706C213E646DC002D42BD</string>
 											<string>69B706C313E646DC002D42BD</string>
 											<string>69B706C413E646DC002D42BD</string>
-											<string>69B706F313E64F8C002D42BD</string>
-											<string>69B706F613E65097002D42BD</string>
 											<string>69B7070313E652A8002D42BD</string>
-											<string>69B7070813E65315002D42BD</string>
-											<string>69B7070913E65315002D42BD</string>
+											<string>69B7072913E65E46002D42BD</string>
+											<string>69B7072A13E65E46002D42BD</string>
+											<string>69B7072B13E65E46002D42BD</string>
+											<string>69B7072C13E65E46002D42BD</string>
+											<string>69B7072D13E65E46002D42BD</string>
+											<string>69B7072E13E65E46002D42BD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -412,7 +413,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {979, 494}}</string>
 								<key>RubberWindowFrame</key>
-								<string>127 239 1219 639 0 0 1440 878 </string>
+								<string>125 239 1219 639 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -432,7 +433,7 @@
 								<key>Frame</key>
 								<string>{{0, 499}, {979, 99}}</string>
 								<key>RubberWindowFrame</key>
-								<string>127 239 1219 639 0 0 1440 878 </string>
+								<string>125 239 1219 639 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -604,7 +605,7 @@
 		<string>/Users/trevor/Documents/Cocoa Projects/All-Seeing Eye/All-Seeing Eye.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>127 239 1219 639 0 0 1440 878 </string>
+	<string>125 239 1219 639 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

@@ -1139,6 +1139,14 @@
 			69B7070813E65315002D42BD /* PBXTextBookmark */ = 69B7070813E65315002D42BD /* PBXTextBookmark */;
 			69B7070913E65315002D42BD /* PBXTextBookmark */ = 69B7070913E65315002D42BD /* PBXTextBookmark */;
 			69B7070A13E65315002D42BD /* PBXTextBookmark */ = 69B7070A13E65315002D42BD /* PBXTextBookmark */;
+			69B7072913E65E46002D42BD /* PBXBookmark */ = 69B7072913E65E46002D42BD /* PBXBookmark */;
+			69B7072A13E65E46002D42BD /* PBXTextBookmark */ = 69B7072A13E65E46002D42BD /* PBXTextBookmark */;
+			69B7072B13E65E46002D42BD /* PlistBookmark */ = 69B7072B13E65E46002D42BD /* PlistBookmark */;
+			69B7072C13E65E46002D42BD /* PBXTextBookmark */ = 69B7072C13E65E46002D42BD /* PBXTextBookmark */;
+			69B7072D13E65E46002D42BD /* PBXTextBookmark */ = 69B7072D13E65E46002D42BD /* PBXTextBookmark */;
+			69B7072E13E65E46002D42BD /* PBXTextBookmark */ = 69B7072E13E65E46002D42BD /* PBXTextBookmark */;
+			69B7072F13E65E46002D42BD /* PBXTextBookmark */ = 69B7072F13E65E46002D42BD /* PBXTextBookmark */;
+			69B7073213E65E5A002D42BD /* PBXTextBookmark */ = 69B7073213E65E5A002D42BD /* PBXTextBookmark */;
 			69D73F08136B48E8004380D6 = 69D73F08136B48E8004380D6 /* PBXTextBookmark */;
 			69D73F09136B48E8004380D6 = 69D73F09136B48E8004380D6 /* PBXBookmark */;
 			69D73F0E136B48E8004380D6 = 69D73F0E136B48E8004380D6 /* PBXBookmark */;
@@ -3048,14 +3056,14 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {918, 611}}";
 			sepNavSelRange = "{1352, 44}";
-			sepNavVisRange = "{520, 995}";
+			sepNavVisRange = "{406, 1109}";
 		};
 	};
 	693DB96E13C6087A00DA9DE1 /* dropboxSync.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {918, 5460}}";
+			sepNavIntBoundsRect = "{{0, 0}, {918, 5434}}";
 			sepNavSelRange = "{10453, 0}";
-			sepNavVisRange = "{8409, 879}";
+			sepNavVisRange = "{8412, 1074}";
 		};
 	};
 	693DB98813C636FA00DA9DE1 /* DBAccountInfo.h */ = {
@@ -3171,7 +3179,7 @@
 		fRef = 69D73FF0136BCE76004380D6 /* aitunesCustomer.m */;
 		name = "aitunesCustomer.m: 503";
 		rLen = 0;
-		rLoc = 22863;
+		rLoc = 22862;
 		rType = 0;
 		vrLen = 1155;
 		vrLoc = 15517;
@@ -4841,7 +4849,7 @@
 		fRef = 69D73FF0136BCE76004380D6 /* aitunesCustomer.m */;
 		name = "aitunesCustomer.m: 503";
 		rLen = 0;
-		rLoc = 22863;
+		rLoc = 22862;
 		rType = 0;
 		vrLen = 1156;
 		vrLoc = 15516;
@@ -5106,7 +5114,7 @@
 		fRef = 69D73FF0136BCE76004380D6 /* aitunesCustomer.m */;
 		name = "aitunesCustomer.m: 503";
 		rLen = 0;
-		rLoc = 22863;
+		rLoc = 22862;
 		rType = 0;
 		vrLen = 1155;
 		vrLoc = 15517;
@@ -11277,7 +11285,7 @@
 		fRef = 69D73FF0136BCE76004380D6 /* aitunesCustomer.m */;
 		name = "aitunesCustomer.m: 655";
 		rLen = 75;
-		rLoc = 21643;
+		rLoc = 21642;
 		rType = 0;
 		vrLen = 1002;
 		vrLoc = 21056;
@@ -11287,7 +11295,7 @@
 		fRef = 69D73FF0136BCE76004380D6 /* aitunesCustomer.m */;
 		name = "aitunesCustomer.m: 656";
 		rLen = 0;
-		rLoc = 22127;
+		rLoc = 22126;
 		rType = 0;
 		vrLen = 1062;
 		vrLoc = 20743;
@@ -11297,7 +11305,7 @@
 		fRef = 69D73FF0136BCE76004380D6 /* aitunesCustomer.m */;
 		name = "aitunesCustomer.m: 657";
 		rLen = 75;
-		rLoc = 21643;
+		rLoc = 21642;
 		rType = 0;
 		vrLen = 1226;
 		vrLoc = 21182;
@@ -11445,7 +11453,7 @@
 		fRef = 69D73FF0136BCE76004380D6 /* aitunesCustomer.m */;
 		name = "aitunesCustomer.m: 659";
 		rLen = 0;
-		rLoc = 21827;
+		rLoc = 21826;
 		rType = 0;
 		vrLen = 1136;
 		vrLoc = 16149;
@@ -11455,7 +11463,7 @@
 		fRef = 69D73FF0136BCE76004380D6 /* aitunesCustomer.m */;
 		name = "aitunesCustomer.m: 659";
 		rLen = 0;
-		rLoc = 21827;
+		rLoc = 21826;
 		rType = 0;
 		vrLen = 1136;
 		vrLoc = 16149;
@@ -11688,10 +11696,87 @@
 		fRef = 69D73FF0136BCE76004380D6 /* aitunesCustomer.m */;
 		name = "aitunesCustomer.m: 624";
 		rLen = 0;
-		rLoc = 20742;
+		rLoc = 20741;
 		rType = 0;
 		vrLen = 697;
 		vrLoc = 20275;
+	};
+	69B7072913E65E46002D42BD /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 69D73EBA136A5741004380D6 /* Icon-72.png */;
+	};
+	69B7072A13E65E46002D42BD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
+		name = "customerInfoView.m: 105";
+		rLen = 17;
+		rLoc = 3531;
+		rType = 0;
+		vrLen = 1076;
+		vrLoc = 3158;
+	};
+	69B7072B13E65E46002D42BD /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* All_Seeing_Eye-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIconFiles,
+			3,
+		);
+		name = "/Users/trevor/Documents/Cocoa Projects/All-Seeing Eye/All_Seeing_Eye-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	69B7072C13E65E46002D42BD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 693DB96E13C6087A00DA9DE1 /* dropboxSync.m */;
+		name = "dropboxSync.m: 351";
+		rLen = 0;
+		rLoc = 10453;
+		rType = 0;
+		vrLen = 1074;
+		vrLoc = 8412;
+	};
+	69B7072D13E65E46002D42BD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 693DB96D13C6087A00DA9DE1 /* dropboxSync.h */;
+		name = "dropboxSync.h: 41";
+		rLen = 44;
+		rLoc = 1352;
+		rType = 0;
+		vrLen = 1109;
+		vrLoc = 406;
+	};
+	69B7072E13E65E46002D42BD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 69D73FF0136BCE76004380D6 /* aitunesCustomer.m */;
+		name = "aitunesCustomer.m: 468";
+		rLen = 0;
+		rLoc = 15195;
+		rType = 0;
+		vrLen = 1249;
+		vrLoc = 21015;
+	};
+	69B7072F13E65E46002D42BD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 69D73FF0136BCE76004380D6 /* aitunesCustomer.m */;
+		name = "aitunesCustomer.m: 627";
+		rLen = 0;
+		rLoc = 20783;
+		rType = 0;
+		vrLen = 822;
+		vrLoc = 20337;
+	};
+	69B7073213E65E5A002D42BD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 69D73FF0136BCE76004380D6 /* aitunesCustomer.m */;
+		name = "aitunesCustomer.m: 626";
+		rLen = 0;
+		rLoc = 20766;
+		rType = 0;
+		vrLen = 822;
+		vrLoc = 20337;
 	};
 	69D73EA8136A2840004380D6 /* COPYING */ = {
 		uiCtxt = {
@@ -11864,9 +11949,9 @@
 	};
 	69D73FF0136BCE76004380D6 /* aitunesCustomer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {918, 9191}}";
-			sepNavSelRange = "{15195, 0}";
-			sepNavVisRange = "{21015, 1249}";
+			sepNavIntBoundsRect = "{{0, 0}, {918, 9347}}";
+			sepNavSelRange = "{20766, 0}";
+			sepNavVisRange = "{20337, 822}";
 		};
 	};
 	69D74004136BD174004380D6 /* aitunesCustomer.m:585 */ = {
