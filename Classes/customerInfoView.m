@@ -104,6 +104,13 @@
   if (!barcode || !dbFile) return;
   [delegate.customer clearCreditFromDb: dbFile withBarcode: barcode];
   
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(
+              NSDocumentDirectory, 
+              NSUserDomainMask, YES); 
+  NSString* docDir = [paths objectAtIndex:0];
+  NSString* tmppath = [docDir stringByAppendingString:@"/database.sql"];
+  [delegate.dropbox getLockAndWriteDatabase: tmppath];
+  
   NSNumber *tmp = [NSString stringWithFormat: @"%d", [delegate.customer 
     creditFromDb: dbFile withBarcode: barcode]];
   if (tmp)

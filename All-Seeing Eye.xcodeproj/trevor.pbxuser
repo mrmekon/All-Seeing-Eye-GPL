@@ -40,22 +40,22 @@
 			69862C2F1368671F002E909B /* codeScanner.m:57 */,
 			69862C4513686852002E909B /* codeScanner.m:60 */,
 			69862CC41368B172002E909B /* cameraView.m:148 */,
-			69862D501368D580002E909B /* customerInfoView.m:379 */,
-			69862D8013691021002E909B /* customerInfoView.m:130 */,
+			69862D501368D580002E909B /* customerInfoView.m:386 */,
+			69862D8013691021002E909B /* customerInfoView.m:137 */,
 			69862D8213691036002E909B /* codeScanner.m:65 */,
-			69862D8A136910BE002E909B /* customerInfoView.m:297 */,
-			69862D98136911AD002E909B /* customerInfoView.m:166 */,
-			69862DAC13691753002E909B /* customerInfoView.m:227 */,
+			69862D8A136910BE002E909B /* customerInfoView.m:304 */,
+			69862D98136911AD002E909B /* customerInfoView.m:173 */,
+			69862DAC13691753002E909B /* customerInfoView.m:234 */,
 			69862DC313691BCB002E909B /* rootView.m:68 */,
 			69862DD513691D08002E909B /* rootView.m:112 */,
-			69862E2A1369C6FF002E909B /* customerInfoView.m:400 */,
-			69862E741369F097002E909B /* customerInfoView.m:290 */,
+			69862E2A1369C6FF002E909B /* customerInfoView.m:407 */,
+			69862E741369F097002E909B /* customerInfoView.m:297 */,
 			69D73FAB136B7071004380D6 /* databaseManager.m:73 */,
 			69D73FAD136B7075004380D6 /* databaseManager.m:110 */,
 			69D73FCC136B7195004380D6 /* mainAppDelegate.m:97 */,
 			69D74004136BD174004380D6 /* aitunesCustomer.m:585 */,
-			69D74022136BD31B004380D6 /* customerInfoView.m:165 */,
-			69D74030136BD386004380D6 /* customerInfoView.m:165 */,
+			69D74022136BD31B004380D6 /* customerInfoView.m:172 */,
+			69D74030136BD386004380D6 /* customerInfoView.m:172 */,
 			69D9F4DE1380423700FC3B3B /* userAdminVC.m:300 */,
 			69D9F4E81380436100FC3B3B /* userAdminVC.m:294 */,
 			69D9F5221380AF4D00FC3B3B /* userAdminVC.m:111 */,
@@ -99,11 +99,11 @@
 			693DB72C13A3C3BE00DA9DE1 /* numberInputVC.m:98 */,
 			693DB72E13A3C3CA00DA9DE1 /* numberInputVC.m:125 */,
 			693DB79C13A40DFA00DA9DE1 /* dateInputVC.m:99 */,
-			693DB83B13A6F3F800DA9DE1 /* customerInfoView.m:251 */,
+			693DB83B13A6F3F800DA9DE1 /* customerInfoView.m:258 */,
 			693DB84A13A6F46A00DA9DE1 /* customerInfoView.m:77 */,
-			693DB85113A6F48100DA9DE1 /* customerInfoView.m:245 */,
-			693DB85413A6F48E00DA9DE1 /* customerInfoView.m:132 */,
-			693DB8C413C5508700DA9DE1 /* customerInfoView.m:242 */,
+			693DB85113A6F48100DA9DE1 /* customerInfoView.m:252 */,
+			693DB85413A6F48E00DA9DE1 /* customerInfoView.m:139 */,
+			693DB8C413C5508700DA9DE1 /* customerInfoView.m:249 */,
 			693DBA4F13CA028900DA9DE1 /* mainAppDelegate.m:72 */,
 			693DBA6313CA030000DA9DE1 /* mainAppDelegate.m:56 */,
 			693DBA7B13CA034C00DA9DE1 /* mainAppDelegate.m:48 */,
@@ -125,9 +125,9 @@
 			693DBCD713CE7F4B00DA9DE1 /* mainAppDelegate.m:75 */,
 			693DBD1E13CE83BB00DA9DE1 /* dropboxSync.m:167 */,
 			693DBDA113CE907700DA9DE1 /* dropboxSync.m:188 */,
-			69B7034413E463F3002D42BD /* customerInfoView.m:203 */,
-			69B7034613E463F6002D42BD /* customerInfoView.m:165 */,
-			69B7035213E46502002D42BD /* customerInfoView.m:165 */,
+			69B7034413E463F3002D42BD /* customerInfoView.m:210 */,
+			69B7034613E463F6002D42BD /* customerInfoView.m:172 */,
+			69B7035213E46502002D42BD /* customerInfoView.m:172 */,
 			69B7048B13E4B838002D42BD /* aitunesCustomer.m:382 */,
 			69B7049C13E4B8EB002D42BD /* aitunesCustomer.m:499 */,
 			69B704AE13E4BA71002D42BD /* mainAppDelegate.m:162 */,
@@ -148,10 +148,10 @@
 			69B705D913E5E1C4002D42BD /* dropboxSync.m:250 */,
 			69B705DF13E5E229002D42BD /* dropboxSync.m:295 */,
 			69B705E113E5E22F002D42BD /* dropboxSync.m:303 */,
-			69B7063C13E618BF002D42BD /* customerInfoView.m:315 */,
+			69B7063C13E618BF002D42BD /* customerInfoView.m:322 */,
 			69B7066313E61F4C002D42BD /* customerInfoView.m:93 */,
 			69B706C713E64704002D42BD /* customerInfoView.m:99 */,
-			69B706E013E64EF3002D42BD /* customerInfoView.m:307 */,
+			69B706E013E64EF3002D42BD /* customerInfoView.m:314 */,
 		);
 		codeSenseManager = 695A90EE136276F000DB0A80 /* Code sense */;
 		executables = (
@@ -1240,7 +1240,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 94";
 		rLen = 0;
-		rLoc = 4593;
+		rLoc = 4901;
 		rType = 0;
 		vrLen = 871;
 		vrLoc = 3068;
@@ -2224,7 +2224,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 102";
 		rLen = 0;
-		rLoc = 4557;
+		rLoc = 4865;
 		rType = 0;
 		vrLen = 1028;
 		vrLoc = 2670;
@@ -2254,7 +2254,7 @@
 		comments = "Local declaration of 'barcode' hides instance variable";
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		rLen = 1;
-		rLoc = 138;
+		rLoc = 145;
 		rType = 1;
 	};
 	693DB82513A42CD700DA9DE1 /* PBXTextBookmark */ = {
@@ -2262,7 +2262,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 112";
 		rLen = 0;
-		rLoc = 4557;
+		rLoc = 4865;
 		rType = 0;
 		vrLen = 809;
 		vrLoc = 2923;
@@ -2272,7 +2272,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 112";
 		rLen = 0;
-		rLoc = 4557;
+		rLoc = 4865;
 		rType = 0;
 		vrLen = 809;
 		vrLoc = 2923;
@@ -2302,7 +2302,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 146";
 		rLen = 0;
-		rLoc = 7763;
+		rLoc = 8071;
 		rType = 0;
 		vrLen = 900;
 		vrLoc = 3065;
@@ -2322,7 +2322,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 146";
 		rLen = 0;
-		rLoc = 7763;
+		rLoc = 8071;
 		rType = 0;
 		vrLen = 900;
 		vrLoc = 3065;
@@ -2342,7 +2342,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 125";
 		rLen = 0;
-		rLoc = 7323;
+		rLoc = 7631;
 		rType = 0;
 		vrLen = 885;
 		vrLoc = 3389;
@@ -2352,12 +2352,12 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 139";
 		rLen = 0;
-		rLoc = 7919;
+		rLoc = 8227;
 		rType = 0;
 		vrLen = 1093;
 		vrLoc = 3666;
 	};
-	693DB83B13A6F3F800DA9DE1 /* customerInfoView.m:251 */ = {
+	693DB83B13A6F3F800DA9DE1 /* customerInfoView.m:258 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -2369,7 +2369,7 @@
 		functionName = "-drawRect:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 251;
+		lineNumber = 258;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.038185;
 		originalNumberOfMultipleMatches = 1;
@@ -2380,7 +2380,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 143";
 		rLen = 0;
-		rLoc = 9185;
+		rLoc = 9493;
 		rType = 0;
 		vrLen = 1162;
 		vrLoc = 3666;
@@ -2390,7 +2390,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 143";
 		rLen = 0;
-		rLoc = 9185;
+		rLoc = 9493;
 		rType = 0;
 		vrLen = 1135;
 		vrLoc = 3693;
@@ -2418,7 +2418,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 143";
 		rLen = 0;
-		rLoc = 9185;
+		rLoc = 9493;
 		rType = 0;
 		vrLen = 952;
 		vrLoc = 1566;
@@ -2428,12 +2428,12 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 143";
 		rLen = 0;
-		rLoc = 9185;
+		rLoc = 9493;
 		rType = 0;
 		vrLen = 940;
 		vrLoc = 1600;
 	};
-	693DB85113A6F48100DA9DE1 /* customerInfoView.m:245 */ = {
+	693DB85113A6F48100DA9DE1 /* customerInfoView.m:252 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -2445,13 +2445,13 @@
 		functionName = "-drawRect:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 245;
+		lineNumber = 252;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.038277;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	693DB85413A6F48E00DA9DE1 /* customerInfoView.m:132 */ = {
+	693DB85413A6F48E00DA9DE1 /* customerInfoView.m:139 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -2463,7 +2463,7 @@
 		functionName = "-newScanHandler:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 132;
+		lineNumber = 139;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.038323;
 		originalNumberOfMultipleMatches = 1;
@@ -2474,7 +2474,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 143";
 		rLen = 0;
-		rLoc = 9185;
+		rLoc = 9493;
 		rType = 0;
 		vrLen = 1003;
 		vrLoc = 2624;
@@ -2484,7 +2484,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 143";
 		rLen = 0;
-		rLoc = 9185;
+		rLoc = 9493;
 		rType = 0;
 		vrLen = 1041;
 		vrLoc = 2629;
@@ -2494,7 +2494,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 105";
 		rLen = 0;
-		rLoc = 4570;
+		rLoc = 4878;
 		rType = 0;
 		vrLen = 1110;
 		vrLoc = 3735;
@@ -2504,7 +2504,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 145";
 		rLen = 0;
-		rLoc = 8115;
+		rLoc = 8423;
 		rType = 0;
 		vrLen = 1100;
 		vrLoc = 3680;
@@ -2524,7 +2524,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 169";
 		rLen = 413;
-		rLoc = 10028;
+		rLoc = 10336;
 		rType = 0;
 		vrLen = 917;
 		vrLoc = 4563;
@@ -2534,7 +2534,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 146";
 		rLen = 0;
-		rLoc = 8176;
+		rLoc = 8484;
 		rType = 0;
 		vrLen = 967;
 		vrLoc = 4022;
@@ -2564,7 +2564,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 154";
 		rLen = 0;
-		rLoc = 8409;
+		rLoc = 8717;
 		rType = 0;
 		vrLen = 1174;
 		vrLoc = 3735;
@@ -2574,7 +2574,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 168";
 		rLen = 0;
-		rLoc = 9343;
+		rLoc = 9651;
 		rType = 0;
 		vrLen = 1128;
 		vrLoc = 4545;
@@ -2584,7 +2584,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 168";
 		rLen = 0;
-		rLoc = 9343;
+		rLoc = 9651;
 		rType = 0;
 		vrLen = 1225;
 		vrLoc = 4545;
@@ -2594,7 +2594,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 156";
 		rLen = 0;
-		rLoc = 8409;
+		rLoc = 8717;
 		rType = 0;
 		vrLen = 1199;
 		vrLoc = 3733;
@@ -2654,7 +2654,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 116";
 		rLen = 0;
-		rLoc = 5412;
+		rLoc = 5720;
 		rType = 0;
 		vrLen = 1274;
 		vrLoc = 2629;
@@ -2664,7 +2664,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 173";
 		rLen = 0;
-		rLoc = 8764;
+		rLoc = 9072;
 		rType = 0;
 		vrLen = 1335;
 		vrLoc = 4491;
@@ -2674,7 +2674,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 173";
 		rLen = 0;
-		rLoc = 8764;
+		rLoc = 9072;
 		rType = 0;
 		vrLen = 1335;
 		vrLoc = 4491;
@@ -2731,12 +2731,12 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 120";
 		rLen = 0;
-		rLoc = 5222;
+		rLoc = 5530;
 		rType = 0;
 		vrLen = 1072;
 		vrLoc = 3133;
 	};
-	693DB8C413C5508700DA9DE1 /* customerInfoView.m:242 */ = {
+	693DB8C413C5508700DA9DE1 /* customerInfoView.m:249 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -2748,7 +2748,7 @@
 		functionName = "-drawRect:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 242;
+		lineNumber = 249;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.039123;
 		originalNumberOfMultipleMatches = 1;
@@ -2759,7 +2759,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 120";
 		rLen = 0;
-		rLoc = 5263;
+		rLoc = 5571;
 		rType = 0;
 		vrLen = 1243;
 		vrLoc = 4647;
@@ -2769,7 +2769,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 181";
 		rLen = 0;
-		rLoc = 8767;
+		rLoc = 9075;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 5490;
@@ -2779,7 +2779,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 181";
 		rLen = 0;
-		rLoc = 8764;
+		rLoc = 9072;
 		rType = 0;
 		vrLen = 1323;
 		vrLoc = 4887;
@@ -2789,7 +2789,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 163";
 		rLen = 0;
-		rLoc = 8168;
+		rLoc = 8476;
 		rType = 0;
 		vrLen = 1342;
 		vrLoc = 4401;
@@ -2799,7 +2799,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 163";
 		rLen = 0;
-		rLoc = 8168;
+		rLoc = 8476;
 		rType = 0;
 		vrLen = 1201;
 		vrLoc = 4345;
@@ -2809,7 +2809,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 106";
 		rLen = 0;
-		rLoc = 4611;
+		rLoc = 4919;
 		rType = 0;
 		vrLen = 783;
 		vrLoc = 2540;
@@ -2819,7 +2819,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 156";
 		rLen = 0;
-		rLoc = 7813;
+		rLoc = 8121;
 		rType = 0;
 		vrLen = 1224;
 		vrLoc = 4368;
@@ -2829,7 +2829,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 172";
 		rLen = 0;
-		rLoc = 8409;
+		rLoc = 8717;
 		rType = 0;
 		vrLen = 1378;
 		vrLoc = 4527;
@@ -2839,7 +2839,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 163";
 		rLen = 0;
-		rLoc = 8169;
+		rLoc = 8477;
 		rType = 0;
 		vrLen = 1224;
 		vrLoc = 4368;
@@ -2849,7 +2849,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 181";
 		rLen = 0;
-		rLoc = 8766;
+		rLoc = 9074;
 		rType = 0;
 		vrLen = 1301;
 		vrLoc = 4774;
@@ -2859,7 +2859,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 163";
 		rLen = 0;
-		rLoc = 8157;
+		rLoc = 8465;
 		rType = 0;
 		vrLen = 1383;
 		vrLoc = 4527;
@@ -2869,7 +2869,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 181";
 		rLen = 0;
-		rLoc = 8754;
+		rLoc = 9062;
 		rType = 0;
 		vrLen = 1326;
 		vrLoc = 4953;
@@ -2879,7 +2879,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 289";
 		rLen = 0;
-		rLoc = 12873;
+		rLoc = 13181;
 		rType = 0;
 		vrLen = 1130;
 		vrLoc = 8796;
@@ -2889,7 +2889,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 298";
 		rLen = 0;
-		rLoc = 13254;
+		rLoc = 13562;
 		rType = 0;
 		vrLen = 1132;
 		vrLoc = 8796;
@@ -2899,7 +2899,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 298";
 		rLen = 0;
-		rLoc = 13270;
+		rLoc = 13578;
 		rType = 0;
 		vrLen = 1274;
 		vrLoc = 8649;
@@ -2909,7 +2909,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 267";
 		rLen = 0;
-		rLoc = 11943;
+		rLoc = 12251;
 		rType = 0;
 		vrLen = 1405;
 		vrLoc = 8362;
@@ -2919,7 +2919,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 267";
 		rLen = 0;
-		rLoc = 11943;
+		rLoc = 12251;
 		rType = 0;
 		vrLen = 1437;
 		vrLoc = 8365;
@@ -2929,7 +2929,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 261";
 		rLen = 74;
-		rLoc = 11712;
+		rLoc = 12020;
 		rType = 0;
 		vrLen = 1462;
 		vrLoc = 7886;
@@ -2969,7 +2969,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 261";
 		rLen = 74;
-		rLoc = 11712;
+		rLoc = 12020;
 		rType = 0;
 		vrLen = 1308;
 		vrLoc = 7886;
@@ -2979,7 +2979,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 125";
 		rLen = 0;
-		rLoc = 5449;
+		rLoc = 5757;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 3323;
@@ -2989,7 +2989,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 190";
 		rLen = 0;
-		rLoc = 9177;
+		rLoc = 9485;
 		rType = 0;
 		vrLen = 1213;
 		vrLoc = 5496;
@@ -2999,7 +2999,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 181";
 		rLen = 0;
-		rLoc = 8719;
+		rLoc = 9027;
 		rType = 0;
 		vrLen = 1253;
 		vrLoc = 5496;
@@ -3009,7 +3009,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 190";
 		rLen = 0;
-		rLoc = 9075;
+		rLoc = 9383;
 		rType = 0;
 		vrLen = 1191;
 		vrLoc = 5688;
@@ -3019,7 +3019,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 190";
 		rLen = 0;
-		rLoc = 9075;
+		rLoc = 9383;
 		rType = 0;
 		vrLen = 1191;
 		vrLoc = 5688;
@@ -3053,9 +3053,9 @@
 	};
 	693DB96E13C6087A00DA9DE1 /* dropboxSync.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {918, 5356}}";
-			sepNavSelRange = "{10454, 0}";
-			sepNavVisRange = "{9867, 1123}";
+			sepNavIntBoundsRect = "{{0, 0}, {918, 5460}}";
+			sepNavSelRange = "{10453, 0}";
+			sepNavVisRange = "{8409, 879}";
 		};
 	};
 	693DB98813C636FA00DA9DE1 /* DBAccountInfo.h */ = {
@@ -3161,7 +3161,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 106";
 		rLen = 0;
-		rLoc = 4611;
+		rLoc = 4919;
 		rType = 0;
 		vrLen = 665;
 		vrLoc = 2468;
@@ -3231,7 +3231,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 97";
 		rLen = 101;
-		rLoc = 4217;
+		rLoc = 4525;
 		rType = 0;
 		vrLen = 1101;
 		vrLoc = 2515;
@@ -3679,7 +3679,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 99";
 		rLen = 0;
-		rLoc = 4318;
+		rLoc = 4626;
 		rType = 0;
 		vrLen = 1097;
 		vrLoc = 4295;
@@ -3729,7 +3729,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 154";
 		rLen = 0;
-		rLoc = 7736;
+		rLoc = 8044;
 		rType = 0;
 		vrLen = 1257;
 		vrLoc = 4345;
@@ -3819,7 +3819,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 106";
 		rLen = 0;
-		rLoc = 4611;
+		rLoc = 4919;
 		rType = 0;
 		vrLen = 665;
 		vrLoc = 2468;
@@ -3953,7 +3953,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 99";
 		rLen = 0;
-		rLoc = 4318;
+		rLoc = 4626;
 		rType = 0;
 		vrLen = 1148;
 		vrLoc = 2603;
@@ -4164,7 +4164,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 155";
 		rLen = 0;
-		rLoc = 7737;
+		rLoc = 8045;
 		rType = 0;
 		vrLen = 1140;
 		vrLoc = 4302;
@@ -4214,7 +4214,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 155";
 		rLen = 0;
-		rLoc = 7737;
+		rLoc = 8045;
 		rType = 0;
 		vrLen = 1140;
 		vrLoc = 4302;
@@ -4388,7 +4388,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 155";
 		rLen = 0;
-		rLoc = 7737;
+		rLoc = 8045;
 		rType = 0;
 		vrLen = 1140;
 		vrLoc = 4302;
@@ -4457,7 +4457,7 @@
 		isa = PBXTextBookmark;
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		rLen = 0;
-		rLoc = 241;
+		rLoc = 248;
 		rType = 1;
 	};
 	693DBB5913CA47E700DA9DE1 /* PBXTextBookmark */ = {
@@ -4465,7 +4465,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 155";
 		rLen = 0;
-		rLoc = 7737;
+		rLoc = 8045;
 		rType = 0;
 		vrLen = 1140;
 		vrLoc = 4302;
@@ -4475,7 +4475,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 155";
 		rLen = 0;
-		rLoc = 7737;
+		rLoc = 8045;
 		rType = 0;
 		vrLen = 1140;
 		vrLoc = 4302;
@@ -4615,7 +4615,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 106";
 		rLen = 0;
-		rLoc = 4611;
+		rLoc = 4919;
 		rType = 0;
 		vrLen = 562;
 		vrLoc = 2468;
@@ -4978,7 +4978,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 106";
 		rLen = 0;
-		rLoc = 4611;
+		rLoc = 4919;
 		rType = 0;
 		vrLen = 665;
 		vrLoc = 2468;
@@ -7080,7 +7080,7 @@
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	69862D501368D580002E909B /* customerInfoView.m:379 */ = {
+	69862D501368D580002E909B /* customerInfoView.m:386 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -7092,13 +7092,13 @@
 		functionName = "-imageFromText:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 379;
+		lineNumber = 386;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.024504;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	69862D8013691021002E909B /* customerInfoView.m:130 */ = {
+	69862D8013691021002E909B /* customerInfoView.m:137 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -7110,7 +7110,7 @@
 		functionName = "-newScanHandler:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 130;
+		lineNumber = 137;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.02454;
 		originalNumberOfMultipleMatches = 1;
@@ -7134,7 +7134,7 @@
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	69862D8A136910BE002E909B /* customerInfoView.m:297 */ = {
+	69862D8A136910BE002E909B /* customerInfoView.m:304 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -7146,13 +7146,13 @@
 		functionName = "-drawRect:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 297;
+		lineNumber = 304;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.024613;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	69862D98136911AD002E909B /* customerInfoView.m:166 */ = {
+	69862D98136911AD002E909B /* customerInfoView.m:173 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -7164,13 +7164,13 @@
 		functionName = "-newScanHandler:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 166;
+		lineNumber = 173;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.024644;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	69862DAC13691753002E909B /* customerInfoView.m:227 */ = {
+	69862DAC13691753002E909B /* customerInfoView.m:234 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -7182,7 +7182,7 @@
 		functionName = "-redrawScreen";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 227;
+		lineNumber = 234;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.024682;
 		originalNumberOfMultipleMatches = 1;
@@ -7224,7 +7224,7 @@
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	69862E2A1369C6FF002E909B /* customerInfoView.m:400 */ = {
+	69862E2A1369C6FF002E909B /* customerInfoView.m:407 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -7236,13 +7236,13 @@
 		functionName = "-imageFromText:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 400;
+		lineNumber = 407;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.02482;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	69862E741369F097002E909B /* customerInfoView.m:290 */ = {
+	69862E741369F097002E909B /* customerInfoView.m:297 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -7254,7 +7254,7 @@
 		functionName = "-drawRect:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 290;
+		lineNumber = 297;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.024874;
 		originalNumberOfMultipleMatches = 1;
@@ -8220,7 +8220,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 131";
 		rLen = 0;
-		rLoc = 5449;
+		rLoc = 5757;
 		rType = 0;
 		vrLen = 1479;
 		vrLoc = 2876;
@@ -8230,7 +8230,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 131";
 		rLen = 0;
-		rLoc = 5449;
+		rLoc = 5757;
 		rType = 0;
 		vrLen = 1323;
 		vrLoc = 3330;
@@ -8245,7 +8245,7 @@
 		vrLen = 1418;
 		vrLoc = 3441;
 	};
-	69B7034413E463F3002D42BD /* customerInfoView.m:203 */ = {
+	69B7034413E463F3002D42BD /* customerInfoView.m:210 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -8257,13 +8257,13 @@
 		functionName = "-scanTimerCallback:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 203;
+		lineNumber = 210;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.040227;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	69B7034613E463F6002D42BD /* customerInfoView.m:165 */ = {
+	69B7034613E463F6002D42BD /* customerInfoView.m:172 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -8275,13 +8275,13 @@
 		functionName = "-newScanHandler:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 165;
+		lineNumber = 172;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.040284;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	69B7035213E46502002D42BD /* customerInfoView.m:165 */ = {
+	69B7035213E46502002D42BD /* customerInfoView.m:172 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -8293,7 +8293,7 @@
 		functionName = "-newScanHandler:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 165;
+		lineNumber = 172;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.040319;
 		originalNumberOfMultipleMatches = 1;
@@ -8334,7 +8334,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 132";
 		rLen = 0;
-		rLoc = 5449;
+		rLoc = 5757;
 		rType = 0;
 		vrLen = 1249;
 		vrLoc = 3724;
@@ -8344,7 +8344,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 133";
 		rLen = 0;
-		rLoc = 5449;
+		rLoc = 5757;
 		rType = 0;
 		vrLen = 1121;
 		vrLoc = 3962;
@@ -8354,7 +8354,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 136";
 		rLen = 0;
-		rLoc = 5449;
+		rLoc = 5757;
 		rType = 0;
 		vrLen = 1125;
 		vrLoc = 3962;
@@ -8364,7 +8364,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 147";
 		rLen = 0;
-		rLoc = 6211;
+		rLoc = 6519;
 		rType = 0;
 		vrLen = 1217;
 		vrLoc = 3975;
@@ -8414,7 +8414,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 171";
 		rLen = 0;
-		rLoc = 6488;
+		rLoc = 6796;
 		rType = 0;
 		vrLen = 1360;
 		vrLoc = 456;
@@ -8444,7 +8444,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 286";
 		rLen = 0;
-		rLoc = 11041;
+		rLoc = 11349;
 		rType = 0;
 		vrLen = 1231;
 		vrLoc = 8415;
@@ -8454,7 +8454,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 286";
 		rLen = 0;
-		rLoc = 11041;
+		rLoc = 11349;
 		rType = 0;
 		vrLen = 1165;
 		vrLoc = 8481;
@@ -8464,7 +8464,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 286";
 		rLen = 0;
-		rLoc = 11041;
+		rLoc = 11349;
 		rType = 0;
 		vrLen = 1264;
 		vrLoc = 4899;
@@ -8874,7 +8874,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 144";
 		rLen = 0;
-		rLoc = 6040;
+		rLoc = 6348;
 		rType = 0;
 		vrLen = 1522;
 		vrLoc = 3238;
@@ -8960,7 +8960,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 142";
 		rLen = 0;
-		rLoc = 5970;
+		rLoc = 6278;
 		rType = 0;
 		vrLen = 1193;
 		vrLoc = 4599;
@@ -9018,7 +9018,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 165";
 		rLen = 0;
-		rLoc = 6570;
+		rLoc = 6878;
 		rType = 0;
 		vrLen = 1190;
 		vrLoc = 4599;
@@ -9427,7 +9427,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 107";
 		rLen = 100;
-		rLoc = 4387;
+		rLoc = 4695;
 		rType = 0;
 		vrLen = 1620;
 		vrLoc = 2903;
@@ -9644,7 +9644,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 283";
 		rLen = 0;
-		rLoc = 10380;
+		rLoc = 10688;
 		rType = 0;
 		vrLen = 1246;
 		vrLoc = 8278;
@@ -9654,7 +9654,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 278";
 		rLen = 0;
-		rLoc = 10136;
+		rLoc = 10444;
 		rType = 0;
 		vrLen = 1246;
 		vrLoc = 8224;
@@ -9664,7 +9664,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 278";
 		rLen = 0;
-		rLoc = 10136;
+		rLoc = 10444;
 		rType = 0;
 		vrLen = 1246;
 		vrLoc = 8224;
@@ -10821,7 +10821,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 286";
 		rLen = 0;
-		rLoc = 10389;
+		rLoc = 10697;
 		rType = 0;
 		vrLen = 1320;
 		vrLoc = 8224;
@@ -10831,7 +10831,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 286";
 		rLen = 0;
-		rLoc = 10389;
+		rLoc = 10697;
 		rType = 0;
 		vrLen = 1291;
 		vrLoc = 8278;
@@ -10841,7 +10841,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 286";
 		rLen = 0;
-		rLoc = 10389;
+		rLoc = 10697;
 		rType = 0;
 		vrLen = 1415;
 		vrLoc = 8587;
@@ -10851,7 +10851,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 286";
 		rLen = 0;
-		rLoc = 10389;
+		rLoc = 10697;
 		rType = 0;
 		vrLen = 1421;
 		vrLoc = 8587;
@@ -10861,7 +10861,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 286";
 		rLen = 0;
-		rLoc = 10389;
+		rLoc = 10697;
 		rType = 0;
 		vrLen = 1420;
 		vrLoc = 8587;
@@ -10871,7 +10871,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 290";
 		rLen = 0;
-		rLoc = 10389;
+		rLoc = 10697;
 		rType = 0;
 		vrLen = 1354;
 		vrLoc = 8691;
@@ -10896,7 +10896,7 @@
 		vrLen = 1203;
 		vrLoc = 13670;
 	};
-	69B7063C13E618BF002D42BD /* customerInfoView.m:315 */ = {
+	69B7063C13E618BF002D42BD /* customerInfoView.m:322 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -10908,7 +10908,7 @@
 		functionName = "-drawRect:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 315;
+		lineNumber = 322;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.041553;
 		originalNumberOfMultipleMatches = 1;
@@ -10929,7 +10929,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 290";
 		rLen = 0;
-		rLoc = 10389;
+		rLoc = 10697;
 		rType = 0;
 		vrLen = 1256;
 		vrLoc = 8851;
@@ -10939,7 +10939,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 290";
 		rLen = 0;
-		rLoc = 10389;
+		rLoc = 10697;
 		rType = 0;
 		vrLen = 1229;
 		vrLoc = 8918;
@@ -10949,7 +10949,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 288";
 		rLen = 0;
-		rLoc = 10389;
+		rLoc = 10697;
 		rType = 0;
 		vrLen = 1196;
 		vrLoc = 8999;
@@ -10969,7 +10969,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 285";
 		rLen = 0;
-		rLoc = 10389;
+		rLoc = 10697;
 		rType = 0;
 		vrLen = 1268;
 		vrLoc = 8852;
@@ -11077,7 +11077,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 247";
 		rLen = 0;
-		rLoc = 8409;
+		rLoc = 8717;
 		rType = 0;
 		vrLen = 1256;
 		vrLoc = 7470;
@@ -11087,7 +11087,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 246";
 		rLen = 0;
-		rLoc = 8409;
+		rLoc = 8717;
 		rType = 0;
 		vrLen = 1211;
 		vrLoc = 7626;
@@ -11157,7 +11157,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 246";
 		rLen = 0;
-		rLoc = 8409;
+		rLoc = 8717;
 		rType = 0;
 		vrLen = 1331;
 		vrLoc = 7519;
@@ -11177,7 +11177,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 255";
 		rLen = 0;
-		rLoc = 8813;
+		rLoc = 9121;
 		rType = 0;
 		vrLen = 1172;
 		vrLoc = 2196;
@@ -11237,7 +11237,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 100";
 		rLen = 0;
-		rLoc = 3887;
+		rLoc = 4195;
 		rType = 0;
 		vrLen = 920;
 		vrLoc = 2531;
@@ -11357,7 +11357,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 106";
 		rLen = 0;
-		rLoc = 3889;
+		rLoc = 4197;
 		rType = 0;
 		vrLen = 865;
 		vrLoc = 3158;
@@ -11385,7 +11385,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 106";
 		rLen = 0;
-		rLoc = 3889;
+		rLoc = 4197;
 		rType = 0;
 		vrLen = 865;
 		vrLoc = 3158;
@@ -11395,7 +11395,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 106";
 		rLen = 0;
-		rLoc = 3889;
+		rLoc = 4197;
 		rType = 0;
 		vrLen = 865;
 		vrLoc = 3158;
@@ -11405,7 +11405,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 108";
 		rLen = 0;
-		rLoc = 3887;
+		rLoc = 4195;
 		rType = 0;
 		vrLen = 1010;
 		vrLoc = 2856;
@@ -11415,7 +11415,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 107";
 		rLen = 0;
-		rLoc = 3595;
+		rLoc = 3903;
 		rType = 0;
 		vrLen = 1020;
 		vrLoc = 3254;
@@ -11425,7 +11425,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 107";
 		rLen = 0;
-		rLoc = 3595;
+		rLoc = 3903;
 		rType = 0;
 		vrLen = 1020;
 		vrLoc = 3254;
@@ -11477,7 +11477,7 @@
 		vrLen = 1096;
 		vrLoc = 9687;
 	};
-	69B706E013E64EF3002D42BD /* customerInfoView.m:307 */ = {
+	69B706E013E64EF3002D42BD /* customerInfoView.m:314 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -11489,7 +11489,7 @@
 		functionName = "-drawRect:";
 		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 307;
+		lineNumber = 314;
 		location = "All-Seeing Eye";
 		modificationTime = 333860720.450396;
 		originalNumberOfMultipleMatches = 1;
@@ -11509,7 +11509,7 @@
 		isa = PBXTextBookmark;
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		rLen = 0;
-		rLoc = 306;
+		rLoc = 313;
 		rType = 1;
 	};
 	69B706E613E64F26002D42BD /* PBXTextBookmark */ = {
@@ -11517,7 +11517,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 312";
 		rLen = 0;
-		rLoc = 10335;
+		rLoc = 10643;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 9616;
@@ -11527,7 +11527,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 319";
 		rLen = 0;
-		rLoc = 10474;
+		rLoc = 10782;
 		rType = 0;
 		vrLen = 1393;
 		vrLoc = 8992;
@@ -11556,7 +11556,7 @@
 		isa = PBXTextBookmark;
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		rLen = 0;
-		rLoc = 306;
+		rLoc = 313;
 		rType = 1;
 	};
 	69B706F213E64F74002D42BD /* PBXTextBookmark */ = {
@@ -11564,7 +11564,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 307";
 		rLen = 0;
-		rLoc = 10032;
+		rLoc = 10340;
 		rType = 0;
 		vrLen = 1343;
 		vrLoc = 9042;
@@ -11574,7 +11574,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 307";
 		rLen = 0;
-		rLoc = 10032;
+		rLoc = 10340;
 		rType = 0;
 		vrLen = 1343;
 		vrLoc = 9042;
@@ -11864,9 +11864,9 @@
 	};
 	69D73FF0136BCE76004380D6 /* aitunesCustomer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {918, 9360}}";
-			sepNavSelRange = "{20742, 0}";
-			sepNavVisRange = "{20275, 697}";
+			sepNavIntBoundsRect = "{{0, 0}, {918, 9191}}";
+			sepNavSelRange = "{15195, 0}";
+			sepNavVisRange = "{21015, 1249}";
 		};
 	};
 	69D74004136BD174004380D6 /* aitunesCustomer.m:585 */ = {
@@ -11887,7 +11887,7 @@
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	69D74022136BD31B004380D6 /* customerInfoView.m:165 */ = {
+	69D74022136BD31B004380D6 /* customerInfoView.m:172 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -11899,13 +11899,13 @@
 		functionName = "-newScanHandler:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 165;
+		lineNumber = 172;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.025303;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	69D74030136BD386004380D6 /* customerInfoView.m:165 */ = {
+	69D74030136BD386004380D6 /* customerInfoView.m:172 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -11917,7 +11917,7 @@
 		functionName = "-newScanHandler:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 165;
+		lineNumber = 172;
 		location = "All-Seeing Eye";
 		modificationTime = 333860713.025345;
 		originalNumberOfMultipleMatches = 1;
@@ -12101,7 +12101,7 @@
 		fRef = 69E7A9B513635F610020A229 /* customerInfoView.m */;
 		name = "customerInfoView.m: 89";
 		rLen = 0;
-		rLoc = 4273;
+		rLoc = 4581;
 		rType = 0;
 		vrLen = 1142;
 		vrLoc = 2342;
@@ -12274,9 +12274,9 @@
 	};
 	69E7A9B513635F610020A229 /* customerInfoView.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {918, 5616}}";
-			sepNavSelRange = "{10032, 0}";
-			sepNavVisRange = "{9042, 1343}";
+			sepNavIntBoundsRect = "{{0, 0}, {918, 5928}}";
+			sepNavSelRange = "{3531, 17}";
+			sepNavVisRange = "{3108, 1126}";
 			sepNavWindowFrame = "{{15, 127}, {1136, 746}}";
 		};
 	};
