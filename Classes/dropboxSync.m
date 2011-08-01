@@ -141,9 +141,6 @@ NSString *g_lockfile = @"dropbox.lock";
       self.hasLockPermission = YES;
       break;
     }
-    mainAppDelegate *delegate = 
-        (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
-    [delegate.scanner simulatorDebug];
   }
   /* Should take over lock? */
   else if (alertView.title == @"Take Over Lock?") {
@@ -226,7 +223,7 @@ NSString *g_lockfile = @"dropbox.lock";
         withObject: nil 
         waitUntilDone: NO];
   timeout = YES;
-  for (int i = 0; i < 200; i++) {
+  for (int i = 0; i < 100; i++) {
     if (self.hasWriteLock) {timeout = NO; break;}
     [NSThread sleepForTimeInterval:0.10];
   }
@@ -267,7 +264,7 @@ NSString *g_lockfile = @"dropbox.lock";
         withObject: nil 
         waitUntilDone: NO];
   timeout = YES;
-  for (int i = 0; i < 200; i++) {
+  for (int i = 0; i < 100; i++) {
     if (!self.hasWriteLock) {timeout = NO; break;}
     [NSThread sleepForTimeInterval:0.10];
   }
@@ -352,6 +349,7 @@ NSString *g_lockfile = @"dropbox.lock";
   NSURL *tmpurl = [NSURL fileURLWithPath:destPath];
 	[delegate.dbManager reloadWithNewDatabaseFile: tmpurl];
 
+  [delegate.scanner simulatorDebug];
 }
 
 - (void)restClient:(DBRestClient*)client loadFileFailedWithError:(NSError*)error {

@@ -194,6 +194,14 @@
 -(int)creditFromDb: (NSString*)dbFile withBarcode: (NSString*)barcode;
 
 /**
+ * \brief Clear customer's credit
+ * \param dbFile Database to search
+ * \param barcode Barcode number to match
+ * \return Clear's customer's monetary credit to zero
+ */
+-(BOOL)clearCreditFromDb: (NSString*)dbFile withBarcode: (NSString*)barcode;
+
+/**
  * \brief Get number of customers this customer has referred
  * \param dbFile Database to search
  * \param barcode Barcode of customer

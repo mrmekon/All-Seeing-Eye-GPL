@@ -79,8 +79,39 @@
             object: nil];
     self.currentScan = [NSMutableDictionary dictionaryWithCapacity: 10];
     [self.currentScan setObject:@"No Scan" forKey:@"name"];
+    
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setTitle: @"Redeem Customer's Credit" forState:UIControlStateNormal];
+    CGPoint buttonPoint =  CGPointMake(
+      self.frame.size.width / 2, 
+      self.frame.size.height - 110);
+    button.frame = CGRectMake(0,0,600,60);
+    [button setCenter: buttonPoint];
+    [button addTarget: self action: @selector(redeemCredit) 
+      forControlEvents: UIControlEventTouchDown];
+    [self addSubview:button];
 	}
   return self;
+}
+
+-(void)redeemCredit {
+  NSLog(@"Redeemed!");
+  mainAppDelegate *delegate = 
+      (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+  NSString *barcode = [self.currentScan objectForKey:@"barcode"];
+  NSString *dbFile = delegate.dbManager.databasePath;
+  if (!barcode || !dbFile) return;
+  [delegate.customer clearCreditFromDb: dbFile withBarcode: barcode];
+  
+  NSNumber *tmp = [NSString stringWithFormat: @"%d", [delegate.customer 
+    creditFromDb: dbFile withBarcode: barcode]];
+  if (tmp)
+    [self.currentScan setObject:tmp  forKey:@"credit"];
+  
+  [self performSelectorOnMainThread: @selector(redrawScreen)
+        withObject: nil
+        waitUntilDone: NO];
 }
 
 /**
@@ -278,7 +309,7 @@
     NSString *temp = [[@"Referrals:" stringByPaddingToLength: 15 
                                  withString:@" " 
                                  startingAtIndex: 0] 
-                      stringByAppendingString: credit];
+                      stringByAppendingString: count];
     [self drawLeftJustifiedText: temp y: 400];
   }
 

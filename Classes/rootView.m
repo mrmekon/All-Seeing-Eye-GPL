@@ -53,7 +53,6 @@
   	[self addSubview: customerView];
     [self setBackgroundColor:[UIColor blackColor]];
     
-    
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver: self 
             selector: @selector(causePulseInMainThread) 

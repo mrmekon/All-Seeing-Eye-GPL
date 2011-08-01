@@ -277,13 +277,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>62</integer>
+									<integer>60</integer>
 									<integer>30</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 617}, {218, 580}}</string>
+							<string>{{0, 502}, {218, 580}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -320,7 +320,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>dropboxSync.m</string>
+								<string>aitunesCustomer.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,11 +328,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>dropboxSync.m</string>
+										<string>aitunesCustomer.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>69B705FA13E5E50D002D42BD</string>
+										<string>69B7070A13E65315002D42BD</string>
 										<key>history</key>
 										<array>
 											<string>69862B561367B988002E909B</string>
@@ -354,12 +354,8 @@
 											<string>699812CC13A050F200CE90A9</string>
 											<string>693DB73A13A3C58000DA9DE1</string>
 											<string>693DB73C13A3C58000DA9DE1</string>
-											<string>693DB76013A3D2D800DA9DE1</string>
 											<string>693DB7A013A40E6700DA9DE1</string>
-											<string>693DB7A513A40E6700DA9DE1</string>
-											<string>693DB7A713A40E6700DA9DE1</string>
 											<string>693DB7D513A4123600DA9DE1</string>
-											<string>693DB80513A41A0300DA9DE1</string>
 											<string>693DBA2513C6385A00DA9DE1</string>
 											<string>693DBA2613C6385A00DA9DE1</string>
 											<string>693DBA3A13CA01B100DA9DE1</string>
@@ -377,28 +373,32 @@
 											<string>693DBD6E13CE8BE500DA9DE1</string>
 											<string>693DBDAF13CE982F00DA9DE1</string>
 											<string>693DBDC413CE9AF600DA9DE1</string>
-											<string>693DBDE113CFF1D500DA9DE1</string>
 											<string>69B7037F13E46A9E002D42BD</string>
-											<string>69B703F413E46EC0002D42BD</string>
 											<string>69B7042F13E49FC0002D42BD</string>
 											<string>69B7043513E4AAA9002D42BD</string>
-											<string>69B7043713E4AAA9002D42BD</string>
-											<string>69B7047013E4B6EC002D42BD</string>
-											<string>69B704CB13E4BCA5002D42BD</string>
 											<string>69B704E013E4BD5C002D42BD</string>
-											<string>69B7050413E4BFB6002D42BD</string>
-											<string>69B7053713E5D4AB002D42BD</string>
 											<string>69B7056813E5DB70002D42BD</string>
 											<string>69B7056913E5DB70002D42BD</string>
-											<string>69B7059113E5DFA6002D42BD</string>
-											<string>69B705BC13E5E0DD002D42BD</string>
-											<string>69B705CF13E5E174002D42BD</string>
 											<string>69B705F113E5E4CE002D42BD</string>
-											<string>69B705F213E5E4CE002D42BD</string>
-											<string>69B705F313E5E4CE002D42BD</string>
-											<string>69B705F413E5E4CE002D42BD</string>
-											<string>69B705F513E5E4CE002D42BD</string>
-											<string>69B705F613E5E4CE002D42BD</string>
+											<string>69B7060913E61636002D42BD</string>
+											<string>69B7060A13E61636002D42BD</string>
+											<string>69B7060B13E61636002D42BD</string>
+											<string>69B7060C13E61636002D42BD</string>
+											<string>69B7060D13E61636002D42BD</string>
+											<string>69B7060E13E61636002D42BD</string>
+											<string>69B7060F13E61636002D42BD</string>
+											<string>69B7061113E61636002D42BD</string>
+											<string>69B7066113E61ECB002D42BD</string>
+											<string>69B7069913E6244D002D42BD</string>
+											<string>69B706C113E646DC002D42BD</string>
+											<string>69B706C213E646DC002D42BD</string>
+											<string>69B706C313E646DC002D42BD</string>
+											<string>69B706C413E646DC002D42BD</string>
+											<string>69B706F313E64F8C002D42BD</string>
+											<string>69B706F613E65097002D42BD</string>
+											<string>69B7070313E652A8002D42BD</string>
+											<string>69B7070813E65315002D42BD</string>
+											<string>69B7070913E65315002D42BD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
