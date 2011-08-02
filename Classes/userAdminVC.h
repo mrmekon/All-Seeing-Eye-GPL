@@ -29,6 +29,10 @@
   NSArray *allRows;
   NSArray *searchRows;
   UISearchBar *searchBar;
+  
+	@private
+  	BOOL doNotSaveDatabase;
+    BOOL searchResultsActive;
 }
 
 /// Full path to database file
@@ -39,6 +43,10 @@
 @property(nonatomic, retain) NSArray *searchRows;
 /// Search bar UI element
 @property(nonatomic, retain) UISearchBar *searchBar;
+
+/// Set to tell controller not to save database when it disappears
+@property(nonatomic) BOOL doNotSaveDatabase;
+@property(nonatomic) BOOL searchResultsActive;
 
 - (id)initWithDbFile: (NSString*)db;
 - (void)readRowsFromDb;

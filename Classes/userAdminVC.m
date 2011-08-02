@@ -79,6 +79,9 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 @synthesize searchRows;
 @synthesize searchBar;
 
+@synthesize doNotSaveDatabase;
+@synthesize searchResultsActive;
+
 /**
  * \brief Initialize a new instance with the given database
  *
@@ -109,8 +112,15 @@ NSInteger rowSort(id dict1, id dict2, void *context)
         searchController.delegate = self;
         searchController.searchResultsDataSource = self;
         searchController.searchResultsDelegate = self;
+        
+        self.doNotSaveDatabase = NO;
     }
     return self;
+}
+
+- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
+  // search ended
+  self.searchResultsActive = NO;
 }
 
 /**
@@ -237,13 +247,24 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 	[super viewWillAppear: animated];
   [[self navigationController] setNavigationBarHidden: NO animated: YES];
   [self addEditButton];
-  [self readRowsFromDb]; // re-read database
-  [self.tableView reloadData]; // and reload table with new data
+  //[self readRowsFromDb]; // re-read database
+  //[self.tableView reloadData]; // and reload table with new data
   
   // Grab the lock
   mainAppDelegate *delegate = 
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
   [delegate.dropbox tryToObtainDropboxLock];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear: animated];
+  if (!self.doNotSaveDatabase) {
+    [self readRowsFromDb]; // re-read database
+    [self.tableView reloadData]; // and reload table with new data
+  }
+  else {
+    self.doNotSaveDatabase = NO;
+  }
 }
 
 /**
@@ -252,18 +273,20 @@ NSInteger rowSort(id dict1, id dict2, void *context)
  */
 -(void) viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear: animated];
-  NSLog(@"Disappearing.");
-  mainAppDelegate *delegate = 
-      (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
-  NSArray *paths = NSSearchPathForDirectoriesInDomains(
-              NSDocumentDirectory, 
-              NSUserDomainMask, YES); 
-  NSString* docDir = [paths objectAtIndex:0];
-  NSString* tmppath = [docDir stringByAppendingString:@"/database.sql"];
-	[delegate.dropbox writeDatabaseToDropbox: tmppath];
   
-  // Let go of the lock
-  [delegate.dropbox releaseDropboxLock];
+  if (!self.doNotSaveDatabase) {
+    mainAppDelegate *delegate = 
+        (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(
+                NSDocumentDirectory, 
+                NSUserDomainMask, YES); 
+    NSString* docDir = [paths objectAtIndex:0];
+    NSString* tmppath = [docDir stringByAppendingString:@"/database.sql"];
+    [delegate.dropbox writeDatabaseToDropbox: tmppath];
+    
+    // Let go of the lock
+    [delegate.dropbox releaseDropboxLock];
+  }
 }
 
 /**
@@ -289,13 +312,15 @@ NSInteger rowSort(id dict1, id dict2, void *context)
  */
 - (NSInteger)tableView:(UITableView *)tableView 
              numberOfRowsInSection:(NSInteger)section {
-	NSLog(@"Table view section request");
+
   if (tableView == self.tableView) {
     // All results in admin view controller
+    self.searchResultsActive = NO;
     return self.allRows.count;
   }
   else {
     // Search results from search view controller
+    self.searchResultsActive = YES;
     return self.searchRows.count;
   }
 }
@@ -322,7 +347,7 @@ NSInteger rowSort(id dict1, id dict2, void *context)
   
 	// Choose from all customers or search results based on requester.
 	NSDictionary *cellDict = nil;
-	if (tableView == self.tableView) {
+	if (!self.searchResultsActive) {
   	cellDict = [self.allRows objectAtIndex: indexPath.row];
   }
   else {
@@ -356,7 +381,13 @@ NSInteger rowSort(id dict1, id dict2, void *context)
   }
     
   // Figure out which barcode we're deleting
-	NSDictionary *row = [self.allRows objectAtIndex: indexPath.row];
+  NSDictionary *row = nil;
+  if (!self.searchResultsActive) {
+    row = [self.allRows objectAtIndex: indexPath.row];
+  }
+  else {
+    row = [self.searchRows objectAtIndex: indexPath.row];
+  }
   NSString *barcode = [row objectForKey: @"barcode"];
   if (!barcode) {
   	NSLog(@"Well that's a funny predicament.  Row has no barcode!");
@@ -386,12 +417,22 @@ NSInteger rowSort(id dict1, id dict2, void *context)
  * \param indexPath Section and row of table view that was selected
  */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSDictionary *row = [self.allRows objectAtIndex: indexPath.row];
+  NSDictionary *row = nil;
+  if (!self.searchResultsActive) {
+    row = [self.allRows objectAtIndex: indexPath.row];
+  }
+  else {
+    row = [self.searchRows objectAtIndex: indexPath.row];
+  }
   NSString *barcode = [row objectForKey: @"barcode"];
   if (!barcode) {
   	NSLog(@"Well that's a funny predicament.  Row has no barcode!");
     return;
   }
+  
+  // don't save DB when the view disappears
+  self.doNotSaveDatabase = YES;
+  
   userEntryVC *entryVC = [[[userEntryVC alloc] 
   	initWithStyle: UITableViewStyleGrouped
     withDbFile: self.dbFile

@@ -96,9 +96,21 @@
 }
 
 -(void)redeemCredit {
-  NSLog(@"Redeemed!");
   mainAppDelegate *delegate = 
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+      
+  if (!delegate.dropbox.hasLockPermission) {
+    UIAlertView *alert = [[[UIAlertView alloc] 
+      initWithTitle: @"No Write Permissions!" 
+      message: @"This device does not have write permissions, and cannot use "
+      	"customer credit!"
+      delegate: self
+      cancelButtonTitle: nil
+      otherButtonTitles: @"OK",nil] autorelease];
+    [alert show];
+    return;
+  }
+      
   NSString *barcode = [self.currentScan objectForKey:@"barcode"];
   NSString *dbFile = delegate.dbManager.databasePath;
   if (!barcode || !dbFile) return;
@@ -426,7 +438,6 @@
                               CGSizeMake(0.0, 0.0), // (x,y) offset
                               6.0, // blur amount
                               [[UIColor whiteColor] CGColor]);
-  NSLog(@"Desired size: %f", desiredFontSize);
 	/* Draw text into image context */
   [text drawAtPoint: CGPointMake(0.0, 0.0) 
         forWidth: (screenSize.width * 0.80)
@@ -435,7 +446,6 @@
         actualFontSize: &desiredFontSize
         lineBreakMode: UILineBreakModeTailTruncation
         baselineAdjustment: UIBaselineAdjustmentAlignBaselines];
-	NSLog(@"Actual size: %f", desiredFontSize);
   /* Produce image from context */
   UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
 
