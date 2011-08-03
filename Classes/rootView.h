@@ -32,12 +32,16 @@
 
 
 @interface rootView : UIView {
-
+  @private
+    UIView *disabledOverlayView;
 }
+
+@property(nonatomic, retain) UIView *disabledOverlayView;
 
 -(id)initWithFrame:(CGRect)aRect;
 - (void)dealloc;
 -(void)causePulseInMainThread;
 -(void)pulseOverlay;
+-(void)enableView;
 
 @end

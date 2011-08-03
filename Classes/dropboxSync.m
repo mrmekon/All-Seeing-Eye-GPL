@@ -33,6 +33,7 @@
 #import "dropboxSync.h"
 #import "mainAppDelegate.h"
 #import "databaseManager.h"
+#import "rootView.h"
 
 @interface dropboxSync (PrivateMethods) 
 -(void)openDropboxLoginWindow;
@@ -350,6 +351,7 @@ NSString *g_lockfile = @"dropbox.lock";
 	[delegate.dbManager reloadWithNewDatabaseFile: tmpurl];
 
   [delegate.scanner simulatorDebug];
+  [(rootView*)delegate.viewController.view enableView];
 }
 
 - (void)restClient:(DBRestClient*)client loadFileFailedWithError:(NSError*)error {

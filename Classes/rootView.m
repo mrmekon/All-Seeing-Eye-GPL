@@ -37,6 +37,7 @@
 
 @implementation rootView
 
+@synthesize disabledOverlayView;
 
 -(id)initWithFrame:(CGRect)aRect {
 	if (self = [super initWithFrame: aRect]) {
@@ -53,6 +54,13 @@
   	[self addSubview: customerView];
     [self setBackgroundColor:[UIColor blackColor]];
     
+    self.disabledOverlayView = [[[UIView alloc] initWithFrame: 
+      [[UIScreen mainScreen] bounds]] autorelease];
+    [self.disabledOverlayView setBackgroundColor:[UIColor redColor]];
+    [self.disabledOverlayView setAlpha:0.25];
+    [self setUserInteractionEnabled:NO];
+    [self addSubview: self.disabledOverlayView];
+    
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver: self 
             selector: @selector(causePulseInMainThread) 
@@ -67,6 +75,11 @@
     [rightSwipe release];
 	}
   return self;
+}
+
+-(void)enableView {
+  [self setUserInteractionEnabled:YES];
+  [self.disabledOverlayView removeFromSuperview];
 }
 
 
