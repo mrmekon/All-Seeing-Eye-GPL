@@ -89,8 +89,6 @@
  *
  */
 -(void)displayAdminView {
-  NSLog(@"Displaying admin view!");
-
   mainAppDelegate *delegate = 
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
   NSString *dbFile = delegate.dbManager.databasePath;

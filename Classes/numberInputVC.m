@@ -55,7 +55,6 @@
 - (BOOL)textField:(UITextField *)textField 
         shouldChangeCharactersInRange:(NSRange)range 
         replacementString:(NSString *)string {
-	NSLog(@"Adding string: %@", string);
   for (int i = 0; i < [string length]; i++) {
   	char ch = [string characterAtIndex: i];
   	if (ch < '0' || ch > '9')

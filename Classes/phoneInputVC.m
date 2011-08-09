@@ -85,12 +85,18 @@
   self.navigationItem.leftBarButtonItem = button;
 }
 
+- (void) addDoneButton {
+  UIBarButtonItem *button = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonHandler:)] autorelease];
+  self.navigationItem.rightBarButtonItem = button;
+}
+
 /**
  * \brief Setup view and nav controller when loading
  */
 - (void) viewDidLoad {
 	[super viewDidLoad];
   [self addCancelButton];
+  [self addDoneButton];
 }
 
 
@@ -102,17 +108,21 @@
   [self.navigationController popViewControllerAnimated: YES];
 } 
 
+- (IBAction)doneButtonHandler:(id)sender {
+	NSString *content = [textField text];
+  [delegate phoneInputView: self
+       withUserData: self.userData
+       updatedText: content];
+  [self.navigationController popViewControllerAnimated: YES];
+}
+
 /**
  * \brief Handle 'done' button on keyboard by saving entered text and exiting.
  * \param field Text field in question
  * \return Always returns NO, but calls delegate and pops itself off nav controller.
  */
 - (BOOL)textFieldShouldReturn:(UITextField*) field {
-	NSString *content = [textField text];
-  [delegate phoneInputView: self
-       withUserData: self.userData
-       updatedText: content];
-  [self.navigationController popViewControllerAnimated: YES];
+	[self doneButtonHandler: nil];
   return NO;
 }
 
