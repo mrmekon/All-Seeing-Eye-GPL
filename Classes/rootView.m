@@ -54,12 +54,7 @@
   	[self addSubview: customerView];
     [self setBackgroundColor:[UIColor blackColor]];
     
-    self.disabledOverlayView = [[[UIView alloc] initWithFrame: 
-      [[UIScreen mainScreen] bounds]] autorelease];
-    [self.disabledOverlayView setBackgroundColor:[UIColor redColor]];
-    [self.disabledOverlayView setAlpha:0.25];
-    [self setUserInteractionEnabled:NO];
-    [self addSubview: self.disabledOverlayView];
+    [self disableView];
     
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver: self 
@@ -77,14 +72,26 @@
   return self;
 }
 
+-(void)disableView {
+  if (self.disabledOverlayView) return; // already disabled
+  
+  self.disabledOverlayView = [[[UIView alloc] initWithFrame: 
+    [[UIScreen mainScreen] bounds]] autorelease];
+  [self.disabledOverlayView setBackgroundColor:[UIColor redColor]];
+  [self.disabledOverlayView setAlpha:0.25];
+  [self setUserInteractionEnabled:NO];
+  [self addSubview: self.disabledOverlayView];
+}
+
 -(void)enableView {
   [self setUserInteractionEnabled:YES];
   [self.disabledOverlayView removeFromSuperview];
+  self.disabledOverlayView = nil;
 }
 
 
 - (void)handleRightSwipe:(UIGestureRecognizer *)sender {
-	CGPoint pt = [sender locationInView: self];
+	//CGPoint pt = [sender locationInView: self];
   NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
   [center postNotificationName: @"ASE_AdminRequested"
           object: self

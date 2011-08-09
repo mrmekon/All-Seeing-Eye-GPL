@@ -43,6 +43,7 @@
 #import "databaseManager.h"
 #import "userEntryVC.h"
 #import "dropboxSync.h"
+#import "rootView.h"
 
 /**
  * \brief Sorts two rows (as dictionaries) by (guessed) last name
@@ -334,8 +335,9 @@ NSInteger rowSort(id dict1, id dict2, void *context)
                 NSUserDomainMask, YES); 
     NSString* docDir = [paths objectAtIndex:0];
     NSString* tmppath = [docDir stringByAppendingString:@"/database.sql"];
+    [(rootView*)delegate.viewController.view disableView];
     [delegate.dropbox writeDatabaseToDropbox: tmppath];
-    
+        
     // Let go of the lock
     [delegate.dropbox releaseDropboxLock];
   }

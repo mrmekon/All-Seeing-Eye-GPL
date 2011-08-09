@@ -364,6 +364,10 @@ NSString *g_lockfile = @"dropbox.lock";
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath {
 	NSLog(@"Upload complete from %@ to %@", srcPath, destPath);
   self.uploadInProgress = NO;
+  
+  mainAppDelegate *delegate = 
+      (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+  [(rootView*)delegate.viewController.view enableView];
 }
 
 - (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress 

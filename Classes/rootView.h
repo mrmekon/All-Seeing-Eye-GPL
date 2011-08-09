@@ -42,6 +42,7 @@
 - (void)dealloc;
 -(void)causePulseInMainThread;
 -(void)pulseOverlay;
+-(void)disableView;
 -(void)enableView;
 
 @end
