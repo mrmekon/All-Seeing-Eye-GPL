@@ -257,6 +257,9 @@ NSInteger rowSort(id dict1, id dict2, void *context)
  * \param animated Whether view appearance will animate
  */
 -(void) viewWillAppear:(BOOL)animated { 
+  mainAppDelegate *delegate = 
+      (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+
 	[super viewWillAppear: animated];
   [[self navigationController] setNavigationBarHidden: NO animated: YES];
   [self addEditButton];
@@ -268,8 +271,6 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 
   // Grab the lock if this is our first time in
   if (!self.doNotSaveDatabase) {
-    mainAppDelegate *delegate = 
-        (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
     [delegate.dropbox tryToObtainDropboxLock];
   }
 }

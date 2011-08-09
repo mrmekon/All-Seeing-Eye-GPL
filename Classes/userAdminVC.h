@@ -59,4 +59,7 @@
 - (id)initWithDbFile: (NSString*)db;
 - (void)readRowsFromDb;
 
+-(void)disableTableViews;
+-(void)enableTableViews;
+
 @end
