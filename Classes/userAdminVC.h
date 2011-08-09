@@ -33,6 +33,10 @@
 	@private
   	BOOL doNotSaveDatabase;
     BOOL searchResultsActive;
+    NSString *searchString;
+    UISearchDisplayController *searchController;
+    UIView *overlay;
+    UIView *searchOverlay;
 }
 
 /// Full path to database file
@@ -47,6 +51,10 @@
 /// Set to tell controller not to save database when it disappears
 @property(nonatomic) BOOL doNotSaveDatabase;
 @property(nonatomic) BOOL searchResultsActive;
+@property(nonatomic, retain) NSString *searchString;
+@property(nonatomic, retain) UISearchDisplayController *searchController;
+@property(nonatomic, retain) UIView *overlay;
+@property(nonatomic, retain) UIView *searchOverlay;
 
 - (id)initWithDbFile: (NSString*)db;
 - (void)readRowsFromDb;

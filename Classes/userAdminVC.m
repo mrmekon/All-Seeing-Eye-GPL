@@ -81,6 +81,10 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 
 @synthesize doNotSaveDatabase;
 @synthesize searchResultsActive;
+@synthesize searchString;
+@synthesize searchController;
+@synthesize overlay;
+@synthesize searchOverlay;
 
 /**
  * \brief Initialize a new instance with the given database
@@ -106,7 +110,7 @@ NSInteger rowSort(id dict1, id dict2, void *context)
         self.tableView.tableHeaderView = self.searchBar;  
         
         // Create a search controller with search bar
-        UISearchDisplayController *searchController = [
+        searchController = [
           [UISearchDisplayController alloc] initWithSearchBar: self.searchBar 
           contentsController:self];
         searchController.delegate = self;
@@ -114,6 +118,13 @@ NSInteger rowSort(id dict1, id dict2, void *context)
         searchController.searchResultsDelegate = self;
         
         self.doNotSaveDatabase = NO;
+        
+        self.overlay = [[UIView alloc] initWithFrame:self.tableView.frame];
+        self.overlay.backgroundColor = [UIColor grayColor];
+        self.overlay.alpha =  0.5;
+        self.searchOverlay = [[UIView alloc] initWithFrame:self.tableView.frame];
+        self.searchOverlay.backgroundColor = [UIColor grayColor];
+        self.searchOverlay.alpha =  0.5;
     }
     return self;
 }
@@ -121,6 +132,7 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
   // search ended
   self.searchResultsActive = NO;
+  [self.tableView reloadData];
 }
 
 /**
@@ -230,11 +242,12 @@ NSInteger rowSort(id dict1, id dict2, void *context)
  * \return Whether table should be reloaded (always yes)
  */
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller 
-        shouldReloadTableForSearchString:(NSString *)searchString {
+        shouldReloadTableForSearchString:(NSString *)str {
   NSPredicate *predicate = [NSPredicate predicateWithFormat:
     @"(name CONTAINS[cd] %@) || (barcode CONTAINS[cd] %@)", 
-    searchString, searchString];
+    str, str];
   self.searchRows = [self.allRows filteredArrayUsingPredicate: predicate];
+  self.searchString = [NSString stringWithString: str];
   return YES;
 }
 
@@ -243,28 +256,64 @@ NSInteger rowSort(id dict1, id dict2, void *context)
  * \brief Show navigation bar when view loads
  * \param animated Whether view appearance will animate
  */
--(void) viewWillAppear:(BOOL)animated {
+-(void) viewWillAppear:(BOOL)animated { 
 	[super viewWillAppear: animated];
   [[self navigationController] setNavigationBarHidden: NO animated: YES];
   [self addEditButton];
-  //[self readRowsFromDb]; // re-read database
-  //[self.tableView reloadData]; // and reload table with new data
   
-  // Grab the lock
-  mainAppDelegate *delegate = 
-      (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
-  [delegate.dropbox tryToObtainDropboxLock];
+  [self.tableView setUserInteractionEnabled:NO];
+  [self.searchController.searchResultsTableView setUserInteractionEnabled:NO];
+  
+  [self disableTableViews];
+
+  // Grab the lock if this is our first time in
+  if (!self.doNotSaveDatabase) {
+    mainAppDelegate *delegate = 
+        (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+    [delegate.dropbox tryToObtainDropboxLock];
+  }
 }
 
 -(void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear: animated];
-  if (!self.doNotSaveDatabase) {
-    [self readRowsFromDb]; // re-read database
-    [self.tableView reloadData]; // and reload table with new data
-  }
-  else {
+  
+  // Clear do-not-save flag.  This means we're coming out of editing
+  // a user.
+  if (self.doNotSaveDatabase) {
     self.doNotSaveDatabase = NO;
   }
+  
+  [self readRowsFromDb]; // re-read local database, in case it changed
+  
+  // If we're searching, reload search results and re-display search table
+  if (self.searchResultsActive) {
+    [self searchDisplayController:self.searchController
+        shouldReloadTableForSearchString:self.searchString];
+    [self.searchController.searchResultsTableView reloadData];
+  }
+  // If not searching, re-display main table
+  else {
+    [self.tableView reloadData]; // and reload table with new data
+  }
+  [self enableTableViews];
+}
+
+-(void)disableTableViews {
+  [self.tableView setUserInteractionEnabled:NO];
+  [self.view insertSubview:overlay aboveSubview:self.tableView];
+  
+  [self.searchController.searchResultsTableView setUserInteractionEnabled:NO];
+  [self.searchController.searchContentsController.view 
+    insertSubview:self.searchOverlay 
+    aboveSubview:self.searchController.searchResultsTableView];
+}
+
+-(void)enableTableViews {
+  [self.tableView setUserInteractionEnabled:YES];
+  [self.overlay removeFromSuperview];
+  
+  [self.searchController.searchResultsTableView setUserInteractionEnabled:YES];
+  [self.searchOverlay removeFromSuperview];
 }
 
 /**
@@ -274,7 +323,9 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 -(void) viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear: animated];
   
+  // If we're exiting admin page and not going to a user edit...
   if (!self.doNotSaveDatabase) {
+    // save database back to dropbox
     mainAppDelegate *delegate = 
         (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(

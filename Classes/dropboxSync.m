@@ -350,7 +350,10 @@ NSString *g_lockfile = @"dropbox.lock";
   NSURL *tmpurl = [NSURL fileURLWithPath:destPath];
 	[delegate.dbManager reloadWithNewDatabaseFile: tmpurl];
 
-  [delegate.scanner simulatorDebug];
+  // For debugging, simulate a successful scan
+  //[delegate.scanner simulatorDebug];
+  
+  // Enable operation after the database is loaded
   [(rootView*)delegate.viewController.view enableView];
 }
 

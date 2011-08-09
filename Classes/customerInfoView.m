@@ -40,6 +40,9 @@
 - (void)displayInvalidScanNotification;
 - (void)scanTimerCallback: (NSTimer*)timer;
 - (void)scheduleScanTimeout;
+
+-(void)enableRedeemButton;
+-(void)disableRedeemButton;
 @end
 
 @interface customerInfoView () 
@@ -51,12 +54,20 @@
  * Timer for clearing screen after a scan is expired.
  */
 @property (nonatomic, retain) NSTimer *scanTimer;
+
+/**
+ * Button to redeem credit
+ */
+@property(nonatomic, retain) UIButton *redeemButton;
+
 @end
 
 @implementation customerInfoView
 
 @synthesize currentScan;
 @synthesize scanTimer;
+@synthesize redeemButton;
+
 
 /**
  * \brief Initialize view to given size
@@ -91,8 +102,20 @@
     [button addTarget: self action: @selector(redeemCredit) 
       forControlEvents: UIControlEventTouchDown];
     [self addSubview:button];
+    self.redeemButton = button;
+    [self disableRedeemButton];
 	}
   return self;
+}
+
+-(void)enableRedeemButton {
+  [self.redeemButton setEnabled:YES];
+  [self.redeemButton setHidden:NO];
+}
+
+-(void)disableRedeemButton {
+  [self.redeemButton setEnabled:NO];
+  [self.redeemButton setHidden:YES];
 }
 
 -(void)redeemCredit {
@@ -159,6 +182,8 @@
   NSString *barcode = delegate.scanner.lastCode;
   NSString *dbFile = delegate.dbManager.databasePath;
 
+	NSLog(@"Scanned: %@", barcode);
+
   NSString *name = [delegate.customer customerFromDb: dbFile 
                                       withBarcode: barcode];
   if (name)
@@ -199,6 +224,9 @@
   // Schedule scan info to timeout eventually
   [self scheduleScanTimeout];
 
+  // Turn on redeem button
+  [self enableRedeemButton];
+  
   // Draw customer's info on the screen
   [self performSelectorOnMainThread: @selector(redrawScreen)
         withObject: nil
@@ -226,7 +254,7 @@
     selector:@selector(scanTimerCallback:)
     userInfo:nil 
     repeats:NO];
-    
+  
   // Schedule timer on the main loop
   NSRunLoop *mainloop = [NSRunLoop mainRunLoop];
   [mainloop addTimer:self.scanTimer forMode:NSDefaultRunLoopMode];
@@ -246,6 +274,10 @@
   // Replace all on-screen info with "No scan" and remove timer
   [self.currentScan removeAllObjects];
   [self.currentScan setObject:@"No Scan" forKey:@"name"];
+  
+  // Turn off redeem button  
+  [self disableRedeemButton];
+  
   [self performSelectorOnMainThread: @selector(redrawScreen)
         withObject: nil
         waitUntilDone: NO];
@@ -261,6 +293,8 @@
  *
  */
 - (void)displayInvalidScanNotification {
+  // Turn off redeem button for invalid scans
+  [self disableRedeemButton];
 	[self.currentScan setObject:@"No account found!" forKey:@"name"];
 }
 

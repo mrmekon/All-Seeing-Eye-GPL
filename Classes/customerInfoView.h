@@ -27,6 +27,7 @@
 @private 
 	NSMutableDictionary *currentScan;
   NSTimer *scanTimer;
+  UIButton *redeemButton;
 }
 
 -(id)initWithFrame:(CGRect)aRect;
