@@ -53,6 +53,13 @@ NSString *g_lockfile = @"dropbox.lock";
 @synthesize hasLockPermission;
 @synthesize uploadInProgress;
 
+/**
+ * \brief Initialize dropbox connection manager.
+ *
+ * Configured event handlers for dropbox handler, and sets default values.
+ *
+ * \return Initialized object
+ */
 -(id) init {
 	if (self = [super init]) {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
@@ -74,6 +81,12 @@ NSString *g_lockfile = @"dropbox.lock";
   return self;
 }
 
+/**
+ * \brief Called after valid connection to Dropbox
+ *
+ * Fetches database from Dropbox, and prompts user for whether app should be
+ * read-only or read/write.
+ */
 -(void)initialSetupAfterConnection {
   UIAlertView *alert = [[[UIAlertView alloc] 
     initWithTitle: @"Allow Customer Editing?" 
@@ -87,7 +100,16 @@ NSString *g_lockfile = @"dropbox.lock";
   [self readDatabaseFromDropbox];
 }
 
--(BOOL)openDropboxSession {
+/**
+ * \brief Call to connect to Dropbox service
+ *
+ * Creates Dropbox session.  Gives Dropbox login screen if no credentials are
+ * stored.  If credentials are stored locally, prompts user for whether he
+ * wants to use them.
+ *
+ * \return Yes if link has been established.
+ */
+ -(BOOL)openDropboxSession {
   NSString* consumerKey = @"xga20sm7unl1qrj";
 	NSString* consumerSecret = @"en3p0qpslf11cnn";
 
@@ -118,6 +140,18 @@ NSString *g_lockfile = @"dropbox.lock";
   return [[DBSession sharedSession] isLinked];
 }
 
+/**
+ * \brief Handles response to any Dropbox-related prompts
+ *
+ * Dispatches events and sets status based on user's response to all
+ * dropbox-related prompts:
+ * - Use Saved Credentials
+ * - Allow editing
+ * - Take over lock
+ *
+ * \param alertView Popup that caused this event
+ * \param buttonIndex Button pressed on the popup
+ */
 - (void)alertView:(UIAlertView *)alertView 
   clickedButtonAtIndex:(NSInteger)buttonIndex {
   if (alertView.title == @"Dropbox Login") {
@@ -156,10 +190,17 @@ NSString *g_lockfile = @"dropbox.lock";
   }
 }
 
+/**
+ * \brief Deletes stored credentials
+ */
 -(void)clearDropboxCredentials {
 	[[DBSession sharedSession] unlink];
 }
 
+/**
+ * \brief Save dropbox credentials to local storage
+ * \return Yes on success, no if no credentials available
+ */
 -(BOOL)saveDropboxCredentials {
   NSString *token = [DBSession sharedSession].credentialStore.accessToken;
   NSString *secret = [DBSession sharedSession].credentialStore.accessTokenSecret;
@@ -170,6 +211,10 @@ NSString *g_lockfile = @"dropbox.lock";
   return YES;
 }
 
+/**
+ * \brief Initializes Dropbox RESTful client
+ * \return Dropbox RESTful client instance, or nil on error.
+ */
 -(DBRestClient*) initRestClient {
   if (!self.restClient) {
     self.restClient = 
@@ -179,6 +224,9 @@ NSString *g_lockfile = @"dropbox.lock";
   return self.restClient;
 }
 
+/**
+ * \brief Display the Dropbox login window
+ */
 -(void) openDropboxLoginWindow {
   mainAppDelegate *delegate = 
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -187,10 +235,21 @@ NSString *g_lockfile = @"dropbox.lock";
 	[controller presentFromController:delegate.navController];
 }
 
+/**
+ * \brief Request database file be downloaded from Dropbox
+ *
+ * This is asynchronous.  The download is not finished when this returns.
+ */
 -(void) readDatabaseFromDropbox {
   [[self restClient] loadMetadata:@"/all-seeing-eye/database.sql"];
 }
 
+/**
+ * \brief Request that Database be written to Dropbox
+ * This is asynchronous.  Returns before database is uploaded.
+ *
+ * \param localPath Local file to upload
+ */
 -(void) writeDatabaseToDropbox: (NSString*)localPath {
   if ([self hasWriteLock]) {
     self.uploadInProgress = YES;
@@ -210,12 +269,27 @@ NSString *g_lockfile = @"dropbox.lock";
   }
 }
 
+/**
+ * \brief Request lock and write database to Dropbox (blocking)
+ *
+ * This is a BLOCKING call to get the lock, upload the database, and unlock.
+ *
+ * \param localPath Path to local file to upload
+ */
 -(void)getLockAndWriteDatabase:(NSString*)localPath {
   if (!self.hasLockPermission) return;
   [NSThread detachNewThreadSelector:@selector(writeDatabaseThread:) 
     toTarget:self withObject:localPath];
 }
 
+/**
+ * \brief Thread spawned by getLockAndWriteDatabase:
+ *
+ * Lock, upload, and unlock.  Polls for completion, gives up if it takes too
+ * long.
+ *
+ * \param localPath Path to local file to upload
+ */
 -(void)writeDatabaseThread: (id)localPath {
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
   BOOL timeout;
@@ -276,7 +350,11 @@ NSString *g_lockfile = @"dropbox.lock";
   [pool release];
 }
 
-
+/**
+ * \brief Attempts to create folder on Dropbox to obtain write lock
+ * Asynchronous, returns before lock obtained.
+ * \return No on error, yes if request scheduled.
+ */
 -(BOOL)tryToObtainDropboxLock {
   if (!self.hasLockPermission) return NO;
   NSString *folder = [@"/all-seeing-eye/" stringByAppendingString:g_lockfile];
@@ -284,6 +362,10 @@ NSString *g_lockfile = @"dropbox.lock";
   return YES;
 }
 
+/**
+ * \brief Attempts to delete folder on Dropbox to release write lock
+ * Asynchronous, returns before lock released.
+ */
 -(void)releaseDropboxLock {
   if (!self.hasLockPermission) return;
   NSString *folder = [@"/all-seeing-eye/" stringByAppendingString:g_lockfile];
@@ -292,10 +374,24 @@ NSString *g_lockfile = @"dropbox.lock";
 
 #pragma mark Dropbox callbacks
 
+/**
+ * \brief Callback - login failed
+ *
+ * Login failed, so re-launch login window.
+ *
+ * \param session Session that failed
+ */
 - (void)sessionDidReceiveAuthorizationFailure:(DBSession*)session {
   [self openDropboxLoginWindow];
 }
 
+/**
+ * \brief Callback - login succeeded
+ *
+ * Save credentials and perform login initialization.
+ *
+ * \param controller Dropbox controller that logged in.
+ */
 - (void)loginControllerDidLogin:(DBLoginController*)controller {
   if (![[DBSession sharedSession] isLinked]) {
   	NSLog(@"Warning! Link not established");
@@ -305,10 +401,24 @@ NSString *g_lockfile = @"dropbox.lock";
   [self initialSetupAfterConnection];
 }
 
-- (void)loginControllerDidCancel:(DBLoginController*)controller {
-  NSLog(@"cancel");
+/**
+ * \brief Callback - login cancelled
+ *
+ * Not handled.  Have to restart app.
+ *
+ * \param controller Dropbox controller
+ */
+- (void)loginControllerDidCancel:(DBLoginController*)controller {  
 }
 
+/**
+ * \brief Callback - Loaded directory info from Dropbox
+ *
+ * Called when directory info is available.  Launch full download of file.
+ *
+ * \param client RESTful client that requested download
+ * \param metadata Info on file
+ */
 - (void)restClient:(DBRestClient*)client 
   loadedMetadata:(DBMetadata*)metadata {
 
@@ -326,12 +436,21 @@ NSString *g_lockfile = @"dropbox.lock";
   [self.restClient loadFile:@"/all-seeing-eye/database.sql" intoPath:tmppath];  
 }
 
+/**
+ * \brief Callback - unused
+ * \param client unused
+ * \param path unused
+ */
 - (void)restClient:(DBRestClient*)client 
   metadataUnchangedAtPath:(NSString*)path {
-
-  NSLog(@"Metadata unchanged!");
 }
 
+/**
+ * \brief Calback - Directory info request failed
+ * If directory does not exist, create it.
+ * \param client Client that caused request
+ * \param error Error that occurred
+ */
 - (void)restClient:(DBRestClient*)client 
   loadMetadataFailedWithError:(NSError*)error {
 
@@ -344,6 +463,14 @@ NSString *g_lockfile = @"dropbox.lock";
   
 }
 
+/**
+ * \brief Callback - Downloaded file
+ *
+ * Load downloaded database into memory and enable interface. 
+ *
+ * \param client Dropbox client
+ * \param destPath Local path to downloaded file
+ */
 - (void)restClient:(DBRestClient*)client loadedFile:(NSString*)destPath {
   mainAppDelegate *delegate = 
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -357,10 +484,34 @@ NSString *g_lockfile = @"dropbox.lock";
   [(rootView*)delegate.viewController.view enableView];
 }
 
+/**
+ * \brief Callback - Download failed
+ *
+ * Display error.  Can't fix this.
+ *
+ * \param client Dropbox client
+ * \param error Reason for download failure
+ */
 - (void)restClient:(DBRestClient*)client loadFileFailedWithError:(NSError*)error {
   NSLog(@"Error loading file: %@", error);
+  UIAlertView *alert = [[[UIAlertView alloc] 
+    initWithTitle: @"DATABASE DOWNLOAD ERROR" 
+    message: @"SERIOUS ERROR! DATABASE NOT FOUND! CANNOT RECOVER!"
+    delegate: self
+    cancelButtonTitle: nil
+    otherButtonTitles: @"OH NO!",nil] autorelease];
+  [alert show];
 }
 
+/**
+ * \brief Callback - File uploaded
+ *
+ * Enable interface.
+ *
+ * \param client Dropbox client
+ * \param destPath Path uploaded to
+ * \param srcPath Path uploaded from
+ */
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath {
 	NSLog(@"Upload complete from %@ to %@", srcPath, destPath);
   self.uploadInProgress = NO;
@@ -370,21 +521,60 @@ NSString *g_lockfile = @"dropbox.lock";
   [(rootView*)delegate.viewController.view enableView];
 }
 
+/**
+ * \brief Callback - Upload progress report
+ *
+ * Unused.
+ *
+ * \param client Dropbox client
+ * \param progress How complete upload is
+ */
 - (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress 
   forFile:(NSString*)destPath from:(NSString*)srcPath {
 	NSLog(@"Upload progress: %f", progress);
 }
 
+/**
+ * \brief Callback - Upload failed
+ *
+ * Error displayed.  Can't recover.
+ *
+ * \param client Dropbox client
+ * \param error What went wrong.
+ */
 - (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error {
-	NSLog(@"Upload failed.");
+	NSLog(@"Upload failed: %@", error);
+  UIAlertView *alert = [[[UIAlertView alloc] 
+    initWithTitle: @"DATABASE UPLOAD ERROR" 
+    message: @"SERIOUS ERROR! DATABASE NOT UPLOADED! CANNOT RECOVER!"
+    delegate: self
+    cancelButtonTitle: nil
+    otherButtonTitles: @"OH NO!",nil] autorelease];
+  [alert show];
 }
 
+/**
+ * \brief Callback - Folder (dropbox lock) created
+ *
+ * Update global variables to show that we have the lock
+ *
+ * \param client Dropbox client
+ * \param folder Folder that was created
+ */
 - (void)restClient:(DBRestClient*)client 
   createdFolder:(DBMetadata*)folder {
-  NSLog(@"Successfully made folder"); 
+  NSLog(@"Successfully obtained lock"); 
   self.hasWriteLock = YES; 
 }
 
+/**
+ * \brief Callback - Folder create failed (failed to get lock)
+ *
+ * This means the lock might already exist.  Ask if user wants to take over it.
+ *
+ * \param client Dropbox client
+ * \param error Error that happened
+ */
 - (void)restClient:(DBRestClient*)client 
   createFolderFailedWithError:(NSError*)error {
   NSLog(@"Failed to create folder: %@", error);
@@ -403,11 +593,24 @@ NSString *g_lockfile = @"dropbox.lock";
   self.hasWriteLock = NO;
 }
 
+/**
+ * \brief Callback - Folder (lock) deleted
+ * \param client Dropbox client
+ * \param path Path of folder deleted
+ */
 - (void)restClient:(DBRestClient*)client deletedPath:(NSString *)path {
   NSLog(@"Successfully deleted %@", path);
   self.hasWriteLock = NO;
 }
 
+/**
+ * \brief Callback - Folder delete failed (can't release lock)
+ *
+ * Strange error.  We ignore it.
+ *
+ * \param client Dropbox client
+ * \param error Error that happened
+ */
 - (void)restClient:(DBRestClient*)client 
   deletePathFailedWithError:(NSError*)error {
   NSLog(@"Error deleting path: %@", error);
