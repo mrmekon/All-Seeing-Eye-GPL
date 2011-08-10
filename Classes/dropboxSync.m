@@ -42,6 +42,7 @@
 -(BOOL)saveDropboxCredentials;
 -(void)readDatabaseFromDropbox;
 -(BOOL)tryToObtainDropboxLock;
+-(void)periodicDatabaseDownloadThread;
 @end
 
 NSString *g_lockfile = @"dropbox.lock";
@@ -171,6 +172,7 @@ NSString *g_lockfile = @"dropbox.lock";
     switch (buttonIndex) {
     case 0: /* No */
       self.hasLockPermission = NO;
+      [self periodicDatabaseDownloadThread];
       break;
     case 1: /* Yes */
       self.hasLockPermission = YES;
@@ -266,6 +268,13 @@ NSString *g_lockfile = @"dropbox.lock";
       cancelButtonTitle: nil
       otherButtonTitles: @"I Understand",nil] autorelease];
     [alert show];
+  }
+}
+
+-(void)periodicDatabaseDownloadThread {
+  while (1) {
+    [NSThread sleepForTimeInterval:(60.0 * 10)];
+    [self readDatabaseFromDropbox];
   }
 }
 

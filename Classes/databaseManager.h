@@ -26,20 +26,22 @@
 #import <sqlite3.h>
 
 @interface databaseManager : NSObject {
-	NSString *databaseFile;
-	NSString *databasePath;
-  sqlite3 *globalDB;
+  NSString *databasePath;
+  
+  @private
+    NSString *databaseFile;
+    NSString *logFile;
+    NSFileHandle *logFileHandle;
+    sqlite3 *globalDB;
 }
 
+/// Full path and filename of database
 @property (nonatomic, retain) NSString *databasePath;
-@property (nonatomic, retain) NSString *databaseFile;
-@property (nonatomic, assign) sqlite3 *globalDB;
 
--(id) initWithFile: (NSString*)file;
--(BOOL) reloadWithNewDatabaseFile: (NSURL*)url;
--(void) closeGlobalDB;
--(NSString*) pathFromFile: (NSString*)file;
--(BOOL) copyDatabaseToDocuments;
+
+-(id)initWithFile: (NSString*)file;
+-(BOOL)reloadWithNewDatabaseFile: (NSURL*)url;
+-(BOOL)logString:(NSString*)str;
 
 +(BOOL) openDbFile: (NSString*)file usingDbPointer: (sqlite3**) db;
 +(void) closeDb: (sqlite3**)db;

@@ -33,11 +33,32 @@
  */
 #import "databaseManager.h"
 
+@interface databaseManager (PrivateMethods)
+-(NSString*) pathFromFile: (NSString*)file;
+-(BOOL) copyDatabaseToDocuments;
+-(void)generateLogFileNameAndOpen;
+-(void) closeGlobalDB;
+@end
+
+@interface databaseManager () 
+/// Just filename of database without path
+@property (nonatomic, retain) NSString *databaseFile;
+/// Full path and filename of log file
+@property (nonatomic, retain) NSString *logFile;
+/// Handle for access to logFile
+@property (nonatomic, retain) NSFileHandle *logFileHandle;
+/// Handle for customer database
+@property (nonatomic, assign) sqlite3 *globalDB;
+@end
+
+
 @implementation databaseManager
 
 @synthesize databasePath;
 @synthesize databaseFile;
 @synthesize globalDB;
+@synthesize logFile;
+@synthesize logFileHandle;
 
 /**
  * \brief Create instance, and create new database file if needed.
@@ -55,7 +76,9 @@
 	if (self = [super init] ) {
 		self.databaseFile = filename;
   	self.databasePath = [self pathFromFile: filename];
-    [self copyDatabaseToDocuments];    
+    [self copyDatabaseToDocuments]; 
+    
+    [self generateLogFileNameAndOpen];
   }
   return self;
 }
@@ -87,6 +110,44 @@
   	NSLog(@"Copy error: %@", [err localizedDescription]);
     return NO;
   }
+  return YES;
+}
+
+/**
+ * \brief Generate name for log file and open it
+ *
+ * Log file name: ase_log-[devce UDID]-[epoch time].log
+ *
+ */
+-(void)generateLogFileNameAndOpen {
+  BOOL err = YES;
+  
+  long epoch = (long)([[NSDate date] timeIntervalSince1970]);
+	NSArray *docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, 
+                                                          NSUserDomainMask, 
+                                                          YES);
+  NSString *docPath = [docPaths objectAtIndex: 0];
+  NSString *filename = [NSString stringWithFormat:@"ase_log-%@-%ld.log",
+    [UIDevice currentDevice].uniqueIdentifier,epoch];
+  self.logFile = [docPath stringByAppendingPathComponent: filename];
+  NSLog(@"Logfile: %@", self.logFile);
+  
+  NSFileManager *fileManager = [[NSFileManager defaultManager] autorelease];
+  err = [fileManager createFileAtPath:self.logFile contents:nil attributes:nil];
+  self.logFileHandle = [NSFileHandle fileHandleForWritingAtPath:self.logFile];
+  [self.logFileHandle seekToEndOfFile];
+}
+
+/**
+ * \brief Write a string to the open log file and flush to disk
+ *
+ * \param str String to write to log file
+ * \return Yes on success, no if log file is not open
+ */
+-(BOOL)logString:(NSString*)str {
+  if (!self.logFileHandle) return NO;
+  [self.logFileHandle writeData:[str dataUsingEncoding: NSUTF8StringEncoding]];
+  [self.logFileHandle synchronizeFile];
   return YES;
 }
 
@@ -157,6 +218,10 @@
 
 -(void) dealloc {
 	[self closeGlobalDB];
+  if (self.logFileHandle) {
+    [self.logFileHandle closeFile];
+    self.logFileHandle = nil;
+  }
 	[databasePath release];
   [databaseFile release];
   [super dealloc];
