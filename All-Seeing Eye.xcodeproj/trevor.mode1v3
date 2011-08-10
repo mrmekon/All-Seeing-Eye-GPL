@@ -331,7 +331,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>69D9DC5B13F239EA00479C6F</string>
+										<string>697DA10B13F311FC0049BB76</string>
 										<key>history</key>
 										<array>
 											<string>69862B561367B988002E909B</string>
@@ -345,7 +345,6 @@
 											<string>69D73F15136B48E8004380D6</string>
 											<string>6998113313899F0900CE90A9</string>
 											<string>6998113413899F0900CE90A9</string>
-											<string>699811481389A15600CE90A9</string>
 											<string>699812CC13A050F200CE90A9</string>
 											<string>693DB73A13A3C58000DA9DE1</string>
 											<string>693DB73C13A3C58000DA9DE1</string>
@@ -399,7 +398,7 @@
 											<string>69D9DC4A13F2392900479C6F</string>
 											<string>69D9DC4B13F2392900479C6F</string>
 											<string>69D9DC5913F239EA00479C6F</string>
-											<string>69D9DC5A13F239EA00479C6F</string>
+											<string>69D9DC5B13F239EA00479C6F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -411,14 +410,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {979, 466}}</string>
+								<string>{{0, 0}, {979, 462}}</string>
 								<key>RubberWindowFrame</key>
 								<string>124 125 1219 639 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>466pt</string>
+							<string>462pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -431,14 +430,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 471}, {979, 127}}</string>
+								<string>{{0, 467}, {979, 131}}</string>
 								<key>RubberWindowFrame</key>
 								<string>124 125 1219 639 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>127pt</string>
+							<string>131pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -457,9 +456,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>69D9DAF413F1ED4B00479C6F</string>
+				<string>697DA10C13F311FC0049BB76</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>69D9DAF513F1ED4B00479C6F</string>
+				<string>697DA10D13F311FC0049BB76</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -597,14 +596,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>69D9DC5C13F239EA00479C6F</string>
-		<string>1C530D57069F1CE1000CFCEE</string>
-		<string>69D9DB2913F1F39300479C6F</string>
-		<string>69D9DB2B13F1F39300479C6F</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>695A90EB136276F000DB0A80</string>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>/Users/trevor/Documents/Cocoa Projects/All-Seeing Eye/All-Seeing Eye.xcodeproj</string>
+		<string>/Users/trevor/Documents/Cocoa Projects/all-seeing-eye-gpl/All-Seeing Eye.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>124 125 1219 639 0 0 1440 878 </string>
@@ -628,7 +621,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>databaseManager.m</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -645,8 +638,6 @@
 							<string>323pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -686,7 +677,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>695A90EB136276F000DB0A80</string>
-				<string>69D9DAF613F1ED4B00479C6F</string>
+				<string>697DA10E13F311FC0049BB76</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
