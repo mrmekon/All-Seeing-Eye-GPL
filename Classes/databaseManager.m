@@ -57,6 +57,7 @@
 @synthesize globalDB;
 @synthesize logFile;
 @synthesize logFileHandle;
+@synthesize logPrefix;
 
 /**
  * \brief Create instance, and create new database file if needed.
@@ -72,11 +73,12 @@
  */
 -(id) initWithFile: (NSString*)filename {
 	if (self = [super init] ) {
+    self.logPrefix = @"ase_log";
 		self.databaseFile = filename;
   	self.databasePath = [self pathFromFile: filename];
     [self copyDatabaseToDocuments]; 
     
-    [self generateLogFileNameAndOpen];
+    [self generateLogFileNameAndOpen];    
   }
   return self;
 }
@@ -125,8 +127,8 @@
                                                           NSUserDomainMask, 
                                                           YES);
   NSString *docPath = [docPaths objectAtIndex: 0];
-  NSString *filename = [NSString stringWithFormat:@"ase_log-%@-%ld.log",
-    [UIDevice currentDevice].uniqueIdentifier,epoch];
+  NSString *filename = [NSString stringWithFormat:@"%@-%@-%ld.log",
+    self.logPrefix, [UIDevice currentDevice].uniqueIdentifier,epoch];
   self.logFile = [docPath stringByAppendingPathComponent: filename];
   NSLog(@"Logfile: %@", self.logFile);
   

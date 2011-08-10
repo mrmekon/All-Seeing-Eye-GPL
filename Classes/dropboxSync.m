@@ -272,25 +272,48 @@ NSString *g_lockfile = @"dropbox.lock";
   }
 }
 
+/**
+ * \brief Uploads log files to Dropbox (must call on main thread)
+ */
 -(void)uploadLogFile {
   mainAppDelegate *delegate = 
     (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
 
-  // TODO: Instead of just the one, upload all on the system
-  // and delete them.
-  [[self restClient] 
-    uploadFile: [delegate.dbManager.logFile lastPathComponent] 
-    toPath:@"/all-seeing-eye/" 
-    fromPath:delegate.dbManager.logFile];
+  NSFileManager *fileManager = [[NSFileManager defaultManager] autorelease];
+	NSArray *docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, 
+                                                          NSUserDomainMask, 
+                                                          YES);
+  NSString *docPath = [docPaths objectAtIndex: 0];
+  NSDirectoryEnumerator *dirEnum =
+      [fileManager enumeratorAtPath:docPath];
+
+  NSString *file;
+  while (file = [dirEnum nextObject]) {
+      if ([file hasPrefix:delegate.dbManager.logPrefix]) {
+        NSString *path = [NSString stringWithFormat:@"%@/%@",docPath,file];
+        [[self restClient] 
+          uploadFile: file
+          toPath:@"/all-seeing-eye/" 
+          fromPath:path];      
+      }
+  }
 }
 
+/**
+ * \brief Thread to periodically update Dropbox files
+ *
+ * Periodically downloads new copy of database from Dropbox (for read-only
+ * clients), and uploads all local log files to dropbox.
+ *
+ */
 -(void)dropboxSyncThread {
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
   while (1) {
+    // Wait 10 minutes
     [NSThread sleepForTimeInterval:(60.0 * 10)];
 
-    // Reader Devices re-read remote database periodically
+    // Reader Devices re-read remote database
     if (self.hasLockPermission == NO) {
       [self performSelectorOnMainThread: 
         @selector(readDatabaseFromDropbox) 
@@ -298,12 +321,11 @@ NSString *g_lockfile = @"dropbox.lock";
         waitUntilDone: NO];
     }
           
-    // All deviced upload log files periodically
+    // All devices upload log files periodically
     [self performSelectorOnMainThread: 
       @selector(uploadLogFile) 
       withObject: nil 
       waitUntilDone: NO];
-    [NSThread sleepForTimeInterval:(60.0 * 10)];
   }
   [pool release];
 }
@@ -546,7 +568,12 @@ NSString *g_lockfile = @"dropbox.lock";
 /**
  * \brief Callback - File uploaded
  *
- * Enable interface.
+ * If waiting for database upload to finish, re-enable the user interface and
+ * mark upload as done.
+ *
+ * If current log file was uploaded, don't do anything.
+ *
+ * If old log file was uploaded, delete it locally.
  *
  * \param client Dropbox client
  * \param destPath Path uploaded to
@@ -554,10 +581,25 @@ NSString *g_lockfile = @"dropbox.lock";
  */
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath {
 	NSLog(@"Upload complete from %@ to %@", srcPath, destPath);
-  self.uploadInProgress = NO;
-  
+
   mainAppDelegate *delegate = 
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+  
+  // Was this a log file upload?
+  NSError *error;
+  if ([[srcPath lastPathComponent] hasPrefix:delegate.dbManager.logPrefix]) {
+    // Don't delete the current log file
+    if (![[srcPath lastPathComponent] isEqual: 
+      [delegate.dbManager.logFile lastPathComponent]]) {
+      // Delete old log
+      NSFileManager *fileManager = [[NSFileManager defaultManager] autorelease];
+      [fileManager removeItemAtPath:srcPath error:&error];
+    }
+    return;
+  }
+  
+  // This was database upload, so we are exiting admin view.  Unlock screen.
+  self.uploadInProgress = NO;  
   [(rootView*)delegate.viewController.view enableView];
 }
 

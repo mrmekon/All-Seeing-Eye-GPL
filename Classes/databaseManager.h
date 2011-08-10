@@ -28,6 +28,7 @@
 @interface databaseManager : NSObject {
   NSString *databasePath;
   NSString *logFile;
+  NSString *logPrefix;
   
   @private
     NSString *databaseFile;
@@ -39,7 +40,8 @@
 @property (nonatomic, retain) NSString *databasePath;
 /// Full path and filename of log file
 @property (nonatomic, retain) NSString *logFile;
-
+/// String prefix for log files
+@property (nonatomic, retain) NSString *logPrefix;
 
 -(id)initWithFile: (NSString*)file;
 -(BOOL)reloadWithNewDatabaseFile: (NSURL*)url;
