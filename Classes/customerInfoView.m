@@ -137,8 +137,18 @@
   NSString *barcode = [self.currentScan objectForKey:@"barcode"];
   NSString *dbFile = delegate.dbManager.databasePath;
   if (!barcode || !dbFile) return;
+  
+  // Log redemption
+  [delegate.dbManager logString: [NSString stringWithFormat:
+    @"CREDIT [%@] credit=[%d]", 
+    barcode,
+    [delegate.customer creditFromDb: dbFile withBarcode: barcode]]
+  ];
+  
+  // Clear credit
   [delegate.customer clearCreditFromDb: dbFile withBarcode: barcode];
   
+  // Write database to Dropbox
   NSArray *paths = NSSearchPathForDirectoriesInDomains(
               NSDocumentDirectory, 
               NSUserDomainMask, YES); 
@@ -146,11 +156,13 @@
   NSString* tmppath = [docDir stringByAppendingString:@"/database.sql"];
   [delegate.dropbox getLockAndWriteDatabase: tmppath];
   
+  // Re-read credit from db
   NSNumber *tmp = [NSString stringWithFormat: @"%d", [delegate.customer 
     creditFromDb: dbFile withBarcode: barcode]];
   if (tmp)
     [self.currentScan setObject:tmp  forKey:@"credit"];
   
+  // Redraw screen
   [self performSelectorOnMainThread: @selector(redrawScreen)
         withObject: nil
         waitUntilDone: NO];
@@ -217,6 +229,16 @@
     if (tmp)
       [self.currentScan setObject:tmp  forKey:@"referrals"];
   }
+  
+  // Log scan
+  [delegate.dbManager logString: [NSString stringWithFormat:
+    @"SCAN [%@] [%@] lvl=[%@] dsct=[%@] refs=[%@]", 
+    name, 
+    barcode,
+    [self.currentScan objectForKey:@"level"],
+    [self.currentScan objectForKey:@"discount"],
+    [self.currentScan objectForKey:@"referrals"]]
+  ];
   
   // Check if customer is due for a level upgrade
   [delegate.customer updateLevelOfReferrerWithBarcode:barcode withDb: dbFile];

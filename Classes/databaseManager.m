@@ -146,7 +146,11 @@
  */
 -(BOOL)logString:(NSString*)str {
   if (!self.logFileHandle) return NO;
-  [self.logFileHandle writeData:[str dataUsingEncoding: NSUTF8StringEncoding]];
+  NSString *logstr = [NSString stringWithFormat:@"%@: %@\n",
+    [NSDate date], str];
+  [self.logFileHandle writeData:
+    [logstr dataUsingEncoding: NSUTF8StringEncoding]];
+  NSLog(@"%@",logstr);
   [self.logFileHandle synchronizeFile];
   return YES;
 }

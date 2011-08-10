@@ -276,13 +276,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>20</integer>
+									<integer>35</integer>
 									<integer>3</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 217}, {218, 580}}</string>
+							<string>{{0, 102}, {218, 580}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -331,7 +331,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>697DA1DF13F326FB0049BB76</string>
+										<string>697DA25E13F334E30049BB76</string>
 										<key>history</key>
 										<array>
 											<string>69862B561367B988002E909B</string>
@@ -369,20 +369,13 @@
 											<string>69FA681E13F17F740073D51E</string>
 											<string>69D9DBC713F21A7B00479C6F</string>
 											<string>697DA13813F31FE60049BB76</string>
-											<string>697DA13A13F31FE60049BB76</string>
 											<string>697DA13D13F31FE60049BB76</string>
-											<string>697DA13E13F31FE60049BB76</string>
-											<string>697DA13F13F31FE60049BB76</string>
-											<string>697DA14013F31FE60049BB76</string>
 											<string>697DA14113F31FE60049BB76</string>
 											<string>697DA14213F31FE60049BB76</string>
-											<string>697DA14313F31FE60049BB76</string>
 											<string>697DA14413F31FE60049BB76</string>
 											<string>697DA14513F31FE60049BB76</string>
-											<string>697DA14613F31FE60049BB76</string>
 											<string>697DA14713F31FE60049BB76</string>
 											<string>697DA14813F31FE60049BB76</string>
-											<string>697DA14913F31FE60049BB76</string>
 											<string>697DA14B13F31FE60049BB76</string>
 											<string>697DA14C13F31FE60049BB76</string>
 											<string>697DA14D13F31FE60049BB76</string>
@@ -397,9 +390,16 @@
 											<string>697DA15613F31FE60049BB76</string>
 											<string>697DA16313F321EB0049BB76</string>
 											<string>697DA17613F322920049BB76</string>
-											<string>697DA17713F322920049BB76</string>
-											<string>697DA1C613F324C40049BB76</string>
-											<string>697DA1DE13F326FB0049BB76</string>
+											<string>697DA1E113F32DD20049BB76</string>
+											<string>697DA1E213F32DD20049BB76</string>
+											<string>697DA20913F330D30049BB76</string>
+											<string>697DA20A13F330D30049BB76</string>
+											<string>697DA21413F3316E0049BB76</string>
+											<string>697DA21513F3316E0049BB76</string>
+											<string>697DA24B13F334320049BB76</string>
+											<string>697DA25513F334BC0049BB76</string>
+											<string>697DA25D13F334E30049BB76</string>
+											<string>697DA21213F3316E0049BB76</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -601,8 +601,8 @@
 		<string>697DA17D13F322920049BB76</string>
 		<string>697DA17A13F322920049BB76</string>
 		<string>695A90EB136276F000DB0A80</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/trevor/Documents/Cocoa Projects/all-seeing-eye-gpl/All-Seeing Eye.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
