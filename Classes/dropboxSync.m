@@ -472,6 +472,7 @@ NSString *g_lockfile = @"dropbox.lock";
  * \param destPath Local path to downloaded file
  */
 - (void)restClient:(DBRestClient*)client loadedFile:(NSString*)destPath {
+  NSLog(@"Loaded database from Dropbox");
   mainAppDelegate *delegate = 
       (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
   NSURL *tmpurl = [NSURL fileURLWithPath:destPath];
@@ -532,6 +533,12 @@ NSString *g_lockfile = @"dropbox.lock";
 - (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress 
   forFile:(NSString*)destPath from:(NSString*)srcPath {
 	NSLog(@"Upload progress: %f", progress);
+}
+
+- (void)restClient:(DBRestClient*)client 
+  loadProgress:(CGFloat)progress 
+  forFile:(NSString*)destPath {
+  NSLog(@"Download progress: %f", progress);
 }
 
 /**

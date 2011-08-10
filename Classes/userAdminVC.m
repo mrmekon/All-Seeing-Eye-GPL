@@ -111,19 +111,28 @@ NSInteger rowSort(id dict1, id dict2, void *context)
         self.tableView.tableHeaderView = self.searchBar;  
         
         // Create a search controller with search bar
+        mainAppDelegate *delegate = 
+          (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+        searchController = [
+          [UISearchDisplayController alloc] initWithSearchBar: self.searchBar 
+          contentsController:delegate.navController];
+#if 0
         searchController = [
           [UISearchDisplayController alloc] initWithSearchBar: self.searchBar 
           contentsController:self];
+#endif
         searchController.delegate = self;
         searchController.searchResultsDataSource = self;
         searchController.searchResultsDelegate = self;
         
         self.doNotSaveDatabase = NO;
         
-        self.overlay = [[UIView alloc] initWithFrame:self.tableView.frame];
+        self.overlay = [[UIView alloc] initWithFrame:
+          self.searchController.searchResultsTableView.frame];
         self.overlay.backgroundColor = [UIColor grayColor];
         self.overlay.alpha =  0.5;
-        self.searchOverlay = [[UIView alloc] initWithFrame:self.tableView.frame];
+        self.searchOverlay = [[UIView alloc] initWithFrame:
+          self.tableView.frame];
         self.searchOverlay.backgroundColor = [UIColor grayColor];
         self.searchOverlay.alpha =  0.5;
     }
@@ -133,6 +142,7 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
   // search ended
   self.searchResultsActive = NO;
+  [self.searchController.searchResultsTableView setEditing: NO animated: YES];
   [self.tableView reloadData];
 }
 
@@ -196,9 +206,16 @@ NSInteger rowSort(id dict1, id dict2, void *context)
  * \param sender View that sent this message (sent by button press)
  */
 - (void)editButtonHandler:(id)sender {
-	[self setEditing: YES animated: YES];
-  [self addDoneButton];
-  [self addPlusButton];
+  if (!self.searchResultsActive) {
+    [self setEditing: YES animated: YES];
+    [self addDoneButton];
+    [self addPlusButton];
+  }
+  else {
+    [self.searchController.searchResultsTableView setEditing: YES animated: YES];
+    [self addDoneButton];
+    [self addPlusButton];
+  }
 } 
 
 /**
@@ -206,9 +223,16 @@ NSInteger rowSort(id dict1, id dict2, void *context)
  * \param sender View that sent this message (sent by button press)
  */
 - (void)doneButtonHandler:(id)sender {
-	[self setEditing: NO animated: YES];
-  [self addEditButton];
-  [self clearPlusButton];
+  if (!self.searchResultsActive) {
+    [self setEditing: NO animated: YES];
+    [self addEditButton];
+    [self clearPlusButton];
+  }
+  else {
+    [self.searchController.searchResultsTableView setEditing: NO animated: YES];
+    [self addEditButton];
+    [self clearPlusButton];
+  }
 }
 
 /**
@@ -220,6 +244,8 @@ NSInteger rowSort(id dict1, id dict2, void *context)
   //inputVC.delegate = self;
   //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController: inputVC];
   //[[self navigationController] presentModalViewController: nav animated:YES];
+  
+  self.doNotSaveDatabase = YES;
   
   userEntryVC *entryVC = [[[userEntryVC alloc] 
   	initWithStyle: UITableViewStyleGrouped
@@ -251,7 +277,6 @@ NSInteger rowSort(id dict1, id dict2, void *context)
   self.searchString = [NSString stringWithString: str];
   return YES;
 }
-
 
 /**
  * \brief Show navigation bar when view loads
@@ -337,6 +362,9 @@ NSInteger rowSort(id dict1, id dict2, void *context)
     NSString* tmppath = [docDir stringByAppendingString:@"/database.sql"];
     [(rootView*)delegate.viewController.view disableView];
     [delegate.dropbox writeDatabaseToDropbox: tmppath];
+        
+    // In case search is still up, hide it
+    [self.searchController setActive:NO animated:NO];
         
     // Let go of the lock
     [delegate.dropbox releaseDropboxLock];
@@ -454,11 +482,21 @@ NSInteger rowSort(id dict1, id dict2, void *context)
 	[delegate.customer removeCustomerWithBarcode: barcode fromDb: self.dbFile];
   
   // Reread database
-  [self readRowsFromDb];
+  if (!self.searchResultsActive) {
+    [self readRowsFromDb];
+  }
+  else {
+    [self readRowsFromDb];
+    [self searchDisplayController:self.searchController
+        shouldReloadTableForSearchString:self.searchString];
+    [self.searchController.searchResultsTableView reloadData];
+  }
   
   // Animate deletion of row
-  [tv deleteRowsAtIndexPaths:[NSArray arrayWithObject: indexPath] 
-    withRowAnimation:UITableViewRowAnimationFade];
+  if (!self.searchResultsActive) {
+    [tv deleteRowsAtIndexPaths:[NSArray arrayWithObject: indexPath] 
+      withRowAnimation:UITableViewRowAnimationFade];
+  }
 }
 
 /**
@@ -487,6 +525,10 @@ NSInteger rowSort(id dict1, id dict2, void *context)
   // don't save DB when the view disappears
   self.doNotSaveDatabase = YES;
   
+  // Hide search controller
+  [self.searchController setActive:NO animated:YES];
+  
+  // Show customer entry form
   userEntryVC *entryVC = [[[userEntryVC alloc] 
   	initWithStyle: UITableViewStyleGrouped
     withDbFile: self.dbFile
