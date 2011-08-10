@@ -172,12 +172,13 @@ NSString *g_lockfile = @"dropbox.lock";
     switch (buttonIndex) {
     case 0: /* No */
       self.hasLockPermission = NO;
-      [self periodicDatabaseDownloadThread];
       break;
     case 1: /* Yes */
       self.hasLockPermission = YES;
       break;
     }
+    [NSThread detachNewThreadSelector:@selector(dropboxSyncThread) 
+      toTarget:self withObject:nil];
   }
   /* Should take over lock? */
   else if (alertView.title == @"Take Over Lock?") {
@@ -271,11 +272,40 @@ NSString *g_lockfile = @"dropbox.lock";
   }
 }
 
--(void)periodicDatabaseDownloadThread {
+-(void)uploadLogFile {
+  mainAppDelegate *delegate = 
+    (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
+
+  // TODO: Instead of just the one, upload all on the system
+  // and delete them.
+  [[self restClient] 
+    uploadFile: [delegate.dbManager.logFile lastPathComponent] 
+    toPath:@"/all-seeing-eye/" 
+    fromPath:delegate.dbManager.logFile];
+}
+
+-(void)dropboxSyncThread {
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
   while (1) {
     [NSThread sleepForTimeInterval:(60.0 * 10)];
-    [self readDatabaseFromDropbox];
+
+    // Reader Devices re-read remote database periodically
+    if (self.hasLockPermission == NO) {
+      [self performSelectorOnMainThread: 
+        @selector(readDatabaseFromDropbox) 
+        withObject: nil 
+        waitUntilDone: NO];
+    }
+          
+    // All deviced upload log files periodically
+    [self performSelectorOnMainThread: 
+      @selector(uploadLogFile) 
+      withObject: nil 
+      waitUntilDone: NO];
+    [NSThread sleepForTimeInterval:(60.0 * 10)];
   }
+  [pool release];
 }
 
 /**

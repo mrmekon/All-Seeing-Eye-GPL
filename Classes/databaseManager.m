@@ -43,8 +43,6 @@
 @interface databaseManager () 
 /// Just filename of database without path
 @property (nonatomic, retain) NSString *databaseFile;
-/// Full path and filename of log file
-@property (nonatomic, retain) NSString *logFile;
 /// Handle for access to logFile
 @property (nonatomic, retain) NSFileHandle *logFileHandle;
 /// Handle for customer database

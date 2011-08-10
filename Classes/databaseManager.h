@@ -27,16 +27,18 @@
 
 @interface databaseManager : NSObject {
   NSString *databasePath;
+  NSString *logFile;
   
   @private
     NSString *databaseFile;
-    NSString *logFile;
     NSFileHandle *logFileHandle;
     sqlite3 *globalDB;
 }
 
 /// Full path and filename of database
 @property (nonatomic, retain) NSString *databasePath;
+/// Full path and filename of log file
+@property (nonatomic, retain) NSString *logFile;
 
 
 -(id)initWithFile: (NSString*)file;
