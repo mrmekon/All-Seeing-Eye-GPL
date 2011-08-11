@@ -14,11 +14,14 @@ cards with unique barcodes are distributed to customers, and All-Seeing Eye
 is used to scan a customer's card at the POS to determine his or her earned
 benefits.
 
-All-Seeing Eye is developed for the Apple iPad 2, but is periodically tested
-and expected to function decently on an Apple iPhone or iPod Touch.
+All-Seeing Eye is developed for the Apple iPad 2, but partially functional
+on iPhone and iPad Touch devices, and could be easily modified to work fully
+with them..
 
 All-Seeing Eye uses the ZBar barcode scanning library by Jeff Brown,
 which is licensed under the GNU LGPL v2.1.
+
+All-Seeing Eye uses the Dropbox iOS SDK, which is licensed for redistribution.
 
 
 ** User Interface
