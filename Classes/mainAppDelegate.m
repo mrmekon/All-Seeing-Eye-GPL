@@ -55,16 +55,28 @@
     self.customer = [[aitunesCustomer alloc] init];
     self.dropbox = [[dropboxSync alloc] init];
       
-    UIAlertView *alert = [[[UIAlertView alloc] 
-      initWithTitle: @"About All-Seeing Eye" 
-      message: @"This is All-Seeing Eye\nby Trevor Bentley.\n"
+    NSString *message = [NSString stringWithFormat:
+        @"This is All-Seeing Eye %@\n"
+        "by Trevor Bentley.\n"
         "http://www.trevorbentley.com/\n\n"
+        
         "Copyright 2011\n"
         "Licensed under GNU General Public License v3\n\n"
+        
         "Loading screen photo by\n"
         "Florian Wild (floze)\n"
         "http://www.floze.org/\n\n"
-        "Photo used with permission under Creative Commons nc-sa 3.0 license."
+        
+        "Photo used with permission under "
+        "Creative Commons nc-sa 3.0 license.\n\n"
+        
+        "ZBar library licensed under\n"
+        "LGPL v2.1\n",
+        ASE_VERSION];
+      
+    UIAlertView *alert = [[[UIAlertView alloc] 
+      initWithTitle: [NSString stringWithFormat:@"About All-Seeing Eye %@", ASE_VERSION] 
+      message: message
       delegate: self
       cancelButtonTitle: nil
       otherButtonTitles: @"OK",nil] autorelease];
@@ -130,14 +142,16 @@
  *
  */
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-  if (alertView.title == @"About All-Seeing Eye") {
+  if ([alertView.title hasPrefix: @"About All-Seeing Eye"]) {
     [self.dropbox openDropboxSession];
     //[scanner simulatorDebug];
   }
   else {
     if (buttonIndex == [alertView cancelButtonIndex]) return;
   
-    [dbManager reloadWithNewDatabaseFile: self.newDatabaseFileUrl];
+    if (self.newDatabaseFileUrl) {
+      [dbManager reloadWithNewDatabaseFile: self.newDatabaseFileUrl];
+    }
   }
 }
 

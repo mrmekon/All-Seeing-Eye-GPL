@@ -28,6 +28,8 @@
 #import "customerProtocol.h"
 #import "dropboxSync.h"
 
+#define ASE_VERSION @"1.0"
+
 @interface mainAppDelegate : NSObject <UIApplicationDelegate, UIAlertViewDelegate> {
     UIWindow *window;
     UINavigationController *navController;

@@ -3,6 +3,5 @@ syntax: glob
 build/
 
 syntax: regexp
-\.pbxproj
 \.mode1v3
 \.pbxuser
