@@ -62,6 +62,7 @@
 		694CEB9713F45BF1001CA3FA /* db_link_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694CEB6A13F45BF1001CA3FA /* db_link_header@2x.png */; };
 		694CEB9813F45BF1001CA3FA /* db_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 694CEB6B13F45BF1001CA3FA /* db_logo.png */; };
 		694CEB9913F45BF1001CA3FA /* db_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694CEB6C13F45BF1001CA3FA /* db_logo@2x.png */; };
+		694CEC0213F46DB5001CA3FA /* ChangeLog in Resources */ = {isa = PBXBuildFile; fileRef = 694CEC0113F46DB5001CA3FA /* ChangeLog */; };
 		697DA37913F4570A0049BB76 /* ZBarSDK in Resources */ = {isa = PBXBuildFile; fileRef = 697DA35313F4570A0049BB76 /* ZBarSDK */; };
 		697DA41313F459370049BB76 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 697DA41213F459370049BB76 /* libzbar.a */; };
 		69862B471367B83A002E909B /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 69862B461367B83A002E909B /* libiconv.dylib */; };
@@ -199,6 +200,7 @@
 		694CEB6A13F45BF1001CA3FA /* db_link_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "db_link_header@2x.png"; sourceTree = "<group>"; };
 		694CEB6B13F45BF1001CA3FA /* db_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = db_logo.png; sourceTree = "<group>"; };
 		694CEB6C13F45BF1001CA3FA /* db_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "db_logo@2x.png"; sourceTree = "<group>"; };
+		694CEC0113F46DB5001CA3FA /* ChangeLog */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChangeLog; sourceTree = "<group>"; };
 		697DA35313F4570A0049BB76 /* ZBarSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ZBarSDK; sourceTree = "<group>"; };
 		697DA41213F459370049BB76 /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzbar.a; path = "/Users/trevor/Documents/Cocoa Projects/all-seeing-eye-gpl/ZBarSDK/libzbar.a"; sourceTree = "<absolute>"; };
 		69862B461367B83A002E909B /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
@@ -348,6 +350,7 @@
 				8D1107310486CEB800E47090 /* All_Seeing_Eye-Info.plist */,
 				69D73EAA136A29AF004380D6 /* ATTRIBUTIONS */,
 				69D73ED1136A6552004380D6 /* Database Schema.txt */,
+				694CEC0113F46DB5001CA3FA /* ChangeLog */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				694CEB9713F45BF1001CA3FA /* db_link_header@2x.png in Resources */,
 				694CEB9813F45BF1001CA3FA /* db_logo.png in Resources */,
 				694CEB9913F45BF1001CA3FA /* db_logo@2x.png in Resources */,
+				694CEC0213F46DB5001CA3FA /* ChangeLog in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

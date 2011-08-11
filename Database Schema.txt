@@ -31,9 +31,4 @@ CREATE TABLE referrals (
 );
 CREATE UNIQUE INDEX referrals_idx ON referrals (customer_id);
 
-CREATE TABLE scan_log (
-	customer_id INTEGER NOT NULL,
-  time TEXT NOT NULL,
-  reward_level INTEGER NOT NULL,
-  FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
-);
+

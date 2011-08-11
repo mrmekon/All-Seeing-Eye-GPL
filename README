@@ -55,11 +55,18 @@ until you arrive back at the main barcode scanning interface.
 
 See source code and Doxygen documentation.
 
+To generate PDF of source code comments:
+1) Run Doxygen on docs/Doxyfile
+2) cd to docs/doxygen/latex
+3) # make pdf
+4) Open refman.pdf
+
 
 ** Licensing
 
 As required by the GNU Lesser General Public License, the binary object files
-for this Application can be requested.  Please mail a stamped, self-addressed
+for this Application can be requested if this software is distributed with
+a non-free license by its author.  Please mail a stamped, self-addressed
 envelope, a written request, and a check or money order for $25 to cover media 
 and processing to:
 
