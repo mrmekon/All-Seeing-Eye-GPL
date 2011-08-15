@@ -63,6 +63,7 @@
 		694CEB9813F45BF1001CA3FA /* db_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 694CEB6B13F45BF1001CA3FA /* db_logo.png */; };
 		694CEB9913F45BF1001CA3FA /* db_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694CEB6C13F45BF1001CA3FA /* db_logo@2x.png */; };
 		694CEC0213F46DB5001CA3FA /* ChangeLog in Resources */ = {isa = PBXBuildFile; fileRef = 694CEC0113F46DB5001CA3FA /* ChangeLog */; };
+		69669C8213F96E630074F878 /* stubCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69669C8113F96E630074F878 /* stubCustomer.m */; };
 		697DA37913F4570A0049BB76 /* ZBarSDK in Resources */ = {isa = PBXBuildFile; fileRef = 697DA35313F4570A0049BB76 /* ZBarSDK */; };
 		697DA41313F459370049BB76 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 697DA41213F459370049BB76 /* libzbar.a */; };
 		69862B471367B83A002E909B /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 69862B461367B83A002E909B /* libiconv.dylib */; };
@@ -201,6 +202,8 @@
 		694CEB6B13F45BF1001CA3FA /* db_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = db_logo.png; sourceTree = "<group>"; };
 		694CEB6C13F45BF1001CA3FA /* db_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "db_logo@2x.png"; sourceTree = "<group>"; };
 		694CEC0113F46DB5001CA3FA /* ChangeLog */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChangeLog; sourceTree = "<group>"; };
+		69669C8013F96E630074F878 /* stubCustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stubCustomer.h; sourceTree = "<group>"; };
+		69669C8113F96E630074F878 /* stubCustomer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stubCustomer.m; sourceTree = "<group>"; };
 		697DA35313F4570A0049BB76 /* ZBarSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ZBarSDK; sourceTree = "<group>"; };
 		697DA41213F459370049BB76 /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzbar.a; path = "/Users/trevor/Documents/Cocoa Projects/all-seeing-eye-gpl/ZBarSDK/libzbar.a"; sourceTree = "<absolute>"; };
 		69862B461367B83A002E909B /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
@@ -294,6 +297,8 @@
 				69D73FF0136BCE76004380D6 /* aitunesCustomer.m */,
 				693DB96D13C6087A00DA9DE1 /* dropboxSync.h */,
 				693DB96E13C6087A00DA9DE1 /* dropboxSync.m */,
+				69669C8013F96E630074F878 /* stubCustomer.h */,
+				69669C8113F96E630074F878 /* stubCustomer.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -651,6 +656,7 @@
 				694CEB8C13F45BF1001CA3FA /* NSURL+MPURLParameterAdditions.m in Sources */,
 				694CEB8D13F45BF1001CA3FA /* NSURLResponse+Encoding.m in Sources */,
 				694CEB8E13F45BF1001CA3FA /* NSString+Dropbox.m in Sources */,
+				69669C8213F96E630074F878 /* stubCustomer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,7 +30,7 @@
  */
  
 #import "mainAppDelegate.h"
-#import "aitunesCustomer.h"
+#import "stubCustomer.h"
 
 @implementation mainAppDelegate
 
@@ -55,7 +55,7 @@
     window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]; 
     self.scanner = [[codeScanner alloc] init];
     self.dbManager = [[databaseManager alloc] initWithFile: @"database.sql"];
-    self.customer = [[aitunesCustomer alloc] init];
+    self.customer = [[stubCustomer alloc] init];
     self.dropbox = [[dropboxSync alloc] init];
       
     NSString *message = [NSString stringWithFormat:

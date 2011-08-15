@@ -207,6 +207,7 @@
   mainAppDelegate *delegate = 
     (mainAppDelegate*)[[UIApplication sharedApplication] delegate];
 	NSArray *customerDef = [delegate.customer customerDefinition];
+  if (!customerDef) return [NSMutableArray arrayWithCapacity: 10];
   int sectionCount = [customerDef count]/2;
   
   // Outer array has one entry per section
