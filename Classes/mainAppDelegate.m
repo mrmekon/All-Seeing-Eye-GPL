@@ -44,7 +44,10 @@
 @synthesize newDatabaseFileUrl;
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions { 
+    // Disable auto-dimming
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
     self.viewController = [[mainViewController alloc] init];
   	self.navController = [[UINavigationController alloc] 
       initWithRootViewController: self.viewController];
@@ -174,6 +177,9 @@
   /*
    Called when the application is about to terminate.
    */
+   // Re-enable auto-dimming
+  [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+
 }
 
 
